@@ -1,0 +1,582 @@
+         U abort@@GLIBC_2.0
+00011d30 t add_fdes
+0001a0d8 d adds.8776
+00012570 t base_from_cb_data.isra.4
+000118b0 t base_from_object.isra.3
+0001a0e0 A __bss_start
+         U chdir@@GLIBC_2.0
+00011bc0 t classify_object_over_fdes
+0001a0e0 b completed.6767
+00002940 T CreateInterface
+         U __ctype_b_loc@@GLIBC_2.3
+         U __ctype_tolower_loc@@GLIBC_2.3
+         U __ctype_toupper_loc@@GLIBC_2.3
+         U __cxa_atexit@@GLIBC_2.1.3
+         w __cxa_finalize@@GLIBC_2.1.3
+00012e60 t __deregister_frame
+00012e50 t __deregister_frame_info
+00012d40 t __deregister_frame_info_bases
+00001d40 t deregister_tm_clones
+         U dlclose@@GLIBC_2.0
+         U dlerror@@GLIBC_2.0
+         U dl_iterate_phdr@@GLIBC_2.2.4
+         U dlopen@@GLIBC_2.1
+         U dlsym@@GLIBC_2.0
+00001dd0 t __do_global_dtors_aux
+00019ec4 t __do_global_dtors_aux_fini_array_entry
+0001a040 d __dso_handle
+0001b75c b dwarf_reg_size_table
+00019ecc a _DYNAMIC
+0001a0e0 A _edata
+0001b880 A _end
+         U Error
+0000ebe0 t execute_cfa_program
+0000fcf0 t execute_stack_op
+00011b10 t fde_mixed_encoding_compare
+00011910 t fde_single_encoding_compare
+00011490 t fde_unencoded_compare
+0001a100 b filesystem
+00013064 T _fini
+000114c0 t frame_downheap
+00001e20 t frame_dummy
+00019eb0 t __frame_dummy_init_array_entry
+0001872c r __FRAME_END__
+0001b7a0 b frame_hdr_cache
+0001b798 b frame_hdr_cache_head
+00011590 t frame_heapsort
+00010f00 t __frame_state_for
+         U free@@GLIBC_2.0
+000117b0 t get_cie_encoding
+         U getcwd@@GLIBC_2.0
+00019ff4 a _GLOBAL_OFFSET_TABLE_
+00001b40 t _GLOBAL__sub_I_filesystem
+00001c10 t _GLOBAL__sub_I_s_StringCharConversion
+00001be0 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
+         w __gmon_start__
+         U __gxx_personality_v0@@CXXABI_1.3
+         U iconv_close@@GLIBC_2.1
+         U iconv@@GLIBC_2.1
+         U iconv_open@@GLIBC_2.1
+00001a58 T _init
+0000f4b0 t init_dwarf_reg_size_table
+         U isspace@@GLIBC_2.0
+         U iswspace@@GLIBC_2.0
+         w _ITM_deregisterTMCloneTable
+         w _ITM_registerTMCloneTable
+00019ec8 d __JCR_END__
+00019ec8 d __JCR_LIST__
+         w _Jv_RegisterClasses
+0000ed39 t .L122
+0000ed34 t .L19
+0000fae7 t .L191
+0000fadb t .L192
+0000fab7 t .L195
+0000facf t .L196
+0000f8b0 t .L197
+0000f928 t .L198
+0000ed41 t .L21
+0000edad t .L22
+0000f8a8 t .L223
+0000fc25 t .L226
+0000fc17 t .L227
+0000edcb t .L23
+0000fc60 t .L230
+0000fc09 t .L231
+0000f93d t .L232
+0000fbfc t .L233
+0000ede9 t .L24
+0000ee06 t .L25
+0000ee68 t .L26
+0000eeaa t .L27
+0000eeea t .L28
+0000ef14 t .L29
+0000ef83 t .L30
+0000efb6 t .L31
+0000efdf t .L32
+0000fde0 t .L325
+0000fe30 t .L328
+0000fe20 t .L329
+0000f041 t .L33
+0000fe10 t .L330
+0000fe00 t .L331
+0000fdf0 t .L332
+0000fd58 t .L334
+0000fd98 t .L336
+00010110 t .L337
+000100f8 t .L338
+000100d8 t .L339
+0000f081 t .L34
+000101c8 t .L340
+000101a8 t .L341
+0000ffe0 t .L342
+0000ffb0 t .L343
+00010088 t .L344
+00010050 t .L345
+00010020 t .L346
+00010010 t .L347
+000100c8 t .L348
+0000fda8 t .L349
+0000f0b7 t .L35
+0000ff60 t .L350
+0000ff00 t .L351
+00010140 t .L352
+0000fe78 t .L354
+0000f0f8 t .L36
+000103fe t .L367
+000103f2 t .L368
+0000f158 t .L37
+000103d0 t .L371
+000103e6 t .L372
+00010201 t .L373
+0001025c t .L374
+0000f1a8 t .L38
+0000f1fc t .L39
+0000f21f t .L40
+0000f28b t .L41
+00010351 t .L415
+0001035a t .L417
+00010368 t .L418
+00010371 t .L419
+0000f2e0 t .L42
+00010301 t .L420
+0001030b t .L421
+00010314 t .L422
+0001031d t .L423
+00010326 t .L424
+0001032f t .L425
+00010338 t .L426
+00010341 t .L427
+00010390 t .L428
+000103a0 t .L429
+0000f3ad t .L43
+000103b0 t .L430
+000103c0 t .L431
+00010380 t .L432
+0000f340 t .L44
+0000fde8 t .L440
+000105aa t .L523
+000106e8 t .L524
+000106b8 t .L526
+00010600 t .L527
+00010588 t .L528
+00010660 t .L529
+0000f441 t .L56
+0000f41f t .L57
+0000f428 t .L60
+0000f438 t .L61
+00011788 t .L61
+0000f3dc t .L62
+0000f40b t .L63
+00011740 t .L64
+00011778 t .L65
+00011728 t .L68
+00011718 t .L69
+000116d0 t .L70
+00011708 t .L71
+000119a0 t linear_search_fdes
+         U malloc@@GLIBC_2.0
+0001b780 b marker.8514
+         U mbstowcs@@GLIBC_2.0
+         U memcmp@@GLIBC_2.0
+         U memcpy@@GLIBC_2.0
+         U memmove@@GLIBC_2.0
+         U memset@@GLIBC_2.0
+         U Msg
+0001b860 b object_mutex
+0001b758 b once_regsizes.8974
+         U Plat_IsInDebugSession
+         U Plat_localtime
+         U __pow_finite@@GLIBC_2.15
+         U __printf_chk@@GLIBC_2.3.4
+         w __pthread_key_create
+         w pthread_mutex_lock@@GLIBC_2.0
+         w pthread_mutex_unlock@@GLIBC_2.0
+         w pthread_once
+0000e180 t qsort_s
+00011690 t read_encoded_value_with_base
+0000eb90 t read_sleb128
+00011440 t read_sleb128
+         U realloc@@GLIBC_2.0
+00012bf0 t __register_frame
+00012bc0 t __register_frame_info
+00012b20 t __register_frame_info_bases
+00012cd0 t __register_frame_info_table
+00012c40 t __register_frame_info_table_bases
+00012d00 t __register_frame_table
+00001d80 t register_tm_clones
+00011e60 t search_object
+0001b878 b seen_objects
+00001cb0 t set_fast_math
+00011620 t size_of_encoded_value
+0001a400 b s_NoEscConversion
+0001ad20 b s_StringCharConversion
+         U __stack_chk_fail@@GLIBC_2.4
+         U strcasecmp@@GLIBC_2.0
+         U strchr@@GLIBC_2.0
+         U strcmp@@GLIBC_2.0
+         U strcpy@@GLIBC_2.0
+         U strftime@@GLIBC_2.0
+         U strlen@@GLIBC_2.0
+         U strncasecmp@@GLIBC_2.0
+         U strncat@@GLIBC_2.0
+         U strncpy@@GLIBC_2.0
+         U strstr@@GLIBC_2.0
+         U strtod@@GLIBC_2.0
+         U strtol@@GLIBC_2.0
+         U strtoul@@GLIBC_2.0
+0001b790 b subs.8777
+0001b784 b terminator.8620
+         U time@@GLIBC_2.0
+0001a0e0 d __TMC_END__
+         U tolower@@GLIBC_2.0
+         U towlower@@GLIBC_2.0
+         U towupper@@GLIBC_2.0
+0000ea60 t __udivdi3
+0001b87c b unseen_objects
+000113a0 t _Unwind_Backtrace
+00010fd0 t _Unwind_DebugHook
+00011380 t _Unwind_DeleteException
+00010ea0 t _Unwind_FindEnclosingFunction
+00012e90 t _Unwind_Find_FDE
+00011150 t _Unwind_ForcedUnwind
+00010b10 t _Unwind_ForcedUnwind_Phase2
+00010dd0 t _Unwind_GetCFA
+00010ee0 t _Unwind_GetDataRelBase
+00010d80 t _Unwind_GetGR
+00010e40 t _Unwind_GetIP
+00010e50 t _Unwind_GetIPInfo
+00010e80 t _Unwind_GetLanguageSpecificData
+00010e90 t _Unwind_GetRegionStart
+00010ef0 t _Unwind_GetTextRelBase
+000125d0 t _Unwind_IteratePhdrCallback
+00010fe0 t _Unwind_RaiseException
+00010a40 t _Unwind_RaiseException_Phase2
+00011200 t _Unwind_Resume
+000112c0 t _Unwind_Resume_or_Rethrow
+00010de0 t _Unwind_SetGR
+00010e70 t _Unwind_SetIP
+0000f530 t uw_frame_state_for
+00010810 t uw_init_context_1
+00010c60 t uw_install_context_1
+000109d0 t uw_update_context
+00010450 t uw_update_context_1
+         U __vsnprintf_chk@@GLIBC_2.3.4
+         U __vswprintf_chk@@GLIBC_2.4
+         U wcslen@@GLIBC_2.0
+         U wcsncat@@GLIBC_2.0
+         U wcsncpy@@GLIBC_2.0
+         U wcstombs@@GLIBC_2.0
+00001e5b t __x86.get_pc_thunk.bx
+0001142f t __x86.get_pc_thunk.cx
+00002610 t CRC32_Init(unsigned int*)
+00002ef0 t LzmaDecode(_CLzmaDecoderState*, unsigned char const*, unsigned int, unsigned int*, unsigned char*, unsigned int, unsigned int*)
+000060a0 t V_FileBase(char const*, char*, int)
+00004010 t _V_memmove(char const*, int, void*, void const*, int)
+00005090 t V_snprintf(char*, int, char const*, ...)
+00004250 t V_strlower(char*)
+000043f0 t V_strnicmp(char const*, char const*, int)
+00004dd0 t V_strnistr(char const*, char const*, int)
+00004090 t _V_strrchr(char const*, int, char const*, char)
+00006f90 t V_StrRight(char const*, int, char*, int)
+00006f10 t V_StrSlice(char const*, int, int, char*, int)
+00003c10 t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
+00006cf0 t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
+00007000 t V_strtowcs(char const*, int, wchar_t*, int)
+00007040 t V_wcstostr(wchar_t const*, int, char*, int)
+00006e60 t AllocString(char const*, int)
+00002620 t CRC32_Final(unsigned int*)
+00007260 t Q_URLDecode(char*, int, char const*, int)
+00007230 t Q_URLEncode(char*, int, char const*, int)
+00004fd0 t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
+000050f0 t V_vsnprintf(char*, int, char const*, char*)
+000041a0 t _V_wcslower(char const*, int, wchar_t*)
+000063e0 t V_FixSlashes(char*, char)
+000052a0 t V_pretifymem(float, int, bool)
+00005500 t V_pretifynum(long long)
+00005030 t V_vsnwprintf(wchar_t*, int, wchar_t const*, char*)
+00007180 t iHexCharToInt(char)
+00006080 t PATHSEPARATOR(char)
+0000b670 t Q_UTF16ToUTF8(unsigned short const*, char*, int, EStringConvertErrorPolicy)
+0000bd60 t Q_UTF32ToUTF8(wchar_t const*, char*, int, EStringConvertErrorPolicy)
+0000af80 t Q_UTF8ToUTF16(char const*, unsigned short*, int, EStringConvertErrorPolicy)
+0000b3a0 t Q_UTF8ToUTF32(char const*, wchar_t*, int, EStringConvertErrorPolicy)
+00006870 t V_AppendSlash(char*, int)
+00005ff0 t V_binarytohex(unsigned char const*, int, char*, int)
+000066f0 t V_GetFileName(char const*)
+00005ef0 t V_hextobinary(char const*, int, unsigned char*, int)
+00007640 t V_SplitString(char const*, char const*, CUtlVector<char*, CUtlMemory<char*, int> >&)
+00005d60 t _V_UCS2ToUTF8(unsigned short const*, char*, int)
+00005e20 t _V_UTF8ToUCS2(char const*, int, unsigned short*, int)
+00007160 t cIntToHexDigit(int)
+000056d0 t Q_IsMeanSpaceW(wchar_t)
+000072d0 t Q_URLDecodeRaw(char*, int, char const*, int)
+000072a0 t Q_URLEncodeRaw(char*, int, char const*, int)
+0000ba80 t Q_UTF16ToUTF32(unsigned short const*, wchar_t*, int, EStringConvertErrorPolicy)
+0000c130 t Q_UTF32ToUTF16(wchar_t const*, unsigned short*, int, EStringConvertErrorPolicy)
+0000c540 t Q_UTF32ToUTF32(wchar_t const*, wchar_t*, int, EStringConvertErrorPolicy)
+00002cb0 t Sys_GetFactory(CSysModule*)
+00002cf0 t Sys_GetFactory(char const*)
+00002ae0 t Sys_LoadModule(char const*, Sys_Flags)
+00006320 t V_SetExtension(char*, char const*, int)
+000074f0 t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
+000064a0 t V_StripLastDir(char*, int)
+00005150 t V_vsnprintfRet(char*, int, char const*, char*, bool*)
+00002950 t GetModuleHandle(char const*)
+0000a940 t Q_UChar32ToUTF8(wchar_t, char*)
+0000ae00 t Q_UnicodeLength(char const*)
+0000ae50 t Q_UnicodeLength(unsigned short const*)
+0000aea0 t Q_UnicodeLength(wchar_t const*)
+0000dc50 t Q_UnicodeRepair(char*, EStringConvertErrorPolicy)
+0000ded0 t Q_UnicodeRepair(unsigned short*, EStringConvertErrorPolicy)
+0000e160 t Q_UnicodeRepair(wchar_t*, EStringConvertErrorPolicy)
+0000aa20 t Q_UTF8ToUChar32(char const*, wchar_t&, bool&)
+000029d0 t Sys_LoadLibrary(char const*, Sys_Flags)
+00006cb0 t V_FixupPathName(char*, unsigned int, char const*)
+00006390 t V_StripFilename(char*)
+0000a8c0 t Q_IsValidUChar32(wchar_t)
+0000a9f0 t Q_UChar32ToUTF16(wchar_t, unsigned short*)
+0000a580 t Q_UChar32ToUTF16(wchar_t, unsigned short*) [clone .part.5]
+0000aec0 t Q_UnicodeAdvance(char*, int)
+0000af10 t Q_UnicodeAdvance(unsigned short*, int)
+0000af60 t Q_UnicodeAdvance(wchar_t*, int)
+0000abe0 t Q_UTF16ToUChar32(unsigned short const*, wchar_t&, bool&)
+00002c90 t Sys_UnloadModule(CSysModule*)
+00006c80 t V_IsAbsolutePath(char const*)
+00006200 t V_StripExtension(char const*, char*, int)
+00005c40 t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
+00005ce0 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
+00001f70 t IsBufferBinaryVCD(char*, int)
+0000aca0 t Q_UnicodeValidate(char const*)
+0000ad00 t Q_UnicodeValidate(unsigned short const*)
+0000ad60 t Q_UnicodeValidate(wchar_t const*)
+00004560 t StringAfterPrefix(char const*, char const*)
+00002d20 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
+000068e0 t V_ComposeFileName(char const*, char const*, char*, int)
+000065c0 t V_ExtractFilePath(char const*, char*, int)
+0000a900 t Q_UChar32ToUTF8Len(wchar_t)
+0000a550 t Q_UChar32ToUTF8Len(wchar_t) [clone .part.2]
+0000cca0 t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertErrorPolicy)
+0000d400 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
+0000c560 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+0000c9b0 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+00002ce0 t Sys_GetFactoryThis()
+000062a0 t V_DefaultExtension(char*, char const*, int)
+00006420 t V_FixDoubleSlashes(char*)
+00006660 t V_GetFileExtension(char const*)
+00006980 t V_MakeAbsolutePath(char*, int, char const*, char const*)
+00006ad0 t V_MakeRelativePath(char const*, char const*, char*, int)
+00006700 t V_RemoveDotSlashes(char*, char, bool)
+00002630 t CRC32_GetTableEntry(unsigned int)
+00002640 t CRC32_ProcessBuffer(unsigned int*, void const*, int)
+0000a920 t Q_UChar32ToUTF16Len(wchar_t)
+000071f0 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
+00003ea0 t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
+000071b0 t Q_URLEncodeInternal(char*, int, char const*, int, bool)
+00003ce0 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
+0000d0f0 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+0000d820 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+00002e80 t LzmaDecodeProperties(_CLzmaProperties*, unsigned char const*, int)
+000061c0 t V_StripTrailingSlash(char*)
+000029c0 t Sys_IsDebuggerPresent()
+00006ec0 t V_GetCurrentDirectory(char*, int)
+00006ef0 t V_SetCurrentDirectory(char const*)
+00006580 t V_UnqualifiedFileName(char const*)
+00007470 t BGetLocalFormattedDate(long, char*, int)
+000074b0 t BGetLocalFormattedTime(long, char*, int)
+00007990 t GetNoEscCharConversion()
+000066b0 t V_ExtractFileExtension(char const*, char*, int)
+00004c40 t V_normalizeFloatString(char*)
+00002850 t CreateInterfaceInternal(char const*, int*)
+00007980 t GetCStringCharConversion()
+00005810 t Q_RemoveAllEvilCharacters(char*)
+00002c80 t Sys_RunningWithDebugModules()
+00007320 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
+000045c0 t StringAfterPrefixCaseSensitive(char const*, char const*)
+00007070 t V_AddBackSlashesToSpecialChars(char const*)
+00005aa0 t Q_StripPrecedingAndTrailingWhitespace(char*)
+00005920 t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
+00005b90 t Q_AggressiveStripPrecedingAndTrailingWhitespace(char*)
+00005a00 t Q_AggressiveStripPrecedingAndTrailingWhitespaceW(wchar_t*)
+000049c0 t V_atof(char const*)
+000049a0 t V_atoi(char const*)
+000045f0 t V_atoi64(char const*)
+00005eb0 t V_nibble(char)
+000041e0 t V_strupr(char*)
+000047f0 t V_atoui64(char const*)
+00004030 t _V_memcmp(char const*, int, void const*, void const*, int)
+00003ff0 t _V_memcpy(char const*, int, void*, void const*, int)
+00003fd0 t _V_memset(char const*, int, void*, int, int)
+00007310 t V_qsort_s(void*, unsigned int, unsigned int, int (*)(void*, void const*, void const*), void*)
+000040e0 t _V_strcmp(char const*, int, char const*, char const*)
+00004060 t _V_strcpy(char const*, int, char*, char const*)
+00004330 t V_stricmp(char const*, char const*)
+00004dc0 t V_stristr(char*, char const*)
+00004cc0 t V_stristr(char const*, char const*)
+00006f50 t V_StrLeft(char const*, int, char*, int)
+00004050 t _V_strlen(char const*, int, char const*)
+000051c0 t V_strncat(char*, char const*, unsigned int, int)
+00004f00 t V_strnchr(char const*, char, int)
+00004500 t V_strncmp(char const*, char const*, int)
+00004f50 t V_strncpy(char*, char const*, int)
+000042c0 t V_strnlwr(char*, unsigned int)
+00004140 t _V_strstr(char const*, int, char const*, char const*)
+00004100 t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
+00004080 t _V_wcslen(char const*, int, wchar_t const*)
+00005230 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
+00004f90 t V_wcsncpy(wchar_t*, wchar_t const*, int)
+00004160 t _V_wcsupr(char const*, int, wchar_t*)
+         U operator delete(void*)@@GLIBCXX_3.4
+00003b60 t FastToLower(char)
+00013200 r pulCRCTable
+0001a170 b vec2_origin
+0001a3e0 b vec2_origin
+0001b750 b vec2_origin
+0001a160 b vec2_invalid
+0001a3d0 b vec2_invalid
+0001b740 b vec2_invalid
+00003bb0 t CopyToMaxChars(char*, int, char const*, int) [clone .part.0]
+0001a050 d s_BackSlashMap
+0001a120 b g_SceneFileCache
+00005750 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+0001a060 d s_pConversionArrays_NoEscConversion
+0001a080 d s_pConversionArrays_StringCharConversion
+0001a104 b __g_CreateCSceneFileCacheISceneFileCache_reg
+00001f60 t __CreateCSceneFileCacheISceneFileCache_interface()
+00009050 t CUtlBuffer::ParseToken(characterset_t*, char*, int, bool)
+00008e50 t CUtlBuffer::ParseToken(char const*, char const*, char*, int)
+0000a070 t CUtlBuffer::ConvertCRLF(CUtlBuffer&)
+00007790 t CUtlBuffer::GetOverflow(int)
+00009cc0 t CUtlBuffer::IsBigEndian()
+00007880 t CUtlBuffer::PutOverflow(int)
+00009ff0 t CUtlBuffer::AssumeMemory(void*, int, int, int)
+00007de0 t CUtlBuffer::CheckPeekGet(int, int)
+00007db0 t CUtlBuffer::CheckPeekGet(int, int) [clone .part.16]
+00009c90 t CUtlBuffer::SetBigEndian(bool)
+00008a20 t CUtlBuffer::EatCPPComment()
+00007d50 t CUtlBuffer::EatWhiteSpace()
+00007c60 t CUtlBuffer::OnGetOverflow(int)
+00007c30 t CUtlBuffer::OnPutOverflow(int)
+00007b40 t CUtlBuffer::SetBufferType(bool, bool)
+00007b80 t CUtlBuffer::EnsureCapacity(int)
+000081a0 t CUtlBuffer::PeekLineLength()
+000080f0 t CUtlBuffer::PeekLineLength() [clone .part.21]
+00007e10 t CUtlBuffer::PeekWhiteSpace(int)
+00007e70 t CUtlBuffer::PeekStringMatch(int, char const*, int)
+00008c50 t CUtlBuffer::GetDelimitedChar(CUtlCharConversion*)
+000080d0 t CUtlBuffer::PeekStringLength()
+00007fc0 t CUtlBuffer::PeekStringLength() [clone .part.20]
+00009670 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
+00007c10 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+00009f70 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
+00009ce0 t CUtlBuffer::AddNullTermination()
+00009310 t CUtlBuffer::AddNullTermination() [clone .part.23]
+00008ce0 t CUtlBuffer::GetDelimitedString(CUtlCharConversion*, char*, int)
+000098b0 t CUtlBuffer::PutDelimitedString(CUtlCharConversion*, char const*)
+00009c60 t CUtlBuffer::ActivateByteSwapping(bool)
+00007ed0 t CUtlBuffer::CheckArbitraryPeekGet(int, int&)
+00008b70 t CUtlBuffer::GetDelimitedCharInternal(CUtlCharConversion*)
+000081c0 t CUtlBuffer::PeekDelimitedStringLength(CUtlCharConversion*, bool)
+00007d00 t CUtlBuffer::Get(void*, int)
+00009380 t CUtlBuffer::Put(void const*, int)
+00009d60 t CUtlBuffer::Swap(CUtlMemory<unsigned char, int>&)
+00009d00 t CUtlBuffer::Swap(CUtlBuffer&)
+000089f0 t CUtlBuffer::Scanf(char const*, ...)
+00009640 t CUtlBuffer::Printf(char const*, ...)
+000083d0 t CUtlBuffer::GetLine(char*, int)
+00007f60 t CUtlBuffer::GetUpTo(void*, int)
+00008310 t CUtlBuffer::PeekGet(int, int)
+00008350 t CUtlBuffer::SeekGet(CUtlBuffer::SeekType_t, int)
+00009bf0 t CUtlBuffer::SeekPut(CUtlBuffer::SeekType_t, int)
+000086b0 t CUtlBuffer::VaScanf(char const*, char*)
+00007c90 t CUtlBuffer::CheckGet(int)
+000092a0 t CUtlBuffer::CheckPut(int)
+00008490 t CUtlBuffer::GetToken(char const*)
+000095d0 t CUtlBuffer::VaPrintf(char const*, char*)
+000085a0 t CUtlBuffer::GetString(char*, int)
+000093f0 t CUtlBuffer::PutString(char const*)
+0000a450 t CUtlBuffer::CUtlBuffer(int, int, int)
+00009ed0 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+0000a450 t CUtlBuffer::CUtlBuffer(int, int, int)
+00009ed0 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+00007820 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
+000025b0 t CUtlMemory<unsigned char, int>::Purge()
+00007670 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+0000a5b0 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
+0000a610 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
+0001a180 b InterfaceReg::s_pInterfaceRegs
+00002910 t InterfaceReg::InterfaceReg(void* (*)(), char const*)
+00002910 t InterfaceReg::InterfaceReg(void* (*)(), char const*)
+00002580 t CBaseAppSystem<ISceneFileCache>::Disconnect()
+00002560 t CBaseAppSystem<ISceneFileCache>::QueryInterface(char const*)
+00002590 t CBaseAppSystem<ISceneFileCache>::Init()
+00002570 t CBaseAppSystem<ISceneFileCache>::Connect(void* (*)(char const*, int*))
+000025a0 t CBaseAppSystem<ISceneFileCache>::Shutdown()
+00001e90 t CSceneFileCache::Disconnect()
+000023a0 t CSceneFileCache::GetSceneData(char const*, unsigned char*, unsigned int)
+00001f20 t CSceneFileCache::GetSceneString(short)
+00001f90 t CSceneFileCache::FindSceneInImage(char const*)
+000022f0 t CSceneFileCache::GetSceneBufferSize(char const*)
+00002100 t CSceneFileCache::GetSceneCachedData(char const*, SceneCachedData_t*)
+00001ed0 t CSceneFileCache::GetSceneCachedSound(int, int)
+00002180 t CSceneFileCache::GetSceneDataFromImage(char const*, int, unsigned char*, unsigned int*)
+00002450 t CSceneFileCache::Init()
+00001ea0 t CSceneFileCache::Reload()
+00001e60 t CSceneFileCache::Connect(void* (*)(char const*, int*))
+00002520 t CSceneFileCache::Shutdown()
+000025f0 t CSceneFileCache::~CSceneFileCache()
+000025f0 t CSceneFileCache::~CSceneFileCache()
+00002de0 t CDllDemandLoader::GetFactory()
+00002e50 t CDllDemandLoader::Unload()
+00002dc0 t CDllDemandLoader::CDllDemandLoader(char const*)
+00002dc0 t CDllDemandLoader::CDllDemandLoader(char const*)
+000028f0 t CDllDemandLoader::~CDllDemandLoader()
+000028c0 t CDllDemandLoader::~CDllDemandLoader()
+000028c0 t CDllDemandLoader::~CDllDemandLoader()
+00009db0 t CUtlInplaceBuffer::InplaceGetLinePtr(char**, int*)
+00009e50 t CUtlInplaceBuffer::InplaceGetLinePtr()
+0000a530 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
+0000a530 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
+000077a0 t CUtlCharConversion::FindConversion(char const*, int*)
+000079a0 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+000079a0 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+0000a540 t CUtlNoEscConversion::FindConversion(char const*, int*)
+00007760 t CUtlCStringConversion::FindConversion(char const*, int*)
+00007a40 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+00007a40 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+00003a40 t CLZMA::Uncompress(unsigned char*, unsigned char*)
+000039f0 t CLZMA::IsCompressed(unsigned char*)
+00003a10 t CLZMA::GetActualSize(unsigned char*)
+         U operator new[](unsigned int)@@GLIBCXX_3.4
+00007ad0 t CUtlCharConversion::GetDelimiter() const
+00007ac0 t CUtlCharConversion::GetEscapeChar() const
+00007ae0 t CUtlCharConversion::GetDelimiterLength() const
+00007b10 t CUtlCharConversion::GetConversionLength(char) const
+00007af0 t CUtlCharConversion::GetConversionString(char) const
+00007b30 t CUtlCharConversion::MaxConversionLength() const
+000130ec r typeinfo for IAppSystem
+00013124 r typeinfo for CBaseAppSystem<ISceneFileCache>
+00013178 r typeinfo for CSceneFileCache
+00013104 r typeinfo for ISceneFileCache
+00013690 r typeinfo for CDllDemandLoader
+000138bc r typeinfo for CUtlCharConversion
+000138e8 r typeinfo for CUtlNoEscConversion
+000138dc r typeinfo for CUtlCStringConversion
+000130f4 r typeinfo name for IAppSystem
+00013140 r typeinfo name for CBaseAppSystem<ISceneFileCache>
+00013164 r typeinfo name for CSceneFileCache
+00013110 r typeinfo name for ISceneFileCache
+0001367b r typeinfo name for CDllDemandLoader
+000138a7 r typeinfo name for CUtlCharConversion
+000138f4 r typeinfo name for CUtlNoEscConversion
+000138c4 r typeinfo name for CUtlCStringConversion
+000131a0 r vtable for CSceneFileCache
+00013698 r vtable for CDllDemandLoader
+00013930 r vtable for CUtlCharConversion
+00013910 r vtable for CUtlNoEscConversion
+00013920 r vtable for CUtlCStringConversion
+         U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
+         U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
+0001a2c0 b V_pretifymem(float, int, bool)::output
+0001a3c0 b V_pretifymem(float, int, bool)::current
+0001a1a0 b V_pretifynum(long long)::output
+0001a2a0 b V_pretifynum(long long)::current

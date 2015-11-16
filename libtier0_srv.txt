@@ -1,0 +1,1008 @@
+         U abort@@GLIBC_2.0
+         U access@@GLIBC_2.0
+0001c8b0 t add_fdes
+00028188 d adds.8776
+         U alarm@@GLIBC_2.0
+00010a90 T ApproximateProcessMemoryUsage
+0000c9d0 T AreAllAssertsDisabled
+0000ef20 T _AssertValidReadPtr
+0000ef40 T _AssertValidReadWritePtr
+0000ef50 T AssertValidStringPtr
+0000ef30 T _AssertValidWritePtr
+         U backtrace@@GLIBC_2.1
+         U backtrace_symbols@@GLIBC_2.1
+0001d0f0 t base_from_cb_data.isra.4
+0001c430 t base_from_object.isra.3
+00028190 A __bss_start
+000160d0 T BuildCmdLine
+00010170 T CallAssertFailedNotifyFunc
+00010910 T CatchAndWriteMiniDump
+         U chmod@@GLIBC_2.0
+         U chown@@GLIBC_2.1
+0001c740 t classify_object_over_fdes
+         U clock_gettime@@GLIBC_2.2
+         U closedir@@GLIBC_2.0
+         U close@@GLIBC_2.0
+0000f1a0 T ColorSpewMessage
+0000d5d0 T CommandLine_Tier0
+000281a0 b completed.6767
+0000ff70 T COM_TimestampedLog
+0000f6e0 T ConColorMsg
+0000fa60 T ConDColorMsg
+0000fbb0 T ConDLog
+0000fad0 T ConDMsg
+0000fb40 T ConDWarning
+0000f830 T ConLog
+0000f750 T ConMsg
+0000f7c0 T ConWarning
+0000fef0 T CrackSmokingCompiler
+00011670 T CreateSimpleThread
+         U ctime_r@@GLIBC_2.0
+         U __ctype_tolower_loc@@GLIBC_2.3
+         U __cxa_allocate_exception@@CXXABI_1.3
+         U __cxa_atexit@@GLIBC_2.1.3
+         U __cxa_begin_catch@@CXXABI_1.3
+         U __cxa_end_catch@@CXXABI_1.3
+         w __cxa_finalize@@GLIBC_2.1.3
+         U __cxa_guard_abort@@CXXABI_1.3
+         U __cxa_guard_acquire@@CXXABI_1.3
+         U __cxa_guard_release@@CXXABI_1.3
+         U __cxa_pure_virtual@@CXXABI_1.3
+         U __cxa_rethrow@@CXXABI_1.3
+         U __cxa_throw@@CXXABI_1.3
+000117f0 T DeclareCurrentThreadIsMainThread
+000113b0 T DecodeBinaryFromString
+0000ee50 T DefaultSpewFunc
+0000eeb0 T DefaultSpewFuncAbortOnAsserts
+0001d9e0 t __deregister_frame
+0001d9d0 t __deregister_frame_info
+0001d8c0 t __deregister_frame_info_bases
+0000a200 t deregister_tm_clones
+0000f520 T DevLog
+0000f3a0 T DevMsg
+0000f4b0 T DevWarning
+         U dlclose@@GLIBC_2.0
+         U dl_iterate_phdr@@GLIBC_2.2.4
+0000f310 T DLog
+         U dlopen@@GLIBC_2.1
+         U dlsym@@GLIBC_2.0
+0000f200 T DMsg
+0000a290 t __do_global_dtors_aux
+00027ec4 t __do_global_dtors_aux_fini_array_entry
+0000caa0 T DoNewAssertDialog
+00028040 d __dso_handle
+0000f140 T _DSpewMessage
+0002d20c b dwarf_reg_size_table
+0000f280 T DWarning
+00027ecc a _DYNAMIC
+00028190 A _edata
+000112d0 T EncodeBinaryToString
+0002d320 A _end
+         U __errno_location@@GLIBC_2.0
+0000f370 T Error
+00019760 t execute_cfa_program
+0001a870 t execute_stack_op
+         U _exit@@GLIBC_2.0
+         U exit@@GLIBC_2.0
+0000f410 T _ExitOnFatalAssert
+         U fclose@@GLIBC_2.1
+0001c690 t fde_mixed_encoding_compare
+0001c490 t fde_single_encoding_compare
+0001c010 t fde_unencoded_compare
+         U feof@@GLIBC_2.0
+         U ferror@@GLIBC_2.0
+         U fflush@@GLIBC_2.0
+         U fgetc@@GLIBC_2.0
+         U fgets@@GLIBC_2.0
+0001dca8 T _fini
+         U fopen64@@GLIBC_2.1
+         U fopen@@GLIBC_2.1
+         U __fprintf_chk@@GLIBC_2.3.4
+         U fputs@@GLIBC_2.0
+0001c040 t frame_downheap
+0000a2e0 t frame_dummy
+00027ea0 t __frame_dummy_init_array_entry
+00025d5c r __FRAME_END__
+0002d240 b frame_hdr_cache
+0002d238 b frame_hdr_cache_head
+0001c110 t frame_heapsort
+0001ba80 t __frame_state_for
+         U fread@@GLIBC_2.0
+         U free@@GLIBC_2.0
+         U freopen@@GLIBC_2.0
+         U fscanf@@GLIBC_2.0
+         U fseek@@GLIBC_2.0
+         U ftell@@GLIBC_2.0
+         U fwrite@@GLIBC_2.0
+0002b564 b g_bExpectingWindowProcCalls
+00028084 d g_bInitMemory
+0002b500 b g_bTraceRead
+0002b504 b g_bVCREnabled
+00028858 B g_ClockSpeed
+00028810 b g_ClockSpeedInit
+00028840 B g_ClockSpeedMicrosecondsMultiplier
+00028830 B g_ClockSpeedMillisecondsMultiplier
+00028820 B g_ClockSpeedSecondsMultiplier
+0002b520 b g_CurFilePos
+00028850 B g_dwClockSpeed
+0000ca00 T GetAssertDialogParent
+00011180 T GetCallStack
+00011190 T GetCallStack_Fast
+0001c330 t get_cie_encoding
+0000e570 T GetCPUFrequencyResults
+0000e060 T GetCPUInformation
+0000ebd0 T GetCPUUsage
+         U getenv@@GLIBC_2.0
+000111f0 T GetFileAndLineFromAddress
+         U getloadavg@@GLIBC_2.2
+00011230 T GetModuleNameFromAddress
+0000efc0 T GetSpewOutputColor
+0000ef00 T GetSpewOutputFunc
+0000ef60 T GetSpewOutputGroup
+0000ef90 T GetSpewOutputLevel
+00011210 T GetSymbolNameFromAddress
+00011920 T GetThreadedLoadLibraryFunc
+         U gettimeofday@@GLIBC_2.0
+0002b510 b g_FileLen
+0002b530 b g_iCurEvent
+0002817c d g_LastReadEvent
+00027ff4 a _GLOBAL_OFFSET_TABLE_
+00009d70 t _GLOBAL__sub_I_CommandLine_Tier0
+00009dc0 t _GLOBAL__sub_I_DefaultSpewFunc
+00009e30 t _GLOBAL__sub_I_g_ClockSpeed
+0000a060 t _GLOBAL__sub_I_g_VProfSignalSpike
+00009e40 t _GLOBAL__sub_I_ReportProgress
+00009e70 t _GLOBAL__sub_I__Z18CreateSimpleThreadPFjPvES_Pmj
+00009eb0 t _GLOBAL__sub_I__ZN11TSListTests8NUM_TESTE
+         w __gmon_start__
+         U gmtime_r@@GLIBC_2.0
+00028180 d g_OldVCRMode
+0002b3f0 b g_pCurThread
+0002b560 b g_pHelpers
+00028730 b g_pSpewInfo
+0002b7b0 b g_pStartNode
+0002b7a0 b g_pszSumNode
+000280c0 D g_pVCR
+0002b550 b g_pVCRFile
+00028200 b g_SDLWindow
+0002b400 b g_ThreadMainThreadID
+0002b800 b g_TimesLessChildren
+0002b7c0 b g_TimeSums
+0002b7cc b g_TimeSumsMap
+0002b7f0 b g_TotalFrames
+000280e0 d g_VCR
+0002b540 b g_VCRMode
+0002b840 B g_VProfCurrentProfile
+0002d200 B g_VProfSignalSpike
+         U __gxx_personality_v0@@CXXABI_1.3
+0000f0b0 T HushAsserts
+0001dc20 t __i686.get_pc_thunk.bx
+00009c78 T _init
+0001a030 t init_dwarf_reg_size_table
+000110a0 T InitPME
+00011120 T InstallProgressReportHandler
+00010f00 T Is64BitOS
+         U isatty@@GLIBC_2.0
+         U isspace@@GLIBC_2.0
+0000f0c0 T IsSpewActive
+         w _ITM_deregisterTMCloneTable
+         w _ITM_registerTMCloneTable
+00027ec8 d __JCR_END__
+00027ec8 d __JCR_LIST__
+         w _Jv_RegisterClasses
+000198b9 t .L122
+000198b4 t .L19
+0001a667 t .L191
+0001a65b t .L192
+0001a637 t .L195
+0001a64f t .L196
+0001a430 t .L197
+0001a4a8 t .L198
+000198c1 t .L21
+0001992d t .L22
+0001a428 t .L223
+0001a7a5 t .L226
+0001a797 t .L227
+0001994b t .L23
+0001a7e0 t .L230
+0001a789 t .L231
+0001a4bd t .L232
+0001a77c t .L233
+00019969 t .L24
+00019986 t .L25
+000199e8 t .L26
+00019a2a t .L27
+00019a6a t .L28
+00019a94 t .L29
+00019b03 t .L30
+00019b36 t .L31
+00019b5f t .L32
+0001a960 t .L325
+0001a9b0 t .L328
+0001a9a0 t .L329
+00019bc1 t .L33
+0001a990 t .L330
+0001a980 t .L331
+0001a970 t .L332
+0001a8d8 t .L334
+0001a918 t .L336
+0001ac90 t .L337
+0001ac78 t .L338
+0001ac58 t .L339
+00019c01 t .L34
+0001ad48 t .L340
+0001ad28 t .L341
+0001ab60 t .L342
+0001ab30 t .L343
+0001ac08 t .L344
+0001abd0 t .L345
+0001aba0 t .L346
+0001ab90 t .L347
+0001ac48 t .L348
+0001a928 t .L349
+00019c37 t .L35
+0001aae0 t .L350
+0001aa80 t .L351
+0001acc0 t .L352
+0001a9f8 t .L354
+00019c78 t .L36
+0001af7e t .L367
+0001af72 t .L368
+00019cd8 t .L37
+0001af50 t .L371
+0001af66 t .L372
+0001ad81 t .L373
+0001addc t .L374
+00019d28 t .L38
+00019d7c t .L39
+00019d9f t .L40
+00019e0b t .L41
+0001aed1 t .L415
+0001aeda t .L417
+0001aee8 t .L418
+0001aef1 t .L419
+00019e60 t .L42
+0001ae81 t .L420
+0001ae8b t .L421
+0001ae94 t .L422
+0001ae9d t .L423
+0001aea6 t .L424
+0001aeaf t .L425
+0001aeb8 t .L426
+0001aec1 t .L427
+0001af10 t .L428
+0001af20 t .L429
+00019f2d t .L43
+0001af30 t .L430
+0001af40 t .L431
+0001af00 t .L432
+00019ec0 t .L44
+0001a968 t .L440
+0001b12a t .L523
+0001b268 t .L524
+0001b238 t .L526
+0001b180 t .L527
+0001b108 t .L528
+0001b1e0 t .L529
+00019fc1 t .L56
+00019f9f t .L57
+00019fa8 t .L60
+00019fb8 t .L61
+0001c308 t .L61
+00019f5c t .L62
+00019f8b t .L63
+0001c2c0 t .L64
+0001c2f8 t .L65
+0001c2a8 t .L68
+0001c298 t .L69
+0001c250 t .L70
+0001c288 t .L71
+         U lchown@@GLIBC_2.0
+0001c520 t linear_search_fdes
+         U link@@GLIBC_2.0
+         U localtime@@GLIBC_2.0
+         U localtime_r@@GLIBC_2.0
+0000f2e0 T Log
+0001dc30 t lstat
+0001dc30 t __lstat
+         U __lxstat64@@GLIBC_2.2
+         U __lxstat@@GLIBC_2.0
+         U malloc@@GLIBC_2.0
+0002d220 b marker.8514
+         U memalign@@GLIBC_2.0
+000107f0 T MemAllocScratch
+         U memcmp@@GLIBC_2.0
+         U memcpy@@GLIBC_2.0
+00010890 T MemFreeScratch
+         U memmove@@GLIBC_2.0
+         U memset@@GLIBC_2.0
+00010980 T MinidumpUserStreamInfoAppend
+00010a30 T MinidumpUserStreamInfoGet
+00010930 T MinidumpUserStreamInfoSetHeader
+         U mkdir@@GLIBC_2.0
+         U mkfifo@@GLIBC_2.0
+0001dc60 t mknod
+0001dc60 t __mknod
+         U mount@@GLIBC_2.0
+0000f1d0 T Msg
+0000fd00 T NetLog
+0000fc20 T NetMsg
+0000fc90 T NetWarning
+0002d300 b object_mutex
+0002d208 b once_regsizes.8974
+         U open64@@GLIBC_2.2
+         U opendir@@GLIBC_2.0
+         U open@@GLIBC_2.0
+         U pclose@@GLIBC_2.1
+00011550 T Plat_ApplyHardwareDataBreakpointsToNewThread
+00010fb0 T Plat_BeginWatchdogTimer
+00010c70 T Plat_ctime
+00010de0 T Plat_DebugString
+00011040 T Plat_EndWatchdogTimer
+00010f90 T Plat_ExitProcess
+00011170 T Plat_FastVerifyHardwareKey
+00010b20 T Plat_FloatTime
+00010e40 T Plat_GetCommandLine
+00010ef0 T Plat_GetCommandLineA
+00011500 T Plat_GetMemPageSize
+00011510 T Plat_GetPagedPoolInfo
+00011080 T Plat_GetWatchdogTime
+00010c80 T Plat_gmtime
+00010a70 T Plat_IsInBenchmarkMode
+00010cc0 T Plat_IsInDebugSession
+00010ca0 T Plat_localtime
+00010bc0 T Plat_MSTime
+00010a80 T Plat_SetBenchmarkMode
+00010e10 T Plat_SetCommandLine
+00011540 T Plat_SetHardwareDataBreakpoint
+00011090 T Plat_SetWatchdogHandlerFunction
+0000ff10 T Plat_SimpleLog
+00010c90 T Plat_timegm
+00011140 T Plat_VerifyHardwareKey
+00011150 T Plat_VerifyHardwareKeyDriver
+00011160 T Plat_VerifyHardwareKeyPrompt
+         U popen@@GLIBC_2.1
+         U __printf_chk@@GLIBC_2.3.4
+         U pthread_attr_init@@GLIBC_2.1
+         U pthread_attr_setstacksize@@GLIBC_2.1
+         U pthread_cond_destroy@@GLIBC_2.3.2
+         U pthread_cond_init@@GLIBC_2.3.2
+         U pthread_cond_signal@@GLIBC_2.3.2
+         U pthread_cond_timedwait@@GLIBC_2.3.2
+         U pthread_create@@GLIBC_2.1
+         U pthread_detach@@GLIBC_2.0
+         U pthread_getschedparam@@GLIBC_2.0
+         U pthread_getspecific@@GLIBC_2.0
+         U pthread_join@@GLIBC_2.0
+         w __pthread_key_create@@GLIBC_2.0
+         U pthread_key_create@@GLIBC_2.0
+         U pthread_key_delete@@GLIBC_2.0
+         U pthread_kill@@GLIBC_2.0
+         U pthread_mutexattr_destroy@@GLIBC_2.0
+         U pthread_mutexattr_init@@GLIBC_2.0
+         U pthread_mutexattr_settype@@GLIBC_2.1
+         U pthread_mutex_destroy@@GLIBC_2.0
+         U pthread_mutex_init@@GLIBC_2.0
+         U pthread_mutex_lock@@GLIBC_2.0
+         U pthread_mutex_trylock@@GLIBC_2.0
+         U pthread_mutex_unlock@@GLIBC_2.0
+         w pthread_once@@GLIBC_2.0
+         U pthread_self@@GLIBC_2.0
+         U pthread_setschedparam@@GLIBC_2.0
+         U pthread_setspecific@@GLIBC_2.0
+         U pthread_yield@@GLIBC_2.2
+         U puts@@GLIBC_2.0
+         U raise@@GLIBC_2.0
+         U rand@@GLIBC_2.0
+         U readdir@@GLIBC_2.0
+0001c210 t read_encoded_value_with_base
+         U read@@GLIBC_2.0
+00019710 t read_sleb128
+0001bfc0 t read_sleb128
+         U realloc@@GLIBC_2.0
+         U realpath@@GLIBC_2.3
+         U recvfrom@@GLIBC_2.0
+         U recv@@GLIBC_2.0
+0001d770 t __register_frame
+0001d740 t __register_frame_info
+0001d6a0 t __register_frame_info_bases
+0001d850 t __register_frame_info_table
+0001d7c0 t __register_frame_info_table_bases
+0001d880 t __register_frame_table
+0000a240 t register_tm_clones
+000116b0 T ReleaseThreadHandle
+         U rename@@GLIBC_2.0
+00011100 T ReportProgress
+         U rmdir@@GLIBC_2.0
+00014640 T RunTSListTests
+00014720 T RunTSQueueTests
+         U scandir@@GLIBC_2.0
+0001c9e0 t search_object
+0002d318 b seen_objects
+         U send@@GLIBC_2.0
+0000c9e0 T SetAllAssertsDisabled
+0000c9f0 T SetAssertDialogParent
+00010160 T SetAssertFailedNotifyFunc
+0000e5a0 T SetCPUMonitoringInterval
+0000a170 t set_fast_math
+000111a0 T SetStackTranslationSymbolSearchPath
+00011910 T SetThreadedLoadLibraryFunc
+0000ca10 T ShouldUseNewAssertDialog
+000110b0 T ShutdownPME
+         U signal@@GLIBC_2.0
+0001c1a0 t size_of_encoded_value
+         U __snprintf_chk@@GLIBC_2.3.4
+0000fd70 T SpewActivate
+0000eff0 T _SpewInfo
+0000f110 T _SpewMessage
+0000eee0 T SpewOutputFunc
+         U srand@@GLIBC_2.0
+         U sscanf@@GLIBC_2.0
+         U __stack_chk_fail@@GLIBC_2.4
+000111b0 T StackToolsNotify_LoadedLibrary
+0001dbf0 t stat
+0001dbf0 t __stat
+         U stderr@@GLIBC_2.0
+         U __stpcpy_chk@@GLIBC_2.3.4
+         U stpcpy@@GLIBC_2.0
+         U strcasecmp@@GLIBC_2.0
+         U strcasestr@@GLIBC_2.1
+         U __strcat_chk@@GLIBC_2.3.4
+         U strcat@@GLIBC_2.0
+         U strchr@@GLIBC_2.0
+         U strcmp@@GLIBC_2.0
+         U __strcpy_chk@@GLIBC_2.3.4
+         U strcpy@@GLIBC_2.0
+         U strdup@@GLIBC_2.0
+         U strlen@@GLIBC_2.0
+         U strncasecmp@@GLIBC_2.0
+         U strncpy@@GLIBC_2.0
+         U strpbrk@@GLIBC_2.0
+         U strrchr@@GLIBC_2.0
+         U strstr@@GLIBC_2.0
+         U strtod@@GLIBC_2.0
+         U strtol@@GLIBC_2.0
+         U strtoll@@GLIBC_2.0
+0002d230 b subs.8777
+         U symlink@@GLIBC_2.0
+0002d224 b terminator.8620
+000116a0 T ThreadDetach
+000116f0 T ThreadGetCurrentHandle
+000116e0 T ThreadGetCurrentId
+00011730 T ThreadGetPriority
+000117d0 T ThreadInMainThread
+00012080 T ThreadInterlockedAssignIf
+00012110 T ThreadInterlockedAssignIf64
+000120d0 T ThreadInterlockedAssignPointerIf
+00012060 T ThreadInterlockedCompareExchange
+000120f0 T ThreadInterlockedCompareExchange64
+000120b0 T ThreadInterlockedCompareExchangePointer
+00012020 T ThreadInterlockedDecrement
+00012040 T ThreadInterlockedExchange
+00012130 T ThreadInterlockedExchange64
+00012050 T ThreadInterlockedExchangeAdd
+000120a0 T ThreadInterlockedExchangePointer
+00012000 T ThreadInterlockedIncrement
+00011810 T ThreadJoin
+000117b0 T ThreadSetAffinity
+00011840 T ThreadSetDebugName
+00011770 T ThreadSetPriority
+000116c0 T ThreadSleep
+         U time@@GLIBC_2.0
+         U timegm@@GLIBC_2.0
+00028190 d __TMC_END__
+         U tolower@@GLIBC_2.0
+000111c0 T TranslateStackInfo
+00019480 t __udivdi3
+000195b0 t __umoddi3
+         U unlink@@GLIBC_2.0
+0002d31c b unseen_objects
+0001bf20 t _Unwind_Backtrace
+0001bb50 t _Unwind_DebugHook
+0001bf00 t _Unwind_DeleteException
+0001ba20 t _Unwind_FindEnclosingFunction
+0001da10 t _Unwind_Find_FDE
+0001bcd0 t _Unwind_ForcedUnwind
+0001b690 t _Unwind_ForcedUnwind_Phase2
+0001b950 t _Unwind_GetCFA
+0001ba60 t _Unwind_GetDataRelBase
+0001b900 t _Unwind_GetGR
+0001b9c0 t _Unwind_GetIP
+0001b9d0 t _Unwind_GetIPInfo
+0001ba00 t _Unwind_GetLanguageSpecificData
+0001ba10 t _Unwind_GetRegionStart
+0001ba70 t _Unwind_GetTextRelBase
+0001d150 t _Unwind_IteratePhdrCallback
+0001bb60 t _Unwind_RaiseException
+0001b5c0 t _Unwind_RaiseException_Phase2
+0001bd80 t _Unwind_Resume
+0001be40 t _Unwind_Resume_or_Rethrow
+0001b960 t _Unwind_SetGR
+0001b9f0 t _Unwind_SetIP
+         U usleep@@GLIBC_2.0
+         U utime@@GLIBC_2.0
+         U utimes@@GLIBC_2.0
+0001a0b0 t uw_frame_state_for
+0001b390 t uw_init_context_1
+0001b7e0 t uw_install_context_1
+0001b550 t uw_update_context
+0001afd0 t uw_update_context_1
+000101a0 T VoidFnPtrLookup_Tier0
+         U __vsnprintf_chk@@GLIBC_2.3.4
+00013280 t V_tier0_stricmp
+00010cb0 T vtune
+0000f250 T Warning
+0000af70 t __wrap_access
+0000b800 t __wrap_chmod
+0000b8f0 t __wrap_chown
+0000af40 t __wrap_creat
+0000ab40 t __wrap_fopen
+0000ac40 t __wrap_fopen64
+0000aa20 t __wrap_freopen
+0000b9e0 t __wrap_lchown
+0000bc70 t __wrap_link
+0000b150 t __wrap_lstat
+0000b530 t __wrap___lxstat
+0000b710 t __wrap___lxstat64
+0000c730 t __wrap_mkdir
+0000c1d0 t __wrap_mkfifo
+0000be10 t __wrap_mknod
+0000bf10 t __wrap_mount
+0000ad40 t __wrap_open
+0000ae40 t __wrap_open64
+0000b350 t __wrap_opendir
+0000c640 t __wrap_realpath
+0000c2c0 t __wrap_rename
+0000c820 t __wrap_rmdir
+0000b240 t __wrap_scandir
+0000b060 t __wrap_stat
+0000bad0 t __wrap_symlink
+0000c0e0 t __wrap_unlink
+0000c460 t __wrap_utime
+0000c550 t __wrap_utimes
+0000b440 t __wrap___xstat
+0000b620 t __wrap___xstat64
+00010900 T WriteMiniDump
+0000a31b t __x86.get_pc_thunk.bx
+0001bfaf t __x86.get_pc_thunk.cx
+         U __xmknod@@GLIBC_2.0
+         U __xstat64@@GLIBC_2.2
+         U __xstat@@GLIBC_2.0
+0000f980 T ConWarning(char const*, ...)
+0000f600 T DevWarning(char const*, ...)
+0000f8a0 T ConColorMsg(Color const&, char const*, ...)
+000108f0 t CalcHeapUsed()
+0000f020 t FindSpewGroup(char const*, int*)
+000154a0 t VCR_Hook_Time(long*)
+000161f0 t GetCommandLine()
+000117c0 t InitMainThread()
+000144d0 t RunSharedTests(int)
+0000e7a0 t CalculateCPUFreq()
+00015210 t VCR_CreateThread(void*, unsigned long, void*, void*, unsigned long, unsigned long*)
+000156f0 t VCR_GenericValue(char const*, void*, int)
+00015510 t VCR_GenericRecord(char const*, void const*, int)
+00015020 t VCR_GenericString(char const*, char const*)
+000115f0 T CreateSimpleThread(unsigned int (*)(void*), void*, unsigned long*, unsigned int)
+0000e5b0 t GetCPUFreqFromPROC()
+000151a0 t VCR_Hook_LocalTime(tm*)
+0000df50 t CheckSSE3Technology()
+0000c9a0 t IgnoreAssertsNearby(int)
+000155c0 t VCR_GenericPlayback(char const*, void*, int, bool)
+0000df90 t CheckSSE41Technology()
+0000dfe0 t CheckSSE42Technology()
+0000e020 t CheckSSE4aTechnology()
+0000df70 t CheckSSSE3Technology()
+0000dfb0 t GetProcessorVendorId()
+00014fe0 t VCR_Hook_GetKeyState(int)
+0000c910 t CreateNewAssertDisable(char const*)
+00015030 t VCR_GenericValueVerify(char const*, void const*, int)
+00015a30 t VCR_Hook_RecordGameMsg(InputEvent_t const&)
+00015f30 t OutputDebugStringFormat(char const*, ...)
+00011530 t Plat_GetCurrentThreadID()
+000111e0 t PreloadStackInformation(void const**, int)
+00011700 t ThreadIsThreadIdRunning(unsigned long)
+00015280 t VCR_GetPercentCompleted()
+00014ff0 t VCR_WaitForSingleObject(void*, unsigned long)
+00015010 t VCR_EnterCriticalSection(void*)
+00015960 t VCR_Hook_PlaybackGameMsg(InputEvent_t*)
+00014fd0 t VCR_Hook_ReadConsoleInput(void*, void*, int, unsigned long*)
+000159f0 t VCR_Hook_RecordEndGameMsg()
+0000c980 t IgnoreAssertsInCurrentFile()
+00015000 t VCR_WaitForMultipleObjects(unsigned int, void const**, int, unsigned int)
+000108e0 t DoApplyMemoryInitializations(void*, int)
+000153d0 t VCR_Hook_GetNumberOfConsoleInputEvents(void*, unsigned long*)
+0000f9f0 T ConLog(char const*, ...)
+0000f910 T ConMsg(char const*, ...)
+0000f670 T DevLog(char const*, ...)
+0000f590 T DevMsg(char const*, ...)
+0000a6b0 t pathmatch(char const*, char**, bool, char*, unsigned int)
+         U operator delete[](void*)@@GLIBCXX_3.4
+         U operator delete(void*)@@GLIBCXX_3.4
+000108b0 T ZeroMemory
+00028250 b guard variable for DoNewAssertDialog::autoMutex__
+00028720 b guard variable for GetCPUInformation::pi
+0002b430 b guard variable for ThreadSetDebugName::s_pthread_setname_np_func
+00028260 b guard variable for ShouldUseNewAssertDialog::bMPIWorker
+000281d0 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszDbgPathMatch
+000281e0 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszPathMatchEnabled
+00028270 b guard variable for AreAssertsDisabled()::bResult
+00028280 b guard variable for IsDebugBreakEnabled()::bResult
+00028800 b guard variable for CSharedLibraryCache::GetCache()::Singleton
+00017ca0 t DumpSorted(void (*)(char const*, ...), char const*, double, bool (*)(TimeSums_t const&, TimeSums_t const&), int)
+00028178 d g_VCRTrace
+000287b4 b s_SpewType
+0000dee0 t HTSupported()
+00016280 t PeakCompare(TimeSums_t const&, TimeSums_t const&)
+000281f0 b s_bShowDiag
+0000ec00 t SkipToFname(char const*)
+00028080 d s_nBufDepth
+000287d0 b s_pFileName
+00016240 t TimeCompare(TimeSums_t const&, TimeSums_t const&)
+00014f40 t VCR_GetMode()
+0002b3e0 b vec2_origin
+0002b580 b linuxCmdline
+0002ab80 b s_bInittedWD
+000287a0 b s_GroupCount
+0001f3a0 r s_indentText
+0000ec60 t _SpewMessage(SpewType_t, char const*, int, Color const*, char const*, char*)
+0002b3d0 b vec2_invalid
+0001f380 r g_ColorLookup
+00028870 b s_nBufCurSize
+00028774 b s_pGroupNames
+000287b0 b s_pSpewGroups
+00015750 t VCR_Hook_recv(int, char*, int, int)
+00015bb0 t VCR_Hook_send(int, char const*, int, int)
+00015aa0 t VCR_SyncToken(char const*)
+00028790 b s_DefaultLevel
+0002ab70 b s_WatchdogTime
+000152c0 t VCR_SetEnabled(int)
+00011b40 t DefaultWaitFunc(int, CThreadEvent* const*, int, unsigned int)
+00028860 b s_nBufAllocSize
+00028060 d s_pGroupIndices
+00010d90 t WatchDogHandler(int)
+0002b3b0 b g_bBenchmarkMode
+00028940 b g_UserStreamInfo
+0002b3c0 b pReportHandlerFN
+00028880 b s_pBufStackDepth
+00028070 d s_SpewOutputFunc
+00028050 d g_bAssertsEnabled
+000282b0 b g_pAssertDisables
+00011590 t ThreadProcConvert(void*)
+00015c70 t VCR_Hook_Cmd_Exec(char**)
+00015830 t VCR_Hook_recvfrom(int, char*, int, int, sockaddr*, int*)
+000162a0 t AverageTimeCompare(TimeSums_t const&, TimeSums_t const&)
+0002b3a0 b g_FakeBenchmarkTime
+00028780 b s_DefaultOutputColor
+00014f50 t VCR_Hook_PeekMessage(tagMSG*, void*, unsigned int, unsigned int, unsigned int)
+00014fc0 t VCR_Hook_RegCloseKey(void*)
+00028920 b g_UserStreamInfoIndex
+00014f60 t VCR_Hook_GetCursorPos(tagPOINT*)
+00014f80 t VCR_Hook_RegOpenKeyEx(void*, char const*, unsigned long, unsigned long, void*)
+0002a940 b g_UserStreamInfoHeader
+00016360 t PeakOverAverageCompare(TimeSums_t const&, TimeSums_t const&)
+00014f90 t VCR_Hook_RegSetValueEx(void*, char const*, unsigned long, unsigned long, unsigned char const*, unsigned long)
+00015440 t VCR_Hook_Sys_FloatTime(double)
+00016260 t TimeLessChildrenCompare(TimeSums_t const&, TimeSums_t const&)
+00015e70 t VCR_Hook_GetCommandLine()
+00014fb0 t VCR_Hook_RegCreateKeyEx(void*, char const*, unsigned long, char*, unsigned long, unsigned long, void*, void*, unsigned long*)
+00014f70 t VCR_Hook_ScreenToClient(void*, tagPOINT*)
+000287e0 b s_AssertFailedNotifyFunc
+00014f30 t VCR_GetVCRTraceInterface()
+00014fa0 t VCR_Hook_RegQueryValueEx(void*, char const*, unsigned long*, unsigned long*, unsigned char*, unsigned long*)
+0002ab90 b s_nWatchDogTimerTimeScale
+0002b420 b s_ThreadedLoadLibraryFunc
+0002ab60 b s_pWatchDogHandlerFunction
+00016300 t AverageTimeLessChildrenCompare(TimeSums_t const&, TimeSums_t const&)
+00028290 b g_Info
+000287c0 b s_Line
+00028900 b s_pBuf
+0000a320 t Descend(char*, unsigned int, bool, unsigned int)
+00015240 t VCR_End()
+000282a0 b g_bBreak
+000150c0 t VCR_Read(void*, int)
+000282c0 b g_CmdLine
+0002aba0 b g_CmdLine
+00015040 t VCR_Error(char const*, ...)
+00015350 t VCR_Event(VCREvent)
+00015d40 t VCR_Start(char const*, bool, IVCRHelpers*)
+00015160 t VCR_Write(void const*, int)
+00016400 T CVProfNode::EnterScope()
+00017140 T CVProfNode::GetSubNode(char const*, int, char const*)
+00016fe0 T CVProfNode::GetSubNode(char const*, int, char const*, int)
+00016770 T CVProfNode::SetCurFrameTime(unsigned long)
+0002b820 B CVProfNode::s_iCurrentUniqueNodeID
+00016550 T CVProfNode::Pause()
+00016620 T CVProfNode::Reset()
+000165c0 T CVProfNode::Resume()
+000164a0 T CVProfNode::ExitScope()
+000166b0 T CVProfNode::MarkFrame()
+00016730 T CVProfNode::ResetPeak()
+000163f0 T CVProfNode::~CVProfNode()
+000163f0 T CVProfNode::~CVProfNode()
+00014b40 t CTSListBase::~CTSListBase()
+00014b40 t CTSListBase::~CTSListBase()
+0002b4d0 b TSListTests::g_nThreads
+0002b440 b TSListTests::g_pTestOps
+00028094 d TSListTests::g_QueueOps
+0002b490 b TSListTests::g_TestList
+0002b450 b TSListTests::g_pListType
+0002b4a0 b TSListTests::g_TestQueue
+000280a0 d TSListTests::MAX_THREADS
+00013d70 t TSListTests::MTPushMTPop(bool)
+00013bd0 t TSListTests::MTPushSTPop(bool)
+0002b4e0 b TSListTests::NUM_THREADS
+000137c0 t TSListTests::PushPopTest()
+00013a30 t TSListTests::STPushMTPop(bool)
+000134e0 t TSListTests::ClearBuckets()
+000141b0 t TSListTests::MTPushSeqPop(bool)
+00014350 t TSListTests::SeqPushMTPop(bool)
+0002b4c8 b TSListTests::g_nPopThreads
+00013310 t TSListTests::PopThreadFunc(void*)
+0002b4cc b TSListTests::g_nPushThreads
+0002b470 b TSListTests::g_pTestBuckets
+00028098 d TSListTests::NUM_PROCESSORS
+000133e0 t TSListTests::PushThreadFunc(void*)
+0002b480 b TSListTests::g_ThreadHandles
+00013550 t TSListTests::ValidateBuckets()
+000139d0 t TSListTests::PushPopInterleavedTest()
+00014020 t TSListTests::MTPushPopPopInterleaved(bool)
+000138b0 t TSListTests::PushPopInterleavedTestGuts()
+00013960 t TSListTests::PushPopInterleavedTestThreadFunc(void*)
+0002b454 b TSListTests::idx
+0002b460 b TSListTests::g_Test
+0002b458 b TSListTests::g_nodes
+0002b4c0 b TSListTests::g_nPops
+000136d0 t TSListTests::TestEnd(bool)
+00014ab0 t TSListTests::CListOps::Pop(int*)
+00014a30 t TSListTests::CListOps::Push(int)
+000148f0 t TSListTests::CListOps::IsEmpty()
+000148e0 t TSListTests::CListOps::Validate()
+0002b488 b TSListTests::g_bStart
+000280b0 d TSListTests::NUM_TEST
+00013670 t TSListTests::TestWait()
+00014c30 t TSListTests::CQueueOps::Pop(int*)
+00014930 t TSListTests::CQueueOps::Push(int)
+000148d0 t TSListTests::CQueueOps::IsEmpty()
+000148c0 t TSListTests::CQueueOps::Validate()
+00013530 t TSListTests::DecBucket(int)
+000134c0 t TSListTests::DecBucket(int) [clone .part.5]
+00028090 d TSListTests::g_ListOps
+0002b4c4 b TSListTests::g_nPushes
+0002b4d4 b TSListTests::g_nTested
+00013510 t TSListTests::IncBucket(int)
+000134a0 t TSListTests::IncBucket(int) [clone .part.4]
+000135c0 t TSListTests::TestStart()
+0000dda0 t CCommandLine::AppendParm(char const*, char const*)
+0000db70 t CCommandLine::RemoveParm(char const*)
+0000d780 t CCommandLine::AddArgument(char const*, char const*)
+0000d540 t CCommandLine::AddArgument(char const*, char const*) [clone .part.3]
+0000d7b0 t CCommandLine::CleanUpParms()
+0000d250 t CCommandLine::CreateCmdLine(int, char**)
+0000d980 t CCommandLine::CreateCmdLine(char const*)
+0000d860 t CCommandLine::ParseCommandLine()
+0000d600 t CCommandLine::LoadParametersFromFile(char const*&, char*&, int, bool)
+0000d4f0 t CCommandLine::SetParm(int, char const*)
+0000d5e0 t CCommandLine::CCommandLine()
+0000d5e0 t CCommandLine::CCommandLine()
+0000d840 t CCommandLine::~CCommandLine()
+0000d800 t CCommandLine::~CCommandLine()
+0000d800 t CCommandLine::~CCommandLine()
+00011d90 T CThreadEvent::Set()
+00011f60 T CThreadEvent::Wait(unsigned int)
+00011f40 T CThreadEvent::Check()
+00011f10 T CThreadEvent::Reset()
+00011b70 T CThreadEvent::CThreadEvent(bool)
+00011b70 T CThreadEvent::CThreadEvent(bool)
+00012190 T CThreadMutex::TryLock()
+000123d0 T CThreadRWLock::UnlockWrite()
+000122c0 T CThreadRWLock::WaitForRead()
+00012310 T CThreadRWLock::LockForWrite()
+00013070 T CWorkerThread::CallMaster(unsigned int, unsigned int)
+00013030 T CWorkerThread::CallWorker(unsigned int, unsigned int, bool, CFunctor*)
+000130f0 T CWorkerThread::WaitForCall(unsigned int, unsigned int*)
+000130b0 T CWorkerThread::WaitForCall(unsigned int*)
+00012ef0 T CWorkerThread::WaitForReply(unsigned int)
+00012d80 T CWorkerThread::WaitForReply(unsigned int, unsigned int (*)(int, CThreadEvent* const*, int, unsigned int))
+00012d30 T CWorkerThread::BoostPriority()
+00012d00 T CWorkerThread::GetCallHandle()
+00012f20 T CWorkerThread::Call(unsigned int, unsigned int, bool, unsigned int (*)(int, CThreadEvent* const*, int, unsigned int), CFunctor*)
+00013180 T CWorkerThread::Reply(unsigned int)
+00013130 T CWorkerThread::PeekCall(unsigned int*, CFunctor**)
+00012c90 T CWorkerThread::CWorkerThread()
+00012c90 T CWorkerThread::CWorkerThread()
+00013230 W CWorkerThread::~CWorkerThread()
+000131f0 W CWorkerThread::~CWorkerThread()
+000131f0 W CWorkerThread::~CWorkerThread()
+00010750 T CClockSpeedInit::Init()
+00010190 t CThreadLocalPtr<SpewInfo_t>::~CThreadLocalPtr()
+00010190 t CThreadLocalPtr<SpewInfo_t>::~CThreadLocalPtr()
+000131d0 t CThreadLocalPtr<CThread>::~CThreadLocalPtr()
+000131d0 t CThreadLocalPtr<CThread>::~CThreadLocalPtr()
+00011fe0 T CThreadLocalBase::Set(void*)
+00011f70 T CThreadLocalBase::CThreadLocalBase()
+00011f70 T CThreadLocalBase::CThreadLocalBase()
+00011fa0 T CThreadLocalBase::~CThreadLocalBase()
+00011fa0 T CThreadLocalBase::~CThreadLocalBase()
+00011250 T CCallStackStorage::CCallStackStorage(int (*)(void**, int, int), unsigned int)
+00011250 T CCallStackStorage::CCallStackStorage(int (*)(void**, int, int), unsigned int)
+000126b0 T CThreadSpinRWLock::UnlockRead()
+00012570 T CThreadSpinRWLock::LockForRead()
+000127c0 T CThreadSpinRWLock::UnlockWrite()
+00012440 T CThreadSpinRWLock::SpinLockForWrite(unsigned int)
+00011980 T CThreadSyncObject::AssertUseable()
+00011990 T CThreadSyncObject::Wait(unsigned int)
+00011930 T CThreadSyncObject::CThreadSyncObject()
+00011930 T CThreadSyncObject::CThreadSyncObject()
+00011940 T CThreadSyncObject::~CThreadSyncObject()
+00011940 T CThreadSyncObject::~CThreadSyncObject()
+00010310 t CSharedLibraryCache::CSharedLibraryItem::~CSharedLibraryItem()
+00010310 t CSharedLibraryCache::CSharedLibraryItem::~CSharedLibraryItem()
+00010500 t CSharedLibraryCache::~CSharedLibraryCache()
+00010500 t CSharedLibraryCache::~CSharedLibraryCache()
+00011280 T CStackTop_CopyParentStack::CStackTop_CopyParentStack(void* const*, int)
+00011280 T CStackTop_CopyParentStack::CStackTop_CopyParentStack(void* const*, int)
+00011290 T CStackTop_CopyParentStack::~CStackTop_CopyParentStack()
+00011290 T CStackTop_CopyParentStack::~CStackTop_CopyParentStack()
+000112c0 T CStackTop_ReferenceParentStack::ReleaseParentStackReferences()
+000112a0 T CStackTop_ReferenceParentStack::CStackTop_ReferenceParentStack(void* const*, int)
+000112a0 T CStackTop_ReferenceParentStack::CStackTop_ReferenceParentStack(void* const*, int)
+000112b0 T CStackTop_ReferenceParentStack::~CStackTop_ReferenceParentStack()
+000112b0 T CStackTop_ReferenceParentStack::~CStackTop_ReferenceParentStack()
+00011dd0 T CThread::ThreadProc(void*)
+000129a0 T CThread::GetThreadId()
+00012b30 T CThread::SetPriority(int)
+00011580 T CThread::GetThreadProc()
+000115c0 T CThread::IsThreadRunning()
+00012c10 T CThread::GetCurrentCThread()
+00012bb0 T CThread::ResumeCooperative()
+00012b50 T CThread::SuspendCooperative()
+00012c70 T CThread::WaitForCreateComplete(CThreadEvent*)
+00012bc0 T CThread::BWaitForThreadSuspendCooperative()
+00011560 T CThread::Init()
+00012970 T CThread::Join(unsigned int)
+000129c0 T CThread::Stop(int)
+00012c40 T CThread::Sleep(unsigned int)
+00011bf0 T CThread::Start(unsigned int)
+00012c30 T CThread::Yield()
+00011570 T CThread::OnExit()
+00012c60 T CThread::Cleanup()
+00012890 T CThread::GetName()
+00012960 T CThread::IsAlive()
+00012910 T CThread::SetName(char const*)
+000129b0 T CThread::GetResult()
+00012be0 T CThread::Terminate(int)
+000127f0 T CThread::CThread()
+000127f0 T CThread::CThread()
+00012ae0 T CThread::~CThread()
+00012a60 T CThread::~CThread()
+00012a60 T CThread::~CThread()
+00014b90 t CTSList<int>::~CTSList()
+00014b90 t CTSList<int>::~CTSList()
+000110f0 t CL2Cache::End()
+000110e0 t CL2Cache::Start()
+000110c0 t CL2Cache::CL2Cache()
+000110c0 t CL2Cache::CL2Cache()
+000110d0 t CL2Cache::~CL2Cache()
+000110d0 t CL2Cache::~CL2Cache()
+00014d80 t CTSQueue<int, true>::~CTSQueue()
+00014d80 t CTSQueue<int, true>::~CTSQueue()
+00016230 t CVCRTrace::Read(void*, int)
+00016200 t CVCRTrace::ReadEvent()
+00016c30 T CVProfile::FreeNodes_R(CVProfNode*)
+00017f40 T CVProfile::OutputReport(int, char const*, int)
+000177e0 T CVProfile::ResetCounters(CounterGroup_t)
+000176b0 T CVProfile::HideBudgetGroup(int, bool)
+00016c10 T CVProfile::SetOutputStream(void (*)(char const*, ...))
+00016e70 T CVProfile::AddBudgetGroupName(char const*, int)
+00017680 T CVProfile::GetNumBudgetGroups()
+00016e10 T CVProfile::FindBudgetGroupName(char const*)
+000176f0 T CVProfile::FindOrCreateCounter(char const*, CounterGroup_t)
+00016da0 T CVProfile::GetBudgetGroupColor(int, int&, int&, int&, int&)
+00017650 T CVProfile::BudgetGroupNameToBudgetGroupID(char const*)
+00016f90 T CVProfile::BudgetGroupNameToBudgetGroupID(char const*, int)
+00017690 T CVProfile::RegisterNumBudgetGroupsChangedCallBack(void (*)())
+00016ca0 T CVProfile::Term()
+00016860 T CVProfile::FindNode(CVProfNode*, char const*)
+000178d0 T CVProfile::SumTimes(CVProfNode*, int)
+00017c40 T CVProfile::SumTimes(char const*, int)
+000168e0 T CVProfile::DumpNodes(CVProfNode*, int, bool)
+00017170 T CVProfile::CVProfile()
+00017170 T CVProfile::CVProfile()
+00016d70 T CVProfile::~CVProfile()
+00016d70 T CVProfile::~CVProfile()
+         U operator new[](unsigned int)@@GLIBCXX_3.4
+0000d150 t CCommandLine::GetCmdLine() const
+0000d4b0 t CCommandLine::ParmValueByIndex(int, char const*) const
+0000d1e0 t CCommandLine::GetParm(int) const
+0000d350 t CCommandLine::FindParm(char const*) const
+0000d160 t CCommandLine::CheckParm(char const*, char const**) const
+0000d1d0 t CCommandLine::ParmCount() const
+0000d420 t CCommandLine::ParmValue(char const*, float) const
+0000d3b0 t CCommandLine::ParmValue(char const*, int) const
+0000d200 t CCommandLine::ParmValue(char const*, char const*) const
+00012d10 T CWorkerThread::GetCallParam(CFunctor**) const
+00011fc0 T CThreadLocalBase::Get() const
+00011970 T CThreadSyncObject::operator!() const
+00012b00 T CThread::GetPriority() const
+00017850 T CVProfile::GetCounterName(int) const
+00017840 T CVProfile::GetNumCounters() const
+000178b0 T CVProfile::GetCounterGroup(int) const
+00017870 T CVProfile::GetCounterValue(int) const
+00017890 T CVProfile::GetCounterNameAndValue(int, int&) const
+00018c20 t std::map<CVProfNode*, double, std::less<CVProfNode*>, std::allocator<std::pair<CVProfNode* const, double> > >::~map()
+00018c20 t std::map<CVProfNode*, double, std::less<CVProfNode*>, std::allocator<std::pair<CVProfNode* const, double> > >::~map()
+00018c80 t std::map<char const*, unsigned int, std::less<char const*>, std::allocator<std::pair<char const* const, unsigned int> > >::~map()
+00018c80 t std::map<char const*, unsigned int, std::less<char const*>, std::allocator<std::pair<char const* const, unsigned int> > >::~map()
+00014900 t std::list<ThreadHandle_t__*, std::allocator<ThreadHandle_t__*> >::~list()
+00014900 t std::list<ThreadHandle_t__*, std::allocator<ThreadHandle_t__*> >::~list()
+00018ae0 t void std::vector<TimeSums_t, std::allocator<TimeSums_t> >::_M_emplace_back_aux<TimeSums_t const&>(TimeSums_t const&)
+00018ae0 t void std::vector<TimeSums_t, std::allocator<TimeSums_t> >::_M_emplace_back_aux<TimeSums_t const&>(TimeSums_t const&)
+00018690 t std::vector<TimeSums_t, std::allocator<TimeSums_t> >::operator=(std::vector<TimeSums_t, std::allocator<TimeSums_t> > const&)
+00018670 t std::vector<TimeSums_t, std::allocator<TimeSums_t> >::~vector()
+00018670 t std::vector<TimeSums_t, std::allocator<TimeSums_t> >::~vector()
+         U std::__detail::_List_node_base::_M_hook(std::__detail::_List_node_base*)@@GLIBCXX_3.4.15
+         U std::__detail::_List_node_base::_M_unhook()@@GLIBCXX_3.4.15
+00018860 t std::pair<std::_Rb_tree_iterator<std::pair<CVProfNode* const, double> >, bool> std::_Rb_tree<CVProfNode*, std::pair<CVProfNode* const, double>, std::_Select1st<std::pair<CVProfNode* const, double> >, std::less<CVProfNode*>, std::allocator<std::pair<CVProfNode* const, double> > >::_M_insert_unique<std::pair<CVProfNode*, double> >(std::pair<CVProfNode*, double>&&)
+00018be0 t std::_Rb_tree<CVProfNode*, std::pair<CVProfNode* const, double>, std::_Select1st<std::pair<CVProfNode* const, double> >, std::less<CVProfNode*>, std::allocator<std::pair<CVProfNode* const, double> > >::_M_erase(std::_Rb_tree_node<std::pair<CVProfNode* const, double> >*)
+000189a0 t std::pair<std::_Rb_tree_iterator<std::pair<char const* const, unsigned int> >, bool> std::_Rb_tree<char const*, std::pair<char const* const, unsigned int>, std::_Select1st<std::pair<char const* const, unsigned int> >, std::less<char const*>, std::allocator<std::pair<char const* const, unsigned int> > >::_M_insert_unique<std::pair<char const*, unsigned int> >(std::pair<char const*, unsigned int>&&)
+00018c40 t std::_Rb_tree<char const*, std::pair<char const* const, unsigned int>, std::_Select1st<std::pair<char const* const, unsigned int> >, std::less<char const*>, std::allocator<std::pair<char const* const, unsigned int> > >::_M_erase(std::_Rb_tree_node<std::pair<char const* const, unsigned int> >*)
+000121b0 T CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
+         U operator new(unsigned int)@@GLIBCXX_3.4
+00018f80 t void std::__adjust_heap<__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, int, TimeSums_t, bool (*)(TimeSums_t const&, TimeSums_t const&)>(__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, int, int, TimeSums_t, bool (*)(TimeSums_t const&, TimeSums_t const&))
+00018e90 t void std::__insertion_sort<__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, bool (*)(TimeSums_t const&, TimeSums_t const&)>(__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, __gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, bool (*)(TimeSums_t const&, TimeSums_t const&))
+00019190 t void std::__introsort_loop<__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, int, bool (*)(TimeSums_t const&, TimeSums_t const&)>(__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, __gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, int, bool (*)(TimeSums_t const&, TimeSums_t const&))
+         U std::__throw_bad_alloc()@@GLIBCXX_3.4
+         U std::_Rb_tree_decrement(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+00018ca0 t void std::__move_median_first<__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, bool (*)(TimeSums_t const&, TimeSums_t const&)>(__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, __gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, __gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, bool (*)(TimeSums_t const&, TimeSums_t const&))
+00018dd0 t void std::__unguarded_linear_insert<__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, bool (*)(TimeSums_t const&, TimeSums_t const&)>(__gnu_cxx::__normal_iterator<TimeSums_t*, std::vector<TimeSums_t, std::allocator<TimeSums_t> > >, bool (*)(TimeSums_t const&, TimeSums_t const&))
+         U std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+0001df4c r typeinfo for CCommandLine
+0001df24 r typeinfo for ICommandLine
+0001e47c V typeinfo for CWorkerThread
+0001e474 V typeinfo for CThread
+0001eb38 r typeinfo for CVCRTrace
+0001eb24 r typeinfo for IVCRTrace
+         U typeinfo for int@@CXXABI_1.3
+0001e818 r typeinfo for TSListTests::CListOps
+0001e7cc r typeinfo for TSListTests::CTestOps
+0001e7f0 r typeinfo for TSListTests::CQueueOps
+0001df3b r typeinfo name for CCommandLine
+0001df2c r typeinfo name for ICommandLine
+0001e488 V typeinfo name for CWorkerThread
+0001e468 V typeinfo name for CThread
+0001eb44 r typeinfo name for CVCRTrace
+0001eb2c r typeinfo name for IVCRTrace
+0001e824 r typeinfo name for TSListTests::CListOps
+0001e7d4 r typeinfo name for TSListTests::CTestOps
+0001e7fc r typeinfo name for TSListTests::CQueueOps
+0001dfa0 r vtable for CCommandLine
+0001df60 r vtable for ICommandLine
+0001e4a0 V vtable for CWorkerThread
+0001e4e0 V vtable for CThread
+0001eb50 r vtable for CVCRTrace
+         U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
+         U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
+0001e858 r vtable for TSListTests::CListOps
+0001e840 r vtable for TSListTests::CQueueOps
+0002ab40 b Plat_FloatTime::start_time
+0002ab50 b Plat_FloatTime::bInitialized
+00028234 b DoNewAssertDialog::autoMutex__
+00028230 b DoNewAssertDialog::pfnSDLShowMessageBox
+000286e0 b GetCPUInformation::pi
+00028770 b COM_TimestampedLog::s_bChecked
+00028740 b COM_TimestampedLog::s_LastStamp
+00028760 b COM_TimestampedLog::s_bShouldLog
+00028750 b COM_TimestampedLog::s_bFirstWrite
+00028751 b COM_TimestampedLog::s_bShouldLogToETW
+0002b410 b ThreadSetDebugName::s_pthread_setname_np_func
+00028704 b GetProcessorVendorId()::VendorID
+0001e29c r Plat_IsInDebugSession::s_TracerPid
+00028240 b ShouldUseNewAssertDialog::bMPIWorker
+000281b0 b pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszDbgPathMatch
+000281c0 b pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszPathMatchEnabled
+00028220 b AreAssertsDisabled()::bResult
+00028210 b IsDebugBreakEnabled()::bResult
+0001e450 r CThreadSpinRWLock::UnlockWrite()::newValue
+0001e460 u CThreadSpinRWLock::TryLockForWrite(unsigned int)::oldValue
+000287f0 b CSharedLibraryCache::GetCache()::Singleton
+0002d204 b CVProfile::FindOrCreateCounter(char const*, CounterGroup_t)::dummy
