@@ -1,194 +1,194 @@
-         U abort@@GLIBC_2.0
-         U access@@GLIBC_2.0
-00011058 A __bss_start
-         U chmod@@GLIBC_2.0
-         U chown@@GLIBC_2.1
-         U closedir@@GLIBC_2.0
-         U close@@GLIBC_2.0
-         U __cxa_atexit@@GLIBC_2.1.3
-         U __cxa_begin_catch@@CXXABI_1.3
-         U __cxa_end_catch@@CXXABI_1.3
-         w __cxa_finalize@@GLIBC_2.1.3
-         U __cxa_guard_acquire@@CXXABI_1.3
-         U __cxa_guard_release@@CXXABI_1.3
-         U __cxa_pure_virtual@@CXXABI_1.3
-         U dlclose@@GLIBC_2.0
-         U dlerror@@GLIBC_2.0
-         U dl_iterate_phdr@@GLIBC_2.2.4
-         U dlmopen@@GLIBC_2.3.4
-         U dlopen@@GLIBC_2.1
-         U dlsym@@GLIBC_2.0
-00011058 A _edata
-000125c8 A _end
-         U __errno_location@@GLIBC_2.0
-         U fclose@@GLIBC_2.1
-         U fgets@@GLIBC_2.0
-0000c418 T _fini
-         U fopen64@@GLIBC_2.1
-         U fopen@@GLIBC_2.1
-         U fprintf@@GLIBC_2.0
-         U fputc@@GLIBC_2.0
-         U fputs@@GLIBC_2.0
-         U fread@@GLIBC_2.0
-         U free@@GLIBC_2.0
-         U freopen@@GLIBC_2.0
-         U fwrite@@GLIBC_2.0
-         U getenv@@GLIBC_2.0
-00006912 T GetHSteamPipe
-0000693d T GetHSteamUser
-         w __gmon_start__
-00012410 B g_pSteamClientGameServer
-         U __gxx_personality_v0@@CXXABI_1.3
-00002a4c T _init
-         w _Jv_RegisterClasses
-         U kill@@GLIBC_2.0
-         U lchown@@GLIBC_2.0
-         U link@@GLIBC_2.0
-         U __lxstat64@@GLIBC_2.2
-         U __lxstat@@GLIBC_2.0
-         U malloc@@GLIBC_2.0
-         U memcpy@@GLIBC_2.0
-         U mkdir@@GLIBC_2.0
-         U mkfifo@@GLIBC_2.0
-         U mount@@GLIBC_2.0
-         U open64@@GLIBC_2.2
-         U opendir@@GLIBC_2.0
-         U open@@GLIBC_2.0
-         w pthread_cancel@@GLIBC_2.0
-         U pthread_mutexattr_destroy@@GLIBC_2.0
-         U pthread_mutexattr_init@@GLIBC_2.0
-         U pthread_mutex_destroy@@GLIBC_2.0
-         U pthread_mutex_init@@GLIBC_2.0
-         U pthread_mutex_lock@@GLIBC_2.0
-         U pthread_mutex_unlock@@GLIBC_2.0
-         w pthread_once@@GLIBC_2.0
-         U readdir64@@GLIBC_2.2
-         U read@@GLIBC_2.0
-         U realpath@@GLIBC_2.3
-         U rename@@GLIBC_2.0
-         U rmdir@@GLIBC_2.0
-         U scandir64@@GLIBC_2.2
-         U scandir@@GLIBC_2.0
-         U setenv@@GLIBC_2.0
-         U snprintf@@GLIBC_2.0
-         U sprintf@@GLIBC_2.0
-         U sscanf@@GLIBC_2.0
-         U __stack_chk_fail@@GLIBC_2.4
-         U statvfs64@@GLIBC_2.1
-         U statvfs@@GLIBC_2.1
-         U stderr@@GLIBC_2.0
-00006900 T SteamAPI_GetHSteamPipe
-0000692b T SteamAPI_GetHSteamUser
-00006fdb T SteamAPI_GetSteamInstallPath
-0000890d T SteamAPI_Init
-000088c5 T SteamAPI_InitSafe
-00006e25 T SteamAPI_IsSteamRunning
-00006efa T SteamAPI_RegisterCallback
-00006f42 T SteamAPI_RegisterCallResult
-00006ff0 T SteamAPI_RestartAppIfNecessary
-00006e60 T SteamAPI_RunCallbacks
-00007a8e T SteamAPI_SetBreakpadAppID
-00007b31 T SteamAPI_SetMiniDumpComment
-00004b6e T SteamAPI_SetTryCatchCallbacks
-00006c12 T SteamAPI_Shutdown
-00006f22 T SteamAPI_UnregisterCallback
-00006f72 T SteamAPI_UnregisterCallResult
-00008990 T SteamAPI_UseBreakpadCrashHandler
-00007b69 T SteamAPI_WriteMiniDump
-000068b8 T SteamAppList
-00006828 T SteamApps
-000067aa T SteamClient
-00006894 T SteamController
-00005ebd T SteamController_GetControllerState
-00005b29 T SteamController_Init
-00005f37 T SteamController_SetOverrideMode
-00005e97 T SteamController_Shutdown
-00005ef5 T SteamController_TriggerHapticPulse
-000067ce T SteamFriends
-00008caa T SteamGameServer
-00008cce T SteamGameServerApps
-000091a0 T SteamGameServer_BSecure
-00008d16 T SteamGameServer_GetHSteamPipe
-00008d28 T SteamGameServer_GetHSteamUser
-00009228 T SteamGameServer_GetIPCCallCount
-000091d1 T SteamGameServer_GetSteamID
-00008d04 T SteamGameServerHTTP
-0000903d T SteamGameServer_Init
-00008ff5 T SteamGameServer_InitSafe
-00008ce0 T SteamGameServerNetworking
-00009172 T SteamGameServer_RunCallbacks
-00009085 T SteamGameServer_Shutdown
-00008cf2 T SteamGameServerStats
-00008cbc T SteamGameServerUtils
-00006fc2 T Steam_GetHSteamUserCurrent
-000068ee T SteamHTMLSurface
-00006870 T SteamHTTP
-000067f2 T SteamMatchmaking
-00006804 T SteamMatchmakingServers
-000068ca T SteamMusic
-000068dc T SteamMusicRemote
-0000683a T SteamNetworking
-00003f90 T SteamRealPath
-00006fa2 T Steam_RegisterInterfaceFuncs
-0000684c T SteamRemoteStorage
-00006e36 T Steam_RunCallbacks
-0000685e T SteamScreenshots
-000068a6 T SteamUGC
-00006882 T SteamUnifiedMessages
-000067bc T SteamUser
-00006816 T SteamUserStats
-000067e0 T SteamUtils
-000062eb T SteamVR_ComputeDistortion
-00006386 T SteamVR_GetD3D9AdapterIndex
-0000644c T SteamVR_GetDisplayId
-00006429 T SteamVR_GetDriverId
-00006231 T SteamVR_GetEyeOutputViewport
-00006327 T SteamVR_GetHeadFromEyePose
-000063c4 T SteamVR_GetLastTrackerFromHeadPose
-0000626c T SteamVR_GetProjectionMatrix
-000062b0 T SteamVR_GetProjectionRaw
-0000620e T SteamVR_GetRecommendedRenderTargetSize
-00006399 T SteamVR_GetTrackerFromHeadPose
-00006405 T SteamVR_GetTrackerZeroPose
-00006353 T SteamVR_GetViewMatrix
-000061dc T SteamVR_GetWindowBounds
-000061ca T SteamVR_IHmd_Version
-000063df T SteamVR_WillDriftInYaw
-000063f2 T SteamVR_ZeroTracker
-         U strcasecmp@@GLIBC_2.0
-         U strcasestr@@GLIBC_2.1
-         U strcmp@@GLIBC_2.0
-         U strcpy@@GLIBC_2.0
-         U strdup@@GLIBC_2.0
-         U strncasecmp@@GLIBC_2.0
-         U strncat@@GLIBC_2.0
-         U strncpy@@GLIBC_2.0
-         U strpbrk@@GLIBC_2.0
-         U strtol@@GLIBC_2.0
-         U symlink@@GLIBC_2.0
-         U system@@GLIBC_2.0
-         U tolower@@GLIBC_2.0
-         U unlink@@GLIBC_2.0
-         U utime@@GLIBC_2.0
-         U utimes@@GLIBC_2.0
-000060a0 T VR_GetControlPanel
-000060c8 T VR_GetGenericInterface
-000061aa T VR_GetStringForHmdError
-00005f65 T VR_Init
-000060f0 T VR_IsHmdPresent
-00006087 T VR_Shutdown
-         U vsnprintf@@GLIBC_2.0
-         U __xmknod@@GLIBC_2.0
-         U __xstat64@@GLIBC_2.2
-         U __xstat@@GLIBC_2.0
-         U operator delete[](void*)@@GLIBCXX_3.4
-         U operator delete(void*)@@GLIBCXX_3.4
-         U operator new[](unsigned int)@@GLIBCXX_3.4
-         U std::__detail::_List_node_base::_M_hook(std::__detail::_List_node_base*)@@GLIBCXX_3.4.15
-         U std::__detail::_List_node_base::_M_unhook()@@GLIBCXX_3.4.15
-         U operator new(unsigned int)@@GLIBCXX_3.4
-         U std::_Rb_tree_increment(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
-         U std::_Rb_tree_rebalance_for_erase(std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
-         U std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
-         U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
-         U vtable for __cxxabiv1::__vmi_class_type_info@@CXXABI_1.3
+U abort@@GLIBC_2.0
+U access@@GLIBC_2.0
+A __bss_start
+U chmod@@GLIBC_2.0
+U chown@@GLIBC_2.1
+U closedir@@GLIBC_2.0
+U close@@GLIBC_2.0
+U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_begin_catch@@CXXABI_1.3
+U __cxa_end_catch@@CXXABI_1.3
+w __cxa_finalize@@GLIBC_2.1.3
+U __cxa_guard_acquire@@CXXABI_1.3
+U __cxa_guard_release@@CXXABI_1.3
+U __cxa_pure_virtual@@CXXABI_1.3
+U dlclose@@GLIBC_2.0
+U dlerror@@GLIBC_2.0
+U dl_iterate_phdr@@GLIBC_2.2.4
+U dlmopen@@GLIBC_2.3.4
+U dlopen@@GLIBC_2.1
+U dlsym@@GLIBC_2.0
+A _edata
+A _end
+U __errno_location@@GLIBC_2.0
+U fclose@@GLIBC_2.1
+U fgets@@GLIBC_2.0
+T _fini
+U fopen64@@GLIBC_2.1
+U fopen@@GLIBC_2.1
+U fprintf@@GLIBC_2.0
+U fputc@@GLIBC_2.0
+U fputs@@GLIBC_2.0
+U fread@@GLIBC_2.0
+U free@@GLIBC_2.0
+U freopen@@GLIBC_2.0
+U fwrite@@GLIBC_2.0
+U getenv@@GLIBC_2.0
+T GetHSteamPipe
+T GetHSteamUser
+w __gmon_start__
+B g_pSteamClientGameServer
+U __gxx_personality_v0@@CXXABI_1.3
+T _init
+w _Jv_RegisterClasses
+U kill@@GLIBC_2.0
+U lchown@@GLIBC_2.0
+U link@@GLIBC_2.0
+U __lxstat64@@GLIBC_2.2
+U __lxstat@@GLIBC_2.0
+U malloc@@GLIBC_2.0
+U memcpy@@GLIBC_2.0
+U mkdir@@GLIBC_2.0
+U mkfifo@@GLIBC_2.0
+U mount@@GLIBC_2.0
+U open64@@GLIBC_2.2
+U opendir@@GLIBC_2.0
+U open@@GLIBC_2.0
+w pthread_cancel@@GLIBC_2.0
+U pthread_mutexattr_destroy@@GLIBC_2.0
+U pthread_mutexattr_init@@GLIBC_2.0
+U pthread_mutex_destroy@@GLIBC_2.0
+U pthread_mutex_init@@GLIBC_2.0
+U pthread_mutex_lock@@GLIBC_2.0
+U pthread_mutex_unlock@@GLIBC_2.0
+w pthread_once@@GLIBC_2.0
+U readdir64@@GLIBC_2.2
+U read@@GLIBC_2.0
+U realpath@@GLIBC_2.3
+U rename@@GLIBC_2.0
+U rmdir@@GLIBC_2.0
+U scandir64@@GLIBC_2.2
+U scandir@@GLIBC_2.0
+U setenv@@GLIBC_2.0
+U snprintf@@GLIBC_2.0
+U sprintf@@GLIBC_2.0
+U sscanf@@GLIBC_2.0
+U __stack_chk_fail@@GLIBC_2.4
+U statvfs64@@GLIBC_2.1
+U statvfs@@GLIBC_2.1
+U stderr@@GLIBC_2.0
+T SteamAPI_GetHSteamPipe
+T SteamAPI_GetHSteamUser
+T SteamAPI_GetSteamInstallPath
+T SteamAPI_Init
+T SteamAPI_InitSafe
+T SteamAPI_IsSteamRunning
+T SteamAPI_RegisterCallback
+T SteamAPI_RegisterCallResult
+T SteamAPI_RestartAppIfNecessary
+T SteamAPI_RunCallbacks
+T SteamAPI_SetBreakpadAppID
+T SteamAPI_SetMiniDumpComment
+T SteamAPI_SetTryCatchCallbacks
+T SteamAPI_Shutdown
+T SteamAPI_UnregisterCallback
+T SteamAPI_UnregisterCallResult
+T SteamAPI_UseBreakpadCrashHandler
+T SteamAPI_WriteMiniDump
+T SteamAppList
+T SteamApps
+T SteamClient
+T SteamController
+T SteamController_GetControllerState
+T SteamController_Init
+T SteamController_SetOverrideMode
+T SteamController_Shutdown
+T SteamController_TriggerHapticPulse
+T SteamFriends
+T SteamGameServer
+T SteamGameServerApps
+T SteamGameServer_BSecure
+T SteamGameServer_GetHSteamPipe
+T SteamGameServer_GetHSteamUser
+T SteamGameServer_GetIPCCallCount
+T SteamGameServer_GetSteamID
+T SteamGameServerHTTP
+T SteamGameServer_Init
+T SteamGameServer_InitSafe
+T SteamGameServerNetworking
+T SteamGameServer_RunCallbacks
+T SteamGameServer_Shutdown
+T SteamGameServerStats
+T SteamGameServerUtils
+T Steam_GetHSteamUserCurrent
+T SteamHTMLSurface
+T SteamHTTP
+T SteamMatchmaking
+T SteamMatchmakingServers
+T SteamMusic
+T SteamMusicRemote
+T SteamNetworking
+T SteamRealPath
+T Steam_RegisterInterfaceFuncs
+T SteamRemoteStorage
+T Steam_RunCallbacks
+T SteamScreenshots
+T SteamUGC
+T SteamUnifiedMessages
+T SteamUser
+T SteamUserStats
+T SteamUtils
+T SteamVR_ComputeDistortion
+T SteamVR_GetD3D9AdapterIndex
+T SteamVR_GetDisplayId
+T SteamVR_GetDriverId
+T SteamVR_GetEyeOutputViewport
+T SteamVR_GetHeadFromEyePose
+T SteamVR_GetLastTrackerFromHeadPose
+T SteamVR_GetProjectionMatrix
+T SteamVR_GetProjectionRaw
+T SteamVR_GetRecommendedRenderTargetSize
+T SteamVR_GetTrackerFromHeadPose
+T SteamVR_GetTrackerZeroPose
+T SteamVR_GetViewMatrix
+T SteamVR_GetWindowBounds
+T SteamVR_IHmd_Version
+T SteamVR_WillDriftInYaw
+T SteamVR_ZeroTracker
+U strcasecmp@@GLIBC_2.0
+U strcasestr@@GLIBC_2.1
+U strcmp@@GLIBC_2.0
+U strcpy@@GLIBC_2.0
+U strdup@@GLIBC_2.0
+U strncasecmp@@GLIBC_2.0
+U strncat@@GLIBC_2.0
+U strncpy@@GLIBC_2.0
+U strpbrk@@GLIBC_2.0
+U strtol@@GLIBC_2.0
+U symlink@@GLIBC_2.0
+U system@@GLIBC_2.0
+U tolower@@GLIBC_2.0
+U unlink@@GLIBC_2.0
+U utime@@GLIBC_2.0
+U utimes@@GLIBC_2.0
+T VR_GetControlPanel
+T VR_GetGenericInterface
+T VR_GetStringForHmdError
+T VR_Init
+T VR_IsHmdPresent
+T VR_Shutdown
+U vsnprintf@@GLIBC_2.0
+U __xmknod@@GLIBC_2.0
+U __xstat64@@GLIBC_2.2
+U __xstat@@GLIBC_2.0
+U operator delete[](void*)@@GLIBCXX_3.4
+U operator delete(void*)@@GLIBCXX_3.4
+U operator new[](unsigned int)@@GLIBCXX_3.4
+U std::__detail::_List_node_base::_M_hook(std::__detail::_List_node_base*)@@GLIBCXX_3.4.15
+U std::__detail::_List_node_base::_M_unhook()@@GLIBCXX_3.4.15
+U operator new(unsigned int)@@GLIBCXX_3.4
+U std::_Rb_tree_increment(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+U std::_Rb_tree_rebalance_for_erase(std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+U std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
+U vtable for __cxxabiv1::__vmi_class_type_info@@CXXABI_1.3

@@ -1,1184 +1,1184 @@
-         U abort@@GLIBC_2.0
-0002b750 t add_fdes
-0003b2d8 d adds.8776
-0002bf90 t base_from_cb_data.isra.4
-0002b2d0 t base_from_object.isra.3
-0003b2e0 A __bss_start
-         U chdir@@GLIBC_2.0
-0002b5e0 t classify_object_over_fdes
-0003b2e0 b completed.6767
-         U COM_TimestampedLog
-0000e420 T CreateInterface
-         U __ctype_b_loc@@GLIBC_2.3
-         U __ctype_tolower_loc@@GLIBC_2.3
-         U __ctype_toupper_loc@@GLIBC_2.3
-0003e0e0 B cvar
-         U __cxa_atexit@@GLIBC_2.1.3
-         w __cxa_finalize@@GLIBC_2.1.3
-         U __cxa_guard_abort@@CXXABI_1.3
-         U __cxa_guard_acquire@@CXXABI_1.3
-         U __cxa_guard_release@@CXXABI_1.3
-         U __cxa_pure_virtual@@CXXABI_1.3
-0002c880 t __deregister_frame
-0002c870 t __deregister_frame_info
-0002c760 t __deregister_frame_info_bases
-00006c30 t deregister_tm_clones
-         U DevMsg
-         U dlclose@@GLIBC_2.0
-         U dlerror@@GLIBC_2.0
-         U dl_iterate_phdr@@GLIBC_2.2.4
-         U dlopen@@GLIBC_2.1
-         U dlsym@@GLIBC_2.0
-00006cc0 t __do_global_dtors_aux
-0003aeb4 t __do_global_dtors_aux_fini_array_entry
-0003b040 d __dso_handle
-0003f6dc b dwarf_reg_size_table
-0003aebc a _DYNAMIC
-         U __dynamic_cast@@CXXABI_1.3
-0003b2e0 A _edata
-0003f800 A _end
-         U __errno_location@@GLIBC_2.0
-         U Error
-00028600 t execute_cfa_program
-00029710 t execute_stack_op
-0002b530 t fde_mixed_encoding_compare
-0002b330 t fde_single_encoding_compare
-0002aeb0 t fde_unencoded_compare
-0002ca84 T _fini
-0002aee0 t frame_downheap
-00006d10 t frame_dummy
-0003ae88 t __frame_dummy_init_array_entry
-000391f0 r __FRAME_END__
-0003f720 b frame_hdr_cache
-0003f718 b frame_hdr_cache_head
-0002afb0 t frame_heapsort
-0002a920 t __frame_state_for
-         U free@@GLIBC_2.0
-0002b1d0 t get_cie_encoding
-         U getcwd@@GLIBC_2.0
-0003bce0 b g_KeyValuesErrorStack
-0003aff4 a _GLOBAL_OFFSET_TABLE_
-000069c0 t _GLOBAL__sub_I_cvar
-000069f0 t _GLOBAL__sub_I_s_StringCharConversion
-00006870 t _GLOBAL__sub_I__Z16TextToSoundLevelPKc
-00006990 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
-00006b70 t _GLOBAL__sub_I__ZN10CUtlString11AllocMemoryEj
-00006a90 t _GLOBAL__sub_I__ZN10CUtlSymbol14s_pSymbolTableE
-00006ae0 t _GLOBAL__sub_I__ZN14ConCommandBase18s_pConCommandBasesE
-000068a0 t _GLOBAL__sub_I__ZN23CSoundEmitterSystemBaseC2Ev
-00006940 t _GLOBAL__sub_I__ZN9KeyValues22s_pfGetSymbolForStringE
-         w __gmon_start__
-0003e0d0 b g_pCVar
-0003e0c0 b g_pProcessUtils
-0003e0b0 b g_pUtlSortVectorQSortContext
-0003b500 b g_SoundEmitterSystemBase
-         U __gxx_personality_v0@@CXXABI_1.3
-         U iconv_close@@GLIBC_2.1
-         U iconv@@GLIBC_2.1
-         U iconv_open@@GLIBC_2.1
-00006788 T _init
-00028ed0 t init_dwarf_reg_size_table
-         U isspace@@GLIBC_2.0
-         U iswspace@@GLIBC_2.0
-         w _ITM_deregisterTMCloneTable
-         w _ITM_registerTMCloneTable
-0003aeb8 d __JCR_END__
-0003aeb8 d __JCR_LIST__
-         w _Jv_RegisterClasses
-         U KeyValuesSystem
-00028759 t .L122
-00028754 t .L19
-00029507 t .L191
-000294fb t .L192
-000294d7 t .L195
-000294ef t .L196
-000292d0 t .L197
-00029348 t .L198
-00028761 t .L21
-000287cd t .L22
-000292c8 t .L223
-00029645 t .L226
-00029637 t .L227
-000287eb t .L23
-00029680 t .L230
-00029629 t .L231
-0002935d t .L232
-0002961c t .L233
-00028809 t .L24
-00028826 t .L25
-00028888 t .L26
-000288ca t .L27
-0002890a t .L28
-00028934 t .L29
-000289a3 t .L30
-000289d6 t .L31
-000289ff t .L32
-00029800 t .L325
-00029850 t .L328
-00029840 t .L329
-00028a61 t .L33
-00029830 t .L330
-00029820 t .L331
-00029810 t .L332
-00029778 t .L334
-000297b8 t .L336
-00029b30 t .L337
-00029b18 t .L338
-00029af8 t .L339
-00028aa1 t .L34
-00029be8 t .L340
-00029bc8 t .L341
-00029a00 t .L342
-000299d0 t .L343
-00029aa8 t .L344
-00029a70 t .L345
-00029a40 t .L346
-00029a30 t .L347
-00029ae8 t .L348
-000297c8 t .L349
-00028ad7 t .L35
-00029980 t .L350
-00029920 t .L351
-00029b60 t .L352
-00029898 t .L354
-00028b18 t .L36
-00029e1e t .L367
-00029e12 t .L368
-00028b78 t .L37
-00029df0 t .L371
-00029e06 t .L372
-00029c21 t .L373
-00029c7c t .L374
-00028bc8 t .L38
-00028c1c t .L39
-00028c3f t .L40
-00028cab t .L41
-00029d71 t .L415
-00029d7a t .L417
-00029d88 t .L418
-00029d91 t .L419
-00028d00 t .L42
-00029d21 t .L420
-00029d2b t .L421
-00029d34 t .L422
-00029d3d t .L423
-00029d46 t .L424
-00029d4f t .L425
-00029d58 t .L426
-00029d61 t .L427
-00029db0 t .L428
-00029dc0 t .L429
-00028dcd t .L43
-00029dd0 t .L430
-00029de0 t .L431
-00029da0 t .L432
-00028d60 t .L44
-00029808 t .L440
-00029fca t .L523
-0002a108 t .L524
-0002a0d8 t .L526
-0002a020 t .L527
-00029fa8 t .L528
-0002a080 t .L529
-00028e61 t .L56
-00028e3f t .L57
-00028e48 t .L60
-00028e58 t .L61
-0002b1a8 t .L61
-00028dfc t .L62
-00028e2b t .L63
-0002b160 t .L64
-0002b198 t .L65
-0002b148 t .L68
-0002b138 t .L69
-0002b0f0 t .L70
-0002b128 t .L71
-0002b3c0 t linear_search_fdes
-         U malloc@@GLIBC_2.0
-0003f700 b marker.8514
-         U mbstowcs@@GLIBC_2.0
-         U memcmp@@GLIBC_2.0
-         U __memcpy_chk@@GLIBC_2.3.4
-         U memcpy@@GLIBC_2.0
-         U memmove@@GLIBC_2.0
-         U memset@@GLIBC_2.0
-         U Msg
-0003f7e0 b object_mutex
-0003f6d8 b once_regsizes.8974
-         U Plat_IsInDebugSession
-         U Plat_localtime
-         U __pow_finite@@GLIBC_2.15
-         U __printf_chk@@GLIBC_2.3.4
-         w __pthread_key_create@@GLIBC_2.0
-         U pthread_mutexattr_init@@GLIBC_2.0
-         U pthread_mutexattr_settype@@GLIBC_2.1
-         U pthread_mutex_destroy@@GLIBC_2.0
-         U pthread_mutex_init@@GLIBC_2.0
-         U pthread_mutex_lock@@GLIBC_2.0
-         U pthread_mutex_unlock@@GLIBC_2.0
-         w pthread_once@@GLIBC_2.0
-         U qsort@@GLIBC_2.0
-000264e0 t qsort_s
-         U RandomFloat
-         U RandomFloatExp
-         U RandomInt
-0003b1c0 d randomStream
-0002b0b0 t read_encoded_value_with_base
-000285b0 t read_sleb128
-0002ae60 t read_sleb128
-         U realloc@@GLIBC_2.0
-0002c610 t __register_frame
-0002c5e0 t __register_frame_info
-0002c540 t __register_frame_info_bases
-0002c6f0 t __register_frame_info_table
-0002c660 t __register_frame_info_table_bases
-0002c720 t __register_frame_table
-00006c70 t register_tm_clones
-0002b880 t search_object
-0003f7f8 b seen_objects
-00006ba0 t set_fast_math
-0002b040 t size_of_encoded_value
-0003e120 b s_NoEscConversion
-         U sscanf@@GLIBC_2.0
-0003ea40 b s_StringCharConversion
-         U __stack_chk_fail@@GLIBC_2.4
-         U strcasecmp@@GLIBC_2.0
-         U strchr@@GLIBC_2.0
-         U strcmp@@GLIBC_2.0
-         U strcpy@@GLIBC_2.0
-         U strdup@@GLIBC_2.0
-         U strftime@@GLIBC_2.0
-         U strlen@@GLIBC_2.0
-         U strncasecmp@@GLIBC_2.0
-         U strncat@@GLIBC_2.0
-         U strncpy@@GLIBC_2.0
-         U strstr@@GLIBC_2.0
-         U strtod@@GLIBC_2.0
-         U strtok@@GLIBC_2.0
-         U strtol@@GLIBC_2.0
-         U strtoul@@GLIBC_2.0
-0003f710 b subs.8777
-         U __swprintf_chk@@GLIBC_2.4
-0003f704 b terminator.8620
-         U ThreadGetCurrentId
-         U ThreadInterlockedAssignIf
-         U ThreadInterlockedAssignIf64
-         U ThreadInterlockedExchange
-         U ThreadInterlockedIncrement
-         U time@@GLIBC_2.0
-0003b2e0 d __TMC_END__
-         U tolower@@GLIBC_2.0
-         U toupper@@GLIBC_2.0
-         U towlower@@GLIBC_2.0
-         U towupper@@GLIBC_2.0
-00028480 t __udivdi3
-0003f7fc b unseen_objects
-0002adc0 t _Unwind_Backtrace
-0002a9f0 t _Unwind_DebugHook
-0002ada0 t _Unwind_DeleteException
-0002a8c0 t _Unwind_FindEnclosingFunction
-0002c8b0 t _Unwind_Find_FDE
-0002ab70 t _Unwind_ForcedUnwind
-0002a530 t _Unwind_ForcedUnwind_Phase2
-0002a7f0 t _Unwind_GetCFA
-0002a900 t _Unwind_GetDataRelBase
-0002a7a0 t _Unwind_GetGR
-0002a860 t _Unwind_GetIP
-0002a870 t _Unwind_GetIPInfo
-0002a8a0 t _Unwind_GetLanguageSpecificData
-0002a8b0 t _Unwind_GetRegionStart
-0002a910 t _Unwind_GetTextRelBase
-0002bff0 t _Unwind_IteratePhdrCallback
-0002aa00 t _Unwind_RaiseException
-0002a460 t _Unwind_RaiseException_Phase2
-0002ac20 t _Unwind_Resume
-0002ace0 t _Unwind_Resume_or_Rethrow
-0002a800 t _Unwind_SetGR
-0002a890 t _Unwind_SetIP
-00028f50 t uw_frame_state_for
-0002a230 t uw_init_context_1
-0002a680 t uw_install_context_1
-0002a3f0 t uw_update_context
-00029e70 t uw_update_context_1
-         U __vsnprintf_chk@@GLIBC_2.3.4
-         U __vswprintf_chk@@GLIBC_2.4
-         U Warning
-         U wcslen@@GLIBC_2.0
-         U wcsncat@@GLIBC_2.0
-         U wcsncpy@@GLIBC_2.0
-         U wcstol@@GLIBC_2.0
-         U wcstoll@@GLIBC_2.1
-         U wcstombs@@GLIBC_2.0
-00006d4b t __x86.get_pc_thunk.bx
-0002ae4f t __x86.get_pc_thunk.cx
-0000e0f0 t CRC32_Init(unsigned int*)
-00025d70 t HashString(char const*)
-000182c0 t V_FileBase(char const*, char*, int)
-00016230 t _V_memmove(char const*, int, void*, void const*, int)
-000172b0 t V_snprintf(char*, int, char const*, ...)
-00016470 t V_strlower(char*)
-00016610 t V_strnicmp(char const*, char const*, int)
-00016ff0 t V_strnistr(char const*, char const*, int)
-000162b0 t _V_strrchr(char const*, int, char const*, char)
-000191b0 t V_StrRight(char const*, int, char*, int)
-00019130 t V_StrSlice(char const*, int, int, char*, int)
-00015e30 t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
-00018f10 t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
-00019220 t V_strtowcs(char const*, int, wchar_t*, int)
-00019260 t V_wcstostr(wchar_t const*, int, char*, int)
-00019080 t AllocString(char const*, int)
-         U ConColorMsg(Color const&, char const*, ...)
-0000e100 t CRC32_Final(unsigned int*)
-00026190 t MurmurHash2(void const*, int, unsigned int)
-00019480 t Q_URLDecode(char*, int, char const*, int)
-00019450 t Q_URLEncode(char*, int, char const*, int)
-000171f0 t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
-00017310 t V_vsnprintf(char*, int, char const*, char*)
-000163c0 t _V_wcslower(char const*, int, wchar_t*)
-000263a0 t MurmurHash64(void const*, int, unsigned int)
-00006d50 t ReadInterval(char const*)
-00018600 t V_FixSlashes(char*, char)
-000174c0 t V_pretifymem(float, int, bool)
-00017720 t V_pretifynum(long long)
-00017250 t V_vsnwprintf(wchar_t*, int, wchar_t const*, char*)
-000193a0 t iHexCharToInt(char)
-000182a0 t PATHSEPARATOR(char)
-00007110 t PitchToString(float)
-00021300 t Q_UTF16ToUTF8(unsigned short const*, char*, int, EStringConvertErrorPolicy)
-000219f0 t Q_UTF32ToUTF8(wchar_t const*, char*, int, EStringConvertErrorPolicy)
-00020c10 t Q_UTF8ToUTF16(char const*, unsigned short*, int, EStringConvertErrorPolicy)
-00021030 t Q_UTF8ToUTF32(char const*, wchar_t*, int, EStringConvertErrorPolicy)
-00006f60 t TextToChannel(char const*)
-00018a90 t V_AppendSlash(char*, int)
-00018210 t V_binarytohex(unsigned char const*, int, char*, int)
-00018910 t V_GetFileName(char const*)
-00018110 t V_hextobinary(char const*, int, unsigned char*, int)
-00019860 t V_SplitString(char const*, char const*, CUtlVector<char*, CUtlMemory<char*, int> >&)
-00017f80 t _V_UCS2ToUTF8(unsigned short const*, char*, int)
-00018040 t _V_UTF8ToUCS2(char const*, int, unsigned short*, int)
-00019380 t cIntToHexDigit(int)
-000178f0 t Q_IsMeanSpaceW(wchar_t)
-000194f0 t Q_URLDecodeRaw(char*, int, char const*, int)
-000194c0 t Q_URLEncodeRaw(char*, int, char const*, int)
-00021710 t Q_UTF16ToUTF32(unsigned short const*, wchar_t*, int, EStringConvertErrorPolicy)
-00021dc0 t Q_UTF32ToUTF16(wchar_t const*, unsigned short*, int, EStringConvertErrorPolicy)
-000221d0 t Q_UTF32ToUTF32(wchar_t const*, wchar_t*, int, EStringConvertErrorPolicy)
-00006e50 t RandomInterval(interval_t const&)
-0000e790 t Sys_GetFactory(CSysModule*)
-0000e7d0 t Sys_GetFactory(char const*)
-0000e5c0 t Sys_LoadModule(char const*, Sys_Flags)
-000070c0 t VolumeToString(float)
-00018540 t V_SetExtension(char*, char const*, int)
-00019710 t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
-000186c0 t V_StripLastDir(char*, int)
-00017370 t V_vsnprintfRet(char*, int, char const*, char*, bool*)
-00007070 t ChannelToString(int)
-00024760 t ConVar_Register(int, IConCommandBaseAccessor*)
-0000e430 t GetModuleHandle(char const*)
-000205d0 t Q_UChar32ToUTF8(wchar_t, char*)
-00020a90 t Q_UnicodeLength(char const*)
-00020ae0 t Q_UnicodeLength(unsigned short const*)
-00020b30 t Q_UnicodeLength(wchar_t const*)
-000238e0 t Q_UnicodeRepair(char*, EStringConvertErrorPolicy)
-00023b60 t Q_UnicodeRepair(unsigned short*, EStringConvertErrorPolicy)
-00023df0 t Q_UnicodeRepair(wchar_t*, EStringConvertErrorPolicy)
-000206b0 t Q_UTF8ToUChar32(char const*, wchar_t&, bool&)
-0000e4b0 t Sys_LoadLibrary(char const*, Sys_Flags)
-00018ed0 t V_FixupPathName(char*, unsigned int, char const*)
-000185b0 t V_StripFilename(char*)
-00020550 t Q_IsValidUChar32(wchar_t)
-00020680 t Q_UChar32ToUTF16(wchar_t, unsigned short*)
-00020210 t Q_UChar32ToUTF16(wchar_t, unsigned short*) [clone .part.5]
-00020b50 t Q_UnicodeAdvance(char*, int)
-00020ba0 t Q_UnicodeAdvance(unsigned short*, int)
-00020bf0 t Q_UnicodeAdvance(wchar_t*, int)
-00020870 t Q_UTF16ToUChar32(unsigned short const*, wchar_t&, bool&)
-0000e770 t Sys_UnloadModule(CSysModule*)
-00006ea0 t TextToSoundLevel(char const*)
-00018ea0 t V_IsAbsolutePath(char const*)
-00018420 t V_StripExtension(char const*, char*, int)
-00017e60 t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
-00017f00 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
-00028430 t CharacterSetBuild(characterset_t*, char const*)
-000252e0 t ConVar_PrintFlags(ConCommandBase const*)
-00024810 t ConVar_Unregister()
-00020930 t Q_UnicodeValidate(char const*)
-00020990 t Q_UnicodeValidate(unsigned short const*)
-000209f0 t Q_UnicodeValidate(wchar_t const*)
-00016780 t StringAfterPrefix(char const*, char const*)
-0000e800 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
-00018b00 t V_ComposeFileName(char const*, char const*, char*, int)
-000187e0 t V_ExtractFilePath(char const*, char*, int)
-00025dd0 t HashStringCaseless(char const*)
-00020590 t Q_UChar32ToUTF8Len(wchar_t)
-000201e0 t Q_UChar32ToUTF8Len(wchar_t) [clone .part.2]
-00022930 t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertErrorPolicy)
-00023090 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
-000221f0 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
-00022640 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
-00007020 t SoundLevelToString(soundlevel_t)
-0000e7c0 t Sys_GetFactoryThis()
-000184c0 t V_DefaultExtension(char*, char const*, int)
-00018640 t V_FixDoubleSlashes(char*)
-00018880 t V_GetFileExtension(char const*)
-00018ba0 t V_MakeAbsolutePath(char*, int, char const*, char const*)
-00018cf0 t V_MakeRelativePath(char const*, char const*, char*, int)
-00018920 t V_RemoveDotSlashes(char*, char, bool)
-0000e110 t CRC32_GetTableEntry(unsigned int)
-0000e120 t CRC32_ProcessBuffer(unsigned int*, void const*, int)
-0000f7d0 t EvaluateConditional(char const*)
-000205b0 t Q_UChar32ToUTF16Len(wchar_t)
-00019410 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
-000160c0 t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
-000193d0 t Q_URLEncodeInternal(char*, int, char const*, int, bool)
-00015f00 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
-00022d80 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
-000234b0 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
-00026250 t MurmurHash2LowerCase(char const*, unsigned int)
-000183e0 t V_StripTrailingSlash(char*)
-00019980 t ConnectTier1Libraries(void* (**)(char const*, int*), int)
-00023f20 t DefaultCompletionFunc(char const*, char (*) [64])
-0000e4a0 t Sys_IsDebuggerPresent()
-000190e0 t V_GetCurrentDirectory(char*, int)
-00019110 t V_SetCurrentDirectory(char const*)
-000187a0 t V_UnqualifiedFileName(char const*)
-00019690 t BGetLocalFormattedDate(long, char*, int)
-000196d0 t BGetLocalFormattedTime(long, char*, int)
-00019c90 t GetNoEscCharConversion()
-000188d0 t V_ExtractFileExtension(char const*, char*, int)
-00016e60 t V_normalizeFloatString(char*)
-00025520 t ConVar_PrintDescription(ConCommandBase const*)
-0000e330 t CreateInterfaceInternal(char const*, int*)
-00019a20 t DisconnectTier1Libraries()
-00019c80 t GetCStringCharConversion()
-00017a30 t Q_RemoveAllEvilCharacters(char*)
-0000e760 t Sys_RunningWithDebugModules()
-00019540 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
-00025e30 t HashStringCaselessConventional(char const*)
-000167e0 t StringAfterPrefixCaseSensitive(char const*, char const*)
-00019290 t V_AddBackSlashesToSpecialChars(char const*)
-00017cc0 t Q_StripPrecedingAndTrailingWhitespace(char*)
-00017b40 t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
-00017db0 t Q_AggressiveStripPrecedingAndTrailingWhitespace(char*)
-00017c20 t Q_AggressiveStripPrecedingAndTrailingWhitespaceW(wchar_t*)
-00025ed0 t Hash4(void const*)
-00025f20 t Hash8(void const*)
-         U ConMsg(char const*, ...)
-         U DevMsg(char const*, ...)
-00025fa0 t Hash12(void const*)
-00026050 t Hash16(void const*)
-00016be0 t V_atof(char const*)
-00016bc0 t V_atoi(char const*)
-00025e80 t HashInt(int)
-00016810 t V_atoi64(char const*)
-000180d0 t V_nibble(char)
-00016400 t V_strupr(char*)
-00026130 t HashBlock(void const*, unsigned int)
-00016a10 t V_atoui64(char const*)
-00016250 t _V_memcmp(char const*, int, void const*, void const*, int)
-00016210 t _V_memcpy(char const*, int, void*, void const*, int)
-000161f0 t _V_memset(char const*, int, void*, int, int)
-00019530 t V_qsort_s(void*, unsigned int, unsigned int, int (*)(void*, void const*, void const*), void*)
-00016300 t _V_strcmp(char const*, int, char const*, char const*)
-00016280 t _V_strcpy(char const*, int, char*, char const*)
-00016550 t V_stricmp(char const*, char const*)
-00016fe0 t V_stristr(char*, char const*)
-00016ee0 t V_stristr(char const*, char const*)
-00019170 t V_StrLeft(char const*, int, char*, int)
-00016270 t _V_strlen(char const*, int, char const*)
-000173e0 t V_strncat(char*, char const*, unsigned int, int)
-00017120 t V_strnchr(char const*, char, int)
-00016720 t V_strncmp(char const*, char const*, int)
-00017170 t V_strncpy(char*, char const*, int)
-000164e0 t V_strnlwr(char*, unsigned int)
-00016360 t _V_strstr(char const*, int, char const*, char const*)
-00016320 t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
-000162a0 t _V_wcslen(char const*, int, wchar_t const*)
-00017450 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
-000171b0 t V_wcsncpy(wchar_t*, wchar_t const*, int)
-00016380 t _V_wcsupr(char const*, int, wchar_t*)
-         U operator delete[](void*)@@GLIBCXX_3.4
-         U operator delete(void*)@@GLIBCXX_3.4
-0003b300 b ZERO_FLOAT16
-0003f6b0 b guard variable for CUtlString::GetEmptyString()::s_emptyString
-0003bc80 b guard variable for CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
-0003bc70 b guard variable for CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)::soundWarnings
-0003ce20 b guard variable for CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
-0003f4c0 b guard variable for CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-0003bc90 b filesystem
-0003f560 b s_BreakSet
-00015d80 t FastToLower(char)
-0002da80 r pulCRCTable
-0003f670 b s_nCVarFlag
-0003ce40 b s_pTokenBuf
-0003b4f0 b vec2_origin
-0003bcb0 b vec2_origin
-0003de50 b vec2_origin
-0003e0a0 b vec2_origin
-0003e110 b vec2_origin
-0003f470 b vec2_origin
-0003f4b0 b vec2_origin
-0003f690 b vec2_origin
-0003f6d0 b vec2_origin
-0003e0f0 b s_bConnected
-0003b4e0 b vec2_invalid
-0003bca0 b vec2_invalid
-0003de40 b vec2_invalid
-0003e090 b vec2_invalid
-0003e100 b vec2_invalid
-0003f460 b vec2_invalid
-0003f4a0 b vec2_invalid
-0003f680 b vec2_invalid
-0003f6c0 b vec2_invalid
-0003f660 b s_bRegistered
-0003f500 b s_EmptyConVar
-00015dd0 t CopyToMaxChars(char*, int, char const*, int) [clone .part.0]
-0003b150 d g_pPitchLookup
-0003b060 d g_pSoundLevels
-0003b1c4 d g_RandomStream
-0003b200 d s_BackSlashMap
-0002ece0 r g_nRandomValues
-0003b180 d g_pChannelNames
-0003b170 d g_pVolumeLevels
-0000eaa0 t ParseStringToken(char const*, char const**)
-0003f550 b s_bBuiltBreakSet
-0003b2d0 d s_nDLLIdentifier
-0003b2c4 d s_DefaultAccessor
-0003f491 b g_CleanupSymbolTable
-0003b1f0 d s_LastFileLoadingFrom
-00017970 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
-0003b220 d s_pConversionArrays_NoEscConversion
-0003b240 d s_pConversionArrays_StringCharConversion
-00008580 t AccumulateFileNameAndTimestampIntoChecksum(unsigned int*, char const*)
-0003bc58 b __g_CreateCSoundEmitterSystemBaseISoundEmitterSystemBase_reg
-00008340 t __CreateCSoundEmitterSystemBaseISoundEmitterSystemBase_interface()
-00008ac0 t SplitName(char const*, int, int, char*, int, char*, int) [clone .constprop.107]
-00023f50 t ConCommand::CanAutoComplete()
-00025a30 t ConCommand::AutoCompleteSuggest(char const*, CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&)
-000246c0 t ConCommand::Dispatch(CCommand const&)
-00024d30 t ConCommand::ConCommand(char const*, ICommandCallback*, char const*, int, ICommandCompletionCallback*)
-00024ca0 t ConCommand::ConCommand(char const*, void (*)(CCommand const&), char const*, int, int (*)(char const*, char (*) [64]))
-00024c10 t ConCommand::ConCommand(char const*, void (*)(), char const*, int, int (*)(char const*, char (*) [64]))
-00024d30 t ConCommand::ConCommand(char const*, ICommandCallback*, char const*, int, ICommandCompletionCallback*)
-00024ca0 t ConCommand::ConCommand(char const*, void (*)(CCommand const&), char const*, int, int (*)(char const*, char (*) [64]))
-00024c10 t ConCommand::ConCommand(char const*, void (*)(), char const*, int, int (*)(char const*, char (*) [64]))
-000240d0 t ConCommand::~ConCommand()
-00023f30 t ConCommand::~ConCommand()
-00023f30 t ConCommand::~ConCommand()
-0001b350 t CUtlBuffer::ParseToken(characterset_t*, char*, int, bool)
-0001b150 t CUtlBuffer::ParseToken(char const*, char const*, char*, int)
-0001c370 t CUtlBuffer::ConvertCRLF(CUtlBuffer&)
-00019a90 t CUtlBuffer::GetOverflow(int)
-0001bfc0 t CUtlBuffer::IsBigEndian()
-00019b80 t CUtlBuffer::PutOverflow(int)
-0001c2f0 t CUtlBuffer::AssumeMemory(void*, int, int, int)
-0001a0e0 t CUtlBuffer::CheckPeekGet(int, int)
-0001a0b0 t CUtlBuffer::CheckPeekGet(int, int) [clone .part.16]
-0001bf90 t CUtlBuffer::SetBigEndian(bool)
-0001ad20 t CUtlBuffer::EatCPPComment()
-0001a050 t CUtlBuffer::EatWhiteSpace()
-00019f60 t CUtlBuffer::OnGetOverflow(int)
-00019f30 t CUtlBuffer::OnPutOverflow(int)
-00019e40 t CUtlBuffer::SetBufferType(bool, bool)
-00019e80 t CUtlBuffer::EnsureCapacity(int)
-0001a4a0 t CUtlBuffer::PeekLineLength()
-0001a3f0 t CUtlBuffer::PeekLineLength() [clone .part.21]
-0001a110 t CUtlBuffer::PeekWhiteSpace(int)
-0001a170 t CUtlBuffer::PeekStringMatch(int, char const*, int)
-0001af50 t CUtlBuffer::GetDelimitedChar(CUtlCharConversion*)
-0001a3d0 t CUtlBuffer::PeekStringLength()
-0001a2c0 t CUtlBuffer::PeekStringLength() [clone .part.20]
-0001b970 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
-00019f10 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
-0001c270 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
-0001bfe0 t CUtlBuffer::AddNullTermination()
-0001b610 t CUtlBuffer::AddNullTermination() [clone .part.23]
-0001afe0 t CUtlBuffer::GetDelimitedString(CUtlCharConversion*, char*, int)
-0001bbb0 t CUtlBuffer::PutDelimitedString(CUtlCharConversion*, char const*)
-0001bf60 t CUtlBuffer::ActivateByteSwapping(bool)
-0001a1d0 t CUtlBuffer::CheckArbitraryPeekGet(int, int&)
-0001ae70 t CUtlBuffer::GetDelimitedCharInternal(CUtlCharConversion*)
-0001a4c0 t CUtlBuffer::PeekDelimitedStringLength(CUtlCharConversion*, bool)
-0001a000 t CUtlBuffer::Get(void*, int)
-0001b680 t CUtlBuffer::Put(void const*, int)
-0001c060 t CUtlBuffer::Swap(CUtlMemory<unsigned char, int>&)
-0001c000 t CUtlBuffer::Swap(CUtlBuffer&)
-0001acf0 t CUtlBuffer::Scanf(char const*, ...)
-0001b940 t CUtlBuffer::Printf(char const*, ...)
-0001a6d0 t CUtlBuffer::GetLine(char*, int)
-0001a260 t CUtlBuffer::GetUpTo(void*, int)
-0001a610 t CUtlBuffer::PeekGet(int, int)
-0001a650 t CUtlBuffer::SeekGet(CUtlBuffer::SeekType_t, int)
-0001bef0 t CUtlBuffer::SeekPut(CUtlBuffer::SeekType_t, int)
-0001a9b0 t CUtlBuffer::VaScanf(char const*, char*)
-00019f90 t CUtlBuffer::CheckGet(int)
-0001b5a0 t CUtlBuffer::CheckPut(int)
-0001a790 t CUtlBuffer::GetToken(char const*)
-0001b8d0 t CUtlBuffer::VaPrintf(char const*, char*)
-0001a8a0 t CUtlBuffer::GetString(char*, int)
-0001b6f0 t CUtlBuffer::PutString(char const*)
-0001c750 t CUtlBuffer::CUtlBuffer(int, int, int)
-0001c1d0 t CUtlBuffer::CUtlBuffer(void const*, int, int)
-0001c750 t CUtlBuffer::CUtlBuffer(int, int, int)
-0001c1d0 t CUtlBuffer::CUtlBuffer(void const*, int, int)
-00015a30 t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Purge()
-0001e290 t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Grow(int)
-0001e040 t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Purge()
-0000cc70 t CUtlMemory<CUtlHashtableEntry<CUtlConstStringBase<char>, gender_t>, int>::Purge()
-0001e210 t CUtlMemory<CUtlHashtableEntry<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t>, int>::Purge()
-0000d200 t CUtlMemory<CUtlHashtableEntry<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t>, int>::Purge()
-0001fd40 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Grow(int)
-0001e250 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Purge()
-0000dc50 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short>::Grow(int)
-0000d240 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short>::Purge()
-00015870 t CUtlMemory<char, int>::Purge()
-00019b20 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
-0000ca70 t CUtlMemory<unsigned char, int>::Purge()
-0000d460 t CUtlMemory<int, int>::Purge()
-0000d280 t CUtlMemory<CSoundEmitterSystemBase::CSoundScriptFile, int>::Purge()
-0000cc30 t CUtlMemory<CSoundEntry*, int>::Purge()
-000159c0 t CUtlMemory<KeyValues*, int>::Purge()
-0000d4a0 t CUtlMemory<char const*, int>::Purge()
-0001e170 t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Purge()
-0000d1c0 t CUtlMemory<void*, int>::Purge()
-0001e370 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
-0001e8c0 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
-0001ee30 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
-0001fa20 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Insert(CUtlSymbolTable::CStringPoolIndex const&)
-0001df40 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RemoveAll()
-000275c0 t CUtlString::FixSlashes(char)
-00026dc0 t CUtlString::AllocMemory(unsigned int)
-00026f10 t CUtlString::GetForModify()
-000283b0 t CUtlString::GetEmptyString()
-00027570 t CUtlString::StripTrailingSlash()
-00026e70 t CUtlString::Set(char const*)
-00027880 t CUtlString::Trim(char)
-000278b0 t CUtlString::Trim(char const*)
-00026f90 t CUtlString::Clear()
-00026fb0 t CUtlString::Purge()
-00028300 t CUtlString::Append(char const*)
-00028310 t CUtlString::Append(char const*, int)
-00027540 t CUtlString::Format(char const*, ...)
-000274d0 t CUtlString::FormatV(char const*, char*)
-00027070 t CUtlString::ToLower()
-00027090 t CUtlString::ToUpper()
-00028190 t CUtlString::PathJoin(char const*, char const*)
-000275f0 t CUtlString::TrimLeft(char)
-00027680 t CUtlString::TrimLeft(char const*)
-00026e10 t CUtlString::SetDirect(char const*, int)
-00026eb0 t CUtlString::SetLength(int)
-00027760 t CUtlString::TrimRight(char)
-000277e0 t CUtlString::TrimRight(char const*)
-00027100 t CUtlString::operator=(char const*)
-000270b0 t CUtlString::operator=(CUtlString const&)
-00028410 t CUtlString::~CUtlString()
-00028410 t CUtlString::~CUtlString()
-00027280 t CUtlString::operator+=(char)
-00027330 t CUtlString::operator+=(double)
-000272d0 t CUtlString::operator+=(int)
-00027210 t CUtlString::operator+=(char const*)
-00027190 t CUtlString::operator+=(CUtlString const&)
-0001d1c0 t CUtlSymbol::Initialize()
-0003f480 b CUtlSymbol::s_pSymbolTable
-0001c9b0 t CUtlSymbol::DisableStaticSymbolTable()
-0003b2a0 d CUtlSymbol::s_bAllowStaticSymbolTable
-0001d2d0 t CUtlSymbol::CurrTable()
-0001d610 t CUtlSymbol::CUtlSymbol(char const*)
-0001d610 t CUtlSymbol::CUtlSymbol(char const*)
-00025c60 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
-000158b0 t CUtlVector<char, CUtlMemory<char, int> >::GrowVector(int)
-00015980 t CUtlVector<char, CUtlMemory<char, int> >::ShiftElementsRight(int, int)
-00015ae0 t CUtlVector<int, CUtlMemory<int, int> >::GrowVector(int)
-0000ccb0 t CUtlVector<int, CUtlMemory<int, int> >::InsertBefore(int, int const&)
-00015bb0 t CUtlVector<int, CUtlMemory<int, int> >::ShiftElementsRight(int, int)
-0000cdb0 t CUtlVector<CSoundEmitterSystemBase::CSoundScriptFile, CUtlMemory<CSoundEmitterSystemBase::CSoundScriptFile, int> >::InsertBefore(int, CSoundEmitterSystemBase::CSoundScriptFile const&)
-0000cec0 t CUtlVector<CSoundEntry*, CUtlMemory<CSoundEntry*, int> >::InsertBefore(int, CSoundEntry* const&)
-00015750 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::GrowVector(int)
-00015820 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, int)
-00015a00 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
-00015a00 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
-00019890 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
-0000cfc0 t CUtlVector<char const*, CUtlMemory<char const*, int> >::InsertBefore(int, char const* const&)
-0001de40 t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::InsertBefore(int, CUtlSymbolTable::StringPool_t* const&)
-0000d0c0 t CUtlVector<void*, CUtlMemory<void*, int> >::InsertBefore(int, void* const&)
-00015c00 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::SetCount(int)
-00015a70 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
-00025b90 t CEmptyConVar::SetValue(float)
-00025bb0 t CEmptyConVar::SetValue(int)
-00025b70 t CEmptyConVar::SetValue(char const*)
-00025c30 t CEmptyConVar::~CEmptyConVar()
-00025c10 t CEmptyConVar::~CEmptyConVar()
-00025c10 t CEmptyConVar::~CEmptyConVar()
-         U CThreadEvent::Set()
-         U CThreadEvent::CThreadEvent(bool)
-00020240 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
-000202a0 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
-0003bcc0 b InterfaceReg::s_pInterfaceRegs
-0000e3f0 t InterfaceReg::InterfaceReg(void* (*)(), char const*)
-0000e3f0 t InterfaceReg::InterfaceReg(void* (*)(), char const*)
-         U CThreadRWLock::UnlockWrite()
-         U CThreadRWLock::WaitForRead()
-         U CThreadRWLock::LockForWrite()
-0000d9b0 t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoInsertUnconstructed(unsigned int, bool)
-0000d870 t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::BumpEntry(unsigned int)
-0000daa0 t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoRealloc(int)
-0000cbc0 t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::RemoveAll()
-0001ffa0 t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoInsertUnconstructed(unsigned int, bool)
-0001fe20 t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::BumpEntry(unsigned int)
-000200b0 t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoRealloc(int)
-0001e080 t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::RemoveAll()
-0000deb0 t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoInsertUnconstructed(unsigned int, bool)
-0000d6b0 t int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoRemove<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex const&>(CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex const&, unsigned int)
-0000d4e0 t int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoRemove<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex>(CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, unsigned int)
-0000dd30 t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::BumpEntry(unsigned int)
-0000dfc0 t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoRealloc(int)
-0000cab0 t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::RemoveAll()
-00024900 t ConCommandBase::CopyString(char const*)
-00023e40 t ConCommandBase::CreateBase(char const*, char const*, int)
-0003f4e0 b ConCommandBase::s_pAccessor
-0003f4f0 b ConCommandBase::s_pConCommandBases
-00023ea0 t ConCommandBase::Init()
-000248f0 t ConCommandBase::GetNext()
-00023ef0 t ConCommandBase::AddFlags(int)
-000248b0 t ConCommandBase::Shutdown()
-00024890 t ConCommandBase::ConCommandBase(char const*, char const*, int)
-00024860 t ConCommandBase::ConCommandBase()
-00024890 t ConCommandBase::ConCommandBase(char const*, char const*, int)
-00024860 t ConCommandBase::ConCommandBase()
-000240b0 t ConCommandBase::~ConCommandBase()
-00023e10 t ConCommandBase::~ConCommandBase()
-00023e10 t ConCommandBase::~ConCommandBase()
-0001e0d0 t CUtlLinkedList<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
-0000dbd0 t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short> >::Unlink(unsigned short)
-0000cb00 t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
-000156d0 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
-0001d480 t CUtlSymbolTable::AddString(char const*)
-0001d100 t CUtlSymbolTable::RemoveAll()
-0001caa0 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
-0001caa0 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
-0001d160 t CUtlSymbolTable::~CUtlSymbolTable()
-0001d160 t CUtlSymbolTable::~CUtlSymbolTable()
-00025b40 t CDefaultAccessor::RegisterConCommandBase(ConCommandBase*)
-0000e8c0 t CDllDemandLoader::GetFactory()
-0000e930 t CDllDemandLoader::Unload()
-0000e8a0 t CDllDemandLoader::CDllDemandLoader(char const*)
-0000e8a0 t CDllDemandLoader::CDllDemandLoader(char const*)
-0000e3d0 t CDllDemandLoader::~CDllDemandLoader()
-0000e3a0 t CDllDemandLoader::~CDllDemandLoader()
-0000e3a0 t CDllDemandLoader::~CDllDemandLoader()
-         U CThreadSpinRWLock::UnlockRead()
-         U CThreadSpinRWLock::LockForRead()
-         U CThreadSpinRWLock::UnlockWrite()
-         U CThreadSpinRWLock::SpinLockForWrite(unsigned int)
-         U CThreadSyncObject::~CThreadSyncObject()
-0001c0b0 t CUtlInplaceBuffer::InplaceGetLinePtr(char**, int*)
-0001c150 t CUtlInplaceBuffer::InplaceGetLinePtr()
-0001c830 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
-0001c830 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
-00019aa0 t CUtlCharConversion::FindConversion(char const*, int*)
-00019ca0 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
-00019ca0 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
-0000cb80 t CUtlConstStringBase<char>::Set(char const*)
-0001c840 t CUtlNoEscConversion::FindConversion(char const*, int*)
-0000c9c0 t IUniformRandomStream::~IUniformRandomStream()
-0000c990 t IUniformRandomStream::~IUniformRandomStream()
-0000c990 t IUniformRandomStream::~IUniformRandomStream()
-00019a60 t CUtlCStringConversion::FindConversion(char const*, int*)
-00019d40 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
-00019d40 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
-0001e1b0 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
-0001e1b0 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
-00007fb0 t CSoundEmitterSystemBase::Disconnect()
-000085f0 t CSoundEmitterSystemBase::AddWaveName(char const*)
-000088e0 t CSoundEmitterSystemBase::GetWaveName(CUtlSymbol&)
-0000a480 t CSoundEmitterSystemBase::ModShutdown()
-00008410 t CSoundEmitterSystemBase::RemoveSound(char const*)
-0000b2b0 t CSoundEmitterSystemBase::RenameSound(char const*, char const*)
-00009140 t CSoundEmitterSystemBase::AddSoundName(CSoundParametersInternal&, char const*, gender_t)
-00008a00 t CSoundEmitterSystemBase::GetSoundName(int)
-00007fe0 t CSoundEmitterSystemBase::IsValidIndex(int)
-00008020 t CSoundEmitterSystemBase::GetSoundCount()
-00008f40 t CSoundEmitterSystemBase::GetActorGender(char const*)
-000083f0 t CSoundEmitterSystemBase::QueryInterface(char const*)
-0000c120 t CSoundEmitterSystemBase::InternalModInit()
-0000aff0 t CSoundEmitterSystemBase::LoadGlobalActors()
-00008100 t CSoundEmitterSystemBase::LookupSoundLevel(char const*)
-00009a60 t CSoundEmitterSystemBase::TranslateChannel(char const*)
-0000c550 t CSoundEmitterSystemBase::AddSoundOverrides(char const*, bool)
-0000bb20 t CSoundEmitterSystemBase::AddSoundsFromFile(char const*, bool, bool, bool)
-00009030 t CSoundEmitterSystemBase::GenderExpandString(gender_t, char const*, char*, int)
-00008070 t CSoundEmitterSystemBase::GenderExpandString(char const*, char const*, char*, int)
-000087f0 t CSoundEmitterSystemBase::GetWavFileForSound(char const*, gender_t)
-000080c0 t CSoundEmitterSystemBase::GetWavFileForSound(char const*, char const*)
-000082e0 t CSoundEmitterSystemBase::IsUsingGenderToken(char const*)
-0000b690 t CSoundEmitterSystemBase::ClearSoundOverrides()
-0000a320 t CSoundEmitterSystemBase::InternalModShutdown()
-00009a50 t CSoundEmitterSystemBase::TranslateSoundLevel(char const*)
-00009370 t CSoundEmitterSystemBase::TranslateAttenuation(char const*)
-000091b0 t CSoundEmitterSystemBase::ExpandSoundNameMacros(CSoundParametersInternal&, char const*)
-00008630 t CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)
-00008910 t CSoundEmitterSystemBase::UpdateSoundParameters(char const*, CSoundParametersInternal const&)
-0000a7d0 t CSoundEmitterSystemBase::FindBestSoundForGender(SoundFile*, int, gender_t)
-00008d00 t CSoundEmitterSystemBase::CheckForMissingWavFiles(bool)
-0000a930 t CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)
-00008350 t CSoundEmitterSystemBase::LookupSoundLevelByHandle(char const*, short&)
-0000c3c0 t CSoundEmitterSystemBase::ReloadSoundEntriesInList(IFileList*)
-00009a70 t CSoundEmitterSystemBase::SaveChangesToSoundScript(int)
-00008330 t CSoundEmitterSystemBase::GetManifestFileTimeChecksum()
-00009470 t CSoundEmitterSystemBase::InitSoundInternalParameters(char const*, KeyValues*, CSoundParametersInternal&)
-0000a6c0 t CSoundEmitterSystemBase::EnsureAvailableSlotsForGender(SoundFile*, int, gender_t)
-00008030 t CSoundEmitterSystemBase::InternalGetParametersForSound(int)
-00007fc0 t CSoundEmitterSystemBase::Init()
-0000c3a0 t CSoundEmitterSystemBase::Flush()
-000089b0 t CSoundEmitterSystemBase::Connect(void* (*)(char const*, int*))
-0000c370 t CSoundEmitterSystemBase::ModInit()
-0000c600 t CSoundEmitterSystemBase::AddSound(char const*, char const*, CSoundParametersInternal const&)
-00007fd0 t CSoundEmitterSystemBase::Shutdown()
-000084a0 t CSoundEmitterSystemBase::MoveSound(char const*, char const*)
-0000a4b0 t CSoundEmitterSystemBase::CSoundEmitterSystemBase()
-0000a4b0 t CSoundEmitterSystemBase::CSoundEmitterSystemBase()
-0000d390 t CSoundEmitterSystemBase::~CSoundEmitterSystemBase()
-0000d2c0 t CSoundEmitterSystemBase::~CSoundEmitterSystemBase()
-0000d2c0 t CSoundEmitterSystemBase::~CSoundEmitterSystemBase()
-0001ce20 t CUtlFilenameSymbolTable::FindFileName(char const*)
-0001d660 t CUtlFilenameSymbolTable::FindOrAddFileName(char const*)
-0001d040 t CUtlFilenameSymbolTable::String(void* const&, char*, int)
-0001d3d0 t CUtlFilenameSymbolTable::RemoveAll()
-0001cd60 t CUtlFilenameSymbolTable::CUtlFilenameSymbolTable()
-0001cd60 t CUtlFilenameSymbolTable::CUtlFilenameSymbolTable()
-0001d430 t CUtlFilenameSymbolTable::~CUtlFilenameSymbolTable()
-0001d430 t CUtlFilenameSymbolTable::~CUtlFilenameSymbolTable()
-00007d30 t CSoundParametersInternal::PitchFromString(char const*)
-00007a30 t CSoundParametersInternal::VolumeFromString(char const*)
-00007d10 t CSoundParametersInternal::ChannelFromString(char const*)
-00007de0 t CSoundParametersInternal::SoundLevelFromString(char const*)
-00007240 t CSoundParametersInternal::CopyFrom(CSoundParametersInternal const&)
-00007e60 t CSoundParametersInternal::AddToTail(SoundFile**, unsigned short*, SoundFile const&)
-00007390 t CSoundParametersInternal::CSoundParametersInternal(CSoundParametersInternal const&)
-00007190 t CSoundParametersInternal::CSoundParametersInternal()
-00007390 t CSoundParametersInternal::CSoundParametersInternal(CSoundParametersInternal const&)
-00007190 t CSoundParametersInternal::CSoundParametersInternal()
-000071f0 t CSoundParametersInternal::~CSoundParametersInternal()
-000071f0 t CSoundParametersInternal::~CSoundParametersInternal()
-0000e970 t IKeyValuesDumpContextAsText::KvBeginKey(KeyValues*, int)
-00012610 t IKeyValuesDumpContextAsText::KvWriteValue(KeyValues*, int)
-0000eb00 t IKeyValuesDumpContextAsText::KvWriteIndent(int)
-0000e9f0 t IKeyValuesDumpContextAsText::KvEndKey(KeyValues*, int)
-0000eb70 t CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)
-0000ec20 t CKeyValuesDumpContextAsDevMsg::KvWriteText(char const*)
-0000ca00 t CSoundEmitterUniformRandomStream::RandomFloat(float, float)
-0000ca40 t CSoundEmitterUniformRandomStream::RandomFloatExp(float, float, float)
-0000c9a0 t CSoundEmitterUniformRandomStream::SetSeed(int)
-0000ca20 t CSoundEmitterUniformRandomStream::RandomInt(int, int)
-0000c9e0 t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
-0000c9b0 t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
-0000c9b0 t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
-00024720 t ConVar::ClampValue(float&)
-00025190 t ConVar::SetDefault(char const*)
-00024360 t ConVar::InternalSetValue(char const*)
-000245b0 t ConVar::ChangeStringValue(char const*, float)
-00024260 t ConVar::InternalSetIntValue(int)
-000250e0 t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
-00024150 t ConVar::InternalSetFloatValue(float)
-00024000 t ConVar::Init()
-000244a0 t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
-00025120 t ConVar::Revert()
-00023fa0 t ConVar::AddFlags(int)
-00024050 t ConVar::SetValue(float)
-00024080 t ConVar::SetValue(int)
-00024020 t ConVar::SetValue(char const*)
-00024dc0 t ConVar::ConVar(char const*, char const*, int)
-00024e60 t ConVar::ConVar(char const*, char const*, int, char const*)
-00024f00 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
-00025040 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
-00024fa0 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
-00024dc0 t ConVar::ConVar(char const*, char const*, int)
-00024e60 t ConVar::ConVar(char const*, char const*, int, char const*)
-00024f00 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
-00025040 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
-00024fa0 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
-00024130 t ConVar::~ConVar()
-000240f0 t ConVar::~ConVar()
-000240f0 t ConVar::~ConVar()
-00024b30 t CCommand::DefaultBreakSet()
-00024b10 t CCommand::Reset()
-00025840 t CCommand::Tokenize(char const*, characterset_t*)
-000249b0 t CCommand::CCommand(int, char const**)
-00024960 t CCommand::CCommand()
-000249b0 t CCommand::CCommand(int, char const**)
-00024960 t CCommand::CCommand()
-000251b0 t ConVarRef::Init(char const*, bool)
-000252a0 t ConVarRef::ConVarRef(IConVar*)
-00025260 t ConVarRef::ConVarRef(char const*)
-00025290 t ConVarRef::ConVarRef(char const*, bool)
-000252a0 t ConVarRef::ConVarRef(IConVar*)
-00025260 t ConVarRef::ConVarRef(char const*)
-00025290 t ConVarRef::ConVarRef(char const*, bool)
-0000ec70 t CUtlQueue<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int> >::Insert(KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct const&)
-00011690 t KeyValues::deleteThis()
-000132e0 t KeyValues::FromString(char const*, char const*, char const**)
-00010ac0 t KeyValues::GetWString(char const*, wchar_t const*)
-00014820 t KeyValues::SaveToFile(IBaseFileSystem*, char const*, char const*, bool, bool, bool)
-0000f4f0 t KeyValues::SetNextKey(KeyValues*)
-000109c0 t KeyValues::SetWString(char const*, wchar_t const*)
-00010f20 t KeyValues::GetDataType(char const*)
-0000f630 t KeyValues::CopyKeyValue(KeyValues const&, unsigned int, char*)
-00010fd0 t KeyValues::CreateNewKey()
-0000f560 t KeyValues::GetNextValue()
-00013f20 t KeyValues::LoadFromFile(IBaseFileSystem*, char const*, char const*, bool)
-00011e10 t KeyValues::ReadAsBinary(CUtlBuffer&, int)
-0000f470 t KeyValues::RemoveSubKey(KeyValues*)
-0000f270 t KeyValues::WriteIndents(IBaseFileSystem*, void*, CUtlBuffer*, int)
-0000ef10 t KeyValues::ChainKeyValue(KeyValues*)
-0000f540 t KeyValues::GetFirstValue()
-0000f210 t KeyValues::InternalWrite(IBaseFileSystem*, void*, CUtlBuffer*, void const*, int)
-00011610 t KeyValues::MergeBaseKeys(CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >&)
-00014940 t KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)
-0000f8a0 t KeyValues::WriteAsBinary(CUtlBuffer&)
-0000f4d0 t KeyValues::FindLastSubKey()
-00013700 t KeyValues::LoadFromBuffer(char const*, CUtlBuffer&, IBaseFileSystem*, char const*)
-00013d10 t KeyValues::LoadFromBuffer(char const*, char const*, IBaseFileSystem*, char const*)
-0000f580 t KeyValues::SetStringValue(char const*)
-0000ff40 t KeyValues::RemoveEverything()
-0000f200 t KeyValues::UsesConditionals(bool)
-0000f520 t KeyValues::GetNextTrueSubKey()
-000141e0 t KeyValues::ParseIncludedKeys(char const*, char const*, IBaseFileSystem*, char const*, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >&)
-0000f780 t KeyValues::AppendIncludedKeys(CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >&)
-0000f500 t KeyValues::GetFirstTrueSubKey()
-000143b0 t KeyValues::RecursiveSaveToFile(IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)
-000147d0 t KeyValues::RecursiveSaveToFile(CUtlBuffer&, int, bool, bool)
-000128f0 t KeyValues::UnpackIntoStructure(KeyValuesUnpackStructure const*, void*, unsigned int)
-0000f1f0 t KeyValues::UsesEscapeSequences(bool)
-0000f2d0 t KeyValues::WriteConvertedString(IBaseFileSystem*, void*, CUtlBuffer*, char const*)
-00012c10 t KeyValues::ProcessResolutionKeys(char const*)
-0003b1d0 d KeyValues::s_pfGetStringForSymbol
-0003b1e0 d KeyValues::s_pfGetSymbolForString
-0003bdf0 b KeyValues::s_pGrowableStringTable
-000116c0 t KeyValues::RecursiveLoadFromBuffer(char const*, CUtlBuffer&)
-00011560 t KeyValues::RecursiveMergeKeyValues(KeyValues*)
-0000ea80 t KeyValues::GetStringForSymbolClassic(int)
-0000ea50 t KeyValues::GetSymbolForStringClassic(char const*, bool)
-000154c0 t KeyValues::SetUseGrowableStringTable(bool)
-000110c0 t KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)
-0000e960 t KeyValues::GetStringForSymbolGrowable(int)
-00015170 t KeyValues::GetSymbolForStringGrowable(char const*, bool)
-0000f410 t KeyValues::AddSubkeyUsingKnownLastChild(KeyValues*, KeyValues*)
-00010f60 t KeyValues::CreateKeyUsingKnownLastChild(char const*, KeyValues*)
-000135d0 t KeyValues::Dump(IKeyValuesDumpContext*, int)
-0000ee90 t KeyValues::Init()
-00011650 t KeyValues::Clear()
-000101e0 t KeyValues::GetInt(char const*, int)
-00010380 t KeyValues::GetPtr(char const*, void*)
-00010ce0 t KeyValues::SetInt(char const*, int)
-00010eb0 t KeyValues::SetPtr(char const*, void*)
-0000fff0 t KeyValues::FindKey(char const*, bool)
-00010480 t KeyValues::GetBool(char const*, bool, bool*)
-00010ee0 t KeyValues::IsEmpty(char const*)
-0000f600 t KeyValues::SetName(char const*)
-00010500 t KeyValues::GetColor(char const*)
-000103c0 t KeyValues::GetFloat(char const*, float)
-00010640 t KeyValues::SetColor(char const*, Color)
-00010e70 t KeyValues::SetFloat(char const*, float)
-0000f440 t KeyValues::AddSubKey(KeyValues*)
-00011080 t KeyValues::CreateKey(char const*)
-00010800 t KeyValues::GetString(char const*, char const*)
-000102b0 t KeyValues::GetUint64(char const*, unsigned long long)
-00012d80 t KeyValues::MergeFrom(KeyValues*, KeyValues::MergeKeyValuesOp_t)
-0000ef40 t KeyValues::ReadToken(CUtlBuffer&, bool&, bool&)
-00010690 t KeyValues::SetString(char const*, char const*)
-00010df0 t KeyValues::SetUint64(char const*, unsigned long long)
-000112f0 t KeyValues::operator=(KeyValues const&)
-0000eee0 t KeyValues::KeyValues(char const*)
-00010d10 t KeyValues::KeyValues(char const*, char const*, int)
-00010d70 t KeyValues::KeyValues(char const*, char const*, int, char const*, int)
-00010a70 t KeyValues::KeyValues(char const*, char const*, wchar_t const*)
-00010740 t KeyValues::KeyValues(char const*, char const*, char const*)
-00010790 t KeyValues::KeyValues(char const*, char const*, char const*, char const*, char const*)
-0000eee0 t KeyValues::KeyValues(char const*)
-00010d10 t KeyValues::KeyValues(char const*, char const*, int)
-00010d70 t KeyValues::KeyValues(char const*, char const*, int, char const*, int)
-00010a70 t KeyValues::KeyValues(char const*, char const*, wchar_t const*)
-00010740 t KeyValues::KeyValues(char const*, char const*, char const*)
-00010790 t KeyValues::KeyValues(char const*, char const*, char const*, char const*, char const*)
-0000ffe0 t KeyValues::~KeyValues()
-0000ffe0 t KeyValues::~KeyValues()
-0000ff20 t KeyValues::operator delete(void*)
-000128c0 t KeyValues::operator delete(void*, int, char const*, int)
-0000fed0 t KeyValues::operator new(unsigned int)
-0000fef0 t KeyValues::operator new(unsigned int, int, char const*, int)
-         U operator new[](unsigned int)@@GLIBCXX_3.4
-00023f40 t ConCommand::IsCommand() const
-00028110 t CUtlString::GetExtension() const
-00028030 t CUtlString::StripFilename() const
-000273a0 t CUtlString::MatchesPattern(CUtlString const&, int) const
-00027fb0 t CUtlString::StripExtension() const
-00028090 t CUtlString::GetBaseFilename() const
-00027ed0 t CUtlString::UnqualifiedFilename() const
-00026fd0 t CUtlString::IsEqual_CaseSensitive(char const*) const
-00027020 t CUtlString::IsEqual_CaseInsensitive(char const*) const
-00026ef0 t CUtlString::Get() const
-000279f0 t CUtlString::Left(int) const
-00027a30 t CUtlString::Right(int) const
-000278e0 t CUtlString::Slice(int, int) const
-00027e50 t CUtlString::AbsPath(char const*) const
-00027f10 t CUtlString::DirName() const
-00027a70 t CUtlString::Replace(char, char) const
-00027b50 t CUtlString::Replace(char const*, char const*) const
-00027130 t CUtlString::operator==(CUtlString const&) const
-00026f50 t CUtlString::operator[](int) const
-000282a0 t CUtlString::operator+(int) const
-00028200 t CUtlString::operator+(char const*) const
-00028250 t CUtlString::operator+(CUtlString const&) const
-0001d2f0 t CUtlSymbol::String() const
-0001d3a0 t CUtlSymbol::operator==(char const*) const
-00025bd0 t CEmptyConVar::GetName() const
-00025bf0 t CEmptyConVar::IsFlagSet(int) const
-00008c50 t unsigned int CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.68] [clone .constprop.109]
-0001c850 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
-00008b50 t unsigned int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<CSoundEntry*>(CSoundEntry*, unsigned int, unsigned int*) const [clone .part.101] [clone .constprop.108]
-00023f00 t ConCommandBase::GetHelpText() const
-00023f10 t ConCommandBase::IsRegistered() const
-00023e30 t ConCommandBase::GetDLLIdentifier() const
-00023ec0 t ConCommandBase::GetName() const
-000248e0 t ConCommandBase::GetNext() const
-00023e20 t ConCommandBase::IsCommand() const
-00023ed0 t ConCommandBase::IsFlagSet(int) const
-0001ccd0 t CUtlSymbolTable::FindPoolWithSpace(int) const
-0001cb30 t CUtlSymbolTable::Find(char const*) const
-0001c9c0 t CUtlSymbolTable::CLess::operator()(CUtlSymbolTable::CStringPoolIndex const&, CUtlSymbolTable::CStringPoolIndex const&) const
-0001cd20 t CUtlSymbolTable::String(CUtlSymbol) const
-00019dd0 t CUtlCharConversion::GetDelimiter() const
-00019dc0 t CUtlCharConversion::GetEscapeChar() const
-00019de0 t CUtlCharConversion::GetDelimiterLength() const
-00019e10 t CUtlCharConversion::GetConversionLength(char) const
-00019df0 t CUtlCharConversion::GetConversionString(char) const
-00019e30 t CUtlCharConversion::MaxConversionLength() const
-00007fa0 t CSoundEmitterSystemBase::InvalidIndex() const
-0000a120 t CSoundEmitterSystemBase::GetSoundIndex(char const*) const
-000081c0 t CSoundEmitterSystemBase::FindSoundScript(char const*) const
-00008230 t CSoundEmitterSystemBase::GetNumSoundScripts() const
-00008240 t CSoundEmitterSystemBase::GetSoundScriptName(int) const
-000082b0 t CSoundEmitterSystemBase::IsSoundScriptDirty(int) const
-00008a40 t CSoundEmitterSystemBase::GetSourceFileForSound(int) const
-00007f70 t CSoundEmitterSystemBase::Next(int) const
-00007f50 t CSoundEmitterSystemBase::First() const
-00007970 t CSoundParametersInternal::PitchToString() const
-000074d0 t CSoundParametersInternal::VolumeToString() const
-00007870 t CSoundParametersInternal::ChannelToString() const
-000078d0 t CSoundParametersInternal::SoundLevelToString() const
-000073c0 t CSoundParametersInternal::operator==(CSoundParametersInternal const&) const
-00025180 t ConVar::GetDefault() const
-00023f90 t ConVar::GetHelpText() const
-00023fc0 t ConVar::IsRegistered() const
-00025160 t ConVar::GetMax(float&) const
-00025140 t ConVar::GetMin(float&) const
-00023fd0 t ConVar::GetName() const
-00023ff0 t ConVar::IsCommand() const
-00023f60 t ConVar::IsFlagSet(int) const
-00024bc0 t CCommand::FindArgInt(char const*, int) const
-00024b40 t CCommand::FindArg(char const*) const
-000252c0 t ConVarRef::IsValid() const
-000114b0 t KeyValues::CopySubkeys(KeyValues*) const
-0000f3e0 t KeyValues::FindKey(int) const
-0000ef20 t KeyValues::GetName() const
-00011510 t KeyValues::MakeCopy(bool) const
-00011330 t KeyValues::MakeCopy() const
-         U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
-         U operator new(unsigned int)@@GLIBCXX_3.4
-00025ba0 t non-virtual thunk to CEmptyConVar::SetValue(float)
-00025bc0 t non-virtual thunk to CEmptyConVar::SetValue(int)
-00025b80 t non-virtual thunk to CEmptyConVar::SetValue(char const*)
-00024070 t non-virtual thunk to ConVar::SetValue(float)
-000240a0 t non-virtual thunk to ConVar::SetValue(int)
-00024040 t non-virtual thunk to ConVar::SetValue(char const*)
-00025be0 t non-virtual thunk to CEmptyConVar::GetName() const
-00025c00 t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
-00023fe0 t non-virtual thunk to ConVar::GetName() const
-00023f80 t non-virtual thunk to ConVar::IsFlagSet(int) const
-0002ea5c r typeinfo for ConCommand
-0002d788 r typeinfo for IAppSystem
-0002eae4 r typeinfo for CEmptyConVar
-0002ea44 r typeinfo for ConCommandBase
-0002eac4 r typeinfo for CDefaultAccessor
-0002df10 r typeinfo for CDllDemandLoader
-0002e750 r typeinfo for CUtlCharConversion
-0002e77c r typeinfo for CUtlNoEscConversion
-0002eaa0 r typeinfo for ConVar_ServerBounded
-0002d768 r typeinfo for IUniformRandomStream
-0002e770 r typeinfo for CUtlCStringConversion
-0002e458 r typeinfo for IKeyValuesDumpContext
-0002d7e0 r typeinfo for CSoundEmitterSystemBase
-0002ea10 r typeinfo for IConCommandBaseAccessor
-0002d7a0 r typeinfo for ISoundEmitterSystemBase
-0002e498 r typeinfo for IKeyValuesDumpContextAsText
-0002e4e0 r typeinfo for CKeyValuesDumpContextAsDevMsg
-0002d7ec r typeinfo for CSoundEmitterUniformRandomStream
-0002ea80 r typeinfo for ConVar
-0002e9fc r typeinfo for IConVar
-0002ea4c r typeinfo name for ConCommand
-0002d790 r typeinfo name for IAppSystem
-0002eaf0 r typeinfo name for CEmptyConVar
-0002ea32 r typeinfo name for ConCommandBase
-0002ead0 r typeinfo name for CDefaultAccessor
-0002defb r typeinfo name for CDllDemandLoader
-0002e73b r typeinfo name for CUtlCharConversion
-0002e788 r typeinfo name for CUtlNoEscConversion
-0002eaac r typeinfo name for ConVar_ServerBounded
-0002d770 r typeinfo name for IUniformRandomStream
-0002e758 r typeinfo name for CUtlCStringConversion
-0002e460 r typeinfo name for IKeyValuesDumpContext
-0002d7c6 r typeinfo name for CSoundEmitterSystemBase
-0002ea18 r typeinfo name for IConCommandBaseAccessor
-0002d7ac r typeinfo name for ISoundEmitterSystemBase
-0002e478 r typeinfo name for IKeyValuesDumpContextAsText
-0002e4c0 r typeinfo name for CKeyValuesDumpContextAsDevMsg
-0002d800 r typeinfo name for CSoundEmitterUniformRandomStream
-0002ea68 r typeinfo name for ConVar
-0002ea04 r typeinfo name for IConVar
-0002eb80 r vtable for ConCommand
-0002d860 r vtable for IAppSystem
-0002ec40 r vtable for CEmptyConVar
-0002eb40 r vtable for ConCommandBase
-0002eb20 r vtable for CDefaultAccessor
-0002df18 r vtable for CDllDemandLoader
-0002e7c0 r vtable for CUtlCharConversion
-0002e7a0 r vtable for CUtlNoEscConversion
-0002d840 r vtable for IUniformRandomStream
-0002e7b0 r vtable for CUtlCStringConversion
-0002d960 r vtable for CSoundEmitterSystemBase
-0002d880 r vtable for ISoundEmitterSystemBase
-0002e4f0 r vtable for IKeyValuesDumpContextAsText
-0002e510 r vtable for CKeyValuesDumpContextAsDevMsg
-0002d940 r vtable for CSoundEmitterUniformRandomStream
-0002ebc0 r vtable for ConVar
-0002eb00 r vtable for IConVar
-         U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
-         U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
-         U vtable for __cxxabiv1::__vmi_class_type_info@@CXXABI_1.3
-0003df80 b V_pretifymem(float, int, bool)::output
-0003e080 b V_pretifymem(float, int, bool)::current
-0003de60 b V_pretifynum(long long)::output
-0003df60 b V_pretifynum(long long)::current
-0003b460 b PitchToString(float)::sz
-0003b480 b VolumeToString(float)::sz
-0003b4a0 b ChannelToString(int)::sz
-0003b4c0 b SoundLevelToString(soundlevel_t)::sz
-0003b320 b _PitchToString(float)::sz
-0003b400 b _VolumeToString(float)::sz
-0003b3e0 b _ChannelToString(int)::sz
-0003b380 b _SoundLevelToString(soundlevel_t)::sz
-0003f6a0 b CUtlString::GetEmptyString()::s_emptyString
-0003f490 b CUtlSymbol::Initialize()::symbolsInitialized
-0002e7e4 r CThreadSpinRWLock::TryLockForWrite(unsigned int)::oldValue
-0003ba20 b CSoundEmitterSystemBase::GetWavFileForSound(char const*, gender_t)::outsound
-0003bc20 b CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
-0003b5e0 b CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)::soundWarnings
-0003be00 b CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
-0003b2c0 d ConVarRef::Init(char const*, bool)::bFirst
-0003be20 b KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)::buf
-0003b2b0 d CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-0003b620 b CSoundEmitterSystemBase::GetSoundScriptName(int) const::fn
-0003b820 b CSoundEmitterSystemBase::GetSourceFileForSound(int) const::fn
-0003b340 b CSoundParametersInternal::PitchToString() const::sz
-0003b420 b CSoundParametersInternal::VolumeToString() const::sz
-0003b3a0 b CSoundParametersInternal::SoundLevelToString() const::sz
+U abort@@GLIBC_2.0
+t add_fdes
+d adds.8776
+t base_from_cb_data.isra.4
+t base_from_object.isra.3
+A __bss_start
+U chdir@@GLIBC_2.0
+t classify_object_over_fdes
+b completed.6767
+U COM_TimestampedLog
+T CreateInterface
+U __ctype_b_loc@@GLIBC_2.3
+U __ctype_tolower_loc@@GLIBC_2.3
+U __ctype_toupper_loc@@GLIBC_2.3
+B cvar
+U __cxa_atexit@@GLIBC_2.1.3
+w __cxa_finalize@@GLIBC_2.1.3
+U __cxa_guard_abort@@CXXABI_1.3
+U __cxa_guard_acquire@@CXXABI_1.3
+U __cxa_guard_release@@CXXABI_1.3
+U __cxa_pure_virtual@@CXXABI_1.3
+t __deregister_frame
+t __deregister_frame_info
+t __deregister_frame_info_bases
+t deregister_tm_clones
+U DevMsg
+U dlclose@@GLIBC_2.0
+U dlerror@@GLIBC_2.0
+U dl_iterate_phdr@@GLIBC_2.2.4
+U dlopen@@GLIBC_2.1
+U dlsym@@GLIBC_2.0
+t __do_global_dtors_aux
+t __do_global_dtors_aux_fini_array_entry
+d __dso_handle
+b dwarf_reg_size_table
+a _DYNAMIC
+U __dynamic_cast@@CXXABI_1.3
+A _edata
+A _end
+U __errno_location@@GLIBC_2.0
+U Error
+t execute_cfa_program
+t execute_stack_op
+t fde_mixed_encoding_compare
+t fde_single_encoding_compare
+t fde_unencoded_compare
+T _fini
+t frame_downheap
+t frame_dummy
+t __frame_dummy_init_array_entry
+r __FRAME_END__
+b frame_hdr_cache
+b frame_hdr_cache_head
+t frame_heapsort
+t __frame_state_for
+U free@@GLIBC_2.0
+t get_cie_encoding
+U getcwd@@GLIBC_2.0
+b g_KeyValuesErrorStack
+a _GLOBAL_OFFSET_TABLE_
+t _GLOBAL__sub_I_cvar
+t _GLOBAL__sub_I_s_StringCharConversion
+t _GLOBAL__sub_I__Z16TextToSoundLevelPKc
+t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
+t _GLOBAL__sub_I__ZN10CUtlString11AllocMemoryEj
+t _GLOBAL__sub_I__ZN10CUtlSymbol14s_pSymbolTableE
+t _GLOBAL__sub_I__ZN14ConCommandBase18s_pConCommandBasesE
+t _GLOBAL__sub_I__ZN23CSoundEmitterSystemBaseC2Ev
+t _GLOBAL__sub_I__ZN9KeyValues22s_pfGetSymbolForStringE
+w __gmon_start__
+b g_pCVar
+b g_pProcessUtils
+b g_pUtlSortVectorQSortContext
+b g_SoundEmitterSystemBase
+U __gxx_personality_v0@@CXXABI_1.3
+U iconv_close@@GLIBC_2.1
+U iconv@@GLIBC_2.1
+U iconv_open@@GLIBC_2.1
+T _init
+t init_dwarf_reg_size_table
+U isspace@@GLIBC_2.0
+U iswspace@@GLIBC_2.0
+w _ITM_deregisterTMCloneTable
+w _ITM_registerTMCloneTable
+d __JCR_END__
+d __JCR_LIST__
+w _Jv_RegisterClasses
+U KeyValuesSystem
+t .L122
+t .L19
+t .L191
+t .L192
+t .L195
+t .L196
+t .L197
+t .L198
+t .L21
+t .L22
+t .L223
+t .L226
+t .L227
+t .L23
+t .L230
+t .L231
+t .L232
+t .L233
+t .L24
+t .L25
+t .L26
+t .L27
+t .L28
+t .L29
+t .L30
+t .L31
+t .L32
+t .L325
+t .L328
+t .L329
+t .L33
+t .L330
+t .L331
+t .L332
+t .L334
+t .L336
+t .L337
+t .L338
+t .L339
+t .L34
+t .L340
+t .L341
+t .L342
+t .L343
+t .L344
+t .L345
+t .L346
+t .L347
+t .L348
+t .L349
+t .L35
+t .L350
+t .L351
+t .L352
+t .L354
+t .L36
+t .L367
+t .L368
+t .L37
+t .L371
+t .L372
+t .L373
+t .L374
+t .L38
+t .L39
+t .L40
+t .L41
+t .L415
+t .L417
+t .L418
+t .L419
+t .L42
+t .L420
+t .L421
+t .L422
+t .L423
+t .L424
+t .L425
+t .L426
+t .L427
+t .L428
+t .L429
+t .L43
+t .L430
+t .L431
+t .L432
+t .L44
+t .L440
+t .L523
+t .L524
+t .L526
+t .L527
+t .L528
+t .L529
+t .L56
+t .L57
+t .L60
+t .L61
+t .L61
+t .L62
+t .L63
+t .L64
+t .L65
+t .L68
+t .L69
+t .L70
+t .L71
+t linear_search_fdes
+U malloc@@GLIBC_2.0
+b marker.8514
+U mbstowcs@@GLIBC_2.0
+U memcmp@@GLIBC_2.0
+U __memcpy_chk@@GLIBC_2.3.4
+U memcpy@@GLIBC_2.0
+U memmove@@GLIBC_2.0
+U memset@@GLIBC_2.0
+U Msg
+b object_mutex
+b once_regsizes.8974
+U Plat_IsInDebugSession
+U Plat_localtime
+U __pow_finite@@GLIBC_2.15
+U __printf_chk@@GLIBC_2.3.4
+w __pthread_key_create@@GLIBC_2.0
+U pthread_mutexattr_init@@GLIBC_2.0
+U pthread_mutexattr_settype@@GLIBC_2.1
+U pthread_mutex_destroy@@GLIBC_2.0
+U pthread_mutex_init@@GLIBC_2.0
+U pthread_mutex_lock@@GLIBC_2.0
+U pthread_mutex_unlock@@GLIBC_2.0
+w pthread_once@@GLIBC_2.0
+U qsort@@GLIBC_2.0
+t qsort_s
+U RandomFloat
+U RandomFloatExp
+U RandomInt
+d randomStream
+t read_encoded_value_with_base
+t read_sleb128
+t read_sleb128
+U realloc@@GLIBC_2.0
+t __register_frame
+t __register_frame_info
+t __register_frame_info_bases
+t __register_frame_info_table
+t __register_frame_info_table_bases
+t __register_frame_table
+t register_tm_clones
+t search_object
+b seen_objects
+t set_fast_math
+t size_of_encoded_value
+b s_NoEscConversion
+U sscanf@@GLIBC_2.0
+b s_StringCharConversion
+U __stack_chk_fail@@GLIBC_2.4
+U strcasecmp@@GLIBC_2.0
+U strchr@@GLIBC_2.0
+U strcmp@@GLIBC_2.0
+U strcpy@@GLIBC_2.0
+U strdup@@GLIBC_2.0
+U strftime@@GLIBC_2.0
+U strlen@@GLIBC_2.0
+U strncasecmp@@GLIBC_2.0
+U strncat@@GLIBC_2.0
+U strncpy@@GLIBC_2.0
+U strstr@@GLIBC_2.0
+U strtod@@GLIBC_2.0
+U strtok@@GLIBC_2.0
+U strtol@@GLIBC_2.0
+U strtoul@@GLIBC_2.0
+b subs.8777
+U __swprintf_chk@@GLIBC_2.4
+b terminator.8620
+U ThreadGetCurrentId
+U ThreadInterlockedAssignIf
+U ThreadInterlockedAssignIf64
+U ThreadInterlockedExchange
+U ThreadInterlockedIncrement
+U time@@GLIBC_2.0
+d __TMC_END__
+U tolower@@GLIBC_2.0
+U toupper@@GLIBC_2.0
+U towlower@@GLIBC_2.0
+U towupper@@GLIBC_2.0
+t __udivdi3
+b unseen_objects
+t _Unwind_Backtrace
+t _Unwind_DebugHook
+t _Unwind_DeleteException
+t _Unwind_FindEnclosingFunction
+t _Unwind_Find_FDE
+t _Unwind_ForcedUnwind
+t _Unwind_ForcedUnwind_Phase2
+t _Unwind_GetCFA
+t _Unwind_GetDataRelBase
+t _Unwind_GetGR
+t _Unwind_GetIP
+t _Unwind_GetIPInfo
+t _Unwind_GetLanguageSpecificData
+t _Unwind_GetRegionStart
+t _Unwind_GetTextRelBase
+t _Unwind_IteratePhdrCallback
+t _Unwind_RaiseException
+t _Unwind_RaiseException_Phase2
+t _Unwind_Resume
+t _Unwind_Resume_or_Rethrow
+t _Unwind_SetGR
+t _Unwind_SetIP
+t uw_frame_state_for
+t uw_init_context_1
+t uw_install_context_1
+t uw_update_context
+t uw_update_context_1
+U __vsnprintf_chk@@GLIBC_2.3.4
+U __vswprintf_chk@@GLIBC_2.4
+U Warning
+U wcslen@@GLIBC_2.0
+U wcsncat@@GLIBC_2.0
+U wcsncpy@@GLIBC_2.0
+U wcstol@@GLIBC_2.0
+U wcstoll@@GLIBC_2.1
+U wcstombs@@GLIBC_2.0
+t __x86.get_pc_thunk.bx
+t __x86.get_pc_thunk.cx
+t CRC32_Init(unsigned int*)
+t HashString(char const*)
+t V_FileBase(char const*, char*, int)
+t _V_memmove(char const*, int, void*, void const*, int)
+t V_snprintf(char*, int, char const*, ...)
+t V_strlower(char*)
+t V_strnicmp(char const*, char const*, int)
+t V_strnistr(char const*, char const*, int)
+t _V_strrchr(char const*, int, char const*, char)
+t V_StrRight(char const*, int, char*, int)
+t V_StrSlice(char const*, int, int, char*, int)
+t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
+t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
+t V_strtowcs(char const*, int, wchar_t*, int)
+t V_wcstostr(wchar_t const*, int, char*, int)
+t AllocString(char const*, int)
+U ConColorMsg(Color const&, char const*, ...)
+t CRC32_Final(unsigned int*)
+t MurmurHash2(void const*, int, unsigned int)
+t Q_URLDecode(char*, int, char const*, int)
+t Q_URLEncode(char*, int, char const*, int)
+t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
+t V_vsnprintf(char*, int, char const*, char*)
+t _V_wcslower(char const*, int, wchar_t*)
+t MurmurHash64(void const*, int, unsigned int)
+t ReadInterval(char const*)
+t V_FixSlashes(char*, char)
+t V_pretifymem(float, int, bool)
+t V_pretifynum(long long)
+t V_vsnwprintf(wchar_t*, int, wchar_t const*, char*)
+t iHexCharToInt(char)
+t PATHSEPARATOR(char)
+t PitchToString(float)
+t Q_UTF16ToUTF8(unsigned short const*, char*, int, EStringConvertErrorPolicy)
+t Q_UTF32ToUTF8(wchar_t const*, char*, int, EStringConvertErrorPolicy)
+t Q_UTF8ToUTF16(char const*, unsigned short*, int, EStringConvertErrorPolicy)
+t Q_UTF8ToUTF32(char const*, wchar_t*, int, EStringConvertErrorPolicy)
+t TextToChannel(char const*)
+t V_AppendSlash(char*, int)
+t V_binarytohex(unsigned char const*, int, char*, int)
+t V_GetFileName(char const*)
+t V_hextobinary(char const*, int, unsigned char*, int)
+t V_SplitString(char const*, char const*, CUtlVector<char*, CUtlMemory<char*, int> >&)
+t _V_UCS2ToUTF8(unsigned short const*, char*, int)
+t _V_UTF8ToUCS2(char const*, int, unsigned short*, int)
+t cIntToHexDigit(int)
+t Q_IsMeanSpaceW(wchar_t)
+t Q_URLDecodeRaw(char*, int, char const*, int)
+t Q_URLEncodeRaw(char*, int, char const*, int)
+t Q_UTF16ToUTF32(unsigned short const*, wchar_t*, int, EStringConvertErrorPolicy)
+t Q_UTF32ToUTF16(wchar_t const*, unsigned short*, int, EStringConvertErrorPolicy)
+t Q_UTF32ToUTF32(wchar_t const*, wchar_t*, int, EStringConvertErrorPolicy)
+t RandomInterval(interval_t const&)
+t Sys_GetFactory(CSysModule*)
+t Sys_GetFactory(char const*)
+t Sys_LoadModule(char const*, Sys_Flags)
+t VolumeToString(float)
+t V_SetExtension(char*, char const*, int)
+t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
+t V_StripLastDir(char*, int)
+t V_vsnprintfRet(char*, int, char const*, char*, bool*)
+t ChannelToString(int)
+t ConVar_Register(int, IConCommandBaseAccessor*)
+t GetModuleHandle(char const*)
+t Q_UChar32ToUTF8(wchar_t, char*)
+t Q_UnicodeLength(char const*)
+t Q_UnicodeLength(unsigned short const*)
+t Q_UnicodeLength(wchar_t const*)
+t Q_UnicodeRepair(char*, EStringConvertErrorPolicy)
+t Q_UnicodeRepair(unsigned short*, EStringConvertErrorPolicy)
+t Q_UnicodeRepair(wchar_t*, EStringConvertErrorPolicy)
+t Q_UTF8ToUChar32(char const*, wchar_t&, bool&)
+t Sys_LoadLibrary(char const*, Sys_Flags)
+t V_FixupPathName(char*, unsigned int, char const*)
+t V_StripFilename(char*)
+t Q_IsValidUChar32(wchar_t)
+t Q_UChar32ToUTF16(wchar_t, unsigned short*)
+t Q_UChar32ToUTF16(wchar_t, unsigned short*) [clone .part.5]
+t Q_UnicodeAdvance(char*, int)
+t Q_UnicodeAdvance(unsigned short*, int)
+t Q_UnicodeAdvance(wchar_t*, int)
+t Q_UTF16ToUChar32(unsigned short const*, wchar_t&, bool&)
+t Sys_UnloadModule(CSysModule*)
+t TextToSoundLevel(char const*)
+t V_IsAbsolutePath(char const*)
+t V_StripExtension(char const*, char*, int)
+t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
+t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
+t CharacterSetBuild(characterset_t*, char const*)
+t ConVar_PrintFlags(ConCommandBase const*)
+t ConVar_Unregister()
+t Q_UnicodeValidate(char const*)
+t Q_UnicodeValidate(unsigned short const*)
+t Q_UnicodeValidate(wchar_t const*)
+t StringAfterPrefix(char const*, char const*)
+t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
+t V_ComposeFileName(char const*, char const*, char*, int)
+t V_ExtractFilePath(char const*, char*, int)
+t HashStringCaseless(char const*)
+t Q_UChar32ToUTF8Len(wchar_t)
+t Q_UChar32ToUTF8Len(wchar_t) [clone .part.2]
+t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertErrorPolicy)
+t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
+t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t SoundLevelToString(soundlevel_t)
+t Sys_GetFactoryThis()
+t V_DefaultExtension(char*, char const*, int)
+t V_FixDoubleSlashes(char*)
+t V_GetFileExtension(char const*)
+t V_MakeAbsolutePath(char*, int, char const*, char const*)
+t V_MakeRelativePath(char const*, char const*, char*, int)
+t V_RemoveDotSlashes(char*, char, bool)
+t CRC32_GetTableEntry(unsigned int)
+t CRC32_ProcessBuffer(unsigned int*, void const*, int)
+t EvaluateConditional(char const*)
+t Q_UChar32ToUTF16Len(wchar_t)
+t Q_URLDecodeInternal(char*, int, char const*, int, bool)
+t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
+t Q_URLEncodeInternal(char*, int, char const*, int, bool)
+t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
+t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t MurmurHash2LowerCase(char const*, unsigned int)
+t V_StripTrailingSlash(char*)
+t ConnectTier1Libraries(void* (**)(char const*, int*), int)
+t DefaultCompletionFunc(char const*, char (*) [64])
+t Sys_IsDebuggerPresent()
+t V_GetCurrentDirectory(char*, int)
+t V_SetCurrentDirectory(char const*)
+t V_UnqualifiedFileName(char const*)
+t BGetLocalFormattedDate(long, char*, int)
+t BGetLocalFormattedTime(long, char*, int)
+t GetNoEscCharConversion()
+t V_ExtractFileExtension(char const*, char*, int)
+t V_normalizeFloatString(char*)
+t ConVar_PrintDescription(ConCommandBase const*)
+t CreateInterfaceInternal(char const*, int*)
+t DisconnectTier1Libraries()
+t GetCStringCharConversion()
+t Q_RemoveAllEvilCharacters(char*)
+t Sys_RunningWithDebugModules()
+t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
+t HashStringCaselessConventional(char const*)
+t StringAfterPrefixCaseSensitive(char const*, char const*)
+t V_AddBackSlashesToSpecialChars(char const*)
+t Q_StripPrecedingAndTrailingWhitespace(char*)
+t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
+t Q_AggressiveStripPrecedingAndTrailingWhitespace(char*)
+t Q_AggressiveStripPrecedingAndTrailingWhitespaceW(wchar_t*)
+t Hash4(void const*)
+t Hash8(void const*)
+U ConMsg(char const*, ...)
+U DevMsg(char const*, ...)
+t Hash12(void const*)
+t Hash16(void const*)
+t V_atof(char const*)
+t V_atoi(char const*)
+t HashInt(int)
+t V_atoi64(char const*)
+t V_nibble(char)
+t V_strupr(char*)
+t HashBlock(void const*, unsigned int)
+t V_atoui64(char const*)
+t _V_memcmp(char const*, int, void const*, void const*, int)
+t _V_memcpy(char const*, int, void*, void const*, int)
+t _V_memset(char const*, int, void*, int, int)
+t V_qsort_s(void*, unsigned int, unsigned int, int (*)(void*, void const*, void const*), void*)
+t _V_strcmp(char const*, int, char const*, char const*)
+t _V_strcpy(char const*, int, char*, char const*)
+t V_stricmp(char const*, char const*)
+t V_stristr(char*, char const*)
+t V_stristr(char const*, char const*)
+t V_StrLeft(char const*, int, char*, int)
+t _V_strlen(char const*, int, char const*)
+t V_strncat(char*, char const*, unsigned int, int)
+t V_strnchr(char const*, char, int)
+t V_strncmp(char const*, char const*, int)
+t V_strncpy(char*, char const*, int)
+t V_strnlwr(char*, unsigned int)
+t _V_strstr(char const*, int, char const*, char const*)
+t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
+t _V_wcslen(char const*, int, wchar_t const*)
+t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
+t V_wcsncpy(wchar_t*, wchar_t const*, int)
+t _V_wcsupr(char const*, int, wchar_t*)
+U operator delete[](void*)@@GLIBCXX_3.4
+U operator delete(void*)@@GLIBCXX_3.4
+b ZERO_FLOAT16
+b guard variable for CUtlString::GetEmptyString()::s_emptyString
+b guard variable for CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
+b guard variable for CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)::soundWarnings
+b guard variable for CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
+b guard variable for CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
+b filesystem
+b s_BreakSet
+t FastToLower(char)
+r pulCRCTable
+b s_nCVarFlag
+b s_pTokenBuf
+b vec2_origin
+b vec2_origin
+b vec2_origin
+b vec2_origin
+b vec2_origin
+b vec2_origin
+b vec2_origin
+b vec2_origin
+b vec2_origin
+b s_bConnected
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b s_bRegistered
+b s_EmptyConVar
+t CopyToMaxChars(char*, int, char const*, int) [clone .part.0]
+d g_pPitchLookup
+d g_pSoundLevels
+d g_RandomStream
+d s_BackSlashMap
+r g_nRandomValues
+d g_pChannelNames
+d g_pVolumeLevels
+t ParseStringToken(char const*, char const**)
+b s_bBuiltBreakSet
+d s_nDLLIdentifier
+d s_DefaultAccessor
+b g_CleanupSymbolTable
+d s_LastFileLoadingFrom
+t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+d s_pConversionArrays_NoEscConversion
+d s_pConversionArrays_StringCharConversion
+t AccumulateFileNameAndTimestampIntoChecksum(unsigned int*, char const*)
+b __g_CreateCSoundEmitterSystemBaseISoundEmitterSystemBase_reg
+t __CreateCSoundEmitterSystemBaseISoundEmitterSystemBase_interface()
+t SplitName(char const*, int, int, char*, int, char*, int) [clone .constprop.107]
+t ConCommand::CanAutoComplete()
+t ConCommand::AutoCompleteSuggest(char const*, CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&)
+t ConCommand::Dispatch(CCommand const&)
+t ConCommand::ConCommand(char const*, ICommandCallback*, char const*, int, ICommandCompletionCallback*)
+t ConCommand::ConCommand(char const*, void (*)(CCommand const&), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::ConCommand(char const*, void (*)(), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::ConCommand(char const*, ICommandCallback*, char const*, int, ICommandCompletionCallback*)
+t ConCommand::ConCommand(char const*, void (*)(CCommand const&), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::ConCommand(char const*, void (*)(), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::~ConCommand()
+t ConCommand::~ConCommand()
+t ConCommand::~ConCommand()
+t CUtlBuffer::ParseToken(characterset_t*, char*, int, bool)
+t CUtlBuffer::ParseToken(char const*, char const*, char*, int)
+t CUtlBuffer::ConvertCRLF(CUtlBuffer&)
+t CUtlBuffer::GetOverflow(int)
+t CUtlBuffer::IsBigEndian()
+t CUtlBuffer::PutOverflow(int)
+t CUtlBuffer::AssumeMemory(void*, int, int, int)
+t CUtlBuffer::CheckPeekGet(int, int)
+t CUtlBuffer::CheckPeekGet(int, int) [clone .part.16]
+t CUtlBuffer::SetBigEndian(bool)
+t CUtlBuffer::EatCPPComment()
+t CUtlBuffer::EatWhiteSpace()
+t CUtlBuffer::OnGetOverflow(int)
+t CUtlBuffer::OnPutOverflow(int)
+t CUtlBuffer::SetBufferType(bool, bool)
+t CUtlBuffer::EnsureCapacity(int)
+t CUtlBuffer::PeekLineLength()
+t CUtlBuffer::PeekLineLength() [clone .part.21]
+t CUtlBuffer::PeekWhiteSpace(int)
+t CUtlBuffer::PeekStringMatch(int, char const*, int)
+t CUtlBuffer::GetDelimitedChar(CUtlCharConversion*)
+t CUtlBuffer::PeekStringLength()
+t CUtlBuffer::PeekStringLength() [clone .part.20]
+t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
+t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
+t CUtlBuffer::AddNullTermination()
+t CUtlBuffer::AddNullTermination() [clone .part.23]
+t CUtlBuffer::GetDelimitedString(CUtlCharConversion*, char*, int)
+t CUtlBuffer::PutDelimitedString(CUtlCharConversion*, char const*)
+t CUtlBuffer::ActivateByteSwapping(bool)
+t CUtlBuffer::CheckArbitraryPeekGet(int, int&)
+t CUtlBuffer::GetDelimitedCharInternal(CUtlCharConversion*)
+t CUtlBuffer::PeekDelimitedStringLength(CUtlCharConversion*, bool)
+t CUtlBuffer::Get(void*, int)
+t CUtlBuffer::Put(void const*, int)
+t CUtlBuffer::Swap(CUtlMemory<unsigned char, int>&)
+t CUtlBuffer::Swap(CUtlBuffer&)
+t CUtlBuffer::Scanf(char const*, ...)
+t CUtlBuffer::Printf(char const*, ...)
+t CUtlBuffer::GetLine(char*, int)
+t CUtlBuffer::GetUpTo(void*, int)
+t CUtlBuffer::PeekGet(int, int)
+t CUtlBuffer::SeekGet(CUtlBuffer::SeekType_t, int)
+t CUtlBuffer::SeekPut(CUtlBuffer::SeekType_t, int)
+t CUtlBuffer::VaScanf(char const*, char*)
+t CUtlBuffer::CheckGet(int)
+t CUtlBuffer::CheckPut(int)
+t CUtlBuffer::GetToken(char const*)
+t CUtlBuffer::VaPrintf(char const*, char*)
+t CUtlBuffer::GetString(char*, int)
+t CUtlBuffer::PutString(char const*)
+t CUtlBuffer::CUtlBuffer(int, int, int)
+t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlBuffer::CUtlBuffer(int, int, int)
+t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Purge()
+t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Grow(int)
+t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<CUtlHashtableEntry<CUtlConstStringBase<char>, gender_t>, int>::Purge()
+t CUtlMemory<CUtlHashtableEntry<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t>, int>::Purge()
+t CUtlMemory<CUtlHashtableEntry<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t>, int>::Purge()
+t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Grow(int)
+t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short>::Grow(int)
+t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<char, int>::Purge()
+t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
+t CUtlMemory<unsigned char, int>::Purge()
+t CUtlMemory<int, int>::Purge()
+t CUtlMemory<CSoundEmitterSystemBase::CSoundScriptFile, int>::Purge()
+t CUtlMemory<CSoundEntry*, int>::Purge()
+t CUtlMemory<KeyValues*, int>::Purge()
+t CUtlMemory<char const*, int>::Purge()
+t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Purge()
+t CUtlMemory<void*, int>::Purge()
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Insert(CUtlSymbolTable::CStringPoolIndex const&)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RemoveAll()
+t CUtlString::FixSlashes(char)
+t CUtlString::AllocMemory(unsigned int)
+t CUtlString::GetForModify()
+t CUtlString::GetEmptyString()
+t CUtlString::StripTrailingSlash()
+t CUtlString::Set(char const*)
+t CUtlString::Trim(char)
+t CUtlString::Trim(char const*)
+t CUtlString::Clear()
+t CUtlString::Purge()
+t CUtlString::Append(char const*)
+t CUtlString::Append(char const*, int)
+t CUtlString::Format(char const*, ...)
+t CUtlString::FormatV(char const*, char*)
+t CUtlString::ToLower()
+t CUtlString::ToUpper()
+t CUtlString::PathJoin(char const*, char const*)
+t CUtlString::TrimLeft(char)
+t CUtlString::TrimLeft(char const*)
+t CUtlString::SetDirect(char const*, int)
+t CUtlString::SetLength(int)
+t CUtlString::TrimRight(char)
+t CUtlString::TrimRight(char const*)
+t CUtlString::operator=(char const*)
+t CUtlString::operator=(CUtlString const&)
+t CUtlString::~CUtlString()
+t CUtlString::~CUtlString()
+t CUtlString::operator+=(char)
+t CUtlString::operator+=(double)
+t CUtlString::operator+=(int)
+t CUtlString::operator+=(char const*)
+t CUtlString::operator+=(CUtlString const&)
+t CUtlSymbol::Initialize()
+b CUtlSymbol::s_pSymbolTable
+t CUtlSymbol::DisableStaticSymbolTable()
+d CUtlSymbol::s_bAllowStaticSymbolTable
+t CUtlSymbol::CurrTable()
+t CUtlSymbol::CUtlSymbol(char const*)
+t CUtlSymbol::CUtlSymbol(char const*)
+t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
+t CUtlVector<char, CUtlMemory<char, int> >::GrowVector(int)
+t CUtlVector<char, CUtlMemory<char, int> >::ShiftElementsRight(int, int)
+t CUtlVector<int, CUtlMemory<int, int> >::GrowVector(int)
+t CUtlVector<int, CUtlMemory<int, int> >::InsertBefore(int, int const&)
+t CUtlVector<int, CUtlMemory<int, int> >::ShiftElementsRight(int, int)
+t CUtlVector<CSoundEmitterSystemBase::CSoundScriptFile, CUtlMemory<CSoundEmitterSystemBase::CSoundScriptFile, int> >::InsertBefore(int, CSoundEmitterSystemBase::CSoundScriptFile const&)
+t CUtlVector<CSoundEntry*, CUtlMemory<CSoundEntry*, int> >::InsertBefore(int, CSoundEntry* const&)
+t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::GrowVector(int)
+t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, int)
+t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
+t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
+t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+t CUtlVector<char const*, CUtlMemory<char const*, int> >::InsertBefore(int, char const* const&)
+t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::InsertBefore(int, CUtlSymbolTable::StringPool_t* const&)
+t CUtlVector<void*, CUtlMemory<void*, int> >::InsertBefore(int, void* const&)
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::SetCount(int)
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
+t CEmptyConVar::SetValue(float)
+t CEmptyConVar::SetValue(int)
+t CEmptyConVar::SetValue(char const*)
+t CEmptyConVar::~CEmptyConVar()
+t CEmptyConVar::~CEmptyConVar()
+t CEmptyConVar::~CEmptyConVar()
+U CThreadEvent::Set()
+U CThreadEvent::CThreadEvent(bool)
+t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
+t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
+b InterfaceReg::s_pInterfaceRegs
+t InterfaceReg::InterfaceReg(void* (*)(), char const*)
+t InterfaceReg::InterfaceReg(void* (*)(), char const*)
+U CThreadRWLock::UnlockWrite()
+U CThreadRWLock::WaitForRead()
+U CThreadRWLock::LockForWrite()
+t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoInsertUnconstructed(unsigned int, bool)
+t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::BumpEntry(unsigned int)
+t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoRealloc(int)
+t CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::RemoveAll()
+t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoInsertUnconstructed(unsigned int, bool)
+t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::BumpEntry(unsigned int)
+t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoRealloc(int)
+t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::RemoveAll()
+t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoInsertUnconstructed(unsigned int, bool)
+t int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoRemove<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex const&>(CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex const&, unsigned int)
+t int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoRemove<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex>(CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, unsigned int)
+t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::BumpEntry(unsigned int)
+t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoRealloc(int)
+t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::RemoveAll()
+t ConCommandBase::CopyString(char const*)
+t ConCommandBase::CreateBase(char const*, char const*, int)
+b ConCommandBase::s_pAccessor
+b ConCommandBase::s_pConCommandBases
+t ConCommandBase::Init()
+t ConCommandBase::GetNext()
+t ConCommandBase::AddFlags(int)
+t ConCommandBase::Shutdown()
+t ConCommandBase::ConCommandBase(char const*, char const*, int)
+t ConCommandBase::ConCommandBase()
+t ConCommandBase::ConCommandBase(char const*, char const*, int)
+t ConCommandBase::ConCommandBase()
+t ConCommandBase::~ConCommandBase()
+t ConCommandBase::~ConCommandBase()
+t ConCommandBase::~ConCommandBase()
+t CUtlLinkedList<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
+t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
+t CUtlSymbolTable::AddString(char const*)
+t CUtlSymbolTable::RemoveAll()
+t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
+t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
+t CUtlSymbolTable::~CUtlSymbolTable()
+t CUtlSymbolTable::~CUtlSymbolTable()
+t CDefaultAccessor::RegisterConCommandBase(ConCommandBase*)
+t CDllDemandLoader::GetFactory()
+t CDllDemandLoader::Unload()
+t CDllDemandLoader::CDllDemandLoader(char const*)
+t CDllDemandLoader::CDllDemandLoader(char const*)
+t CDllDemandLoader::~CDllDemandLoader()
+t CDllDemandLoader::~CDllDemandLoader()
+t CDllDemandLoader::~CDllDemandLoader()
+U CThreadSpinRWLock::UnlockRead()
+U CThreadSpinRWLock::LockForRead()
+U CThreadSpinRWLock::UnlockWrite()
+U CThreadSpinRWLock::SpinLockForWrite(unsigned int)
+U CThreadSyncObject::~CThreadSyncObject()
+t CUtlInplaceBuffer::InplaceGetLinePtr(char**, int*)
+t CUtlInplaceBuffer::InplaceGetLinePtr()
+t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
+t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
+t CUtlCharConversion::FindConversion(char const*, int*)
+t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+t CUtlConstStringBase<char>::Set(char const*)
+t CUtlNoEscConversion::FindConversion(char const*, int*)
+t IUniformRandomStream::~IUniformRandomStream()
+t IUniformRandomStream::~IUniformRandomStream()
+t IUniformRandomStream::~IUniformRandomStream()
+t CUtlCStringConversion::FindConversion(char const*, int*)
+t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
+t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
+t CSoundEmitterSystemBase::Disconnect()
+t CSoundEmitterSystemBase::AddWaveName(char const*)
+t CSoundEmitterSystemBase::GetWaveName(CUtlSymbol&)
+t CSoundEmitterSystemBase::ModShutdown()
+t CSoundEmitterSystemBase::RemoveSound(char const*)
+t CSoundEmitterSystemBase::RenameSound(char const*, char const*)
+t CSoundEmitterSystemBase::AddSoundName(CSoundParametersInternal&, char const*, gender_t)
+t CSoundEmitterSystemBase::GetSoundName(int)
+t CSoundEmitterSystemBase::IsValidIndex(int)
+t CSoundEmitterSystemBase::GetSoundCount()
+t CSoundEmitterSystemBase::GetActorGender(char const*)
+t CSoundEmitterSystemBase::QueryInterface(char const*)
+t CSoundEmitterSystemBase::InternalModInit()
+t CSoundEmitterSystemBase::LoadGlobalActors()
+t CSoundEmitterSystemBase::LookupSoundLevel(char const*)
+t CSoundEmitterSystemBase::TranslateChannel(char const*)
+t CSoundEmitterSystemBase::AddSoundOverrides(char const*, bool)
+t CSoundEmitterSystemBase::AddSoundsFromFile(char const*, bool, bool, bool)
+t CSoundEmitterSystemBase::GenderExpandString(gender_t, char const*, char*, int)
+t CSoundEmitterSystemBase::GenderExpandString(char const*, char const*, char*, int)
+t CSoundEmitterSystemBase::GetWavFileForSound(char const*, gender_t)
+t CSoundEmitterSystemBase::GetWavFileForSound(char const*, char const*)
+t CSoundEmitterSystemBase::IsUsingGenderToken(char const*)
+t CSoundEmitterSystemBase::ClearSoundOverrides()
+t CSoundEmitterSystemBase::InternalModShutdown()
+t CSoundEmitterSystemBase::TranslateSoundLevel(char const*)
+t CSoundEmitterSystemBase::TranslateAttenuation(char const*)
+t CSoundEmitterSystemBase::ExpandSoundNameMacros(CSoundParametersInternal&, char const*)
+t CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)
+t CSoundEmitterSystemBase::UpdateSoundParameters(char const*, CSoundParametersInternal const&)
+t CSoundEmitterSystemBase::FindBestSoundForGender(SoundFile*, int, gender_t)
+t CSoundEmitterSystemBase::CheckForMissingWavFiles(bool)
+t CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)
+t CSoundEmitterSystemBase::LookupSoundLevelByHandle(char const*, short&)
+t CSoundEmitterSystemBase::ReloadSoundEntriesInList(IFileList*)
+t CSoundEmitterSystemBase::SaveChangesToSoundScript(int)
+t CSoundEmitterSystemBase::GetManifestFileTimeChecksum()
+t CSoundEmitterSystemBase::InitSoundInternalParameters(char const*, KeyValues*, CSoundParametersInternal&)
+t CSoundEmitterSystemBase::EnsureAvailableSlotsForGender(SoundFile*, int, gender_t)
+t CSoundEmitterSystemBase::InternalGetParametersForSound(int)
+t CSoundEmitterSystemBase::Init()
+t CSoundEmitterSystemBase::Flush()
+t CSoundEmitterSystemBase::Connect(void* (*)(char const*, int*))
+t CSoundEmitterSystemBase::ModInit()
+t CSoundEmitterSystemBase::AddSound(char const*, char const*, CSoundParametersInternal const&)
+t CSoundEmitterSystemBase::Shutdown()
+t CSoundEmitterSystemBase::MoveSound(char const*, char const*)
+t CSoundEmitterSystemBase::CSoundEmitterSystemBase()
+t CSoundEmitterSystemBase::CSoundEmitterSystemBase()
+t CSoundEmitterSystemBase::~CSoundEmitterSystemBase()
+t CSoundEmitterSystemBase::~CSoundEmitterSystemBase()
+t CSoundEmitterSystemBase::~CSoundEmitterSystemBase()
+t CUtlFilenameSymbolTable::FindFileName(char const*)
+t CUtlFilenameSymbolTable::FindOrAddFileName(char const*)
+t CUtlFilenameSymbolTable::String(void* const&, char*, int)
+t CUtlFilenameSymbolTable::RemoveAll()
+t CUtlFilenameSymbolTable::CUtlFilenameSymbolTable()
+t CUtlFilenameSymbolTable::CUtlFilenameSymbolTable()
+t CUtlFilenameSymbolTable::~CUtlFilenameSymbolTable()
+t CUtlFilenameSymbolTable::~CUtlFilenameSymbolTable()
+t CSoundParametersInternal::PitchFromString(char const*)
+t CSoundParametersInternal::VolumeFromString(char const*)
+t CSoundParametersInternal::ChannelFromString(char const*)
+t CSoundParametersInternal::SoundLevelFromString(char const*)
+t CSoundParametersInternal::CopyFrom(CSoundParametersInternal const&)
+t CSoundParametersInternal::AddToTail(SoundFile**, unsigned short*, SoundFile const&)
+t CSoundParametersInternal::CSoundParametersInternal(CSoundParametersInternal const&)
+t CSoundParametersInternal::CSoundParametersInternal()
+t CSoundParametersInternal::CSoundParametersInternal(CSoundParametersInternal const&)
+t CSoundParametersInternal::CSoundParametersInternal()
+t CSoundParametersInternal::~CSoundParametersInternal()
+t CSoundParametersInternal::~CSoundParametersInternal()
+t IKeyValuesDumpContextAsText::KvBeginKey(KeyValues*, int)
+t IKeyValuesDumpContextAsText::KvWriteValue(KeyValues*, int)
+t IKeyValuesDumpContextAsText::KvWriteIndent(int)
+t IKeyValuesDumpContextAsText::KvEndKey(KeyValues*, int)
+t CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)
+t CKeyValuesDumpContextAsDevMsg::KvWriteText(char const*)
+t CSoundEmitterUniformRandomStream::RandomFloat(float, float)
+t CSoundEmitterUniformRandomStream::RandomFloatExp(float, float, float)
+t CSoundEmitterUniformRandomStream::SetSeed(int)
+t CSoundEmitterUniformRandomStream::RandomInt(int, int)
+t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
+t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
+t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
+t ConVar::ClampValue(float&)
+t ConVar::SetDefault(char const*)
+t ConVar::InternalSetValue(char const*)
+t ConVar::ChangeStringValue(char const*, float)
+t ConVar::InternalSetIntValue(int)
+t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::InternalSetFloatValue(float)
+t ConVar::Init()
+t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::Revert()
+t ConVar::AddFlags(int)
+t ConVar::SetValue(float)
+t ConVar::SetValue(int)
+t ConVar::SetValue(char const*)
+t ConVar::ConVar(char const*, char const*, int)
+t ConVar::ConVar(char const*, char const*, int, char const*)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int)
+t ConVar::ConVar(char const*, char const*, int, char const*)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
+t ConVar::~ConVar()
+t ConVar::~ConVar()
+t ConVar::~ConVar()
+t CCommand::DefaultBreakSet()
+t CCommand::Reset()
+t CCommand::Tokenize(char const*, characterset_t*)
+t CCommand::CCommand(int, char const**)
+t CCommand::CCommand()
+t CCommand::CCommand(int, char const**)
+t CCommand::CCommand()
+t ConVarRef::Init(char const*, bool)
+t ConVarRef::ConVarRef(IConVar*)
+t ConVarRef::ConVarRef(char const*)
+t ConVarRef::ConVarRef(char const*, bool)
+t ConVarRef::ConVarRef(IConVar*)
+t ConVarRef::ConVarRef(char const*)
+t ConVarRef::ConVarRef(char const*, bool)
+t CUtlQueue<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int> >::Insert(KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct const&)
+t KeyValues::deleteThis()
+t KeyValues::FromString(char const*, char const*, char const**)
+t KeyValues::GetWString(char const*, wchar_t const*)
+t KeyValues::SaveToFile(IBaseFileSystem*, char const*, char const*, bool, bool, bool)
+t KeyValues::SetNextKey(KeyValues*)
+t KeyValues::SetWString(char const*, wchar_t const*)
+t KeyValues::GetDataType(char const*)
+t KeyValues::CopyKeyValue(KeyValues const&, unsigned int, char*)
+t KeyValues::CreateNewKey()
+t KeyValues::GetNextValue()
+t KeyValues::LoadFromFile(IBaseFileSystem*, char const*, char const*, bool)
+t KeyValues::ReadAsBinary(CUtlBuffer&, int)
+t KeyValues::RemoveSubKey(KeyValues*)
+t KeyValues::WriteIndents(IBaseFileSystem*, void*, CUtlBuffer*, int)
+t KeyValues::ChainKeyValue(KeyValues*)
+t KeyValues::GetFirstValue()
+t KeyValues::InternalWrite(IBaseFileSystem*, void*, CUtlBuffer*, void const*, int)
+t KeyValues::MergeBaseKeys(CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >&)
+t KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)
+t KeyValues::WriteAsBinary(CUtlBuffer&)
+t KeyValues::FindLastSubKey()
+t KeyValues::LoadFromBuffer(char const*, CUtlBuffer&, IBaseFileSystem*, char const*)
+t KeyValues::LoadFromBuffer(char const*, char const*, IBaseFileSystem*, char const*)
+t KeyValues::SetStringValue(char const*)
+t KeyValues::RemoveEverything()
+t KeyValues::UsesConditionals(bool)
+t KeyValues::GetNextTrueSubKey()
+t KeyValues::ParseIncludedKeys(char const*, char const*, IBaseFileSystem*, char const*, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >&)
+t KeyValues::AppendIncludedKeys(CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >&)
+t KeyValues::GetFirstTrueSubKey()
+t KeyValues::RecursiveSaveToFile(IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)
+t KeyValues::RecursiveSaveToFile(CUtlBuffer&, int, bool, bool)
+t KeyValues::UnpackIntoStructure(KeyValuesUnpackStructure const*, void*, unsigned int)
+t KeyValues::UsesEscapeSequences(bool)
+t KeyValues::WriteConvertedString(IBaseFileSystem*, void*, CUtlBuffer*, char const*)
+t KeyValues::ProcessResolutionKeys(char const*)
+d KeyValues::s_pfGetStringForSymbol
+d KeyValues::s_pfGetSymbolForString
+b KeyValues::s_pGrowableStringTable
+t KeyValues::RecursiveLoadFromBuffer(char const*, CUtlBuffer&)
+t KeyValues::RecursiveMergeKeyValues(KeyValues*)
+t KeyValues::GetStringForSymbolClassic(int)
+t KeyValues::GetSymbolForStringClassic(char const*, bool)
+t KeyValues::SetUseGrowableStringTable(bool)
+t KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)
+t KeyValues::GetStringForSymbolGrowable(int)
+t KeyValues::GetSymbolForStringGrowable(char const*, bool)
+t KeyValues::AddSubkeyUsingKnownLastChild(KeyValues*, KeyValues*)
+t KeyValues::CreateKeyUsingKnownLastChild(char const*, KeyValues*)
+t KeyValues::Dump(IKeyValuesDumpContext*, int)
+t KeyValues::Init()
+t KeyValues::Clear()
+t KeyValues::GetInt(char const*, int)
+t KeyValues::GetPtr(char const*, void*)
+t KeyValues::SetInt(char const*, int)
+t KeyValues::SetPtr(char const*, void*)
+t KeyValues::FindKey(char const*, bool)
+t KeyValues::GetBool(char const*, bool, bool*)
+t KeyValues::IsEmpty(char const*)
+t KeyValues::SetName(char const*)
+t KeyValues::GetColor(char const*)
+t KeyValues::GetFloat(char const*, float)
+t KeyValues::SetColor(char const*, Color)
+t KeyValues::SetFloat(char const*, float)
+t KeyValues::AddSubKey(KeyValues*)
+t KeyValues::CreateKey(char const*)
+t KeyValues::GetString(char const*, char const*)
+t KeyValues::GetUint64(char const*, unsigned long long)
+t KeyValues::MergeFrom(KeyValues*, KeyValues::MergeKeyValuesOp_t)
+t KeyValues::ReadToken(CUtlBuffer&, bool&, bool&)
+t KeyValues::SetString(char const*, char const*)
+t KeyValues::SetUint64(char const*, unsigned long long)
+t KeyValues::operator=(KeyValues const&)
+t KeyValues::KeyValues(char const*)
+t KeyValues::KeyValues(char const*, char const*, int)
+t KeyValues::KeyValues(char const*, char const*, int, char const*, int)
+t KeyValues::KeyValues(char const*, char const*, wchar_t const*)
+t KeyValues::KeyValues(char const*, char const*, char const*)
+t KeyValues::KeyValues(char const*, char const*, char const*, char const*, char const*)
+t KeyValues::KeyValues(char const*)
+t KeyValues::KeyValues(char const*, char const*, int)
+t KeyValues::KeyValues(char const*, char const*, int, char const*, int)
+t KeyValues::KeyValues(char const*, char const*, wchar_t const*)
+t KeyValues::KeyValues(char const*, char const*, char const*)
+t KeyValues::KeyValues(char const*, char const*, char const*, char const*, char const*)
+t KeyValues::~KeyValues()
+t KeyValues::~KeyValues()
+t KeyValues::operator delete(void*)
+t KeyValues::operator delete(void*, int, char const*, int)
+t KeyValues::operator new(unsigned int)
+t KeyValues::operator new(unsigned int, int, char const*, int)
+U operator new[](unsigned int)@@GLIBCXX_3.4
+t ConCommand::IsCommand() const
+t CUtlString::GetExtension() const
+t CUtlString::StripFilename() const
+t CUtlString::MatchesPattern(CUtlString const&, int) const
+t CUtlString::StripExtension() const
+t CUtlString::GetBaseFilename() const
+t CUtlString::UnqualifiedFilename() const
+t CUtlString::IsEqual_CaseSensitive(char const*) const
+t CUtlString::IsEqual_CaseInsensitive(char const*) const
+t CUtlString::Get() const
+t CUtlString::Left(int) const
+t CUtlString::Right(int) const
+t CUtlString::Slice(int, int) const
+t CUtlString::AbsPath(char const*) const
+t CUtlString::DirName() const
+t CUtlString::Replace(char, char) const
+t CUtlString::Replace(char const*, char const*) const
+t CUtlString::operator==(CUtlString const&) const
+t CUtlString::operator[](int) const
+t CUtlString::operator+(int) const
+t CUtlString::operator+(char const*) const
+t CUtlString::operator+(CUtlString const&) const
+t CUtlSymbol::String() const
+t CUtlSymbol::operator==(char const*) const
+t CEmptyConVar::GetName() const
+t CEmptyConVar::IsFlagSet(int) const
+t unsigned int CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.68] [clone .constprop.109]
+t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
+t unsigned int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<CSoundEntry*>(CSoundEntry*, unsigned int, unsigned int*) const [clone .part.101] [clone .constprop.108]
+t ConCommandBase::GetHelpText() const
+t ConCommandBase::IsRegistered() const
+t ConCommandBase::GetDLLIdentifier() const
+t ConCommandBase::GetName() const
+t ConCommandBase::GetNext() const
+t ConCommandBase::IsCommand() const
+t ConCommandBase::IsFlagSet(int) const
+t CUtlSymbolTable::FindPoolWithSpace(int) const
+t CUtlSymbolTable::Find(char const*) const
+t CUtlSymbolTable::CLess::operator()(CUtlSymbolTable::CStringPoolIndex const&, CUtlSymbolTable::CStringPoolIndex const&) const
+t CUtlSymbolTable::String(CUtlSymbol) const
+t CUtlCharConversion::GetDelimiter() const
+t CUtlCharConversion::GetEscapeChar() const
+t CUtlCharConversion::GetDelimiterLength() const
+t CUtlCharConversion::GetConversionLength(char) const
+t CUtlCharConversion::GetConversionString(char) const
+t CUtlCharConversion::MaxConversionLength() const
+t CSoundEmitterSystemBase::InvalidIndex() const
+t CSoundEmitterSystemBase::GetSoundIndex(char const*) const
+t CSoundEmitterSystemBase::FindSoundScript(char const*) const
+t CSoundEmitterSystemBase::GetNumSoundScripts() const
+t CSoundEmitterSystemBase::GetSoundScriptName(int) const
+t CSoundEmitterSystemBase::IsSoundScriptDirty(int) const
+t CSoundEmitterSystemBase::GetSourceFileForSound(int) const
+t CSoundEmitterSystemBase::Next(int) const
+t CSoundEmitterSystemBase::First() const
+t CSoundParametersInternal::PitchToString() const
+t CSoundParametersInternal::VolumeToString() const
+t CSoundParametersInternal::ChannelToString() const
+t CSoundParametersInternal::SoundLevelToString() const
+t CSoundParametersInternal::operator==(CSoundParametersInternal const&) const
+t ConVar::GetDefault() const
+t ConVar::GetHelpText() const
+t ConVar::IsRegistered() const
+t ConVar::GetMax(float&) const
+t ConVar::GetMin(float&) const
+t ConVar::GetName() const
+t ConVar::IsCommand() const
+t ConVar::IsFlagSet(int) const
+t CCommand::FindArgInt(char const*, int) const
+t CCommand::FindArg(char const*) const
+t ConVarRef::IsValid() const
+t KeyValues::CopySubkeys(KeyValues*) const
+t KeyValues::FindKey(int) const
+t KeyValues::GetName() const
+t KeyValues::MakeCopy(bool) const
+t KeyValues::MakeCopy() const
+U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
+U operator new(unsigned int)@@GLIBCXX_3.4
+t non-virtual thunk to CEmptyConVar::SetValue(float)
+t non-virtual thunk to CEmptyConVar::SetValue(int)
+t non-virtual thunk to CEmptyConVar::SetValue(char const*)
+t non-virtual thunk to ConVar::SetValue(float)
+t non-virtual thunk to ConVar::SetValue(int)
+t non-virtual thunk to ConVar::SetValue(char const*)
+t non-virtual thunk to CEmptyConVar::GetName() const
+t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
+t non-virtual thunk to ConVar::GetName() const
+t non-virtual thunk to ConVar::IsFlagSet(int) const
+r typeinfo for ConCommand
+r typeinfo for IAppSystem
+r typeinfo for CEmptyConVar
+r typeinfo for ConCommandBase
+r typeinfo for CDefaultAccessor
+r typeinfo for CDllDemandLoader
+r typeinfo for CUtlCharConversion
+r typeinfo for CUtlNoEscConversion
+r typeinfo for ConVar_ServerBounded
+r typeinfo for IUniformRandomStream
+r typeinfo for CUtlCStringConversion
+r typeinfo for IKeyValuesDumpContext
+r typeinfo for CSoundEmitterSystemBase
+r typeinfo for IConCommandBaseAccessor
+r typeinfo for ISoundEmitterSystemBase
+r typeinfo for IKeyValuesDumpContextAsText
+r typeinfo for CKeyValuesDumpContextAsDevMsg
+r typeinfo for CSoundEmitterUniformRandomStream
+r typeinfo for ConVar
+r typeinfo for IConVar
+r typeinfo name for ConCommand
+r typeinfo name for IAppSystem
+r typeinfo name for CEmptyConVar
+r typeinfo name for ConCommandBase
+r typeinfo name for CDefaultAccessor
+r typeinfo name for CDllDemandLoader
+r typeinfo name for CUtlCharConversion
+r typeinfo name for CUtlNoEscConversion
+r typeinfo name for ConVar_ServerBounded
+r typeinfo name for IUniformRandomStream
+r typeinfo name for CUtlCStringConversion
+r typeinfo name for IKeyValuesDumpContext
+r typeinfo name for CSoundEmitterSystemBase
+r typeinfo name for IConCommandBaseAccessor
+r typeinfo name for ISoundEmitterSystemBase
+r typeinfo name for IKeyValuesDumpContextAsText
+r typeinfo name for CKeyValuesDumpContextAsDevMsg
+r typeinfo name for CSoundEmitterUniformRandomStream
+r typeinfo name for ConVar
+r typeinfo name for IConVar
+r vtable for ConCommand
+r vtable for IAppSystem
+r vtable for CEmptyConVar
+r vtable for ConCommandBase
+r vtable for CDefaultAccessor
+r vtable for CDllDemandLoader
+r vtable for CUtlCharConversion
+r vtable for CUtlNoEscConversion
+r vtable for IUniformRandomStream
+r vtable for CUtlCStringConversion
+r vtable for CSoundEmitterSystemBase
+r vtable for ISoundEmitterSystemBase
+r vtable for IKeyValuesDumpContextAsText
+r vtable for CKeyValuesDumpContextAsDevMsg
+r vtable for CSoundEmitterUniformRandomStream
+r vtable for ConVar
+r vtable for IConVar
+U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
+U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
+U vtable for __cxxabiv1::__vmi_class_type_info@@CXXABI_1.3
+b V_pretifymem(float, int, bool)::output
+b V_pretifymem(float, int, bool)::current
+b V_pretifynum(long long)::output
+b V_pretifynum(long long)::current
+b PitchToString(float)::sz
+b VolumeToString(float)::sz
+b ChannelToString(int)::sz
+b SoundLevelToString(soundlevel_t)::sz
+b _PitchToString(float)::sz
+b _VolumeToString(float)::sz
+b _ChannelToString(int)::sz
+b _SoundLevelToString(soundlevel_t)::sz
+b CUtlString::GetEmptyString()::s_emptyString
+b CUtlSymbol::Initialize()::symbolsInitialized
+r CThreadSpinRWLock::TryLockForWrite(unsigned int)::oldValue
+b CSoundEmitterSystemBase::GetWavFileForSound(char const*, gender_t)::outsound
+b CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
+b CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)::soundWarnings
+b CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
+d ConVarRef::Init(char const*, bool)::bFirst
+b KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)::buf
+d CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
+b CSoundEmitterSystemBase::GetSoundScriptName(int) const::fn
+b CSoundEmitterSystemBase::GetSourceFileForSound(int) const::fn
+b CSoundParametersInternal::PitchToString() const::sz
+b CSoundParametersInternal::VolumeToString() const::sz
+b CSoundParametersInternal::SoundLevelToString() const::sz
