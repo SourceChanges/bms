@@ -65,6 +65,7 @@ T EncodeBinaryToString
 A _end
 U __errno_location@@GLIBC_2.0
 T Error
+T ErrorV
 U _exit@@GLIBC_2.0
 U exit@@GLIBC_2.0
 T _ExitOnFatalAssert
@@ -130,6 +131,7 @@ U link@@GLIBC_2.0
 U localtime@@GLIBC_2.0
 U localtime_r@@GLIBC_2.0
 T Log
+T LogV
 U __lxstat64@@GLIBC_2.2
 U __lxstat@@GLIBC_2.0
 U malloc@@GLIBC_2.0
@@ -147,6 +149,7 @@ U mkdir@@GLIBC_2.0
 U mkfifo@@GLIBC_2.0
 U mount@@GLIBC_2.0
 T Msg
+T MsgV
 T NetLog
 T NetMsg
 T NetWarning
@@ -302,6 +305,7 @@ T VoidFnPtrLookup_Tier0
 U __vsnprintf_chk@@GLIBC_2.3.4
 T vtune
 T Warning
+T WarningV
 T WriteMiniDump
 U __xmknod@@GLIBC_2.0
 U __xstat64@@GLIBC_2.2

@@ -768,6 +768,7 @@ t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t CalcClosestPointOnLineSegment(Vector const&, Vector const&, Vector const&, Vector&, float*)
 t Catmull_Rom_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t GenerateSequentialIndexBuffer(unsigned short*, int, int)
+t GetModelSpecificDecalMaterial(IMaterial*)
 t CalcDistanceSqrToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t HashStringCaselessConventional(char const*)
 t SolveInverseQuadraticMonotonic(float, float, float, float, float, float, float&, float&, float&)
@@ -1046,6 +1047,7 @@ t CUtlBuffer::PeekStringLength()
 t CUtlBuffer::PeekStringLength() [clone .part.20]
 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+t CUtlBuffer::GetStringInternal(char*, unsigned int)
 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
 t CUtlBuffer::AddNullTermination()
 t CUtlBuffer::AddNullTermination() [clone .part.23]
@@ -1071,7 +1073,6 @@ t CUtlBuffer::CheckGet(int)
 t CUtlBuffer::CheckPut(int)
 t CUtlBuffer::GetToken(char const*)
 t CUtlBuffer::VaPrintf(char const*, char*)
-t CUtlBuffer::GetString(char*, int)
 t CUtlBuffer::PutString(char const*)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
@@ -1299,6 +1300,7 @@ t CUtlLinkedList<CStudioRender::DecalLRU_t, int, true, int, CUtlFixedMemory<UtlL
 t CUtlLinkedList<CStudioRender::DecalLRU_t, int, true, int, CUtlFixedMemory<UtlLinkedListElem_t<CStudioRender::DecalLRU_t, int> > >::RemoveAll()
 t CUtlLinkedList<CStudioRender::DecalHistory_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalHistory_t, unsigned short>, unsigned short> >::InsertBefore(unsigned short)
 t CUtlLinkedList<CStudioRender::DecalHistory_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalHistory_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlLinkedList<CStudioRender::DecalMaterial_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short> >::AllocInternal(bool)
 t CUtlLinkedList<CStudioRender::DecalMaterial_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlLinkedList<CStudioRender::DecalMaterial_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CStudioRender::DecalModelList_t, int, true, int, CUtlFixedMemory<UtlLinkedListElem_t<CStudioRender::DecalModelList_t, int> > >::AllocInternal(bool)
@@ -1426,9 +1428,6 @@ t CProcessMeshWrapper<1, 1, 1, 1, 1>::R_StudioSoftwareProcessMesh(mstudio_meshve
 t CProcessMeshWrapper<1, 1, 1, 2, 0>::R_StudioSoftwareProcessMesh(mstudio_meshvertexdata_t const*, matrix3x4_t*, CCachedRenderData&, CMeshBuilder&, int, unsigned short*, unsigned int, IMaterial*)
 t CProcessMeshWrapper<1, 1, 1, 2, 1>::R_StudioSoftwareProcessMesh(mstudio_meshvertexdata_t const*, matrix3x4_t*, CCachedRenderData&, CMeshBuilder&, int, unsigned short*, unsigned int, IMaterial*)
 t CUtlNoEscConversion::FindConversion(char const*, int*)
-t ITextureRegenerator::~ITextureRegenerator()
-t ITextureRegenerator::~ITextureRegenerator()
-t ITextureRegenerator::~ITextureRegenerator()
 t CMatRenderContextPtr::~CMatRenderContextPtr()
 t CMatRenderContextPtr::~CMatRenderContextPtr()
 t CRefCountServiceBase<true, CRefMT>::OnFinalRelease()
@@ -1512,9 +1511,6 @@ t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharC
 t CGlintTextureRegenerator::RegenerateTextureBits(ITexture*, IVTFTexture*, Rect_t*)
 t CGlintTextureRegenerator::RegenerateTextureBits(ITexture*, IVTFTexture*, Rect_t*) [clone .part.22]
 t CGlintTextureRegenerator::Release()
-t CGlintTextureRegenerator::~CGlintTextureRegenerator()
-t CGlintTextureRegenerator::~CGlintTextureRegenerator()
-t CGlintTextureRegenerator::~CGlintTextureRegenerator()
 t IKeyValuesDumpContextAsText::KvBeginKey(KeyValues*, int)
 t IKeyValuesDumpContextAsText::KvWriteValue(KeyValues*, int)
 t IKeyValuesDumpContextAsText::KvWriteIndent(int)
@@ -2389,7 +2385,6 @@ r vtable for CDllDemandLoader
 r vtable for CMemberFunctor11<CStudioRender*, void (CStudioRender::*)(StudioDecalHandle_t__*, StudioRenderContext_t const&, matrix3x4_t*, studiohdr_t*, Ray_t const&, Vector const&, IMaterial*, float, int, bool, int), StudioDecalHandle_t__*, StudioRenderContext_t, matrix3x4_t*, studiohdr_t*, Ray_t, Vector, IMaterial*, float, int, bool, int, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r vtable for CUtlCharConversion
 r vtable for CUtlNoEscConversion
-r vtable for ITextureRegenerator
 r vtable for CRefCountServiceBase<true, CRefMT>
 r vtable for CStudioRenderContext
 r vtable for CUtlCStringConversion

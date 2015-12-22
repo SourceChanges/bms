@@ -319,6 +319,7 @@ t _GLOBAL__sub_I_cvar
 t _GLOBAL__sub_I_dll.cpp
 t _GLOBAL__sub_I_filetracker.cpp
 t _GLOBAL__sub_I_Four_PointFives
+t _GLOBAL__sub_I_fs_monitor_read_from_pack
 t _GLOBAL__sub_I_fs_report_sync_opens
 t _GLOBAL__sub_I_g_Commands
 t _GLOBAL__sub_I_gf2n.cpp
@@ -597,6 +598,16 @@ t lstat
 t __lstat
 U __lxstat64@@GLIBC_2.2
 U __lxstat@@GLIBC_2.0
+t LzmaDec_Allocate
+t LzmaDec_AllocateProbs
+t LzmaDec_DecodeToBuf
+t LzmaDec_DecodeToDic
+t LzmaDec_Free
+t LzmaDec_FreeProbs
+t LzmaDec_Init
+t LzmaDecode
+t LzmaProps_Decode
+t LzmaProps_Decode.part.2
 t main
 U malloc@@GLIBC_2.0
 T map_addfunc
@@ -1072,7 +1083,6 @@ U DevWarning(char const*, ...)
 t FileSelect(dirent const*)
 t HashString(char const*)
 t IsDenormal(float const&)
-t LzmaDecode(_CLzmaDecoderState*, unsigned char const*, unsigned int, unsigned int*, unsigned char*, unsigned int, unsigned int*)
 t MatrixCopy(matrix3x4_t const&, matrix3x4_t&)
 t RotateAABB(matrix3x4_t const&, Vector const&, Vector const&, Vector&, Vector&)
 t V_FileBase(char const*, char*, int)
@@ -1344,7 +1354,6 @@ t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
 t DoesPathExistAlready(char const*, char const*)
 t GetInterpolationData(float const*, float const*, int, int, float, bool, float*, float*, float*)
-t LzmaDecodeProperties(_CLzmaProperties*, unsigned char const*, int)
 t MathLib_3DNowEnabled()
 t MurmurHash2LowerCase(char const*, unsigned int)
 t QuaternionDotProduct(Quaternion const&, Quaternion const&)
@@ -1396,6 +1405,7 @@ t FileSystem_SetBasePaths(IFileSystem*)
 t FileSystem_SetErrorMode(FSErrorMode_t)
 t GetVProjectCmdLineValue()
 t Kochanek_Bartels_Spline(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t LzmaDec_InitDicAndState(CLzmaDec*, int, int)
 t MD5_ProcessSingleBuffer(void const*, int, MD5Value_t&)
 t QuaternionIdentityBlend(Quaternion const&, float, Quaternion&)
 t Rijndael_VC60Workaround()
@@ -1620,6 +1630,8 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
+b vec4_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
@@ -1631,7 +1643,6 @@ b vec4_origin
 b vec4_origin
 t async_resume(CCommand const&)
 t MD5Transform(unsigned int*, unsigned int const*)
-t ReadTextData(char const*, int, CUtlBuffer&)
 b s_bConnected
 b vec2_invalid
 b vec2_invalid
@@ -1663,6 +1674,8 @@ b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
+b vec2_invalid
+b vec4_invalid
 b vec4_invalid
 b vec4_invalid
 b vec4_invalid
@@ -1710,6 +1723,8 @@ d s_DummyProgress
 b texturetolinear
 t fgets_threadproc(void*)
 b g_TINFO_tgetflag
+t LzmaDec_TryDummy(CLzmaDec const*, unsigned char const*, unsigned int)
+t LzmaDec_WriteRem(CLzmaDec*, unsigned int)
 t ParseStringToken(char const*, char const**)
 b s_bBuiltBreakSet
 d s_nDLLIdentifier
@@ -1723,6 +1738,7 @@ d s_DefaultAccessor
 t AsyncWriteJobFilter(CJob*)
 t editline_threadproc(void*)
 b g_nHighPriorityJobs
+t LzmaDec_DecodeReal2(CLzmaDec*, unsigned int, unsigned char const*)
 t s_GameInfoSuggestFN(CFSSteamSetupInfo const*, char*, int, bool*)
 t StripTrailingString(char*, char const*)
 b async_resume_command
@@ -1739,6 +1755,7 @@ d s_LastFileLoadingFrom
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
 t TryLocateGameInfoFile(char*, int, bool)
 t AddSeperatorAndFixPath(char*)
+t LzmaDec_AllocateProbs2(CLzmaDec*, _CLzmaProps const*, ISzAlloc*) [clone .isra.1]
 t SymmetricDecryptWorker(unsigned char const*, unsigned int, unsigned char const*, unsigned int, unsigned char*, unsigned int*, CryptoPP::BlockCipherFinal<(CryptoPP::CipherDir)1, CryptoPP::Rijndael::Dec>&) [clone .isra.59]
 b g_Mathlib_GammaToLinear
 b g_Mathlib_LinearToGamma
@@ -1760,11 +1777,14 @@ t __CreateCDedicatedExportsIDedicatedExports_interface()
 d g_Sys
 r _ps_1
 b g_lock
+t SzFree(void*, void*)
 t Descend(char*, unsigned int, bool, unsigned int)
+d g_Alloc
 r _pi32_1
 r _pi32_2
 r _pi32_4
 r _ps_0p5
+t SzAlloc(void*, unsigned int)
 d g_NetAPI
 t SkipFile(char const*&)
 t ConCommand::CanAutoComplete()
@@ -1822,6 +1842,7 @@ t CUtlBuffer::PeekStringLength()
 t CUtlBuffer::PeekStringLength() [clone .part.20]
 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+t CUtlBuffer::GetStringInternal(char*, unsigned int)
 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
 t CUtlBuffer::AddNullTermination()
 t CUtlBuffer::AddNullTermination() [clone .part.23]
@@ -1847,7 +1868,6 @@ t CUtlBuffer::CheckGet(int)
 t CUtlBuffer::CheckPut(int)
 t CUtlBuffer::GetToken(char const*)
 t CUtlBuffer::VaPrintf(char const*, char*)
-t CUtlBuffer::GetString(char*, int)
 t CUtlBuffer::PutString(char const*)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
@@ -1907,6 +1927,7 @@ t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, C
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::Insert(CachedVPKRead_t const&)
+t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::~CUtlRBTree()
@@ -1930,6 +1951,7 @@ t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, i
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RotateRight(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, int, int>::Node_t const&)
+t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RemoveAll()
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -1947,6 +1969,7 @@ t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char co
 t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::RemoveRebalance(int)
 t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, FileJob_t*, int>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::Unlink(int)
+t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::RemoveAll()
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::RotateLeft(int)
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::RotateRight(int)
@@ -1954,6 +1977,7 @@ t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZip
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::RemoveRebalance(int)
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::Insert(CZipFile::CZipEntry const&)
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::Unlink(int)
+t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::NewNode()
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::RemoveAll()
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::~CUtlRBTree()
 t CUtlRBTree<CZipFile::CZipEntry, int, bool (*)(CZipFile::CZipEntry const&, CZipFile::CZipEntry const&), CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int> >::~CUtlRBTree()
@@ -2000,8 +2024,6 @@ t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlSt
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::RemoveAll()
 t CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> >::GrowVector(int)
 t CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> >::ShiftElementsRight(int, int)
-t CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> >::~CUtlVector()
-t CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> >::~CUtlVector()
 t CUtlVector<VPKContentFileInfo_t, CUtlMemory<VPKContentFileInfo_t, int> >::InsertBefore(int)
 t CUtlVector<char, CUtlMemory<char, int> >::GrowVector(int)
 t CUtlVector<char, CUtlMemory<char, int> >::ShiftElementsRight(int, int)
@@ -2018,8 +2040,6 @@ t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
 t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
 t CUtlVector<CBaseFileSystem::COpenedFile, CUtlMemory<CBaseFileSystem::COpenedFile, int> >::InsertBefore(int, CBaseFileSystem::COpenedFile const&)
 t CUtlVector<CBaseFileSystem::COpenedFile, CUtlMemory<CBaseFileSystem::COpenedFile, int> >::RemoveAll()
-t CUtlVector<CBaseFileSystem::COpenedFile, CUtlMemory<CBaseFileSystem::COpenedFile, int> >::~CUtlVector()
-t CUtlVector<CBaseFileSystem::COpenedFile, CUtlMemory<CBaseFileSystem::COpenedFile, int> >::~CUtlVector()
 t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> >::GrowVector(int)
 t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> >::InsertBefore(int)
 t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> >::InsertBefore(int, CBaseFileSystem::CSearchPath const&)
@@ -2038,12 +2058,8 @@ t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
 t CUtlVector<char*, CUtlMemory<char*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<char*, CUtlMemory<char*, int> >::Sort(int (*)(char* const*, char* const*))
-t CUtlVector<CBaseFileSystem::CPathIDInfo*, CUtlMemory<CBaseFileSystem::CPathIDInfo*, int> >::~CUtlVector()
-t CUtlVector<CBaseFileSystem::CPathIDInfo*, CUtlMemory<CBaseFileSystem::CPathIDInfo*, int> >::~CUtlVector()
 t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::GrowVector(int)
 t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::ShiftElementsRight(int, int)
-t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::~CUtlVector()
-t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::~CUtlVector()
 t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::InsertBefore(int, CUtlSymbolTable::StringPool_t* const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
@@ -2064,7 +2080,7 @@ t CFileHandle::Read(void*, int)
 t CFileHandle::Read(void*, int, int)
 t CFileHandle::Seek(long long, int)
 t CFileHandle::Size()
-t CFileHandle::Size() [clone .part.52]
+t CFileHandle::Size() [clone .part.46]
 t CFileHandle::Tell()
 t CFileHandle::Flush()
 t CFileHandle::Write(void const*, int)
@@ -2077,6 +2093,16 @@ t CFileHandle::~CFileHandle()
 t CFileHandle::~CFileHandle()
 t CFileStream::Put(void const*, int)
 t CFileStream::Tell()
+t CLZMAStream::InitZIPHeader(unsigned int, unsigned int)
+t CLZMAStream::TryParseHeader(unsigned char*, unsigned int, unsigned int&)
+t CLZMAStream::FreeDecoderState()
+t CLZMAStream::CreateDecoderState(unsigned char const*)
+t CLZMAStream::GetExpectedBytesRemaining(unsigned int&)
+t CLZMAStream::Read(unsigned char*, unsigned int, unsigned char*, unsigned int, unsigned int&, unsigned int&)
+t CLZMAStream::CLZMAStream()
+t CLZMAStream::CLZMAStream()
+t CLZMAStream::~CLZMAStream()
+t CLZMAStream::~CLZMAStream()
 t CRefCounted<CRefCountServiceBase<true, CRefMT> >::~CRefCounted()
 t CRefCounted<CRefCountServiceBase<true, CRefMT> >::~CRefCounted()
 t CRefCounted<CRefCountServiceBase<true, CRefMT> >::~CRefCounted()
@@ -2151,16 +2177,17 @@ t CThreadMutex::CThreadMutex()
 t CThreadMutex::CThreadMutex()
 t CThreadMutex::~CThreadMutex()
 t CThreadMutex::~CThreadMutex()
+t CZipPackFile::GetFileInfo(char const*, int&, long long&, int&, int&, unsigned short&)
+t CZipPackFile::ContainsFile(char const*)
 t CZipPackFile::ReadFromPack(int, void*, int, int, long long)
 t CZipPackFile::GetPreloadEntry(int)
 t CZipPackFile::IndexToFilename(int, char*, int)
 t CZipPackFile::SetupPreloadData()
 t CZipPackFile::CPackFileLessFunc::Less(CZipPackFile::CPackFileEntry const&, CZipPackFile::CPackFileEntry const&, void*)
 t CZipPackFile::DiscardPreloadData()
-t CZipPackFile::GetOffsetAndLength(char const*, int&, long long&, int&)
 t CZipPackFile::GetPackFileBaseOffset()
 t CZipPackFile::Prepare(long long, long long)
-t CZipPackFile::FindFile(char const*, int&, long long&, int&)
+t CZipPackFile::OpenFile(char const*, char const*)
 t CZipPackFile::CZipPackFile(CBaseFileSystem*, void*)
 t CZipPackFile::CZipPackFile(CBaseFileSystem*, void*)
 t CZipPackFile::~CZipPackFile()
@@ -2295,7 +2322,7 @@ t CUtlSortVector<FileJob_t*, CQueuedLoader::CFileJobsLessFunc, CUtlVector<FileJo
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
 t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::CompareHelper(void* const*, void* const*)
 t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::Remove(void* const&)
-t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::RedoSort(bool) [clone .part.53]
+t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::RedoSort(bool) [clone .part.49]
 t CUtlStringList::SortFunc(char* const*, char* const*)
 t CUtlStringList::~CUtlStringList()
 t CUtlStringList::~CUtlStringList()
@@ -2373,7 +2400,7 @@ t CBaseFileSystem::AsyncRelease(FSAsyncControl_t__*)
 t CBaseFileSystem::AsyncSuspend()
 t CBaseFileSystem::EndMapAccess()
 t CBaseFileSystem::FastFileTime(CBaseFileSystem::CSearchPath const*, char const*)
-t CBaseFileSystem::FastFileTime(CBaseFileSystem::CSearchPath const*, char const*) [clone .part.69]
+t CBaseFileSystem::FastFileTime(CBaseFileSystem::CSearchPath const*, char const*) [clone .part.62]
 t CBaseFileSystem::FindFileName(char const*)
 t CBaseFileSystem::GetLocalCopy(char const*)
 t CBaseFileSystem::GetLocalPath(char const*, char*, int)
@@ -2392,7 +2419,7 @@ t CBaseFileSystem::GetSearchPath(char const*, bool, char*, int)
 t CBaseFileSystem::LoadKeyValues(IFileSystem::KeyValuesPreloadType_t, char const*, char const*)
 t CBaseFileSystem::LoadKeyValues(KeyValues&, IFileSystem::KeyValuesPreloadType_t, char const*, char const*)
 t CBaseFileSystem::LogFileAccess(char const*)
-t CBaseFileSystem::LogFileAccess(char const*) [clone .part.44]
+t CBaseFileSystem::LogFileAccess(char const*) [clone .part.37]
 t CBaseFileSystem::RemoveVPKFile(char const*)
 t CBaseFileSystem::SetBufferSize(void*, unsigned int)
 t CBaseFileSystem::ShutdownAsync()
@@ -2455,11 +2482,10 @@ t CBaseFileSystem::CheckCachedFileHash(char const*, char const*, int, FileHash_t
 t CBaseFileSystem::FindOrAddPathIDInfo(CUtlSymbol const&, int)
 t CBaseFileSystem::GetCurrentDirectory(char*, int)
 t CBaseFileSystem::AsyncFinishAllWrites()
+t CBaseFileSystem::CSearchPathsIterator::CopySearchPaths(CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> > const&)
 t CBaseFileSystem::CSearchPathsIterator::GetNext()
 t CBaseFileSystem::CSearchPathsIterator::GetFirst()
-t CBaseFileSystem::CSearchPathsIterator::GetFirst() [clone .part.165]
-t CBaseFileSystem::CSearchPathsIterator::CSearchPathsIterator(CBaseFileSystem*, char const**, char const*, PathTypeFilter_t)
-t CBaseFileSystem::CSearchPathsIterator::CSearchPathsIterator(CBaseFileSystem*, char const**, char const*, PathTypeFilter_t)
+t CBaseFileSystem::CSearchPathsIterator::GetFirst() [clone .part.149]
 t CBaseFileSystem::CSearchPathsIterator::~CSearchPathsIterator()
 t CBaseFileSystem::CSearchPathsIterator::~CSearchPathsIterator()
 t CBaseFileSystem::FindFileAbsoluteList(CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&, char const*, char const*)
@@ -2491,7 +2517,7 @@ t CBaseFileSystem::RemoveAllMapSearchPaths()
 t CBaseFileSystem::Trace_DumpUnclosedFiles()
 t CBaseFileSystem::UnloadCompiledKeyValues()
 t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int)
-t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int) [clone .part.79]
+t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int) [clone .part.78]
 t CBaseFileSystem::RemoveAsyncCustomFetchJob(CFileAsyncReadJob*)
 t CBaseFileSystem::FindFileAbsoluteListHelper(CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&, CBaseFileSystem::FindData_t&, char const*)
 t CBaseFileSystem::GetCaseCorrectFullPath_Ptr(char const*, char*, int)
@@ -2527,7 +2553,7 @@ t CBaseFileSystem::EndOfFile(void*)
 t CBaseFileSystem::FindClose(int)
 t CBaseFileSystem::FindFirst(char const*, int*)
 t CBaseFileSystem::FixUpPath(char const*, char*, int)
-t CBaseFileSystem::FixUpPath(char const*, char*, int) [clone .part.5]
+t CBaseFileSystem::FixUpPath(char const*, char*, int) [clone .part.4]
 t CBaseFileSystem::InitAsync()
 b CBaseFileSystem::m_DVDMode
 t CBaseFileSystem::SyncWrite(char const*, void const*, int, bool, bool)
@@ -2537,8 +2563,9 @@ t CBaseFileSystem::CBaseFileSystem()
 t CBaseFileSystem::CBaseFileSystem()
 t CBaseFileSystem::~CBaseFileSystem()
 t CBaseFileSystem::~CBaseFileSystem()
-t CPackFileHandle::Read(void*, int, int)
-t CPackFileHandle::Seek(int, int)
+t CPackFileHandle::~CPackFileHandle()
+t CPackFileHandle::~CPackFileHandle()
+t CPackFileHandle::~CPackFileHandle()
 t CTier1AppSystem<IFileSystem, 0>::Disconnect()
 t CTier1AppSystem<IFileSystem, 0>::Init()
 t CTier1AppSystem<IFileSystem, 0>::Connect(void* (*)(char const*, int*))
@@ -2669,7 +2696,6 @@ t CUtlInplaceBuffer::InplaceGetLinePtr(char**, int*)
 t CUtlInplaceBuffer::InplaceGetLinePtr()
 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
-t CUtlSymbolTableMT::AddString(char const*)
 t CUtlSymbolTableMT::~CUtlSymbolTableMT()
 t CUtlSymbolTableMT::~CUtlSymbolTableMT()
 t ZIP_PreloadHeader::GetBaseMap()
@@ -2692,6 +2718,18 @@ t CStdFilesystemFile::~CStdFilesystemFile()
 t CUtlCharConversion::FindConversion(char const*, int*)
 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+t CZipPackFileHandle::GetSectorSize()
+t CZipPackFileHandle::SetBufferSize(int)
+t CZipPackFileHandle::AbsoluteBaseOffset()
+t CZipPackFileHandle::Read(void*, int, int)
+t CZipPackFileHandle::Seek(int, int)
+t CZipPackFileHandle::Size()
+t CZipPackFileHandle::Tell()
+t CZipPackFileHandle::CZipPackFileHandle(CZipPackFile*, long long, unsigned int, unsigned int, unsigned int)
+t CZipPackFileHandle::CZipPackFileHandle(CZipPackFile*, long long, unsigned int, unsigned int, unsigned int)
+t CZipPackFileHandle::~CZipPackFileHandle()
+t CZipPackFileHandle::~CZipPackFileHandle()
+t CZipPackFileHandle::~CZipPackFileHandle()
 t CFSMountContentInfo::CFSMountContentInfo()
 t CFSMountContentInfo::CFSMountContentInfo()
 t CUtlNoEscConversion::FindConversion(char const*, int*)
@@ -2745,6 +2783,17 @@ t CFileAsyncWriteFileJob::~CFileAsyncWriteFileJob()
 t CFileAsyncWriteFileJob::~CFileAsyncWriteFileJob()
 t CGlobalInitConstructor::CGlobalInitConstructor()
 t CGlobalInitConstructor::CGlobalInitConstructor()
+t CLZMAZipPackFileHandle::FillReadBuffer()
+t CLZMAZipPackFileHandle::Read(void*, int, int)
+t CLZMAZipPackFileHandle::Seek(int, int)
+t CLZMAZipPackFileHandle::Size()
+t CLZMAZipPackFileHandle::Tell()
+t CLZMAZipPackFileHandle::Reset()
+t CLZMAZipPackFileHandle::CLZMAZipPackFileHandle(CZipPackFile*, long long, unsigned int, unsigned int, unsigned int, unsigned int)
+t CLZMAZipPackFileHandle::CLZMAZipPackFileHandle(CZipPackFile*, long long, unsigned int, unsigned int, unsigned int, unsigned int)
+t CLZMAZipPackFileHandle::~CLZMAZipPackFileHandle()
+t CLZMAZipPackFileHandle::~CLZMAZipPackFileHandle()
+t CLZMAZipPackFileHandle::~CLZMAZipPackFileHandle()
 t CFileAsyncAppendFileJob::Describe()
 t CFileAsyncAppendFileJob::DoExecute()
 t CFileAsyncAppendFileJob::~CFileAsyncAppendFileJob()
@@ -2814,13 +2863,13 @@ t CSys::~CSys()
 t CSys::~CSys()
 t CZip::SaveToDisk(_IO_FILE*)
 t CZip::SaveToDisk(void*)
-t CZip::AddFileToZip(char const*, char const*)
+t CZip::AddFileToZip(char const*, char const*, IZip::eCompressionType)
 t CZip::EstimateSize()
 t CZip::GetAlignment()
 t CZip::SaveToBuffer(CUtlBuffer&)
 t CZip::SetBigEndian(bool)
 t CZip::ParseFromDisk(char const*)
-t CZip::AddBufferToZip(char const*, void*, int, bool)
+t CZip::AddBufferToZip(char const*, void*, int, bool, IZip::eCompressionType)
 t CZip::ForceAlignment(bool, bool, unsigned int)
 t CZip::PrintDirectory()
 t CZip::FileExistsInZip(char const*)
@@ -5687,14 +5736,14 @@ t CUtlDict<FileJob_t*, int>::RemoveAt(int)
 t CUtlDict<FileJob_t*, int>::RemoveAll()
 t CZipFile::SaveToDisk(_IO_FILE*)
 t CZipFile::SaveToDisk(void*)
-t CZipFile::AddFileToZip(char const*, char const*)
+t CZipFile::AddFileToZip(char const*, char const*, IZip::eCompressionType)
 t CZipFile::GetAlignment()
 t CZipFile::SaveToBuffer(CUtlBuffer&)
 t CZipFile::SetBigEndian(bool)
 t CZipFile::CalculateSize()
 t CZipFile::ParseFromDisk(char const*)
 t CZipFile::SaveDirectory(IWriteStream&)
-t CZipFile::AddBufferToZip(char const*, void*, int, bool)
+t CZipFile::AddBufferToZip(char const*, void*, int, bool, IZip::eCompressionType)
 t CZipFile::ForceAlignment(bool, bool, unsigned int)
 t CZipFile::PrintDirectory()
 t CZipFile::FileExistsInZip(char const*)
@@ -5737,10 +5786,10 @@ t ConVarRef::ConVarRef(char const*, bool)
 t ConVarRef::ConVarRef(IConVar*)
 t ConVarRef::ConVarRef(char const*)
 t ConVarRef::ConVarRef(char const*, bool)
-t CPackFile::ReadFromPack(int, void*, int, int, long long)
 t CPackFile::SetupPreloadData()
 t CPackFile::DiscardPreloadData()
-t CPackFile::OpenFile(char const*, char const*)
+t CPackFile::CPackFile()
+t CPackFile::CPackFile()
 t CPackFile::~CPackFile()
 t CPackFile::~CPackFile()
 t CPackFile::~CPackFile()
@@ -5891,7 +5940,7 @@ t CQueuedLoader::GetSpewDetail() const
 t CQueuedLoader::IsSameMapLoading() const
 t CQueuedLoader::IsDynamic() const
 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
-t unsigned int CUtlHashtable<char const*, CMemoryFileBacking*, DefaultHashFunctor<char const*>, DefaultEqualFunctor<char const*>, undefined_t>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.151]
+t unsigned int CUtlHashtable<char const*, CMemoryFileBacking*, DefaultHashFunctor<char const*>, DefaultEqualFunctor<char const*>, undefined_t>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.134]
 t ConCommandBase::GetHelpText() const
 t ConCommandBase::IsRegistered() const
 t ConCommandBase::GetDLLIdentifier() const
@@ -5906,6 +5955,7 @@ t int CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<voi
 t CAppSystemGroup::GetErrorStage() const
 t CBaseFileSystem::COpenedFile::operator==(CBaseFileSystem::COpenedFile const&) const
 t CBaseFileSystem::CSearchPath::GetDebugString() const
+t CBaseFileSystem::CSearchPath::IsMapPath() const
 t CUtlSymbolTable::FindPoolWithSpace(int) const
 t CUtlSymbolTable::Find(char const*) const
 t CUtlSymbolTable::CLess::operator()(CUtlSymbolTable::CStringPoolIndex const&, CUtlSymbolTable::CStringPoolIndex const&) const
@@ -5913,7 +5963,6 @@ t CUtlSymbolTable::String(CUtlSymbol) const
 t CSimpleBitString::GetByteChecksumFromStart(unsigned int) const
 U CThreadLocalBase::Get() const
 t CFileSystem_Stdio::IsSteam() const
-t CUtlSymbolTableMT::String(CUtlSymbol) const
 t CFileAsyncWriteJob::IsWrite() const
 t CUtlCharConversion::GetDelimiter() const
 t CUtlCharConversion::GetEscapeChar() const
@@ -8631,6 +8680,7 @@ r typeinfo for ConCommandBase
 r typeinfo for CTier2SteamApp
 r typeinfo for CAppSystemGroup
 r typeinfo for CBaseFileSystem
+r typeinfo for CPackFileHandle
 r typeinfo for CTier0AppSystem<IFileSystem>
 r typeinfo for CTier0AppSystem<IQueuedLoader>
 r typeinfo for CTier1AppSystem<IFileSystem, 0>
@@ -8654,6 +8704,7 @@ r typeinfo for CFileAsyncWriteJob
 r typeinfo for CMemoryFileBacking
 r typeinfo for CStdFilesystemFile
 r typeinfo for CUtlCharConversion
+r typeinfo for CZipPackFileHandle
 r typeinfo for FileAsyncRequest_t
 r typeinfo for CUtlNoEscConversion
 r typeinfo for ConVar_ServerBounded
@@ -8664,6 +8715,7 @@ r typeinfo for CFileAsyncFileSizeJob
 r typeinfo for CUtlCStringConversion
 r typeinfo for IKeyValuesDumpContext
 r typeinfo for CFileAsyncWriteFileJob
+r typeinfo for CLZMAZipPackFileHandle
 r typeinfo for CFileAsyncAppendFileJob
 r typeinfo for IConCommandBaseAccessor
 r typeinfo for CDedicatedAppSystemGroup
@@ -9273,6 +9325,7 @@ r typeinfo name for ConCommandBase
 r typeinfo name for CTier2SteamApp
 r typeinfo name for CAppSystemGroup
 r typeinfo name for CBaseFileSystem
+r typeinfo name for CPackFileHandle
 r typeinfo name for CTier0AppSystem<IFileSystem>
 r typeinfo name for CTier0AppSystem<IQueuedLoader>
 r typeinfo name for CTier1AppSystem<IFileSystem, 0>
@@ -9296,6 +9349,7 @@ r typeinfo name for CFileAsyncWriteJob
 r typeinfo name for CMemoryFileBacking
 r typeinfo name for CStdFilesystemFile
 r typeinfo name for CUtlCharConversion
+r typeinfo name for CZipPackFileHandle
 r typeinfo name for FileAsyncRequest_t
 r typeinfo name for CUtlNoEscConversion
 r typeinfo name for ConVar_ServerBounded
@@ -9306,6 +9360,7 @@ r typeinfo name for CFileAsyncFileSizeJob
 r typeinfo name for CUtlCStringConversion
 r typeinfo name for IKeyValuesDumpContext
 r typeinfo name for CFileAsyncWriteFileJob
+r typeinfo name for CLZMAZipPackFileHandle
 r typeinfo name for CFileAsyncAppendFileJob
 r typeinfo name for IConCommandBaseAccessor
 r typeinfo name for CDedicatedAppSystemGroup
@@ -10189,6 +10244,7 @@ r vtable for CDummyProgress
 r vtable for ConCommandBase
 r vtable for CAppSystemGroup
 r vtable for CBaseFileSystem
+r vtable for CPackFileHandle
 r vtable for CTier0AppSystem<IFileSystem>
 r vtable for CTier0AppSystem<IQueuedLoader>
 r vtable for CTier1AppSystem<IFileSystem, 0>
@@ -10209,6 +10265,7 @@ r vtable for CFileAsyncWriteJob
 r vtable for CMemoryFileBacking
 r vtable for CStdFilesystemFile
 r vtable for CUtlCharConversion
+r vtable for CZipPackFileHandle
 r vtable for CUtlNoEscConversion
 r vtable for CPackedStoreRefCount
 r vtable for CRefCountServiceBase<true, CRefMT>
@@ -10216,6 +10273,7 @@ r vtable for CSteamAppSystemGroup
 r vtable for CFileAsyncFileSizeJob
 r vtable for CUtlCStringConversion
 r vtable for CFileAsyncWriteFileJob
+r vtable for CLZMAZipPackFileHandle
 r vtable for CFileAsyncAppendFileJob
 r vtable for CDedicatedAppSystemGroup
 r vtable for CResourcePreloadAnonymous

@@ -74,10 +74,10 @@ T crc32_combine64
 r crc_table
 T CreateInterface
 U CreateSimpleThread
-r CSWTCH.17
-r CSWTCH.380
-r CSWTCH.567
-r CSWTCH.971
+r CSWTCH.18
+r CSWTCH.378
+r CSWTCH.568
+r CSWTCH.977
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
@@ -918,6 +918,16 @@ t lstat
 t __lstat
 U __lxstat64@@GLIBC_2.2
 U __lxstat@@GLIBC_2.0
+t LzmaDec_Allocate
+t LzmaDec_AllocateProbs
+t LzmaDec_DecodeToBuf
+t LzmaDec_DecodeToDic
+t LzmaDec_Free
+t LzmaDec_FreeProbs
+t LzmaDec_Init
+t LzmaDecode
+t LzmaProps_Decode
+t LzmaProps_Decode.part.2
 U mallinfo@@GLIBC_2.0
 U malloc@@GLIBC_2.0
 b marker.8514
@@ -1947,7 +1957,6 @@ t FillStaticBuffer(CGroupMesh*, CDispInfo*, CCoreDispInfo const*, CDispVert cons
 t Float_DecodeZero(DecodeInfo*)
 t Generic_FastCopy(SendProp const*, RecvProp const*, unsigned char const*, unsigned char*, int)
 t GetAppSteamAppId(ESourceApp)
-t GetMapNameOnDisk(char*, char const*, unsigned int)
 t GetNetSpikeValue()
 t GetSteamUniverse()
 t Host_AbortServer()
@@ -1957,6 +1966,7 @@ t InitStudioRender()
 t InstanceRegistry(char const*)
 t Int64_DecodeZero(DecodeInfo*)
 t LoadGameInfoFile(char const*, KeyValues*&, KeyValues*&, KeyValues*&)
+t MapList_ListMaps(char const*, bool, bool, int, int, char (*) [64])
 t MatricesAreEqual(matrix3x4_t const&, matrix3x4_t const&, float)
 t MatrixBuildOrtho(VMatrix&, double, double, double, double, double, double)
 t MatrixBuildScale(VMatrix&, float, float, float)
@@ -2165,7 +2175,6 @@ t Editor_SendCommand(char const*, bool)
 t Editor_SetKeyValue(char const*, float, float, float, char const*, char const*, bool)
 t GetLanguageICUName(ELanguage)
 t GetObjectClassName(int)
-t GetPlatformMapPath(char const*, char*, int)
 t HashStringCaseless(char const*)
 t Host_Changelevel_f(CCommand const&)
 t Host_Client_Printf(char const*, ...)
@@ -2591,6 +2600,7 @@ t SetupMatrixTranslation(Vector const&)
 t ShutdownMaterialSystem()
 t SortInfoToLightmapPage(int)
 t SV_ForceSimpleMaterial(char const*)
+t SV_InitGameServerSteam()
 t SV_MaybeWriteSendTable(SendTable*, bf_write&, bool)
 t SV_MaybeWriteSendTable(SendTable*, bf_write&, bool) [clone .part.30]
 t Sys_InitAuthentication()
@@ -2630,6 +2640,7 @@ t GetCornerIndexFromPoint(CVertIndex const&, int)
 t char const* GetTypedKeyValuesString<char>(KeyValues*, char const*)
 t wchar_t const* GetTypedKeyValuesString<wchar_t>(KeyValues*, char const*)
 t GetVProjectCmdLineValue()
+t Host_DefaultMapFileName(char const*, char*, unsigned int)
 t Host_IsSinglePlayerGame()
 t HostState_ChangeLevelMP(char const*, char const*)
 t HostState_ChangeLevelSP(char const*, char const*)
@@ -2641,6 +2652,7 @@ t IsBoxIntersectingSphere(Vector const&, Vector const&, Vector const&, float)
 t IsRayIntersectingSphere(Vector const&, Vector const&, Vector const&, float, float)
 t Key_NameForBindingExact(char const*)
 t Kochanek_Bartels_Spline(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t LzmaDec_InitDicAndState(CLzmaDec*, int, int)
 t Map_AreAnyLeavesVisible(worldbrushdata_t const&, int*, int)
 t MatrixBuildPerspectiveX(VMatrix&, double, double, double, double)
 t MD5_ProcessSingleBuffer(void const*, int, MD5Value_t&)
@@ -2795,6 +2807,7 @@ t GeneratePolygonIndexBuffer(unsigned short*, int, int)
 t GetComponentsFromNodeIndex(int, int*, int*)
 t GetNodeIndexFromComponents(int, int)
 t Host_IsSecureServerAllowed()
+t _Host_Map_f_CompletionFunc(char const*, char const*, char (*) [64])
 t Host_SetClientInSimulation(bool)
 t InitWellKnownRenderTargets()
 t InternalBitBufErrorHandler(BitBufErrorType, char const*)
@@ -3143,7 +3156,6 @@ t pathmatch(char const*, char**, bool, char*, unsigned int)
 t R_CullBox(Vector const&, Vector const&, Frustum_t const&)
 t RenderBox(Vector const&, QAngle const&, Vector const&, Vector const&, Color, bool, bool)
 t RenderBox(Vector const&, QAngle const&, Vector const&, Vector const&, Color, IMaterial*, bool)
-t RPTServer()
 t scan_tree(TState&, ct_data*, int)
 t send_bits(TState&, int, int)
 t send_tree(TState&, ct_data*, int)
@@ -3207,6 +3219,7 @@ b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::
 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszPathMatchEnabled
 b guard variable for VisCache_Build(VisCacheEntry&, worldbrushdata_t const&)::_counter
 b guard variable for g_exec_CompletionFunc(char const*, char (*) [64])::execComplete
+b guard variable for status(CCommand const&)::sv_tags
 b guard variable for CStudioHdr::pSeqdesc(int)::s_nil_seq
 b guard variable for CUtlString::GetEmptyString()::s_emptyString
 b guard variable for CBaseServer::UpdateTags()::var
@@ -3298,7 +3311,6 @@ t FastToLower(char)
 b g_cmapnames
 b g_HostState
 b g_HostTimes
-b g_RPTServer
 b g_SendQueue
 b g_SpewMutex
 t Host_Maps_f(CCommand const&)
@@ -3326,7 +3338,7 @@ t SortStricmp(char* const*, char* const*)
 b s_pTokenBuf
 b s_szMapName
 t star_memory(CCommand const&)
-t StripQuotes(char const*, char*, int) [clone .constprop.42]
+t StripQuotes(char const*, char*, int) [clone .constprop.40]
 b sv_logflush
 b sv_memlimit
 b sv_netspike
@@ -4099,7 +4111,7 @@ t VOX_ListClear()
 b vprof_command
 t vprof_on_Impl()
 t WarningAndLog(char const*, ...)
-t BuildTokenList(char const*, char, CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&) [clone .constprop.102]
+t BuildTokenList(char const*, char, CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&) [clone .constprop.101]
 t CCPairLessFunc(ccpair const&, ccpair const&)
 t CopyToMaxChars(char*, int, char const*, int) [clone .part.0]
 b g_DecalChecker
@@ -4254,7 +4266,8 @@ b g_szDefferedArg2
 b g_TriInfos_17x17
 b g_VertInfo_17x17
 b g_VirtualTerrain
-t MapList_ListMaps(char const*, bool, bool, int, int, char (*) [64])
+t LzmaDec_TryDummy(CLzmaDec const*, unsigned char const*, unsigned int)
+t LzmaDec_WriteRem(CLzmaDec*, unsigned int)
 b mat_forcedynamic
 b mat_info_command
 b mat_monitorgamma
@@ -4321,6 +4334,7 @@ b g_TeenyFBTexture1
 b g_TeenyFBTexture2
 b g_TimeLastMemTest
 b g_UploadGameStats
+d g_VEngineServer22
 t host_timer_report(CCommand const&)
 t IsSourceModLoaded()
 t key_listboundkeys(CCommand const&)
@@ -4336,7 +4350,7 @@ b net_maxpacketdrop
 b net_showfragments
 b net_start_command
 b orig_demo_message
-t ParseSteamInfFile(SteamInfVersionInfo_t&, char const*, char const*) [clone .constprop.65]
+t ParseSteamInfFile(SteamInfVersionInfo_t&, char const*, char const*) [clone .constprop.64]
 r _ps_inv_sign_mask
 b r_ambientfraction
 b r_drawbatchdecals
@@ -4348,7 +4362,6 @@ b r_lightcachemodel
 b r_partition_level
 d s_DefaultAccessor
 d s_pBoxFaceIndices
-b s_szMapNameOnDisk
 b stuffcmds_command
 b sv_maxuptimelimit
 b sv_minuptimelimit
@@ -4364,7 +4377,7 @@ t vprof_record_stop(CCommand const&)
 t vprof_reset_peaks(CCommand const&)
 t vprof_vtune_group(CCommand const&)
 b BindToggle_command
-t CM_UnsweptBoxTrace(TraceInfo_t*, Ray_t const&, int, int) [clone .isra.23]
+t CM_UnsweptBoxTrace(TraceInfo_t*, Ray_t const&, int, int) [clone .isra.24]
 t CreateTempFilename(TempFilename_t&, char const*, char const*, bool)
 b disconnect_command
 t FindSentGroupIndex(VProfListenInfo_t&, char const*)
@@ -4386,7 +4399,7 @@ b mod_forcetouchdata
 b mod_load_showstall
 b namelockid_command
 b net_status_command
-t OpenSocketInternal(int, int, int, char const*, int, bool, int) [clone .constprop.97]
+t OpenSocketInternal(int, int, int, char const*, int, bool, int) [clone .constprop.98]
 t plugin_unpause_all(CCommand const&)
 b r_colorstaticprops
 b r_decalstaticprops
@@ -4417,7 +4430,7 @@ t vprof_cachemiss_on(CCommand const&)
 t vprof_record_start(CCommand const&)
 b bench_start_command
 t budget_toggle_group(CCommand const&)
-t BuildSpriteLoadName(char const*, char*, int, bool&) [clone .constprop.169]
+t BuildSpriteLoadName(char const*, char*, int, bool&) [clone .constprop.168]
 b cache_print_command
 t cache_print_summary(CCommand const&)
 t CEventInfo_LessFunc(CEventInfo* const&, CEventInfo* const&)
@@ -4434,6 +4447,7 @@ b g_nTotalPropChanges
 b g_PartialChangeEnts
 b g_pSentenceFileList
 t host_name_changed_f(IConVar*, char const*, float)
+t LzmaDec_DecodeReal2(CLzmaDec*, unsigned int, unsigned char const*)
 b mat_maxframelatency
 b mem_compact_command
 b memory_diff_command
@@ -4455,7 +4469,7 @@ b s_nMapLoadRecursion
 b s_pWireframeIgnoreZ
 b star_memory_command
 b s_timeForceShutdown
-t StripTabsAndReturns(char const*, char*, int) [clone .constprop.43]
+t StripTabsAndReturns(char const*, char*, int) [clone .constprop.41]
 b sv_cacheencodedents
 b sv_enableoldqueries
 b sv_max_connects_sec
@@ -4545,6 +4559,7 @@ b g_vox_lastsectorupdate
 b ice_sboxes_initialised
 b logaddress_add_command
 b logaddress_del_command
+t LzmaDec_AllocateProbs2(CLzmaDec*, _CLzmaProps const*, ISzAlloc*) [clone .isra.1]
 b plugin_unpause_command
 b r_drawtranslucentworld
 d s_MaterialProxyFactory
@@ -4628,7 +4643,6 @@ b vprof_reset_peaks_command
 b vprof_vtune_group_command
 t CM_TriggerWorldSpaceBounds(ICollideable*, Vector*, Vector*)
 d __g_CVoiceServer_singleton
-t _Host_Map_f_CompletionFunc(char const*, char const*, char (*) [64])
 b plugin_unpause_all_command
 b r_drawmodelstatsoverlaymax
 b r_drawmodelstatsoverlaymin
@@ -4743,6 +4757,7 @@ b __g_CreateCEngineTraceServerIEngineTrace_reg
 b __g_CreateCModelInfoServerIVModelInfo003_reg
 t __CreateCModelInfoServerIVModelInfo_interface()
 b __g_CreateCVEngineServerIVEngineServer021_reg
+b __g_CreateCVEngineServerIVEngineServer022_reg
 t __CreateCVEngineServerIVEngineServer_interface()
 b __g_CreateCUploadGameStatsIUploadGameStats_reg
 b __g_CreateCServerPluginIServerPluginHelpers_reg
@@ -4754,6 +4769,7 @@ b __g_CreateCSpatialPartitionISpatialPartition_reg
 b __g_CreateCStaticPropMgrIStaticPropMgrClient_reg
 b __g_CreateCStaticPropMgrIStaticPropMgrServer_reg
 t __CreateCVEngineServerIVEngineServer021_interface()
+t __CreateCVEngineServerIVEngineServer022_interface()
 b __g_CreateCGameEventManagerIGameEventManager2_reg
 t bind(CCommand const&)
 t echo(CCommand const&)
@@ -4819,6 +4835,7 @@ t r_sse2(CCommand const&)
 b s_pMap
 t status(CCommand const&)
 b s_text
+t SzFree(void*, void*)
 t toggle(CCommand const&)
 t tv_msg(CCommand const&)
 t unbind(CCommand const&)
@@ -4829,6 +4846,7 @@ b __g_CreateCNetworkStringTableContainerServerINetworkStringTableContainer_reg
 t __CreateCBlackMesaWorkshopEventManagerIBlackMesaWorkshopEventManager_interface()
 t Descend(char*, unsigned int, bool, unsigned int)
 b fakelag
+d g_Alloc
 t gf_exp7(unsigned int, unsigned int) [clone .part.0]
 d g_hfind
 t kickall(CCommand const&)
@@ -4843,6 +4861,7 @@ t restart(CCommand const&)
 b r_novis
 b r_teeth
 b sv_pure
+t SzAlloc(void*, unsigned int)
 t tv_stop(CCommand const&)
 t unpause(CCommand const&)
 t version(CCommand const&)
@@ -5026,10 +5045,6 @@ t CPhoneHome::Message(unsigned char, char const*)
 t CPhoneHome::Shutdown()
 t CPowerInfo::CPowerInfo(CVertInfo*, CFourVerts*, CFourVerts*, CFourVerts*, CTwoUShorts*, CTriInfo*)
 t CPowerInfo::CPowerInfo(CVertInfo*, CFourVerts*, CFourVerts*, CFourVerts*, CTwoUShorts*, CTriInfo*)
-t CRPTServer::OnSocketClosed(int, netadr_s const&, void*)
-t CRPTServer::OnSocketAccepted(int, netadr_s const&, void**)
-t CRPTServer::~CRPTServer()
-t CRPTServer::~CRPTServer()
 t CStudioHdr::pAttachment(int)
 t CStudioHdr::pszNodeName(int)
 t CStudioHdr::RunFlexRules(float const*, float*)
@@ -5087,6 +5102,7 @@ t CUtlBuffer::PeekStringLength()
 t CUtlBuffer::PeekStringLength() [clone .part.20]
 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+t CUtlBuffer::GetStringInternal(char*, unsigned int)
 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
 t CUtlBuffer::AddNullTermination()
 t CUtlBuffer::AddNullTermination() [clone .part.23]
@@ -5114,7 +5130,6 @@ t CUtlBuffer::CheckGet(int)
 t CUtlBuffer::CheckPut(int)
 t CUtlBuffer::GetToken(char const*)
 t CUtlBuffer::VaPrintf(char const*, char*)
-t CUtlBuffer::GetString(char*, int)
 t CUtlBuffer::PutString(char const*)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
@@ -5133,7 +5148,6 @@ t CUtlMemory<ipfilter_t, int>::Purge()
 t CUtlMemory<moverlay_t, int>::Purge()
 t CUtlMemory<sentence_t, int>::Purge()
 t CUtlMemory<CStaticProp, int>::Purge()
-t CUtlMemory<dgamelump_t, int>::Purge()
 t CUtlMemory<modelsize_t, int>::Purge()
 t CUtlMemory<netpacket_s, int>::Purge()
 t CUtlMemory<netsocket_t, int>::Purge()
@@ -5201,7 +5215,6 @@ t CUtlMemory<StringHistoryEntry, int>::Purge()
 t CUtlMemory<UnpackedDataCache_t, int>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CDispDecal, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CUtlBuffer, unsigned short>, unsigned short>::Grow(int)
-t CUtlMemory<UtlLinkedListElem_t<CUtlBuffer, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CUtlString, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<VisCacheEntry, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<SendQueueItem_t, unsigned short>, unsigned short>::Grow(int)
@@ -5242,6 +5255,7 @@ t CUtlMemory<UtlLinkedListElem_t<unsigned short, unsigned short>, unsigned short
 t CUtlMemory<UtlLinkedListElem_t<unsigned short, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<CGameEventDescriptor, int>::Purge()
 t CUtlMemory<CSendProxyRecipients, int>::Purge()
+t CUtlMemory<dgamelump_internal_t, int>::Purge()
 t CUtlMemory<DispCollPlaneIndex_t, int>::Purge()
 t CUtlMemory<StaticPropLeafLump_t, int>::Purge()
 t CUtlMemory<EdgeVisualizationInfo_t, int>::Purge()
@@ -5332,7 +5346,7 @@ t CUtlMemory<CAsyncUploaderThread::DataEntry*, int>::Purge()
 t CUtlMemory<CNetChan::dataFragments_s*, int>::Purge()
 t CUtlMemory<void*, int>::Purge()
 t CUtlMemory<SpewEdicts()::EdictCount_t*, int>::Purge()
-t CUtlMemory<unsigned short, int>::ConvertToGrowableMemory(int) [clone .part.44]
+t CUtlMemory<unsigned short, int>::ConvertToGrowableMemory(int) [clone .part.45]
 t CUtlMemory<unsigned short, int>::Grow(int)
 t CUtlMemory<unsigned short, int>::Purge()
 t CUtlMemory<unsigned long long, int>::Purge()
@@ -5340,6 +5354,7 @@ t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CU
 t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CUtlMemory<UtlRBTreeNode_t<CUtlString, int>, int> >::RotateRight(int)
 t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CUtlMemory<UtlRBTreeNode_t<CUtlString, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CUtlMemory<UtlRBTreeNode_t<CUtlString, int>, int> >::Insert(CUtlString const&)
+t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CUtlMemory<UtlRBTreeNode_t<CUtlString, int>, int> >::NewNode()
 t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CUtlMemory<UtlRBTreeNode_t<CUtlString, int>, int> >::RemoveAll()
 t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CUtlMemory<UtlRBTreeNode_t<CUtlString, int>, int> >::~CUtlRBTree()
 t CUtlRBTree<CUtlString, int, bool (*)(CUtlString const&, CUtlString const&), CUtlMemory<UtlRBTreeNode_t<CUtlString, int>, int> >::~CUtlRBTree()
@@ -5347,6 +5362,7 @@ t CUtlRBTree<CUtlSymbol, unsigned short, bool (*)(CUtlSymbol const&, CUtlSymbol 
 t CUtlRBTree<CUtlSymbol, unsigned short, bool (*)(CUtlSymbol const&, CUtlSymbol const&), CUtlMemory<UtlRBTreeNode_t<CUtlSymbol, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbol, unsigned short, bool (*)(CUtlSymbol const&, CUtlSymbol const&), CUtlMemory<UtlRBTreeNode_t<CUtlSymbol, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlSymbol, unsigned short, bool (*)(CUtlSymbol const&, CUtlSymbol const&), CUtlMemory<UtlRBTreeNode_t<CUtlSymbol, unsigned short>, unsigned short> >::Insert(CUtlSymbol const&)
+t CUtlRBTree<CUtlSymbol, unsigned short, bool (*)(CUtlSymbol const&, CUtlSymbol const&), CUtlMemory<UtlRBTreeNode_t<CUtlSymbol, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlSymbol, unsigned short, bool (*)(CUtlSymbol const&, CUtlSymbol const&), CUtlMemory<UtlRBTreeNode_t<CUtlSymbol, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<MatchingProp_t, unsigned short, bool (*)(MatchingProp_t const&, MatchingProp_t const&), CUtlMemory<UtlRBTreeNode_t<MatchingProp_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<MatchingProp_t, unsigned short, bool (*)(MatchingProp_t const&, MatchingProp_t const&), CUtlMemory<UtlRBTreeNode_t<MatchingProp_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -5357,13 +5373,17 @@ t CUtlRBTree<MasterFileHash_t, int, bool (*)(MasterFileHash_t const&, MasterFile
 t CUtlRBTree<MasterFileHash_t, int, bool (*)(MasterFileHash_t const&, MasterFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<MasterFileHash_t, int>, int> >::RotateRight(int)
 t CUtlRBTree<MasterFileHash_t, int, bool (*)(MasterFileHash_t const&, MasterFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<MasterFileHash_t, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<MasterFileHash_t, int, bool (*)(MasterFileHash_t const&, MasterFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<MasterFileHash_t, int>, int> >::Insert(MasterFileHash_t const&)
+t CUtlRBTree<MasterFileHash_t, int, bool (*)(MasterFileHash_t const&, MasterFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<MasterFileHash_t, int>, int> >::NewNode()
 t CUtlRBTree<MasterFileHash_t, int, bool (*)(MasterFileHash_t const&, MasterFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<MasterFileHash_t, int>, int> >::RemoveAll()
+t CUtlRBTree<UserReportedFile_t, int, bool (*)(UserReportedFile_t const&, UserReportedFile_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFile_t, int>, int> >::RemoveAll()
 t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::RotateLeft(int)
 t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::RotateRight(int)
 t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::RemoveRebalance(int)
 t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::Insert(UserReportedFileHash_t const&)
 t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::Unlink(int)
+t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::NewNode()
+t CUtlRBTree<UserReportedFileHash_t, int, bool (*)(UserReportedFileHash_t const&, UserReportedFileHash_t const&), CUtlMemory<UtlRBTreeNode_t<UserReportedFileHash_t, int>, int> >::RemoveAll()
 t CUtlRBTree<ccpair, int, bool (*)(ccpair const&, ccpair const&), CUtlMemory<UtlRBTreeNode_t<ccpair, int>, int> >::RemoveAll()
 t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&, CIPRateLimit::iprate_s const&), CUtlMemory<UtlRBTreeNode_t<CIPRateLimit::iprate_s, int>, int> >::RotateLeft(int)
 t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&, CIPRateLimit::iprate_s const&), CUtlMemory<UtlRBTreeNode_t<CIPRateLimit::iprate_s, int>, int> >::RotateRight(int)
@@ -5371,6 +5391,8 @@ t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&
 t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&, CIPRateLimit::iprate_s const&), CUtlMemory<UtlRBTreeNode_t<CIPRateLimit::iprate_s, int>, int> >::RemoveRebalance(int)
 t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&, CIPRateLimit::iprate_s const&), CUtlMemory<UtlRBTreeNode_t<CIPRateLimit::iprate_s, int>, int> >::Insert(CIPRateLimit::iprate_s const&)
 t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&, CIPRateLimit::iprate_s const&), CUtlMemory<UtlRBTreeNode_t<CIPRateLimit::iprate_s, int>, int> >::Unlink(int)
+t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&, CIPRateLimit::iprate_s const&), CUtlMemory<UtlRBTreeNode_t<CIPRateLimit::iprate_s, int>, int> >::NewNode()
+t CUtlRBTree<CIPRateLimit::iprate_s, int, bool (*)(CIPRateLimit::iprate_s const&, CIPRateLimit::iprate_s const&), CUtlMemory<UtlRBTreeNode_t<CIPRateLimit::iprate_s, int>, int> >::RemoveAll()
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
@@ -5380,17 +5402,20 @@ t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, C
 t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<CUtlString, int, unsigned short>::Node_t const&)
+t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<char const*, CMapListItem, int>::Node_t, int, CUtlMap<char const*, CMapListItem, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CMapListItem, int>::Node_t, int>, int> >::RotateLeft(int)
 t CUtlRBTree<CUtlMap<char const*, CMapListItem, int>::Node_t, int, CUtlMap<char const*, CMapListItem, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CMapListItem, int>::Node_t, int>, int> >::RotateRight(int)
 t CUtlRBTree<CUtlMap<char const*, CMapListItem, int>::Node_t, int, CUtlMap<char const*, CMapListItem, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CMapListItem, int>::Node_t, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<CUtlMap<char const*, CMapListItem, int>::Node_t, int, CUtlMap<char const*, CMapListItem, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CMapListItem, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, CMapListItem, int>::Node_t const&)
+t CUtlRBTree<CUtlMap<char const*, CMapListItem, int>::Node_t, int, CUtlMap<char const*, CMapListItem, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CMapListItem, int>::Node_t, int>, int> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, CMapListItem, int>::Node_t, int, CUtlMap<char const*, CMapListItem, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CMapListItem, int>::Node_t, int>, int> >::RemoveAll()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RotateLeft(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RotateRight(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, int, int>::Node_t const&)
+t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RemoveAll()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::~CUtlRBTree()
@@ -5410,12 +5435,14 @@ t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t,
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::RemoveRebalance(int)
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::Unlink(int)
+t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::RemoveAll()
 t CUtlRBTree<CUtlMap<void*, DecalEntry, unsigned short>::Node_t, unsigned short, CUtlMap<void*, DecalEntry, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, DecalEntry, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t const&)
+t CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -5435,6 +5462,7 @@ t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::N
 t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -5515,9 +5543,6 @@ t CUtlVector<sentence_t, CUtlMemory<sentence_t, int> >::InsertBefore(int)
 t CUtlVector<sentence_t, CUtlMemory<sentence_t, int> >::~CUtlVector()
 t CUtlVector<sentence_t, CUtlMemory<sentence_t, int> >::~CUtlVector()
 t CUtlVector<CStaticProp, CUtlMemory<CStaticProp, int> >::GrowVector(int)
-t CUtlVector<dgamelump_t, CUtlMemory<dgamelump_t, int> >::InsertBefore(int, dgamelump_t const&)
-t CUtlVector<dgamelump_t, CUtlMemory<dgamelump_t, int> >::~CUtlVector()
-t CUtlVector<dgamelump_t, CUtlMemory<dgamelump_t, int> >::~CUtlVector()
 t CUtlVector<netpacket_s, CUtlMemory<netpacket_s, int> >::EnsureCount(int)
 t CUtlVector<netpacket_s, CUtlMemory<netpacket_s, int> >::~CUtlVector()
 t CUtlVector<netpacket_s, CUtlMemory<netpacket_s, int> >::~CUtlVector()
@@ -5573,6 +5598,9 @@ t CUtlVector<UnpackedDataCache_t, CUtlMemory<UnpackedDataCache_t, int> >::GrowVe
 t CUtlVector<CGameEventDescriptor, CUtlMemory<CGameEventDescriptor, int> >::InsertBefore(int)
 t CUtlVector<CGameEventDescriptor, CUtlMemory<CGameEventDescriptor, int> >::RemoveAll()
 t CUtlVector<CSendProxyRecipients, CUtlMemory<CSendProxyRecipients, int> >::GrowVector(int)
+t CUtlVector<dgamelump_internal_t, CUtlMemory<dgamelump_internal_t, int> >::InsertBefore(int, dgamelump_internal_t const&)
+t CUtlVector<dgamelump_internal_t, CUtlMemory<dgamelump_internal_t, int> >::~CUtlVector()
+t CUtlVector<dgamelump_internal_t, CUtlMemory<dgamelump_internal_t, int> >::~CUtlVector()
 t CUtlVector<DispCollPlaneIndex_t, CUtlMemory<DispCollPlaneIndex_t, int> >::GrowVector(int)
 t CUtlVector<DispCollPlaneIndex_t, CUtlMemory<DispCollPlaneIndex_t, int> >::ShiftElementsRight(int, int)
 t CUtlVector<EdgeVisualizationInfo_t, CUtlMemory<EdgeVisualizationInfo_t, int> >::~CUtlVector()
@@ -6042,7 +6070,7 @@ t CGameClient::~CGameClient()
 t CGameClient::~CGameClient()
 t CGameClient::~CGameClient()
 t CGameServer::GetGeneric(int)
-t CGameServer::SpawnServer(char*, char*)
+t CGameServer::SpawnServer(char const*, char const*, char const*)
 t CGameServer::FinishRestore()
 t CGameServer::PrecacheDecal(char const*, int)
 t CGameServer::PrecacheModel(char const*, int, model_t*)
@@ -6193,6 +6221,16 @@ t CHLTVServer::CHLTVServer()
 t CHLTVServer::~CHLTVServer()
 t CHLTVServer::~CHLTVServer()
 t CHLTVServer::~CHLTVServer()
+t CLZMAStream::InitZIPHeader(unsigned int, unsigned int)
+t CLZMAStream::TryParseHeader(unsigned char*, unsigned int, unsigned int&)
+t CLZMAStream::FreeDecoderState()
+t CLZMAStream::CreateDecoderState(unsigned char const*)
+t CLZMAStream::GetExpectedBytesRemaining(unsigned int&)
+t CLZMAStream::Read(unsigned char*, unsigned int, unsigned char*, unsigned int, unsigned int&, unsigned int&)
+t CLZMAStream::CLZMAStream()
+t CLZMAStream::CLZMAStream()
+t CLZMAStream::~CLZMAStream()
+t CLZMAStream::~CLZMAStream()
 t CNetMessage::SetReliable(bool)
 t CNetMessage::SetNetChannel(INetChannel*)
 t CNetMessage::Process()
@@ -6569,8 +6607,8 @@ t CMemoryStack::CMemoryStack()
 t CMemoryStack::CMemoryStack()
 t CMemoryStack::~CMemoryStack()
 t CMemoryStack::~CMemoryStack()
-t CModelLoader::Map_IsValid(char const*)
-t CModelLoader::Map_IsValid(char const*) [clone .part.3]
+t CModelLoader::Map_IsValid(char const*, bool)
+t CModelLoader::Map_IsValid(char const*, bool) [clone .part.3]
 t CModelLoader::UnloadModel(model_t*)
 t CModelLoader::GetExtraData(model_t*)
 t CModelLoader::Map_LoadModel(model_t*)
@@ -6611,6 +6649,7 @@ t CModelLoader::Map_LoadDisplacements(model_t*, bool)
 t CModelLoader::QueueDynamicModelLoad(CModelLoader::CDynamicModelInfo*, model_t*)
 t CModelLoader::RecomputeSurfaceFlags(model_t*)
 t CModelLoader::CancelDynamicModelLoad(CModelLoader::CDynamicModelInfo*, model_t*)
+t CModelLoader::ResetModelServerCounts()
 t CModelLoader::DebugPrintDynamicModels()
 t CModelLoader::Map_UnloadCubemapSamples(model_t*)
 t CModelLoader::UnloadUnreferencedModels()
@@ -6782,6 +6821,16 @@ t SVC_SetPause::Process()
 t SVC_SetPause::~SVC_SetPause()
 t SVC_SetPause::~SVC_SetPause()
 t SVC_SetPause::~SVC_SetPause()
+t CCallbackImpl<12>::GetCallbackSizeBytes()
+t CCallbackImpl<12>::Run(void*, bool, unsigned long long)
+t CCallbackImpl<1>::GetCallbackSizeBytes()
+t CCallbackImpl<1>::Run(void*, bool, unsigned long long)
+t CCallbackImpl<20>::GetCallbackSizeBytes()
+t CCallbackImpl<20>::Run(void*, bool, unsigned long long)
+t CCallbackImpl<24>::GetCallbackSizeBytes()
+t CCallbackImpl<24>::Run(void*, bool, unsigned long long)
+t CCallbackImpl<4>::GetCallbackSizeBytes()
+t CCallbackImpl<4>::Run(void*, bool, unsigned long long)
 t CCoreDispInfo::CreateTris()
 t CCoreDispInfo::GetTriCount()
 t CCoreDispInfo::IsTriRemove(int)
@@ -7029,7 +7078,7 @@ t CSteam3Server::OnValidateAuthTicketResponse(ValidateAuthTicketResponse_t*) [cl
 t CSteam3Server::OnValidateAuthTicketResponseHelper(CBaseClient*, EAuthSessionResponse)
 t CSteam3Server::IsMasterServerUpdaterSharingGameSocket()
 t CSteam3Server::OnComputeNewPlayerCompatibilityResponse(ComputeNewPlayerCompatibilityResult_t*)
-t CSteam3Server::Activate()
+t CSteam3Server::Activate(CSteam3Server::EServerType)
 t CSteam3Server::RunFrame()
 t CSteam3Server::Shutdown()
 t CSteam3Server::CSteam3Server()
@@ -7227,7 +7276,6 @@ t CLC_SaveReplay::~CLC_SaveReplay()
 t CMapLoadHelper::GetMapName()
 t CMapLoadHelper::LumpOffset(int)
 t CMapLoadHelper::LumpOffset()
-t CMapLoadHelper::GetDiskName()
 t CMapLoadHelper::GetLoadName()
 t CMapLoadHelper::GetRefCount()
 t CMapLoadHelper::LoadLumpData(int, int, void*)
@@ -7235,12 +7283,14 @@ t CMapLoadHelper::InitFromMemory(model_t*, void const*, int)
 t CMapLoadHelper::LoadLumpElement(int, int, void*)
 t CMapLoadHelper::FreeLightingLump()
 t CMapLoadHelper::Init(model_t*, char const*)
+t CMapLoadHelper::Init(model_t*, char const*) [clone .part.37]
 t CMapLoadHelper::GetMap()
 t CMapLoadHelper::LumpBase()
 t CMapLoadHelper::LumpSize(int)
+t CMapLoadHelper::LumpSize(int) [clone .part.22]
 t CMapLoadHelper::LumpSize()
 t CMapLoadHelper::Shutdown()
-t CMapLoadHelper::Shutdown() [clone .part.34]
+t CMapLoadHelper::Shutdown() [clone .part.33]
 t CMapLoadHelper::CMapLoadHelper(int)
 t CMapLoadHelper::CMapLoadHelper(int)
 t CMapLoadHelper::~CMapLoadHelper()
@@ -7339,6 +7389,7 @@ t CTraceListData::IsEmpty()
 t CTraceListData::~CTraceListData()
 t CTraceListData::~CTraceListData()
 t CTraceListData::~CTraceListData()
+t CUtlLinkedList<CDispDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecal, unsigned short>, unsigned short> >::AllocInternal(bool)
 t CUtlLinkedList<CDispDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecal, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlLinkedList<CDispDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecal, unsigned short>, unsigned short> >::~CUtlLinkedList()
 t CUtlLinkedList<CDispDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecal, unsigned short>, unsigned short> >::~CUtlLinkedList()
@@ -7347,7 +7398,6 @@ t CUtlLinkedList<CUtlBuffer, unsigned short, false, unsigned short, CUtlMemory<U
 t CUtlLinkedList<CUtlBuffer, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlBuffer, unsigned short>, unsigned short> >::InsertBefore(unsigned short)
 t CUtlLinkedList<CUtlBuffer, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlBuffer, unsigned short>, unsigned short> >::AllocInternal(bool)
 t CUtlLinkedList<CUtlBuffer, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlBuffer, unsigned short>, unsigned short> >::Unlink(unsigned short)
-t CUtlLinkedList<CUtlBuffer, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlBuffer, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CUtlString, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlString, unsigned short>, unsigned short> >::InsertBefore(unsigned short)
 t CUtlLinkedList<CUtlString, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlString, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlLinkedList<CUtlString, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlString, unsigned short>, unsigned short> >::~CUtlLinkedList()
@@ -7371,6 +7421,7 @@ t CUtlLinkedList<LeafListData_t, int, true, int, CUtlFixedMemory<UtlLinkedListEl
 t CUtlLinkedList<SendQueueItem_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<SendQueueItem_t, unsigned short>, unsigned short> >::InsertBefore(unsigned short)
 t CUtlLinkedList<SendQueueItem_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<SendQueueItem_t, unsigned short>, unsigned short> >::Free(unsigned short)
 t CUtlLinkedList<SendQueueItem_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<SendQueueItem_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlLinkedList<CDispShadowDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowDecal, unsigned short>, unsigned short> >::AllocInternal(bool)
 t CUtlLinkedList<CDispShadowDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowDecal, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlLinkedList<CDispShadowDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowDecal, unsigned short>, unsigned short> >::~CUtlLinkedList()
 t CUtlLinkedList<CDispShadowDecal, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowDecal, unsigned short>, unsigned short> >::~CUtlLinkedList()
@@ -7378,11 +7429,14 @@ t CUtlLinkedList<CUtlKeyValuePair<CUtlConstStringBase<char>, CNetworkStringTable
 t CUtlLinkedList<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CUtlKeyValuePair<model_t*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<model_t*, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CDispDecalFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecalFragment, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlLinkedList<CDispDecalFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecalFragment, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CDispDecalFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecalFragment, unsigned short>, unsigned short> >::~CUtlLinkedList()
 t CUtlLinkedList<CDispDecalFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispDecalFragment, unsigned short>, unsigned short> >::~CUtlLinkedList()
+t CUtlLinkedList<moverlayfragment_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<moverlayfragment_t, unsigned short>, unsigned short> >::AllocInternal(bool)
 t CUtlLinkedList<moverlayfragment_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<moverlayfragment_t, unsigned short>, unsigned short> >::Alloc(bool)
 t CUtlLinkedList<moverlayfragment_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<moverlayfragment_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CDispShadowFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowFragment, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlLinkedList<CDispShadowFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowFragment, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CDispShadowFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowFragment, unsigned short>, unsigned short> >::~CUtlLinkedList()
 t CUtlLinkedList<CDispShadowFragment, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CDispShadowFragment, unsigned short>, unsigned short> >::~CUtlLinkedList()
 t CUtlLinkedList<float, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<float, unsigned short>, unsigned short> >::InsertBefore(unsigned short, float const&)
@@ -7404,7 +7458,9 @@ t CUtlLinkedList<CCommandBuffer::Command_t, int, true, int, CUtlFixedMemory<UtlL
 t CUtlLinkedList<CCommandBuffer::Command_t, int, true, int, CUtlFixedMemory<UtlLinkedListElem_t<CCommandBuffer::Command_t, int> > >::RemoveAll()
 t CUtlLinkedList<CServerRemoteAccess::DataResponse_t, int, false, int, CUtlMemory<UtlLinkedListElem_t<CServerRemoteAccess::DataResponse_t, int>, int> >::InsertBefore(int)
 t CUtlLinkedList<CServerRemoteAccess::DataResponse_t, int, false, int, CUtlMemory<UtlLinkedListElem_t<CServerRemoteAccess::DataResponse_t, int>, int> >::Unlink(int)
+t CUtlLinkedList<CServerRemoteAccess::ListenerStore_t, int, false, int, CUtlMemory<UtlLinkedListElem_t<CServerRemoteAccess::ListenerStore_t, int>, int> >::Unlink(int)
 t CUtlLinkedList<CChangeTrack*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CChangeTrack*, int>, int> >::InsertBefore(int, CChangeTrack* const&)
+t CUtlLinkedList<CChangeTrack*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CChangeTrack*, int>, int> >::Unlink(int)
 t CUtlLinkedList<CChangeTrack*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CChangeTrack*, int>, int> >::~CUtlLinkedList()
 t CUtlLinkedList<CChangeTrack*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CChangeTrack*, int>, int> >::~CUtlLinkedList()
 t CUtlLinkedList<CRecvDecoder*, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CRecvDecoder*, unsigned short>, unsigned short> >::InsertBefore(unsigned short, CRecvDecoder* const&)
@@ -7416,6 +7472,7 @@ t CUtlLinkedList<PackedEntity*, int, true, int, CUtlFixedMemory<UtlLinkedListEle
 t CUtlLinkedList<PackedEntity*, int, true, int, CUtlFixedMemory<UtlLinkedListElem_t<PackedEntity*, int> > >::Unlink(int)
 t CUtlLinkedList<PackedEntity*, int, true, int, CUtlFixedMemory<UtlLinkedListElem_t<PackedEntity*, int> > >::RemoveAll()
 t CUtlLinkedList<CDTIRecvTable*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CDTIRecvTable*, int>, int> >::InsertBefore(int, CDTIRecvTable* const&)
+t CUtlLinkedList<CDTIRecvTable*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CDTIRecvTable*, int>, int> >::Unlink(int)
 t CUtlLinkedList<CDTIRecvTable*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CDTIRecvTable*, int>, int> >::RemoveAll()
 t CUtlLinkedList<CDTIRecvTable*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CDTIRecvTable*, int>, int> >::~CUtlLinkedList()
 t CUtlLinkedList<CDTIRecvTable*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CDTIRecvTable*, int>, int> >::~CUtlLinkedList()
@@ -7572,6 +7629,7 @@ t CVEngineServer::GetEntityTransmitBitsForClient(int)
 t CVEngineServer::SetDedicatedServerBenchmarkMode(bool)
 t CVEngineServer::Message_DetermineMulticastRecipients(bool, Vector const&, CBitVec<255>&)
 t CVEngineServer::Time()
+t CVEngineServer::FindMap(char*, int)
 t CVEngineServer::GetArea(Vector const&)
 t CVEngineServer::SetView(edict_t const*, edict_t const*)
 t CVEngineServer::CopyFile(char const*, char const*)
@@ -7675,6 +7733,7 @@ t CLC_BaselineAck::~CLC_BaselineAck()
 t CLC_BaselineAck::~CLC_BaselineAck()
 t CLC_BaselineAck::~CLC_BaselineAck()
 t CMapListManager::RefreshList()
+t CMapListManager::RefreshList() [clone .part.18]
 t CMapListManager::Think()
 t CMapListManager::BuildList()
 t CMapListManager::ClearList()
@@ -7698,10 +7757,6 @@ t CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, co
 t CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
-t CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::operator()()
-t CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
-t CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
-t CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CServerDTITimer::~CServerDTITimer()
 t CServerDTITimer::~CServerDTITimer()
 t CThreadLocalInt<int>::~CThreadLocalInt()
@@ -8051,6 +8106,7 @@ t CUtlStreamBuffer::CUtlStreamBuffer(char const*, char const*, int, bool)
 t CUtlStreamBuffer::CUtlStreamBuffer()
 t CUtlStreamBuffer::~CUtlStreamBuffer()
 t CUtlStreamBuffer::~CUtlStreamBuffer()
+t CVEngineServer22::IsMapValid(char const*)
 t CWorkshopManager::GetUGCFilename(unsigned long long)
 t CWorkshopManager::GetUGCFullPath(unsigned long long, char*, unsigned int)
 t CWorkshopManager::AddFileInfoQuery(CBasePublishedFileRequest*, bool)
@@ -8665,7 +8721,7 @@ t CMapReslistGenerator::OnModelPrecached(char const*)
 t CMapReslistGenerator::OnSoundPrecached(char const*)
 t CMapReslistGenerator::LogToEngineReslist(char const*)
 t CMapReslistGenerator::OnResourcePrecached(char const*)
-t CMapReslistGenerator::OnResourcePrecached(char const*) [clone .part.38]
+t CMapReslistGenerator::OnResourcePrecached(char const*) [clone .part.37]
 t CMapReslistGenerator::ShouldRebuildCaches()
 t CMapReslistGenerator::FileSystemLoggingFunc(char const*, char const*)
 t CMapReslistGenerator::StartReslistGeneration()
@@ -8734,15 +8790,9 @@ t CSteamAppSystemGroup::CSteamAppSystemGroup(IFileSystem*, CAppSystemGroup*)
 U CUniformRandomStream::SetSeed(int)
 U CUniformRandomStream::RandomInt(int, int)
 U CUniformRandomStream::CUniformRandomStream()
-t CUniformRandomStream::~CUniformRandomStream()
-t CUniformRandomStream::~CUniformRandomStream()
-t CUniformRandomStream::~CUniformRandomStream()
 t IPartitionEnumerator::~IPartitionEnumerator()
 t IPartitionEnumerator::~IPartitionEnumerator()
 t IPartitionEnumerator::~IPartitionEnumerator()
-t IUniformRandomStream::~IUniformRandomStream()
-t IUniformRandomStream::~IUniformRandomStream()
-t IUniformRandomStream::~IUniformRandomStream()
 t CClientDatatableStack::RecurseAndCallProxies(CSendNode*, unsigned char*)
 t CFrameSnapshotManager::LevelChanged()
 t CFrameSnapshotManager::NextSnapshot(CFrameSnapshot const*)
@@ -8998,9 +9048,6 @@ t CEngineUniformRandomStream::RandomFloat(float, float)
 t CEngineUniformRandomStream::RandomFloatExp(float, float, float)
 t CEngineUniformRandomStream::SetSeed(int)
 t CEngineUniformRandomStream::RandomInt(int, int)
-t CEngineUniformRandomStream::~CEngineUniformRandomStream()
-t CEngineUniformRandomStream::~CEngineUniformRandomStream()
-t CEngineUniformRandomStream::~CEngineUniformRandomStream()
 t CNetworkStringFilenameDict::IsValidIndex(int)
 t CNetworkStringFilenameDict::Find(char const*)
 t CNetworkStringFilenameDict::Count()
@@ -9142,6 +9189,9 @@ t CGame::CGame()
 t CGame::~CGame()
 t CGame::~CGame()
 t CGame::~CGame()
+t CLZMA::Uncompress(unsigned char*, unsigned char*)
+t CLZMA::IsCompressed(unsigned char*)
+t CLZMA::GetActualSize(unsigned char*)
 t CLZSS::Uncompress(unsigned char const*, unsigned char*)
 t CLZSS::IsCompressed(unsigned char const*)
 t CLZSS::GetActualSize(unsigned char const*)
@@ -9535,30 +9585,14 @@ t CAutoGain::CAutoGain()
 t CAutoGain::CAutoGain()
 t CByteswap::SwapFieldToTargetEndian(void*, void*, typedescription_t*)
 t CByteswap::SwapFieldsToTargetEndian(void*, void*, datamap_t*)
-t CCallback<CSteam3Server, GSPolicyResponse_t, true>::GetCallbackSizeBytes()
 t CCallback<CSteam3Server, GSPolicyResponse_t, true>::Run(void*)
-t CCallback<CSteam3Server, GSPolicyResponse_t, true>::Run(void*, bool, unsigned long long)
-t CCallback<CSteam3Server, SteamServersConnected_t, true>::GetCallbackSizeBytes()
 t CCallback<CSteam3Server, SteamServersConnected_t, true>::Run(void*)
-t CCallback<CSteam3Server, SteamServersConnected_t, true>::Run(void*, bool, unsigned long long)
-t CCallback<CSteam3Server, SteamServersDisconnected_t, true>::GetCallbackSizeBytes()
 t CCallback<CSteam3Server, SteamServersDisconnected_t, true>::Run(void*)
-t CCallback<CSteam3Server, SteamServersDisconnected_t, true>::Run(void*, bool, unsigned long long)
-t CCallback<CSteam3Server, SteamServerConnectFailure_t, true>::GetCallbackSizeBytes()
 t CCallback<CSteam3Server, SteamServerConnectFailure_t, true>::Run(void*)
-t CCallback<CSteam3Server, SteamServerConnectFailure_t, true>::Run(void*, bool, unsigned long long)
-t CCallback<CSteam3Server, ValidateAuthTicketResponse_t, true>::GetCallbackSizeBytes()
 t CCallback<CSteam3Server, ValidateAuthTicketResponse_t, true>::Run(void*)
-t CCallback<CSteam3Server, ValidateAuthTicketResponse_t, true>::Run(void*, bool, unsigned long long)
-t CCallback<CSteam3Server, ComputeNewPlayerCompatibilityResult_t, true>::GetCallbackSizeBytes()
 t CCallback<CSteam3Server, ComputeNewPlayerCompatibilityResult_t, true>::Run(void*)
-t CCallback<CSteam3Server, ComputeNewPlayerCompatibilityResult_t, true>::Run(void*, bool, unsigned long long)
-t CCallback<CWorkshopManager, RemoteStoragePublishedFileSubscribed_t, false>::GetCallbackSizeBytes()
 t CCallback<CWorkshopManager, RemoteStoragePublishedFileSubscribed_t, false>::Run(void*)
-t CCallback<CWorkshopManager, RemoteStoragePublishedFileSubscribed_t, false>::Run(void*, bool, unsigned long long)
-t CCallback<CWorkshopManager, RemoteStoragePublishedFileUnsubscribed_t, false>::GetCallbackSizeBytes()
 t CCallback<CWorkshopManager, RemoteStoragePublishedFileUnsubscribed_t, false>::Run(void*)
-t CCallback<CWorkshopManager, RemoteStoragePublishedFileUnsubscribed_t, false>::Run(void*, bool, unsigned long long)
 t CDemoFile::ReadCmdInfo(democmdinfo_t&)
 t CDemoFile::ReadRawData(char*, int)
 t CDemoFile::ReadUserCmd(char*, int&)
@@ -9987,6 +10021,7 @@ t CUtlRBTree<CUtlMap<char const*, memhandle_t__*, int>::Node_t, int, CUtlMap<cha
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::NextInorder(int) const
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::Find(CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t const&) const
+t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::Links(int) const
 t CUtlRBTree<CUtlMap<void*, DecalEntry, unsigned short>::Node_t, unsigned short, CUtlMap<void*, DecalEntry, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, DecalEntry, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t const&) const
@@ -10187,10 +10222,10 @@ t CReplayServer::GetPassword() const
 t CReplayServer::IsMultiplayer() const
 t CReplayServer::GetName() const
 t CReplayServer::IsReplay() const
-t unsigned int CUtlHashtable<unsigned int, int, DefaultHashFunctor<unsigned int>, DefaultEqualFunctor<unsigned int>, undefined_t>::DoLookup<unsigned int>(unsigned int, unsigned int, unsigned int*) const [clone .part.153]
-t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.77] [clone .constprop.82]
+t unsigned int CUtlHashtable<unsigned int, int, DefaultHashFunctor<unsigned int>, DefaultEqualFunctor<unsigned int>, undefined_t>::DoLookup<unsigned int>(unsigned int, unsigned int, unsigned int*) const [clone .part.154]
+t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.76] [clone .constprop.81]
 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
-t unsigned int CUtlHashtable<model_t*, CModelLoader::CDynamicModelInfo, DefaultHashFunctor<model_t*>, DefaultEqualFunctor<model_t*>, undefined_t>::DoLookup<model_t*>(model_t*, unsigned int, unsigned int*) const [clone .part.107]
+t unsigned int CUtlHashtable<model_t*, CModelLoader::CDynamicModelInfo, DefaultHashFunctor<model_t*>, DefaultEqualFunctor<model_t*>, undefined_t>::DoLookup<model_t*>(model_t*, unsigned int, unsigned int*) const [clone .part.108]
 t MM_Checkpoint::GetName() const
 t MM_Checkpoint::GetType() const
 t MM_Checkpoint::ToString() const
@@ -10900,8 +10935,6 @@ t non-virtual thunk to CMemberFunctor0<CParallelProcessor<CGameClient*, CFuncJob
 t non-virtual thunk to CMemberFunctor0<CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >*, void (CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >::*)(), CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor0()
 t non-virtual thunk to CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
-t non-virtual thunk to CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
-t non-virtual thunk to CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CBaseClientState::ProcessMenu(SVC_Menu*)
 t non-virtual thunk to CBaseClientState::ProcessTick(NET_Tick*)
 t non-virtual thunk to CBaseClientState::ProcessPrint(SVC_Print*)
@@ -10969,7 +11002,6 @@ r typeinfo for CHLTVFrame
 r typeinfo for CModelInfo
 r typeinfo for ConCommand
 r typeinfo for CPhoneHome
-r typeinfo for CRPTServer
 r typeinfo for CUtlVector<char*, CUtlMemory<char*, int> >
 r typeinfo for CVoxelTree
 r typeinfo for IAppSystem
@@ -11039,6 +11071,11 @@ r typeinfo for SVC_FixAngle
 r typeinfo for SVC_Prefetch
 r typeinfo for SVC_SetPause
 r typeinfo for CCallbackBase
+r typeinfo for CCallbackImpl<12>
+r typeinfo for CCallbackImpl<1>
+r typeinfo for CCallbackImpl<20>
+r typeinfo for CCallbackImpl<24>
+r typeinfo for CCallbackImpl<4>
 r typeinfo for CCoreDispInfo
 r typeinfo for CDispCollTree
 r typeinfo for CEngineReplay
@@ -11090,7 +11127,6 @@ r typeinfo for CMDLCacheNotify
 r typeinfo for CMemberFunctor0<CParallelProcessor<PackWork_t, CFuncJobItemProcessor<PackWork_t> >*, void (CParallelProcessor<PackWork_t, CFuncJobItemProcessor<PackWork_t> >::*)(), CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor0<CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >*, void (CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >::*)(), CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
-r typeinfo for CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r typeinfo for CTier0AppSystem<IDedicatedServerAPI>
 r typeinfo for CTier1AppSystem<IDedicatedServerAPI, 0>
 r typeinfo for CTier2AppSystem<IDedicatedServerAPI, 0>
@@ -11124,6 +11160,7 @@ r typeinfo for COcclusionSystem
 r typeinfo for COM_IOReadBinary
 r typeinfo for CResourcePreload
 r typeinfo for CUploadGameStats
+r typeinfo for CVEngineServer22
 r typeinfo for CWorkshopManager
 r typeinfo for IChangeFrameList
 r typeinfo for IClientStatsTime
@@ -11287,7 +11324,6 @@ r typeinfo name for CHLTVFrame
 r typeinfo name for CModelInfo
 r typeinfo name for ConCommand
 r typeinfo name for CPhoneHome
-r typeinfo name for CRPTServer
 r typeinfo name for CUtlVector<char*, CUtlMemory<char*, int> >
 r typeinfo name for CVoxelTree
 r typeinfo name for IAppSystem
@@ -11357,6 +11393,11 @@ r typeinfo name for SVC_FixAngle
 r typeinfo name for SVC_Prefetch
 r typeinfo name for SVC_SetPause
 r typeinfo name for CCallbackBase
+r typeinfo name for CCallbackImpl<12>
+r typeinfo name for CCallbackImpl<1>
+r typeinfo name for CCallbackImpl<20>
+r typeinfo name for CCallbackImpl<24>
+r typeinfo name for CCallbackImpl<4>
 r typeinfo name for CCoreDispInfo
 r typeinfo name for CDispCollTree
 r typeinfo name for CEngineReplay
@@ -11408,7 +11449,6 @@ r typeinfo name for CMDLCacheNotify
 r typeinfo name for CMemberFunctor0<CParallelProcessor<PackWork_t, CFuncJobItemProcessor<PackWork_t> >*, void (CParallelProcessor<PackWork_t, CFuncJobItemProcessor<PackWork_t> >::*)(), CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor0<CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >*, void (CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >::*)(), CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
-r typeinfo name for CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r typeinfo name for CTier0AppSystem<IDedicatedServerAPI>
 r typeinfo name for CTier1AppSystem<IDedicatedServerAPI, 0>
 r typeinfo name for CTier2AppSystem<IDedicatedServerAPI, 0>
@@ -11442,6 +11482,7 @@ r typeinfo name for COcclusionSystem
 r typeinfo name for COM_IOReadBinary
 r typeinfo name for CResourcePreload
 r typeinfo name for CUploadGameStats
+r typeinfo name for CVEngineServer22
 r typeinfo name for CWorkshopManager
 r typeinfo name for IChangeFrameList
 r typeinfo name for IClientStatsTime
@@ -11604,7 +11645,6 @@ r vtable for CHLTVFrame
 r vtable for CModelInfo
 r vtable for ConCommand
 r vtable for CPhoneHome
-r vtable for CRPTServer
 r vtable for CVoxelTree
 r vtable for IAppSystem
 r vtable for IGameEvent
@@ -11664,6 +11704,11 @@ r vtable for SVC_FixAngle
 r vtable for SVC_Prefetch
 r vtable for SVC_SetPause
 r vtable for CCallbackBase
+r vtable for CCallbackImpl<12>
+r vtable for CCallbackImpl<1>
+r vtable for CCallbackImpl<20>
+r vtable for CCallbackImpl<24>
+r vtable for CCallbackImpl<4>
 r vtable for CCoreDispInfo
 r vtable for CDispCollTree
 r vtable for CEngineReplay
@@ -11709,7 +11754,6 @@ r vtable for CMDLCacheNotify
 r vtable for CMemberFunctor0<CParallelProcessor<PackWork_t, CFuncJobItemProcessor<PackWork_t> >*, void (CParallelProcessor<PackWork_t, CFuncJobItemProcessor<PackWork_t> >::*)(), CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor0<CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >*, void (CParallelProcessor<CGameClient*, CFuncJobItemProcessor<CGameClient*> >::*)(), CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CModelRender*, int (CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>::*)(memhandle_t__*), memhandle_t__*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
-r vtable for CMemberFunctor1<IMaterialSystem*, void (IMaterialSystem::*)(bool), bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >, CFuncMemPolicyNone>
 r vtable for CVirtualTerrain
 r vtable for IAppSystemGroup
 r vtable for IGameServerData
@@ -11736,6 +11780,7 @@ r vtable for CModelInfoServer
 r vtable for COcclusionSystem
 r vtable for COM_IOReadBinary
 r vtable for CUploadGameStats
+r vtable for CVEngineServer22
 r vtable for CWorkshopManager
 r vtable for IChangeFrameList
 r vtable for IOcclusionSystem
@@ -11801,7 +11846,6 @@ r vtable for IServerPluginHelpers
 r vtable for IStaticPropMgrClient
 r vtable for IStaticPropMgrEngine
 r vtable for IStaticPropMgrServer
-r vtable for IUniformRandomStream
 r vtable for CClientDatatableStack
 r vtable for CFrameSnapshotManager
 r vtable for CMaterialProxyFactory
@@ -11959,6 +12003,7 @@ d ShowEncodeDeltaWatchInfo(SendTable const*, SendProp const*, bf_read&, int, int
 b Cmd_TranslateFileAssociation(char const*)::sz
 b ping(CCommand const&)::g_flLastTime__Limit
 b status(CCommand const&)::g_flLastTime__Limit
+b status(CCommand const&)::sv_tags
 d CHostState::State_Run(float)::s_bFirstRunFrame
 b CStudioHdr::GroupStudioHdr(int)::__executeCount
 b CStudioHdr::GroupStudioHdr(int)::__executeCount
@@ -11979,12 +12024,11 @@ b CHLTVServer::ReplyInfo(netadr_s const&)::gamedir
 b CStaticProp::Init(int, StaticPropLump_t&, model_t*)::nBitchCount
 b CEngineTrace::TraceRay(Ray_t const&, unsigned int, ITraceFilter*, CGameTrace*)::_counter
 d CEngineTrace::TraceRay(Ray_t const&, unsigned int, ITraceFilter*, CGameTrace*)::nWarnings
-b CModelLoader::Map_IsValid(char const*)::s_szBaseMapName
+b CModelLoader::Map_IsValid(char const*, bool)::s_szLastMapFile
 b CModelLoader::UpdateDynamicModelLoadQueue()::s_LastDynamicLoadTime
 b (anonymous namespace)::GetSuggestGameInfoDirFn()::s_pfnSuggestGameInfoDir
 r CDispCollTree::AxisPlanesXYZ(Ray_t const&, CDispCollTri*, CDispCollHelper*)::g_ImpactNormalVecs
 b CSteam3Server::RunFrame()::s_fLastRunCallback
-b CVEngineServer::ChangeLevel(char const*, char const*)::last_spawncount
 b CVEngineServer::ClientCommand(edict_t*, char const*, ...)::szOut
 b CDataManagerBase::GetForFreeByIndex(unsigned short)::__executeCount
 b COcclusionSystem::IsOccluded(Vector const&, Vector const&)::mutex

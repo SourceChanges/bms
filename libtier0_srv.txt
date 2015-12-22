@@ -80,6 +80,7 @@ T EncodeBinaryToString
 A _end
 U __errno_location@@GLIBC_2.0
 T Error
+T ErrorV
 t execute_cfa_program
 t execute_stack_op
 U _exit@@GLIBC_2.0
@@ -303,6 +304,7 @@ U link@@GLIBC_2.0
 U localtime@@GLIBC_2.0
 U localtime_r@@GLIBC_2.0
 T Log
+T LogV
 t lstat
 t __lstat
 U __lxstat64@@GLIBC_2.2
@@ -325,6 +327,7 @@ t mknod
 t __mknod
 U mount@@GLIBC_2.0
 T Msg
+T MsgV
 T NetLog
 T NetMsg
 T NetWarning
@@ -532,6 +535,7 @@ U __vsnprintf_chk@@GLIBC_2.3.4
 t V_tier0_stricmp
 T vtune
 T Warning
+T WarningV
 t __wrap_access
 t __wrap_chmod
 t __wrap_chown

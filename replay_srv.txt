@@ -81,7 +81,7 @@ t create_hostcache_id
 T CreateInterface
 U CreateThreadPool
 r CSWTCH.100
-r CSWTCH.179
+r CSWTCH.177
 r CSWTCH.2
 r CSWTCH.29
 r CSWTCH.3
@@ -1942,6 +1942,7 @@ t CUtlBuffer::PeekStringLength()
 t CUtlBuffer::PeekStringLength() [clone .part.20]
 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+t CUtlBuffer::GetStringInternal(char*, unsigned int)
 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
 t CUtlBuffer::AddNullTermination()
 t CUtlBuffer::AddNullTermination() [clone .part.23]
@@ -1967,7 +1968,6 @@ t CUtlBuffer::CheckGet(int)
 t CUtlBuffer::CheckPut(int)
 t CUtlBuffer::GetToken(char const*)
 t CUtlBuffer::VaPrintf(char const*, char*)
-t CUtlBuffer::GetString(char*, int)
 t CUtlBuffer::PutString(char const*)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
@@ -2341,6 +2341,7 @@ t CUtlLinkedList<CServerRecordingSessionBlock*, int, false, int, CUtlMemory<UtlL
 t CUtlLinkedList<CServerRecordingSessionBlock*, int, false, int, CUtlMemory<UtlLinkedListElem_t<CServerRecordingSessionBlock*, int>, int> >::RemoveAll()
 t CUtlLinkedList<IThinker*, int, false, int, CUtlMemory<UtlLinkedListElem_t<IThinker*, int>, int> >::Unlink(int)
 t CUtlLinkedList<IThinker*, int, false, int, CUtlMemory<UtlLinkedListElem_t<IThinker*, int>, int> >::RemoveAll()
+t CUtlLinkedList<wchar_t*, int, false, int, CUtlMemory<UtlLinkedListElem_t<wchar_t*, int>, int> >::Unlink(int)
 t CUtlLinkedList<wchar_t*, int, false, int, CUtlMemory<UtlLinkedListElem_t<wchar_t*, int>, int> >::RemoveAll()
 t CUtlSortVector<CBaseRecordingSession*, CGenericPersistentManager<CBaseRecordingSession>::CLessFunctor, CUtlVector<CBaseRecordingSession*, CUtlMemory<CBaseRecordingSession*, int> > >::Insert(CBaseRecordingSession* const&)
 t CUtlSortVector<CBaseRecordingSessionBlock*, CBaseRecordingSession::CLessFunctor, CUtlVector<CBaseRecordingSessionBlock*, CUtlMemory<CBaseRecordingSessionBlock*, int> > >::Insert(CBaseRecordingSessionBlock* const&)

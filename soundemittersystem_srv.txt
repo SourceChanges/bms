@@ -552,7 +552,7 @@ d s_pConversionArrays_StringCharConversion
 t AccumulateFileNameAndTimestampIntoChecksum(unsigned int*, char const*)
 b __g_CreateCSoundEmitterSystemBaseISoundEmitterSystemBase_reg
 t __CreateCSoundEmitterSystemBaseISoundEmitterSystemBase_interface()
-t SplitName(char const*, int, int, char*, int, char*, int) [clone .constprop.107]
+t SplitName(char const*, int, int, char*, int, char*, int) [clone .constprop.108]
 t ConCommand::CanAutoComplete()
 t ConCommand::AutoCompleteSuggest(char const*, CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&)
 t ConCommand::Dispatch(CCommand const&)
@@ -590,6 +590,7 @@ t CUtlBuffer::PeekStringLength()
 t CUtlBuffer::PeekStringLength() [clone .part.20]
 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+t CUtlBuffer::GetStringInternal(char*, unsigned int)
 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
 t CUtlBuffer::AddNullTermination()
 t CUtlBuffer::AddNullTermination() [clone .part.23]
@@ -615,7 +616,6 @@ t CUtlBuffer::CheckGet(int)
 t CUtlBuffer::CheckPut(int)
 t CUtlBuffer::GetToken(char const*)
 t CUtlBuffer::VaPrintf(char const*, char*)
-t CUtlBuffer::GetString(char*, int)
 t CUtlBuffer::PutString(char const*)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
@@ -780,9 +780,6 @@ t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConvers
 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlConstStringBase<char>::Set(char const*)
 t CUtlNoEscConversion::FindConversion(char const*, int*)
-t IUniformRandomStream::~IUniformRandomStream()
-t IUniformRandomStream::~IUniformRandomStream()
-t IUniformRandomStream::~IUniformRandomStream()
 t CUtlCStringConversion::FindConversion(char const*, int*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
@@ -870,9 +867,6 @@ t CSoundEmitterUniformRandomStream::RandomFloat(float, float)
 t CSoundEmitterUniformRandomStream::RandomFloatExp(float, float, float)
 t CSoundEmitterUniformRandomStream::SetSeed(int)
 t CSoundEmitterUniformRandomStream::RandomInt(int, int)
-t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
-t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
-t CSoundEmitterUniformRandomStream::~CSoundEmitterUniformRandomStream()
 t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
@@ -1033,9 +1027,9 @@ t CUtlSymbol::String() const
 t CUtlSymbol::operator==(char const*) const
 t CEmptyConVar::GetName() const
 t CEmptyConVar::IsFlagSet(int) const
-t unsigned int CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.68] [clone .constprop.109]
+t unsigned int CUtlHashtable<CUtlConstStringBase<char>, gender_t, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.68] [clone .constprop.110]
 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
-t unsigned int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<CSoundEntry*>(CSoundEntry*, unsigned int, unsigned int*) const [clone .part.101] [clone .constprop.108]
+t unsigned int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<CSoundEntry*>(CSoundEntry*, unsigned int, unsigned int*) const [clone .part.101] [clone .constprop.109]
 t ConCommandBase::GetHelpText() const
 t ConCommandBase::IsRegistered() const
 t ConCommandBase::GetDLLIdentifier() const
@@ -1143,7 +1137,6 @@ r vtable for CDefaultAccessor
 r vtable for CDllDemandLoader
 r vtable for CUtlCharConversion
 r vtable for CUtlNoEscConversion
-r vtable for IUniformRandomStream
 r vtable for CUtlCStringConversion
 r vtable for CSoundEmitterSystemBase
 r vtable for ISoundEmitterSystemBase

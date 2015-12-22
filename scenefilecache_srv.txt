@@ -174,6 +174,16 @@ t .L69
 t .L70
 t .L71
 t linear_search_fdes
+t LzmaDec_Allocate
+t LzmaDec_AllocateProbs
+t LzmaDec_DecodeToBuf
+t LzmaDec_DecodeToDic
+t LzmaDec_Free
+t LzmaDec_FreeProbs
+t LzmaDec_Init
+t LzmaDecode
+t LzmaProps_Decode
+t LzmaProps_Decode.part.2
 U malloc@@GLIBC_2.0
 b marker.8514
 U mbstowcs@@GLIBC_2.0
@@ -262,6 +272,7 @@ t uw_update_context
 t uw_update_context_1
 U __vsnprintf_chk@@GLIBC_2.3.4
 U __vswprintf_chk@@GLIBC_2.4
+U Warning
 U wcslen@@GLIBC_2.0
 U wcsncat@@GLIBC_2.0
 U wcsncpy@@GLIBC_2.0
@@ -269,7 +280,6 @@ U wcstombs@@GLIBC_2.0
 t __x86.get_pc_thunk.bx
 t __x86.get_pc_thunk.cx
 t CRC32_Init(unsigned int*)
-t LzmaDecode(_CLzmaDecoderState*, unsigned char const*, unsigned int, unsigned int*, unsigned char*, unsigned int, unsigned int*)
 t V_FileBase(char const*, char*, int)
 t _V_memmove(char const*, int, void*, void const*, int)
 t V_snprintf(char*, int, char const*, ...)
@@ -375,7 +385,6 @@ t Q_URLEncodeInternal(char*, int, char const*, int, bool)
 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
-t LzmaDecodeProperties(_CLzmaProperties*, unsigned char const*, int)
 t V_StripTrailingSlash(char*)
 t Sys_IsDebuggerPresent()
 t V_GetCurrentDirectory(char*, int)
@@ -387,6 +396,7 @@ t GetNoEscCharConversion()
 t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
 t CreateInterfaceInternal(char const*, int*)
+t LzmaDec_InitDicAndState(CLzmaDec*, int, int)
 t GetCStringCharConversion()
 t Q_RemoveAllEvilCharacters(char*)
 t Sys_RunningWithDebugModules()
@@ -437,11 +447,18 @@ b vec2_invalid
 t CopyToMaxChars(char*, int, char const*, int) [clone .part.0]
 d s_BackSlashMap
 b g_SceneFileCache
+t LzmaDec_TryDummy(CLzmaDec const*, unsigned char const*, unsigned int)
+t LzmaDec_WriteRem(CLzmaDec*, unsigned int)
+t LzmaDec_DecodeReal2(CLzmaDec*, unsigned int, unsigned char const*)
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+t LzmaDec_AllocateProbs2(CLzmaDec*, _CLzmaProps const*, ISzAlloc*) [clone .isra.1]
 d s_pConversionArrays_NoEscConversion
 d s_pConversionArrays_StringCharConversion
 b __g_CreateCSceneFileCacheISceneFileCache_reg
 t __CreateCSceneFileCacheISceneFileCache_interface()
+t SzFree(void*, void*)
+d g_Alloc
+t SzAlloc(void*, unsigned int)
 t CUtlBuffer::ParseToken(characterset_t*, char*, int, bool)
 t CUtlBuffer::ParseToken(char const*, char const*, char*, int)
 t CUtlBuffer::ConvertCRLF(CUtlBuffer&)
@@ -467,6 +484,7 @@ t CUtlBuffer::PeekStringLength()
 t CUtlBuffer::PeekStringLength() [clone .part.20]
 t CUtlBuffer::PutDelimitedChar(CUtlCharConversion*, char)
 t CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int))
+t CUtlBuffer::GetStringInternal(char*, unsigned int)
 t CUtlBuffer::SetExternalBuffer(void*, int, int, int)
 t CUtlBuffer::AddNullTermination()
 t CUtlBuffer::AddNullTermination() [clone .part.23]
@@ -492,7 +510,6 @@ t CUtlBuffer::CheckGet(int)
 t CUtlBuffer::CheckPut(int)
 t CUtlBuffer::GetToken(char const*)
 t CUtlBuffer::VaPrintf(char const*, char*)
-t CUtlBuffer::GetString(char*, int)
 t CUtlBuffer::PutString(char const*)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
@@ -501,6 +518,16 @@ t CUtlBuffer::CUtlBuffer(void const*, int, int)
 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
 t CUtlMemory<unsigned char, int>::Purge()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+t CLZMAStream::InitZIPHeader(unsigned int, unsigned int)
+t CLZMAStream::TryParseHeader(unsigned char*, unsigned int, unsigned int&)
+t CLZMAStream::FreeDecoderState()
+t CLZMAStream::CreateDecoderState(unsigned char const*)
+t CLZMAStream::GetExpectedBytesRemaining(unsigned int&)
+t CLZMAStream::Read(unsigned char*, unsigned int, unsigned char*, unsigned int, unsigned int&, unsigned int&)
+t CLZMAStream::CLZMAStream()
+t CLZMAStream::CLZMAStream()
+t CLZMAStream::~CLZMAStream()
+t CLZMAStream::~CLZMAStream()
 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
 b InterfaceReg::s_pInterfaceRegs
@@ -553,6 +580,7 @@ t CUtlCharConversion::GetDelimiterLength() const
 t CUtlCharConversion::GetConversionLength(char) const
 t CUtlCharConversion::GetConversionString(char) const
 t CUtlCharConversion::MaxConversionLength() const
+U operator new(unsigned int)@@GLIBCXX_3.4
 r typeinfo for IAppSystem
 r typeinfo for CBaseAppSystem<ISceneFileCache>
 r typeinfo for CSceneFileCache
