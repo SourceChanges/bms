@@ -77,7 +77,7 @@ U CreateSimpleThread
 r CSWTCH.18
 r CSWTCH.378
 r CSWTCH.568
-r CSWTCH.977
+r CSWTCH.978
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
@@ -361,6 +361,7 @@ t _GLOBAL__sub_I_g_pSoundServices
 t _GLOBAL__sub_I_g_pStudioRender
 t _GLOBAL__sub_I_g_pUploadGameStats
 t _GLOBAL__sub_I_g_pVProfileForDisplay
+t _GLOBAL__sub_I_g_pWorkshop
 t _GLOBAL__sub_I_g_RecvTables
 t _GLOBAL__sub_I_g_SendTables
 t _GLOBAL__sub_I_g_Sentences
@@ -410,7 +411,6 @@ t _GLOBAL__sub_I_sv_steamblockingcheck
 t _GLOBAL__sub_I_toolframework
 t _GLOBAL__sub_I_tv_snapshotrate
 t _GLOBAL__sub_I_voiceserver_impl.cpp
-t _GLOBAL__sub_I_workshop_filter_items_by_history
 t _GLOBAL__sub_I__Z10RCONServerv
 t _GLOBAL__sub_I__Z10UploadDataPKcS0_P9KeyValues
 t _GLOBAL__sub_I__Z11EncodeFloatPK8SendPropfP8bf_writei
@@ -437,10 +437,8 @@ t _GLOBAL__sub_I__Z19SetupMatrixIdentityv
 t _GLOBAL__sub_I__Z20AllocChangeFrameListii
 t _GLOBAL__sub_I__Z20GenerateLumpFileNamePKcPcii
 t _GLOBAL__sub_I__Z21AllocateStringHelper2PKcPc
-t _GLOBAL__sub_I__Z21UGCOperationsLessFuncRKP16UGCFileRequest_tS2_
 t _GLOBAL__sub_I__Z21UpdateNameFromSteamIDP7IConVarP8CSteamID
 t _GLOBAL__sub_I__Z22DevShotGenerator_Usagev
-t _GLOBAL__sub_I__Z22GetISteamRemoteStoragev
 t _GLOBAL__sub_I__Z24COM_BlockSequenceCRCBytePhii
 t _GLOBAL__sub_I__Z24EngineBitBufErrorHandler15BitBufErrorTypePKc
 t _GLOBAL__sub_I__Z24IntersectRayWithTriangleRK5Ray_tRK6VectorS4_S4_b
@@ -453,7 +451,6 @@ t _GLOBAL__sub_I__Z26SendProxy_UtlVectorElementPK8SendPropPKvS3_P8DVariantii
 t _GLOBAL__sub_I__Z27InitializeStandardMaterialsv
 t _GLOBAL__sub_I__Z28FileSystem_UseVProjectBinDirb
 t _GLOBAL__sub_I__Z28Pow_FixedPoint_Exponent_SIMDRKU8__vectorfi
-t _GLOBAL__sub_I__Z39FileSystem_ManageAddonsForActiveSessionbPKcS0_
 t _GLOBAL__sub_I__Z8CCS_Initv
 t _GLOBAL__sub_I__Z9_SSE_Sqrtf
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
@@ -486,7 +483,6 @@ t _GLOBAL__sub_I__ZN16CDataManagerBaseC2Ej
 t _GLOBAL__sub_I__ZN16CFileTransferMgrC2Ev
 t _GLOBAL__sub_I__ZN16COM_IOReadBinary4openEPKc
 t _GLOBAL__sub_I__ZN16CUtlStreamBufferC2Ev
-t _GLOBAL__sub_I__ZN16CWorkshopManagerC2EP33IWorkshopManagerCallbackInterface
 t _GLOBAL__sub_I__ZN17CHLTVDemoRecorderC2Ev
 t _GLOBAL__sub_I__ZN18CMaterialReferenceC2EPKcS1_b
 t _GLOBAL__sub_I__ZN19CReplayDemoRecorderC2EP13CReplayServer
@@ -495,7 +491,7 @@ t _GLOBAL__sub_I__ZN20CPureServerWhitelist8CCommandC2Ev
 t _GLOBAL__sub_I__ZN21CMaterialProxyFactory11CreateProxyEPKc
 t _GLOBAL__sub_I__ZN22CEngineRecipientFilterC2Ev
 t _GLOBAL__sub_I__ZN23CNetworkStringTableItemC2Ev
-t _GLOBAL__sub_I__ZN24CWorkshopFileInfoManagerC2EP41IWorkshopFileInfoManagerCallbackInterface
+t _GLOBAL__sub_I__ZN24CBlackMesaWorkshopServer10InitializeEv
 t _GLOBAL__sub_I__ZN25CBaseAutoCompleteFileList18AutoCompletionFuncEPKcPA64_c
 t _GLOBAL__sub_I__ZN5CLZSS12IsCompressedEPKh
 t _GLOBAL__sub_I__ZN9CAutoGainC2Ev
@@ -595,6 +591,7 @@ b g_pVideo
 d g_pVProfExport
 d g_pVProfileForDisplay
 b g_pVTex
+b g_pWorkshop
 b g_RecvDecoders
 b g_RecvTables
 b g_SendTableCRC
@@ -632,8 +629,6 @@ b g_VBAllocTracker
 U g_VProfCurrentProfile
 b g_VProfExport
 U g_VProfSignalSpike
-b g_WorkshopManager
-d g_WorkshopManagerInterface
 U __gxx_personality_v0@@CXXABI_1.3
 T gzbuffer
 T gzclearerr
@@ -1149,7 +1144,6 @@ b snd_vox_seqtimeout
 b s_NoEscConversion
 U __snprintf_chk@@GLIBC_2.3.4
 U socket@@GLIBC_2.0
-d s_pBlackMesaWorkshopManager
 b s_pCurrentAppSystem
 U SpewActivate
 b spew_consolelog_to_debugstring
@@ -1371,8 +1365,6 @@ U wcsncpy@@GLIBC_2.0
 U wcstol@@GLIBC_2.0
 U wcstoll@@GLIBC_2.1
 U wcstombs@@GLIBC_2.0
-d workshop
-b workshop_filter_items_by_history
 t __wrap_access
 t __wrap_chmod
 t __wrap_chown
@@ -1938,7 +1930,6 @@ t VOX_InsertWords(int, int, char*, char*, char*)
 t VOX_ParseString(char*)
 t VOX_TouchSounds(CUtlDict<int, int>&, CUtlRBTree<ccpair, int, bool (*)(ccpair const&, ccpair const&), CUtlMemory<UtlRBTreeNode_t<ccpair, int>, int> >&, bool)
 t V_StripFilename(char*)
-t WorkshopManager()
 t AddPointToBounds(Vector const&, Vector&, Vector&)
 t Array_DecodeZero(DecodeInfo*)
 t CL_ClanIdChanged(IConVar*, char const*, float)
@@ -2519,7 +2510,6 @@ t Sys_GetRegKeyValueInt(char const*, char const*, long*, long)
 t Sys_IsDebuggerPresent()
 t Sys_OutputDebugString(char const*)
 t TransformIntoNeighbor(CDispUtilsHelper*, int, CVertIndex const&, CVertIndex&)
-t UGCOperationsLessFunc(UGCFileRequest_t* const&, UGCFileRequest_t* const&)
 t unzGetCurrentFileInfo(unz_s*, unz_file_info_s*, char*, unsigned long, void*, unsigned long, char*, unsigned long)
 t unzGetLocalExtrafield(unz_s*, void*, unsigned int)
 t UpdateNameFromSteamID(IConVar*, CSteamID*)
@@ -2527,7 +2517,6 @@ t VectorToColorRGBExp32(Vector const&, ColorRGBExp32&)
 t V_GetCurrentDirectory(char*, int)
 t VOX_AddMyVirtualWords(int, char*, char, CUtlVector<WordBuf, CUtlMemory<WordBuf, int> >&)
 t VOX_ParseLineCommands(char*, int)
-t V_SafeComposeFilename(char const*, char const*, char*, unsigned int)
 t V_SetCurrentDirectory(char const*)
 t V_UnqualifiedFileName(char const*)
 t AddTransitionResources(CSaveRestoreData*, char const*, char const*)
@@ -2560,7 +2549,6 @@ t Engine_WorldLightAngle(dworldlight_t const*, Vector const&, Vector const&, Vec
 t FindHLTVDataInSnapshot(CFrameSnapshot*, int)
 t FindNeighborCornerVert(CCoreDispInfo*, Vector const&)
 t GammaToLinearFullRange(float)
-t GetISteamRemoteStorage()
 t GetNoEscCharConversion()
 t Host_FreeStateAndWorld(bool)
 t Host_InvalidateMapList()
@@ -3021,7 +3009,6 @@ t Q_StripPrecedingAndTrailingWhitespace(char*)
 t SendTable_BuildHierarchy_IterateProps(CSendNode*, SendTable const*, CBuildHierarchyStruct*, SendProp const**, int&)
 t _ServerDTI_RegisterNetworkStateChange(SendTable*, bool)
 t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
-t FileSystem_ManageAddonsForActiveSession(bool, char const*, char const*)
 t CalculateAABBFromProjectionMatrixInverse(VMatrix const&, Vector*, Vector*)
 t DataTable_SetupReceiveTableFromSendTable(SendTable*, bool)
 t OBBHasFullyContainedIntersectionWithQuad(Vector const&, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector const&, Vector const&, float, Vector const&, float)
@@ -3250,8 +3237,6 @@ b guard variable for CUtlRBTree<CUtlMap<void*, DecalEntry, unsigned short>::Node
 b guard variable for CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CUtlRBTree<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CUtlRBTree<CEventInfo*, unsigned short, bool (*)(CEventInfo* const&, CEventInfo* const&), CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CUtlRBTree<ConCommandBase const*, unsigned short, bool (*)(ConCommandBase const* const&, ConCommandBase const* const&), CUtlMemory<UtlRBTreeNode_t<ConCommandBase const*, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CUtlRBTree<void*, unsigned short, bool (*)(void* const&, void* const&), CUtlMemory<UtlRBTreeNode_t<void*, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
@@ -3290,7 +3275,6 @@ b sv_logsdir
 b sv_maxrate
 b sv_minrate
 b sv_timeout
-b s_Workshop
 t tv_clients(CCommand const&)
 b tv_maxrate
 b tv_timeout
@@ -3534,12 +3518,6 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
-b vec2_origin
-b vec2_origin
-b vec2_origin
-b vec2_origin
-b vec4_origin
-b vec4_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
@@ -3915,12 +3893,6 @@ b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
-b vec2_invalid
-b vec2_invalid
-b vec2_invalid
-b vec2_invalid
-b vec4_invalid
-b vec4_invalid
 b vec4_invalid
 b vec4_invalid
 b vec4_invalid
@@ -4189,7 +4161,6 @@ b g_PowerInfo_5x5
 b g_PowerInfo_9x9
 b g_SideVerts_5x5
 b g_SideVerts_9x9
-b g_TimeStampIncr
 d g_VEngineServer
 b g_VProfRecorder
 t host_runofftime(CCommand const&)
@@ -4338,7 +4309,6 @@ d g_VEngineServer22
 t host_timer_report(CCommand const&)
 t IsSourceModLoaded()
 t key_listboundkeys(CCommand const&)
-t LoadAddonListFile(char const*, KeyValues*&)
 t logaddress_delall(CCommand const&)
 t MapList_CountMaps(char const*, bool, int&)
 t mat_configcurrent(CCommand const&)
@@ -4370,7 +4340,6 @@ b tv_overridemaster
 b tv_record_command
 b tv_status_command
 b unbindall_command
-t unload_all_addons(CCommand const&)
 b vprof_dump_spikes
 b vprof_off_command
 t vprof_record_stop(CCommand const&)
@@ -4415,7 +4384,6 @@ b s_GameEventManager
 b s_PVSInfoAllocator
 b s_queryRateChecker
 t SV_CheatsChanged_f(IConVar*, char const*, float)
-b s_vecAddonMetadata
 b sv_logfilecompress
 b sv_lowedict_action
 b sv_max_queries_sec
@@ -4425,7 +4393,6 @@ t sv_setsteamgroup_f(IConVar*, char const*, float)
 b tv_clients_command
 t tv_title_changed_f(IConVar*, char const*, float)
 b unbind_mac_command
-t update_addon_paths(CCommand const&)
 t vprof_cachemiss_on(CCommand const&)
 t vprof_record_start(CCommand const&)
 b bench_start_command
@@ -4464,7 +4431,6 @@ b s_CheatCodeCommands
 b s_EngineSoundServer
 b s_EngineTraceServer
 r s_GameEnventTypeMap
-t show_addon_metadata(CCommand const&)
 b s_nMapLoadRecursion
 b s_pWireframeIgnoreZ
 b star_memory_command
@@ -4534,7 +4500,6 @@ b r_proplightingpooling
 b s_DispShadowFragments
 b s_flIntervalStartTime
 d s_GameEventManagerOld
-t show_addon_load_order(CCommand const&)
 d s_LastFileLoadingFrom
 b s_pVertexColorIgnoreZ
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
@@ -4637,7 +4602,6 @@ b mat_enable_vrmode_command
 b mod_dynamicunloadtextures
 t SetupMatrixAnglesInternal(float (*) [4], QAngle const&)
 b sv_max_queries_sec_global
-b unload_all_addons_command
 b vprof_record_stop_command
 b vprof_reset_peaks_command
 b vprof_vtune_group_command
@@ -4646,7 +4610,6 @@ d __g_CVoiceServer_singleton
 b plugin_unpause_all_command
 b r_drawmodelstatsoverlaymax
 b r_drawmodelstatsoverlaymin
-b s_BlackMesaWorkshopManager
 t SendTable_GetPropsExcluded(SendTable const*, ExcludeProp*, int&, int) [clone .isra.7] [clone .constprop.108]
 t SetDataTableProxyIndices_R(CSendTablePrecalc*, CSendNode*, CBuildHierarchyStruct*)
 t SetRecursiveProxyIndices_R(SendTable*, CSendNode*, int&)
@@ -4655,7 +4618,6 @@ b s_NetworkStringTableServer
 d s_pBoxFaceIndicesInsideOut
 b sv_max_connects_sec_global
 t sv_setsteamblockingcheck_f(IConVar*, char const*, float)
-b update_addon_paths_command
 t voiceconvar_file_changed_f(IConVar*, char const*, float)
 b vprof_cachemiss_on_command
 t vprof_generate_report_Impl()
@@ -4669,7 +4631,6 @@ b g_sv_pure_waiting_on_reload
 t MatchRecvPropsToSendProps_R(CUtlRBTree<MatchingProp_t, unsigned short, bool (*)(MatchingProp_t const&, MatchingProp_t const&), CUtlMemory<UtlRBTreeNode_t<MatchingProp_t, unsigned short>, unsigned short> >&, char const*, SendTable*, RecvTable*, bool, bool*)
 b mat_monitorgamma_tv_enabled
 b net_compresspackets_minsize
-b show_addon_metadata_command
 d s_SplitPacketSequenceNumber
 t StaticPropColorMeshCallback(FileAsyncRequest_t const&, int, FSAsyncStatus_t)
 b vprof_cachemiss_off_command
@@ -4688,7 +4649,6 @@ b s_bFPSMaxDrivenByPowerSavings
 b s_DecalScaleVariationVarCache
 t SendTable_CalcNextVectorElems(SendTable*)
 t ServerNotifyVarChangeCallback(IConVar*, char const*, float)
-b show_addon_load_order_command
 b vprof_dump_groupnames_command
 t vprof_generate_report_AI_Impl()
 t vprof_generate_report_AI_only(CCommand const&)
@@ -4708,13 +4668,11 @@ t vprof_generate_report_hierarchy(CCommand const&)
 b vprof_playback_stepback_command
 d __g_CClientEngineTools_singleton
 r g_CoreDispNeighborOrientationMap
-b __g_CreateCWorkshopIWorkshop_reg
 d __g_CServerEngineTools_singleton
 b opt_EnumerateLeavesFastAlgorithm
 b vprof_generate_report_AI_command
 b disp_list_all_collideable_command
 t EnumerateLeavesAlongExtrudedRay_R(mnode_t*, Ray_t const&, float, float, ISpatialLeafEnumerator*, int)
-t FileSystem_UpdateAddonSearchPaths()
 b __g_CDedicatedServerAPI_singleton
 t Host_Changelevel_f_CompletionFunc(char const*, char (*) [64])
 t vprof_generate_report_budget_Impl()
@@ -4725,8 +4683,6 @@ t vprof_generate_report_AI_only_Impl()
 b g_bExecutionMarkerStreamInitialized
 d s_pConversionArrays_NoEscConversion
 t vprof_generate_report_map_load_Impl()
-t __CreateCWorkshopIWorkshop_interface()
-t FileSystem_RemoveAllAddonSearchPaths(char const*)
 t Host_Map_Commentary_f_CompletionFunc(char const*, char (*) [64])
 b vprof_generate_report_budget_command
 t vprof_generate_report_hierarchy_Impl()
@@ -4841,9 +4797,7 @@ t tv_msg(CCommand const&)
 t unbind(CCommand const&)
 b __g_CreateCNetworkStringTableContainerINetworkStringTableContainer_reg
 t __CreateCNetworkStringTableContainerINetworkStringTableContainer_interface()
-b __g_CreateCBlackMesaWorkshopEventManagerIBlackMesaWorkshopEventManager_reg
 b __g_CreateCNetworkStringTableContainerServerINetworkStringTableContainer_reg
-t __CreateCBlackMesaWorkshopEventManagerIBlackMesaWorkshopEventManager_interface()
 t Descend(char*, unsigned int, bool, unsigned int)
 b fakelag
 d g_Alloc
@@ -5155,7 +5109,6 @@ t CUtlMemory<SoundInfo_t, int>::Purge()
 t CUtlMemory<userfilter_t, int>::Purge()
 t CUtlMemory<maplist_map_t, int>::Purge()
 t CUtlMemory<overlayvert_t, int>::Purge()
-t CUtlMemory<SAddOnMetaData, int>::Purge()
 t CUtlMemory<_XUSER_CONTEXT, int>::Purge()
 t CUtlMemory<AppSystemInfo_t, int>::Purge()
 t CUtlMemory<CClientSendProp, int>::Purge()
@@ -5191,10 +5144,6 @@ t CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
-t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
-t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
-t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
-t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<ConCommandBase const*, unsigned short>, unsigned short>::Grow(int)
@@ -5204,6 +5153,7 @@ t CUtlMemory<UtlRBTreeNode_t<void*, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<_XUSER_PROPERTY, int>::Purge()
 t CUtlMemory<CDispCollTriCache, int>::Purge()
 t CUtlMemory<CSplitPacketEntry, int>::Purge()
+t CUtlMemory<SteamUGCDetails_t, int>::Purge()
 t CUtlMemory<VProfListenInfo_t, int>::Purge()
 t CUtlMemory<CFrameCacheEntry_s, int>::Purge()
 t CUtlMemory<CUtlHashtableEntry<unsigned int, int>, int>::Purge()
@@ -5317,12 +5267,9 @@ t CUtlMemory<IClientEntity*, int>::Purge()
 t CUtlMemory<CFrameSnapshot*, int>::Purge()
 t CUtlMemory<CBasePhonemeTag*, int>::Purge()
 t CUtlMemory<IToolDictionary*, int>::Purge()
-t CUtlMemory<UGCFileRequest_t*, int>::Purge()
 t CUtlMemory<CGameEventCallback*, int>::Purge()
 t CUtlMemory<moverlayfragment_t*, int>::Purge()
 t CUtlMemory<CNetworkStringTable*, int>::Purge()
-t CUtlMemory<CBasePublishedFileRequest*, int>::Purge()
-t CUtlMemory<IBlackMesaWorkshopEventSink*, int>::Purge()
 t CUtlMemory<CPlugin*, int>::Purge()
 t CUtlMemory<decal_t*, int>::Purge()
 t CUtlMemory<edict_t*, int>::Purge()
@@ -5338,7 +5285,6 @@ t CUtlMemory<char*, int>::Purge()
 t CUtlMemory<studiohdr_t const*, int>::Purge()
 t CUtlMemory<RecvProp const*, int>::Purge()
 t CUtlMemory<SendProp const*, int>::Purge()
-t CUtlMemory<char const*, int>::Purge()
 t CUtlMemory<CInitTracker::InitFunc*, int>::Purge()
 t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Purge()
 t CUtlMemory<CQueuedPacketSender::CQueuedPacket*, int>::Purge()
@@ -5456,21 +5402,6 @@ t CUtlRBTree<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::N
 t CUtlRBTree<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveRebalance(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t const&)
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveRebalance(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t const&)
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CEventInfo*, unsigned short, bool (*)(CEventInfo* const&, CEventInfo* const&), CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CEventInfo*, unsigned short, bool (*)(CEventInfo* const&, CEventInfo* const&), CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CEventInfo*, unsigned short, bool (*)(CEventInfo* const&, CEventInfo* const&), CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
@@ -5531,8 +5462,6 @@ t CUtlSymbol::CUtlSymbol(char const*)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::RemoveAll()
-t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::~CUtlVector()
-t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::~CUtlVector()
 t CUtlVector<CUtlSymbol, CUtlMemory<CUtlSymbol, int> >::InsertBefore(int, CUtlSymbol const&)
 t CUtlVector<ipfilter_t, CUtlMemory<ipfilter_t, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<ipfilter_t, CUtlMemory<ipfilter_t, int> >::~CUtlVector()
@@ -5566,8 +5495,6 @@ t CUtlVector<overlayvert_t, CUtlMemory<overlayvert_t, int> >::ShiftElementsRight
 t CUtlVector<overlayvert_t, CUtlMemory<overlayvert_t, int> >::CopyArray(overlayvert_t const*, int)
 t CUtlVector<overlayvert_t, CUtlMemory<overlayvert_t, int> >::~CUtlVector()
 t CUtlVector<overlayvert_t, CUtlMemory<overlayvert_t, int> >::~CUtlVector()
-t CUtlVector<SAddOnMetaData, CUtlMemory<SAddOnMetaData, int> >::~CUtlVector()
-t CUtlVector<SAddOnMetaData, CUtlMemory<SAddOnMetaData, int> >::~CUtlVector()
 t CUtlVector<_XUSER_CONTEXT, CUtlMemory<_XUSER_CONTEXT, int> >::InsertBefore(int, _XUSER_CONTEXT const&)
 t CUtlVector<AppSystemInfo_t, CUtlMemory<AppSystemInfo_t, int> >::InsertBefore(int, AppSystemInfo_t const&)
 t CUtlVector<CClientSendProp, CUtlMemory<CClientSendProp, int> >::GrowVector(int)
@@ -5587,6 +5514,7 @@ t CUtlVector<CSplitPacketEntry, CUtlMemory<CSplitPacketEntry, int> >::GrowVector
 t CUtlVector<CSplitPacketEntry, CUtlMemory<CSplitPacketEntry, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<CSplitPacketEntry, CUtlMemory<CSplitPacketEntry, int> >::ShiftElementsRight(int, int)
 t CUtlVector<CSplitPacketEntry, CUtlMemory<CSplitPacketEntry, int> >::operator=(CUtlVector<CSplitPacketEntry, CUtlMemory<CSplitPacketEntry, int> > const&)
+t CUtlVector<SteamUGCDetails_t, CUtlMemory<SteamUGCDetails_t, int> >::InsertBefore(int, SteamUGCDetails_t const&)
 t CUtlVector<VProfListenInfo_t, CUtlMemory<VProfListenInfo_t, int> >::InsertBefore(int)
 t CUtlVector<VProfListenInfo_t, CUtlMemory<VProfListenInfo_t, int> >::~CUtlVector()
 t CUtlVector<VProfListenInfo_t, CUtlMemory<VProfListenInfo_t, int> >::~CUtlVector()
@@ -5696,7 +5624,6 @@ t CUtlVector<IClientEntity*, CUtlMemory<IClientEntity*, int> >::~CUtlVector()
 t CUtlVector<IClientEntity*, CUtlMemory<IClientEntity*, int> >::~CUtlVector()
 t CUtlVector<memhandle_t__*, CUtlMemory<memhandle_t__*, int> >::InsertBefore(int, memhandle_t__* const&)
 t CUtlVector<IToolDictionary*, CUtlMemory<IToolDictionary*, int> >::InsertBefore(int, IToolDictionary* const&)
-t CUtlVector<UGCFileRequest_t*, CUtlMemory<UGCFileRequest_t*, int> >::FastRemove(int)
 t CUtlVector<CGameEventCallback*, CUtlMemory<CGameEventCallback*, int> >::InsertBefore(int, CGameEventCallback* const&)
 t CUtlVector<CGameEventCallback*, CUtlMemory<CGameEventCallback*, int> >::FindAndRemove(CGameEventCallback* const&)
 t CUtlVector<moverlayfragment_t*, CUtlMemory<moverlayfragment_t*, int> >::GrowVector(int)
@@ -5704,7 +5631,6 @@ t CUtlVector<moverlayfragment_t*, CUtlMemory<moverlayfragment_t*, int> >::Insert
 t CUtlVector<moverlayfragment_t*, CUtlMemory<moverlayfragment_t*, int> >::ShiftElementsRight(int, int)
 t CUtlVector<moverlayfragment_t*, CUtlMemory<moverlayfragment_t*, int> >::~CUtlVector()
 t CUtlVector<moverlayfragment_t*, CUtlMemory<moverlayfragment_t*, int> >::~CUtlVector()
-t CUtlVector<IBlackMesaWorkshopEventSink*, CUtlMemory<IBlackMesaWorkshopEventSink*, int> >::InsertBefore(int, IBlackMesaWorkshopEventSink* const&)
 t CUtlVector<CPlugin*, CUtlMemory<CPlugin*, int> >::InsertBefore(int, CPlugin* const&)
 t CUtlVector<CPlugin*, CUtlMemory<CPlugin*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<decal_t*, CUtlMemory<decal_t*, int> >::~CUtlVector()
@@ -5726,7 +5652,6 @@ t CUtlVector<CSendNode*, CUtlMemory<CSendNode*, int> >::InsertBefore(int, CSendN
 t CUtlVector<IMaterial*, CUtlMemory<IMaterial*, int> >::InsertBefore(int, IMaterial* const&)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::GrowVector(int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::EnsureCount(int)
-t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::InsertBefore(int, KeyValues* const&)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
@@ -5734,9 +5659,7 @@ t CUtlVector<SendTable*, CUtlMemory<SendTable*, int> >::InsertBefore(int, SendTa
 t CUtlVector<SendTable*, CUtlMemory<SendTable*, int> >::CopyArray(SendTable* const*, int)
 t CUtlVector<SendTable*, CUtlMemory<SendTable*, int> >::~CUtlVector()
 t CUtlVector<SendTable*, CUtlMemory<SendTable*, int> >::~CUtlVector()
-t CUtlVector<char*, CUtlMemory<char*, int> >::GrowVector(int)
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
-t CUtlVector<char*, CUtlMemory<char*, int> >::ShiftElementsRight(int, int)
 t CUtlVector<char*, CUtlMemory<char*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::~CUtlVector()
 t CUtlVector<RecvProp const*, CUtlMemory<RecvProp const*, int> >::GrowVector(int)
@@ -5764,10 +5687,6 @@ t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::InsertBefore(int
 t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::ShiftElementsRight(int, int)
 t CUtlVector<unsigned short, CUtlMemoryFixedGrowable<unsigned short, 32u, int> >::InsertBefore(int, unsigned short const&)
 t CUtlVector<unsigned short, CUtlMemoryFixedGrowable<unsigned short, 64u, int> >::InsertBefore(int, unsigned short const&)
-t CUtlVector<unsigned long long, CUtlMemory<unsigned long long, int> >::GrowVector(int)
-t CUtlVector<unsigned long long, CUtlMemory<unsigned long long, int> >::InsertBefore(int, unsigned long long const&)
-t CUtlVector<unsigned long long, CUtlMemory<unsigned long long, int> >::FindAndFastRemove(unsigned long long const&)
-t CUtlVector<unsigned long long, CUtlMemory<unsigned long long, int> >::ShiftElementsRight(int, int)
 t CVoxelHash::RenderGrid()
 t CVoxelHash::EntityCount()
 t CVoxelHash::RenderVoxel(Voxel_t, float)
@@ -5983,33 +5902,9 @@ t CBaseServer::CBaseServer()
 t CBaseServer::~CBaseServer()
 t CBaseServer::~CBaseServer()
 t CBaseServer::~CBaseServer()
-t CCallResult<CUGCFileRequest, RemoteStorageFileShareResult_t>::GetCallbackSizeBytes()
-t CCallResult<CUGCFileRequest, RemoteStorageFileShareResult_t>::Run(void*)
-t CCallResult<CUGCFileRequest, RemoteStorageFileShareResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CUGCFileRequest, RemoteStorageDownloadUGCResult_t>::GetCallbackSizeBytes()
-t CCallResult<CUGCFileRequest, RemoteStorageDownloadUGCResult_t>::Run(void*)
-t CCallResult<CUGCFileRequest, RemoteStorageDownloadUGCResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CWorkshopManager, RemoteStorageDeletePublishedFileResult_t>::GetCallbackSizeBytes()
-t CCallResult<CWorkshopManager, RemoteStorageDeletePublishedFileResult_t>::Run(void*)
-t CCallResult<CWorkshopManager, RemoteStorageDeletePublishedFileResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CWorkshopManager, RemoteStorageUpdateUserPublishedItemVoteResult_t>::GetCallbackSizeBytes()
-t CCallResult<CWorkshopManager, RemoteStorageUpdateUserPublishedItemVoteResult_t>::Run(void*)
-t CCallResult<CWorkshopManager, RemoteStorageUpdateUserPublishedItemVoteResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedFileDetailsResult_t>::GetCallbackSizeBytes()
-t CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedFileDetailsResult_t>::Run(void*)
-t CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedFileDetailsResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedItemVoteDetailsResult_t>::GetCallbackSizeBytes()
-t CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedItemVoteDetailsResult_t>::Run(void*)
-t CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedItemVoteDetailsResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CWorkshop, RemoteStorageEnumerateWorkshopFilesResult_t>::GetCallbackSizeBytes()
-t CCallResult<CWorkshop, RemoteStorageEnumerateWorkshopFilesResult_t>::Run(void*)
-t CCallResult<CWorkshop, RemoteStorageEnumerateWorkshopFilesResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CWorkshop, RemoteStorageEnumerateUserSubscribedFilesResult_t>::GetCallbackSizeBytes()
-t CCallResult<CWorkshop, RemoteStorageEnumerateUserSubscribedFilesResult_t>::Run(void*)
-t CCallResult<CWorkshop, RemoteStorageEnumerateUserSubscribedFilesResult_t>::Run(void*, bool, unsigned long long)
-t CCallResult<CWorkshop, RemoteStorageEnumeratePublishedFilesByUserActionResult_t>::GetCallbackSizeBytes()
-t CCallResult<CWorkshop, RemoteStorageEnumeratePublishedFilesByUserActionResult_t>::Run(void*)
-t CCallResult<CWorkshop, RemoteStorageEnumeratePublishedFilesByUserActionResult_t>::Run(void*, bool, unsigned long long)
+t CCallResult<CBlackMesaWorkshopBase, SteamUGCQueryCompleted_t>::GetCallbackSizeBytes()
+t CCallResult<CBlackMesaWorkshopBase, SteamUGCQueryCompleted_t>::Run(void*)
+t CCallResult<CBlackMesaWorkshopBase, SteamUGCQueryCompleted_t>::Run(void*, bool, unsigned long long)
 t CEntityInfo::~CEntityInfo()
 t CEntityInfo::~CEntityInfo()
 t CEntityInfo::~CEntityInfo()
@@ -7202,16 +7097,6 @@ t CBaseAppSystem<IDedicatedServerAPI>::QueryInterface(char const*)
 t CBaseAppSystem<IDedicatedServerAPI>::Init()
 t CBaseAppSystem<IDedicatedServerAPI>::Connect(void* (*)(char const*, int*))
 t CBaseAppSystem<IDedicatedServerAPI>::Shutdown()
-t CBaseAppSystem<IBlackMesaWorkshopEventManager>::Disconnect()
-t CBaseAppSystem<IBlackMesaWorkshopEventManager>::QueryInterface(char const*)
-t CBaseAppSystem<IBlackMesaWorkshopEventManager>::Init()
-t CBaseAppSystem<IBlackMesaWorkshopEventManager>::Connect(void* (*)(char const*, int*))
-t CBaseAppSystem<IBlackMesaWorkshopEventManager>::Shutdown()
-t CBaseAppSystem<IWorkshop>::Disconnect()
-t CBaseAppSystem<IWorkshop>::QueryInterface(char const*)
-t CBaseAppSystem<IWorkshop>::Init()
-t CBaseAppSystem<IWorkshop>::Connect(void* (*)(char const*, int*))
-t CBaseAppSystem<IWorkshop>::Shutdown()
 t CClockDriftMgr::SetServerTick(int)
 t CClockDriftMgr::ShowDebugInfo(float)
 t CClockDriftMgr::AdjustFrameTime(float)
@@ -7773,18 +7658,6 @@ t CTier2AppSystem<IDedicatedServerAPI, 0>::Connect(void* (*)(char const*, int*))
 t CTier2AppSystem<IDedicatedServerAPI, 0>::Shutdown()
 t CTier3AppSystem<IDedicatedServerAPI, 0>::Disconnect()
 t CTier3AppSystem<IDedicatedServerAPI, 0>::Connect(void* (*)(char const*, int*))
-t CUGCFileRequest::FileInSync(char const*, char const*, unsigned int)
-t CUGCFileRequest::ThrowError(char const*, ...)
-t CUGCFileRequest::StartUpload(CUtlBuffer&, char const*)
-t CUGCFileRequest::StartDownload(unsigned long long, char const*, char const*, unsigned int, bool)
-t CUGCFileRequest::Steam_OnFileShare(RemoteStorageFileShareResult_t*, bool)
-t CUGCFileRequest::MarkCompleteAndFree()
-t CUGCFileRequest::Steam_OnUGCDownload(RemoteStorageDownloadUGCResult_t*, bool)
-t CUGCFileRequest::Update()
-t CUGCFileRequest::CUGCFileRequest()
-t CUGCFileRequest::CUGCFileRequest()
-t CUGCFileRequest::~CUGCFileRequest()
-t CUGCFileRequest::~CUGCFileRequest()
 t CUtlFixedMemory<UtlLinkedListElem_t<CSpatialEntry, int> >::Purge() [clone .isra.27]
 t CUtlFixedMemory<UtlLinkedListElem_t<LeafListData_t, int> >::Purge() [clone .isra.38]
 t CUtlFixedMemory<UtlLinkedListElem_t<CCommandBuffer::Command_t, int> >::Grow(int)
@@ -8020,8 +7893,6 @@ t CHLTVClientState::CHLTVClientState()
 t CHLTVClientState::~CHLTVClientState()
 t CHLTVClientState::~CHLTVClientState()
 t CHLTVClientState::~CHLTVClientState()
-t CItemFileRequest::OnError(EResult)
-t CItemFileRequest::OnLoaded(PublishedFileInfo_t&)
 t CLC_CmdKeyValues::WriteToBuffer(bf_write&)
 t CLC_CmdKeyValues::ReadFromBuffer(bf_read&)
 t CLC_CmdKeyValues::Process()
@@ -8107,33 +7978,6 @@ t CUtlStreamBuffer::CUtlStreamBuffer()
 t CUtlStreamBuffer::~CUtlStreamBuffer()
 t CUtlStreamBuffer::~CUtlStreamBuffer()
 t CVEngineServer22::IsMapValid(char const*)
-t CWorkshopManager::GetUGCFilename(unsigned long long)
-t CWorkshopManager::GetUGCFullPath(unsigned long long, char*, unsigned int)
-t CWorkshopManager::AddFileInfoQuery(CBasePublishedFileRequest*, bool)
-t CWorkshopManager::UpdateUGCRequests()
-t CWorkshopManager::DeletePublishedFile(unsigned long long)
-t CWorkshopManager::GetUGCFileDirectory(unsigned long long)
-t CWorkshopManager::DeleteUGCFileRequest(unsigned long long, bool)
-t CWorkshopManager::UGCFileRequestExists(unsigned long long)
-t CWorkshopManager::Steam_OnFileSubscribed(RemoteStoragePublishedFileSubscribed_t*)
-t CWorkshopManager::CreateFileUploadRequest(char const*, char const*, char const*, unsigned int)
-t CWorkshopManager::GetUGCFileRequestStatus(unsigned long long)
-t CWorkshopManager::RemovePublishedFileInfo(unsigned long long)
-t CWorkshopManager::UpdatePublishedItemVote(unsigned long long, bool)
-t CWorkshopManager::Steam_OnFileUnsubscribed(RemoteStoragePublishedFileUnsubscribed_t*)
-t CWorkshopManager::CreateFileDownloadRequest(unsigned long long, char const*, char const*, unsigned int, unsigned int, bool)
-t CWorkshopManager::GetUGCFileDownloadProgress(unsigned long long)
-t CWorkshopManager::GetUGCFileHandleByFilename(char const*)
-t CWorkshopManager::PromoteUGCFileRequestToTop(unsigned long long)
-t CWorkshopManager::Steam_OnDeletePublishedFile(RemoteStorageDeletePublishedFileResult_t*, bool)
-t CWorkshopManager::AddPublishedFileVoteInfoRequest(PublishedFileInfo_t const*, bool)
-t CWorkshopManager::GetUGCFileRequestStatusByFilename(char const*)
-t CWorkshopManager::Steam_OnUpdateUserPublishedItemVote(RemoteStorageUpdateUserPublishedItemVoteResult_t*, bool)
-t CWorkshopManager::Update()
-t CWorkshopManager::CWorkshopManager(IWorkshopManagerCallbackInterface*)
-t CWorkshopManager::CWorkshopManager(IWorkshopManagerCallbackInterface*)
-t CWorkshopManager::~CWorkshopManager()
-t CWorkshopManager::~CWorkshopManager()
 t IChangeFrameList::~IChangeFrameList()
 t IChangeFrameList::~IChangeFrameList()
 t IChangeFrameList::~IChangeFrameList()
@@ -8355,9 +8199,6 @@ t CUtlInplaceBuffer::InplaceGetLinePtr(char**, int*)
 t CUtlInplaceBuffer::InplaceGetLinePtr()
 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
 t CUtlInplaceBuffer::CUtlInplaceBuffer(int, int, int)
-t CUtlPriorityQueue<UGCFileRequest_t*>::RemoveAtHead()
-t CUtlPriorityQueue<UGCFileRequest_t*>::Insert(UGCFileRequest_t* const&)
-t CUtlPriorityQueue<UGCFileRequest_t*>::RemoveAt(int)
 t CUtlPriorityQueue<CQueuedPacketSender::CQueuedPacket*>::RemoveAtHead()
 t CUtlPriorityQueue<CQueuedPacketSender::CQueuedPacket*>::Insert(CQueuedPacketSender::CQueuedPacket* const&)
 t CUtlPriorityQueue<CQueuedPacketSender::CQueuedPacket*>::RemoveAt(int)
@@ -8410,9 +8251,6 @@ t CClientEngineTools::LevelShutdownPostEntityAllTools()
 t CClientEngineTools::~CClientEngineTools()
 t CClientEngineTools::~CClientEngineTools()
 t CClientEngineTools::~CClientEngineTools()
-t CCopyableUtlVector<char*, CUtlMemory<char*, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<char*, CUtlMemory<char*, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<char*, CUtlMemory<char*, int> >::~CCopyableUtlVector()
 t CEngineSoundServer::SetRoomType(IRecipientFilter&, int)
 t CEngineSoundServer::SetPlayerDSP(IRecipientFilter&, int, bool)
 t CEngineSoundServer::PrecacheSound(char const*, bool, bool)
@@ -8874,6 +8712,20 @@ t SVC_UpdateStringTable::Process()
 t SVC_UpdateStringTable::~SVC_UpdateStringTable()
 t SVC_UpdateStringTable::~SVC_UpdateStringTable()
 t SVC_UpdateStringTable::~SVC_UpdateStringTable()
+t CBlackMesaWorkshopBase::Initialize()
+t CBlackMesaWorkshopBase::DebugMessage(EBlackMesaWorkshopMessageType, char const*, ...)
+t CBlackMesaWorkshopBase::AddVPKSearchPath(char const*)
+t CBlackMesaWorkshopBase::AddFolderSearchPath(char const*)
+t CBlackMesaWorkshopBase::GetSubscribedAddons(CUtlVector<SteamUGCDetails_t, CUtlMemory<SteamUGCDetails_t, int> >&)
+t CBlackMesaWorkshopBase::OnQuerySusbcribedAddons(SteamUGCQueryCompleted_t*, bool)
+t CBlackMesaWorkshopBase::OnQuerySusbcribedAddons(SteamUGCQueryCompleted_t*, bool) [clone .part.10]
+t CBlackMesaWorkshopBase::OnFileSubscribedInternal(RemoteStoragePublishedFileSubscribed_t*)
+t CBlackMesaWorkshopBase::OnFileUnsubscribedInternal(RemoteStoragePublishedFileUnsubscribed_t*)
+t CBlackMesaWorkshopBase::CBlackMesaWorkshopBase()
+t CBlackMesaWorkshopBase::CBlackMesaWorkshopBase()
+t CBlackMesaWorkshopBase::~CBlackMesaWorkshopBase()
+t CBlackMesaWorkshopBase::~CBlackMesaWorkshopBase()
+t CBlackMesaWorkshopBase::~CBlackMesaWorkshopBase()
 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
 t CDownloadListGenerator::OnLevelLoadEnd()
@@ -8908,8 +8760,6 @@ t CEngineRecipientFilter::~CEngineRecipientFilter()
 t CEngineRecipientFilter::~CEngineRecipientFilter()
 t CStandardSendProxiesV1::CStandardSendProxiesV1()
 t CStandardSendProxiesV1::CStandardSendProxiesV1()
-t CSubscribedFileRequest::OnError(EResult)
-t CSubscribedFileRequest::OnLoaded(PublishedFileInfo_t&)
 t CToolFrameworkInternal::ClientInit(void* (*)(char const*, int*))
 t CToolFrameworkInternal::Disconnect()
 t CToolFrameworkInternal::InToolMode()
@@ -8975,14 +8825,6 @@ t CTouchLinks_ClientSide::EnumElement(IHandleEntity*)
 t CTouchLinks_ClientSide::~CTouchLinks_ClientSide()
 t CTouchLinks_ClientSide::~CTouchLinks_ClientSide()
 t CTouchLinks_ClientSide::~CTouchLinks_ClientSide()
-t CUGCFileRequestManager::DeleteFileRequest(unsigned long long, bool)
-t CUGCFileRequestManager::PromoteRequestToTop(unsigned long long)
-t CUGCFileRequestManager::CreateFileUploadRequest(char const*, char const*, char const*, unsigned int)
-t CUGCFileRequestManager::CreateFileDownloadRequest(unsigned long long, char const*, char const*, unsigned int, unsigned int, bool)
-t CUGCFileRequestManager::Debug_LogPendingOperations()
-t CUGCFileRequestManager::Update()
-t CUGCFileRequestManager::CUGCFileRequestManager()
-t CUGCFileRequestManager::CUGCFileRequestManager()
 b dheader_t_DataDescInit::g_DataMapHolder
 t UserReportedFileHash_t::Less(UserReportedFileHash_t const&, UserReportedFileHash_t const&)
 t CDefaultDataCacheClient::GetItemName(unsigned int, void const*, char*, unsigned int)
@@ -9017,27 +8859,24 @@ t CUtlFilenameSymbolTable::CUtlFilenameSymbolTable()
 t CUtlFilenameSymbolTable::CUtlFilenameSymbolTable()
 t CUtlFilenameSymbolTable::~CUtlFilenameSymbolTable()
 t CUtlFilenameSymbolTable::~CUtlFilenameSymbolTable()
+t CBlackMesaWorkshopServer::Initialize()
+t CBlackMesaWorkshopServer::OnInstalledItemFound(unsigned int, char const*, unsigned long long, SteamUGCDetails_t const*)
+t CBlackMesaWorkshopServer::DownloadPendingAddons()
+t CBlackMesaWorkshopServer::OnFileSubscribedExternally(RemoteStoragePublishedFileSubscribed_t*)
+t CBlackMesaWorkshopServer::ReadInSubscribedAddonsList()
+t CBlackMesaWorkshopServer::OnFileUnsubscribedExternally(RemoteStoragePublishedFileUnsubscribed_t*)
+t CBlackMesaWorkshopServer::Update()
+t CBlackMesaWorkshopServer::Shutdown()
+t CBlackMesaWorkshopServer::~CBlackMesaWorkshopServer()
+t CBlackMesaWorkshopServer::~CBlackMesaWorkshopServer()
+t CBlackMesaWorkshopServer::~CBlackMesaWorkshopServer()
 t CNonModifiedPointerProxy::CNonModifiedPointerProxy(void* (*)(SendProp const*, void const*, void const*, CSendProxyRecipients*, int))
 t CNonModifiedPointerProxy::CNonModifiedPointerProxy(void* (*)(SendProp const*, void const*, void const*, CSendProxyRecipients*, int))
 t CTriggerMoved_ClientSide::EnumElement(IHandleEntity*)
 t CTriggerMoved_ClientSide::~CTriggerMoved_ClientSide()
 t CTriggerMoved_ClientSide::~CTriggerMoved_ClientSide()
 t CTriggerMoved_ClientSide::~CTriggerMoved_ClientSide()
-t CWorkshopFileInfoManager::AddFileInfoQuery(CBasePublishedFileRequest*, bool)
-t CWorkshopFileInfoManager::AddFileVoteInfoRequest(PublishedFileInfo_t const*, bool)
-t CWorkshopFileInfoManager::RemovePublishedFileInfo(unsigned long long)
-t CWorkshopFileInfoManager::UpdatePublishedFileInfoQueries()
-t CWorkshopFileInfoManager::Steam_OnGetPublishedFileDetails(RemoteStorageGetPublishedFileDetailsResult_t*, bool)
-t CWorkshopFileInfoManager::Steam_OnGetPublishedItemVoteDetails(RemoteStorageGetPublishedItemVoteDetailsResult_t*, bool)
-t CWorkshopFileInfoManager::UpdatePublishedFileVotingInfoQueries()
-t CWorkshopFileInfoManager::Update()
-t CWorkshopFileInfoManager::CWorkshopFileInfoManager(IWorkshopFileInfoManagerCallbackInterface*)
-t CWorkshopFileInfoManager::CWorkshopFileInfoManager(IWorkshopFileInfoManagerCallbackInterface*)
-t CWorkshopFileInfoManager::~CWorkshopFileInfoManager()
-t CWorkshopFileInfoManager::~CWorkshopFileInfoManager()
 t CBaseAutoCompleteFileList::AutoCompletionFunc(char const*, char (*) [64])
-t CBasePublishedFileRequest::OnError(EResult)
-t CBasePublishedFileRequest::OnLoaded(PublishedFileInfo_t&)
 t ISpatialPartitionInternal::~ISpatialPartitionInternal()
 t ISpatialPartitionInternal::~ISpatialPartitionInternal()
 t ISpatialPartitionInternal::~ISpatialPartitionInternal()
@@ -9059,7 +8898,6 @@ t CNetworkStringFilenameDict::~CNetworkStringFilenameDict()
 t CNetworkStringFilenameDict::~CNetworkStringFilenameDict()
 t CNetworkStringFilenameDict::~CNetworkStringFilenameDict()
 b player_info_s_DataDescInit::g_DataMapHolder
-t IBlackMesaWorkshopEventSink::OnEvent(KeyValues*)
 t IKeyValuesDumpContextAsText::KvBeginKey(KeyValues*, int)
 t IKeyValuesDumpContextAsText::KvWriteValue(KeyValues*, int)
 t IKeyValuesDumpContextAsText::KvWriteIndent(int)
@@ -9109,20 +8947,26 @@ t INetworkStringTableContainer::~INetworkStringTableContainer()
 t CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)
 t CKeyValuesDumpContextAsDevMsg::KvWriteText(char const*)
 t CTraceFilterWorldAndPropsOnly::ShouldHitEntity(IHandleEntity*, int)
-t CBlackMesaWorkshopEventManager::Unsubscribe(IBlackMesaWorkshopEventSink*)
-t CBlackMesaWorkshopEventManager::BroadcastEvent(KeyValues*)
-t CBlackMesaWorkshopEventManager::QueryInterface(char const*)
-t CBlackMesaWorkshopEventManager::Init()
-t CBlackMesaWorkshopEventManager::Connect(void* (*)(char const*, int*))
-t CBlackMesaWorkshopEventManager::Shutdown()
-t CBlackMesaWorkshopEventManager::Subscribe(IBlackMesaWorkshopEventSink*)
-t CBlackMesaWorkshopEventManager::~CBlackMesaWorkshopEventManager()
-t CBlackMesaWorkshopEventManager::~CBlackMesaWorkshopEventManager()
-t CTerrorWorkshopManagerCallbackInterface::OnFileRequestError(unsigned long long)
-t CTerrorWorkshopManagerCallbackInterface::OnFileRequestFinished(unsigned long long)
-t CTerrorWorkshopManagerCallbackInterface::OnPublishedFileDeleted(unsigned long long)
-t CTerrorWorkshopManagerCallbackInterface::OnPublishedFileSubscribed(unsigned long long)
-t CTerrorWorkshopManagerCallbackInterface::OnPublishedFileUnsubscribed(unsigned long long)
+b EBlackMesaWorkshopMessageColor::DBG
+b EBlackMesaWorkshopMessageColor::DBG
+b EBlackMesaWorkshopMessageColor::DBG
+b EBlackMesaWorkshopMessageColor::DBG
+b EBlackMesaWorkshopMessageColor::DBG
+b EBlackMesaWorkshopMessageColor::ERR
+b EBlackMesaWorkshopMessageColor::ERR
+b EBlackMesaWorkshopMessageColor::ERR
+b EBlackMesaWorkshopMessageColor::ERR
+b EBlackMesaWorkshopMessageColor::ERR
+b EBlackMesaWorkshopMessageColor::INFO
+b EBlackMesaWorkshopMessageColor::INFO
+b EBlackMesaWorkshopMessageColor::INFO
+b EBlackMesaWorkshopMessageColor::INFO
+b EBlackMesaWorkshopMessageColor::INFO
+b EBlackMesaWorkshopMessageColor::WARNING
+b EBlackMesaWorkshopMessageColor::WARNING
+b EBlackMesaWorkshopMessageColor::WARNING
+b EBlackMesaWorkshopMessageColor::WARNING
+b EBlackMesaWorkshopMessageColor::WARNING
 t CLog::AddLogAddress(netadr_s)
 t CLog::DelLogAddress(netadr_s)
 t CLog::FireGameEvent(IGameEvent*)
@@ -9320,7 +9164,6 @@ t bf_read::bf_read(void const*, int, int)
 t bf_read::bf_read()
 t CDefOps<CUtlSymbol>::LessFunc(CUtlSymbol const&, CUtlSymbol const&)
 t CDefOps<void*>::LessFunc(void* const&, void* const&)
-t CDefOps<unsigned long long>::LessFunc(unsigned long long const&, unsigned long long const&)
 t CEngine::FilterTime(float)
 t CEngine::GetCurTime()
 t CEngine::GetQuitting()
@@ -9361,7 +9204,6 @@ t CTSPool<TraceInfo_t>::~CTSPool()
 t CTSPool<TraceInfo_t>::~CTSPool()
 t CUtlMap<void*, DecalEntry, unsigned short>::~CUtlMap()
 t CUtlMap<void*, DecalEntry, unsigned short>::~CUtlMap()
-t CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Remove(unsigned long long const&)
 t IClient::~IClient()
 t IClient::~IClient()
 t IClient::~IClient()
@@ -9591,8 +9433,8 @@ t CCallback<CSteam3Server, SteamServersDisconnected_t, true>::Run(void*)
 t CCallback<CSteam3Server, SteamServerConnectFailure_t, true>::Run(void*)
 t CCallback<CSteam3Server, ValidateAuthTicketResponse_t, true>::Run(void*)
 t CCallback<CSteam3Server, ComputeNewPlayerCompatibilityResult_t, true>::Run(void*)
-t CCallback<CWorkshopManager, RemoteStoragePublishedFileSubscribed_t, false>::Run(void*)
-t CCallback<CWorkshopManager, RemoteStoragePublishedFileUnsubscribed_t, false>::Run(void*)
+t CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileSubscribed_t, false>::Run(void*)
+t CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileUnsubscribed_t, false>::Run(void*)
 t CDemoFile::ReadCmdInfo(democmdinfo_t&)
 t CDemoFile::ReadRawData(char*, int)
 t CDemoFile::ReadUserCmd(char*, int&)
@@ -9777,7 +9619,6 @@ t CSentence::CSentence()
 t CSentence::~CSentence()
 t CSentence::~CSentence()
 t CStatTime::GetTime()
-t CUtlQueue<CBasePublishedFileRequest*, CUtlMemory<CBasePublishedFileRequest*, int> >::Insert(CBasePublishedFileRequest* const&)
 t CUtlQueue<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int> >::Insert(KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct const&)
 t CVertInfo::CVertInfo()
 t CVertInfo::CVertInfo()
@@ -9794,34 +9635,6 @@ U CVProfile::Term()
 t CVProfile::ExitScope()
 U CVProfile::CVProfile()
 U CVProfile::~CVProfile()
-t CWorkshop::AddItemFile(PublishedFileInfo_t const&)
-t CWorkshop::AddAddOnFile(PublishedFileInfo_t const&)
-t CWorkshop::GetAddOnFiles(CUtlVector<unsigned long long, CUtlMemory<unsigned long long, int> >*)
-t CWorkshop::QueryInterface(char const*)
-t CWorkshop::QueryForMapItems()
-t CWorkshop::AddSubscribedFile(unsigned long long, unsigned int)
-t CWorkshop::RequestItemHistory()
-t CWorkshop::RemoveSubscribedFile(unsigned long long)
-t CWorkshop::CreateItemFileRequest(PublishedFileInfo_t const&)
-t CWorkshop::OnFileRequestFinished(unsigned long long)
-t CWorkshop::RequestAvailableItems()
-t CWorkshop::CreateAddOnFileRequest(PublishedFileInfo_t const&)
-t CWorkshop::QueryForSubscribedFiles()
-t CWorkshop::RequestItemHistory_Internal()
-t CWorkshop::RequestAvailableItems_Internal(EWorkshopEnumerationType)
-t CWorkshop::Steam_OnEnumerateWorkshopFiles(RemoteStorageEnumerateWorkshopFilesResult_t*, bool)
-t CWorkshop::Steam_OnEnumerateSubscribedFiles(RemoteStorageEnumerateUserSubscribedFilesResult_t*, bool)
-t CWorkshop::Steam_OnEnumeratePublishedFilesByUserAction(RemoteStorageEnumeratePublishedFilesByUserActionResult_t*, bool)
-t CWorkshop::Init()
-t CWorkshop::AddItem(unsigned long long)
-t CWorkshop::Connect(void* (*)(char const*, int*))
-t CWorkshop::OnEvent(KeyValues*)
-t CWorkshop::RunFrame()
-t CWorkshop::Shutdown()
-t CWorkshop::CWorkshop()
-t CWorkshop::CWorkshop()
-t CWorkshop::~CWorkshop()
-t CWorkshop::~CWorkshop()
 t dheader_t::GetBaseMap()
 d dheader_t::m_DataMap
 t IDispInfo::~IDispInfo()
@@ -10026,8 +9839,6 @@ t CUtlRBTree<CUtlMap<void*, DecalEntry, unsigned short>::Node_t, unsigned short,
 t CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t const&) const
 t CUtlRBTree<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t const&) const
-t CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t const&) const
-t CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t const&) const
 t CUtlRBTree<CEventInfo*, unsigned short, bool (*)(CEventInfo* const&, CEventInfo* const&), CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CEventInfo*, unsigned short, bool (*)(CEventInfo* const&, CEventInfo* const&), CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short> >::FirstInorder() const
 t CUtlRBTree<ConCommandBase const*, unsigned short, bool (*)(ConCommandBase const* const&, ConCommandBase const* const&), CUtlMemory<UtlRBTreeNode_t<ConCommandBase const*, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
@@ -10055,7 +9866,6 @@ t CUtlString::operator+(char const*) const
 t CUtlString::operator+(CUtlString const&) const
 t CUtlSymbol::String() const
 t CUtlSymbol::operator==(char const*) const
-t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::Find(CUtlString const&) const
 t MD5Value_t::IsZero() const
 t MM_Migrate::GetName() const
 t MM_Migrate::GetType() const
@@ -10311,9 +10121,6 @@ t CLC_BaselineAck::ToString() const
 t CMapListManager::GetMapName(int) const
 t CMapListManager::IsMapValid(int) const
 t CMapListManager::GetMapCount() const
-t CUGCFileRequest::GetFilename() const
-t CUGCFileRequest::GetFullPath(char*, unsigned int) const
-t CUGCFileRequest::GetDirectory() const
 t CUtlSymbolTable::FindPoolWithSpace(int) const
 t CUtlSymbolTable::Find(char const*) const
 t CUtlSymbolTable::CLess::operator()(CUtlSymbolTable::CStringPoolIndex const&, CUtlSymbolTable::CStringPoolIndex const&) const
@@ -10363,9 +10170,6 @@ t COcclusionSystem::ClipPolygonToNearPlane(Vector**, int, Vector**, bool*) const
 t COcclusionSystem::ClipPolygonToAxisAlignedPlane(Vector**, int, COcclusionSystem::AxisAlignedPlane_t const&, Vector**) const
 U CThreadLocalBase::Get() const
 t CUtlStreamBuffer::IsOpen() const
-t CWorkshopManager::GetPendingVPKFileCount() const
-t CWorkshopManager::GetPublishedFileInfoByID(unsigned long long) const
-t CWorkshopManager::GetCurrentUGCDownloadHandle() const
 t SVC_CmdKeyValues::GetName() const
 t SVC_CmdKeyValues::GetType() const
 t SVC_CmdKeyValues::ToString() const
@@ -10443,24 +10247,13 @@ t CEngineRecipientFilter::IsInitMessage() const
 t CEngineRecipientFilter::GetRecipientCount() const
 t CEngineRecipientFilter::GetRecipientIndex(int) const
 t CToolFrameworkInternal::GetToolSystem(int) const
-t CUGCFileRequestManager::GetFilename(unsigned long long) const
-t CUGCFileRequestManager::GetFullPath(unsigned long long, char*, unsigned int) const
-t CUGCFileRequestManager::GetDirectory(unsigned long long) const
-t CUGCFileRequestManager::FileRequestExists(unsigned long long) const
-t CUGCFileRequestManager::GetDownloadProgress(unsigned long long) const
-t CUGCFileRequestManager::GetFileRequestByHandle(unsigned long long) const
-t CUGCFileRequestManager::GetPendingVPKFileCount() const
-t CUGCFileRequestManager::GetCurrentDownloadHandle() const
-t CUGCFileRequestManager::GetFileRequestByFilename(char const*) const
-t CUGCFileRequestManager::GetFileRequestHandleByFilename(char const*) const
-t CUGCFileRequestManager::GetStatus(char const*) const
-t CUGCFileRequestManager::GetStatus(unsigned long long) const
 t CEngineSingleUserFilter::IsReliable() const
 t CEngineSingleUserFilter::IsInitMessage() const
 t CEngineSingleUserFilter::GetRecipientCount() const
 t CEngineSingleUserFilter::GetRecipientIndex(int) const
 t CEngineSingleUserFilter::IsBroadcastMessage() const
-t CWorkshopFileInfoManager::GetPublishedFileInfoByID(unsigned long long) const
+t CBlackMesaWorkshopServer::GetSteamID() const
+t CBlackMesaWorkshopServer::GetSteamUGC() const
 t CNetworkStringFilenameDict::Element(int) const
 t CNetworkStringTableContainer::GetNumTables() const
 t CNetworkStringTableContainer::GetTable(int) const
@@ -10479,7 +10272,6 @@ t IceKey::encrypt(unsigned char const*, unsigned char*) const
 t IceKey::keySize() const
 t IceKey::blockSize() const
 t snappy::ByteArraySource::Available() const
-t CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Find(unsigned long long const&) const
 t VMatrix::Transpose3x3() const
 t VMatrix::InverseGeneral(VMatrix&) const
 t VMatrix::IsRotationMatrix() const
@@ -10572,15 +10364,6 @@ U CVProfile::GetNumCounters() const
 U CVProfile::GetCounterGroup(int) const
 U CVProfile::GetCounterValue(int) const
 U CVProfile::GetCounterNameAndValue(int, int&) const
-t CWorkshop::GetAddOnByIndex(unsigned int) const
-t CWorkshop::WorkshopManager() const
-t CWorkshop::GetNumAddOnFiles() const
-t CWorkshop::AddOnQueryComplete() const
-t CWorkshop::WorkshopItemsReady(bool&) const
-t CWorkshop::GetNumWorkshopItems() const
-t CWorkshop::GetWorkshopItemByIndex(int) const
-t CWorkshop::GetPublishedFileInfoByID(unsigned long long) const
-t CWorkshop::GetCurrentUGCDownloadHandle() const
 t KeyValues::CopySubkeys(KeyValues*) const
 t KeyValues::FindKey(int) const
 t KeyValues::GetName() const
@@ -10828,7 +10611,6 @@ t non-virtual thunk to CHLTVClientState::~CHLTVClientState()
 t non-virtual thunk to CDispInfo::GetEdgeNeighbor(int)
 t non-virtual thunk to CDispInfo::GetCornerNeighbors(int)
 t non-virtual thunk to CDispInfo::GetDispUtilsByIndex(int)
-t non-virtual thunk to CWorkshop::OnEvent(KeyValues*)
 t non-virtual thunk to CBaseClient::IsConnected() const
 t non-virtual thunk to CBaseClient::GetNetworkID() const
 t non-virtual thunk to CBaseClient::IsFakeClient() const
@@ -11002,7 +10784,6 @@ r typeinfo for CHLTVFrame
 r typeinfo for CModelInfo
 r typeinfo for ConCommand
 r typeinfo for CPhoneHome
-r typeinfo for CUtlVector<char*, CUtlMemory<char*, int> >
 r typeinfo for CVoxelTree
 r typeinfo for IAppSystem
 r typeinfo for ICvarQuery
@@ -11014,15 +10795,7 @@ r typeinfo for SVC_Sounds
 r typeinfo for VAllocator
 r typeinfo for CBaseClient
 r typeinfo for CBaseServer
-r typeinfo for CCallResult<CUGCFileRequest, RemoteStorageFileShareResult_t>
-r typeinfo for CCallResult<CUGCFileRequest, RemoteStorageDownloadUGCResult_t>
-r typeinfo for CCallResult<CWorkshopManager, RemoteStorageDeletePublishedFileResult_t>
-r typeinfo for CCallResult<CWorkshopManager, RemoteStorageUpdateUserPublishedItemVoteResult_t>
-r typeinfo for CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedFileDetailsResult_t>
-r typeinfo for CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedItemVoteDetailsResult_t>
-r typeinfo for CCallResult<CWorkshop, RemoteStorageEnumerateWorkshopFilesResult_t>
-r typeinfo for CCallResult<CWorkshop, RemoteStorageEnumerateUserSubscribedFilesResult_t>
-r typeinfo for CCallResult<CWorkshop, RemoteStorageEnumeratePublishedFilesByUserActionResult_t>
+r typeinfo for CCallResult<CBlackMesaWorkshopBase, SteamUGCQueryCompleted_t>
 r typeinfo for CEncodeInfo
 r typeinfo for CEntityInfo
 r typeinfo for CGameClient
@@ -11102,8 +10875,6 @@ r typeinfo for SVC_VoiceInit
 r typeinfo for VStdAllocator
 r typeinfo for CBaseAppSystem<ICvarQuery>
 r typeinfo for CBaseAppSystem<IDedicatedServerAPI>
-r typeinfo for CBaseAppSystem<IBlackMesaWorkshopEventManager>
-r typeinfo for CBaseAppSystem<IWorkshop>
 r typeinfo for CEngineBSPTree
 r typeinfo for CLC_ClientInfo
 r typeinfo for CLC_SaveReplay
@@ -11150,7 +10921,6 @@ r typeinfo for CDllDemandLoader
 r typeinfo for CEntityWriteInfo
 r typeinfo for CFileTransferMgr
 r typeinfo for CHLTVClientState
-r typeinfo for CItemFileRequest
 r typeinfo for CLC_CmdKeyValues
 r typeinfo for CLC_FileCRCCheck
 r typeinfo for CLC_FileMD5Check
@@ -11161,7 +10931,6 @@ r typeinfo for COM_IOReadBinary
 r typeinfo for CResourcePreload
 r typeinfo for CUploadGameStats
 r typeinfo for CVEngineServer22
-r typeinfo for CWorkshopManager
 r typeinfo for IChangeFrameList
 r typeinfo for IClientStatsTime
 r typeinfo for IDataCacheClient
@@ -11169,7 +10938,6 @@ r typeinfo for IOcclusionSystem
 r typeinfo for IRecipientFilter
 r typeinfo for IResourcePreload
 r typeinfo for IUploadGameStats
-r typeinfo for IWorkshopManager
 r typeinfo for SVC_CmdKeyValues
 r typeinfo for SVC_GetCvarValue
 r typeinfo for SVC_TempEntities
@@ -11189,7 +10957,6 @@ r typeinfo for SVC_EntityMessage
 r typeinfo for SVC_GameEventList
 r typeinfo for CBlockingUDPSocket
 r typeinfo for CClientEngineTools
-r typeinfo for CCopyableUtlVector<char*, CUtlMemory<char*, int> >
 r typeinfo for CEngineSoundServer
 r typeinfo for CEngineTraceServer
 r typeinfo for CEnumerationFilter
@@ -11247,11 +11014,10 @@ r typeinfo for IMaterialProxyFactory
 r typeinfo for IServerMessageHandler
 r typeinfo for SVC_CreateStringTable
 r typeinfo for SVC_UpdateStringTable
+r typeinfo for CBlackMesaWorkshopBase
 r typeinfo for CEngineRecipientFilter
-r typeinfo for CSubscribedFileRequest
 r typeinfo for CToolFrameworkInternal
 r typeinfo for CTouchLinks_ClientSide
-r typeinfo for CUGCFileRequestManager
 r typeinfo for ISocketCreatorListener
 r typeinfo for ISpatialLeafEnumerator
 r typeinfo for IToolFrameworkInternal
@@ -11259,12 +11025,11 @@ r typeinfo for CDefaultDataCacheClient
 r typeinfo for CEngineSingleUserFilter
 r typeinfo for CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>
 r typeinfo for IConCommandBaseAccessor
+r typeinfo for CBlackMesaWorkshopServer
 r typeinfo for CTriggerMoved_ClientSide
-r typeinfo for CBasePublishedFileRequest
 r typeinfo for ISpatialPartitionInternal
 r typeinfo for CEngineUniformRandomStream
 r typeinfo for CNetworkStringFilenameDict
-r typeinfo for IBlackMesaWorkshopEventSink
 r typeinfo for IKeyValuesDumpContextAsText
 r typeinfo for CNetworkStringTableContainer
 r typeinfo for CPooledVBAllocator_ColorMesh
@@ -11272,12 +11037,6 @@ r typeinfo for IConnectionlessPacketHandler
 r typeinfo for INetworkStringTableContainer
 r typeinfo for CKeyValuesDumpContextAsDevMsg
 r typeinfo for CTraceFilterWorldAndPropsOnly
-r typeinfo for CBlackMesaWorkshopEventManager
-r typeinfo for IBlackMesaWorkshopEventManager
-r typeinfo for IWorkshopManagerCallbackInterface
-r typeinfo for CBaseWorkshopManagerCallbackInterface
-r typeinfo for CTerrorWorkshopManagerCallbackInterface
-r typeinfo for IWorkshopFileInfoManagerCallbackInterface
 r typeinfo for CLog
 r typeinfo for CGame
 r typeinfo for IGame
@@ -11302,13 +11061,12 @@ r typeinfo for CCallback<CSteam3Server, SteamServersDisconnected_t, true>
 r typeinfo for CCallback<CSteam3Server, SteamServerConnectFailure_t, true>
 r typeinfo for CCallback<CSteam3Server, ValidateAuthTicketResponse_t, true>
 r typeinfo for CCallback<CSteam3Server, ComputeNewPlayerCompatibilityResult_t, true>
-r typeinfo for CCallback<CWorkshopManager, RemoteStoragePublishedFileSubscribed_t, false>
-r typeinfo for CCallback<CWorkshopManager, RemoteStoragePublishedFileUnsubscribed_t, false>
+r typeinfo for CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileSubscribed_t, false>
+r typeinfo for CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileUnsubscribed_t, false>
 r typeinfo for CDispInfo
 r typeinfo for CFunctor2<void (*)(bool, bool), bool, bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r typeinfo for CRegistry
 r typeinfo for CStatTime
-r typeinfo for CWorkshop
 r typeinfo for IDispInfo
 r typeinfo for IRegistry
 r typeinfo for IWorkshop
@@ -11324,7 +11082,6 @@ r typeinfo name for CHLTVFrame
 r typeinfo name for CModelInfo
 r typeinfo name for ConCommand
 r typeinfo name for CPhoneHome
-r typeinfo name for CUtlVector<char*, CUtlMemory<char*, int> >
 r typeinfo name for CVoxelTree
 r typeinfo name for IAppSystem
 r typeinfo name for ICvarQuery
@@ -11336,15 +11093,7 @@ r typeinfo name for SVC_Sounds
 r typeinfo name for VAllocator
 r typeinfo name for CBaseClient
 r typeinfo name for CBaseServer
-r typeinfo name for CCallResult<CUGCFileRequest, RemoteStorageFileShareResult_t>
-r typeinfo name for CCallResult<CUGCFileRequest, RemoteStorageDownloadUGCResult_t>
-r typeinfo name for CCallResult<CWorkshopManager, RemoteStorageDeletePublishedFileResult_t>
-r typeinfo name for CCallResult<CWorkshopManager, RemoteStorageUpdateUserPublishedItemVoteResult_t>
-r typeinfo name for CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedFileDetailsResult_t>
-r typeinfo name for CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedItemVoteDetailsResult_t>
-r typeinfo name for CCallResult<CWorkshop, RemoteStorageEnumerateWorkshopFilesResult_t>
-r typeinfo name for CCallResult<CWorkshop, RemoteStorageEnumerateUserSubscribedFilesResult_t>
-r typeinfo name for CCallResult<CWorkshop, RemoteStorageEnumeratePublishedFilesByUserActionResult_t>
+r typeinfo name for CCallResult<CBlackMesaWorkshopBase, SteamUGCQueryCompleted_t>
 r typeinfo name for CEncodeInfo
 r typeinfo name for CEntityInfo
 r typeinfo name for CGameClient
@@ -11424,8 +11173,6 @@ r typeinfo name for SVC_VoiceInit
 r typeinfo name for VStdAllocator
 r typeinfo name for CBaseAppSystem<ICvarQuery>
 r typeinfo name for CBaseAppSystem<IDedicatedServerAPI>
-r typeinfo name for CBaseAppSystem<IBlackMesaWorkshopEventManager>
-r typeinfo name for CBaseAppSystem<IWorkshop>
 r typeinfo name for CEngineBSPTree
 r typeinfo name for CLC_ClientInfo
 r typeinfo name for CLC_SaveReplay
@@ -11472,7 +11219,6 @@ r typeinfo name for CDllDemandLoader
 r typeinfo name for CEntityWriteInfo
 r typeinfo name for CFileTransferMgr
 r typeinfo name for CHLTVClientState
-r typeinfo name for CItemFileRequest
 r typeinfo name for CLC_CmdKeyValues
 r typeinfo name for CLC_FileCRCCheck
 r typeinfo name for CLC_FileMD5Check
@@ -11483,7 +11229,6 @@ r typeinfo name for COM_IOReadBinary
 r typeinfo name for CResourcePreload
 r typeinfo name for CUploadGameStats
 r typeinfo name for CVEngineServer22
-r typeinfo name for CWorkshopManager
 r typeinfo name for IChangeFrameList
 r typeinfo name for IClientStatsTime
 r typeinfo name for IDataCacheClient
@@ -11491,7 +11236,6 @@ r typeinfo name for IOcclusionSystem
 r typeinfo name for IRecipientFilter
 r typeinfo name for IResourcePreload
 r typeinfo name for IUploadGameStats
-r typeinfo name for IWorkshopManager
 r typeinfo name for SVC_CmdKeyValues
 r typeinfo name for SVC_GetCvarValue
 r typeinfo name for SVC_TempEntities
@@ -11511,7 +11255,6 @@ r typeinfo name for SVC_EntityMessage
 r typeinfo name for SVC_GameEventList
 r typeinfo name for CBlockingUDPSocket
 r typeinfo name for CClientEngineTools
-r typeinfo name for CCopyableUtlVector<char*, CUtlMemory<char*, int> >
 r typeinfo name for CEngineSoundServer
 r typeinfo name for CEngineTraceServer
 r typeinfo name for CEnumerationFilter
@@ -11569,11 +11312,10 @@ r typeinfo name for IMaterialProxyFactory
 r typeinfo name for IServerMessageHandler
 r typeinfo name for SVC_CreateStringTable
 r typeinfo name for SVC_UpdateStringTable
+r typeinfo name for CBlackMesaWorkshopBase
 r typeinfo name for CEngineRecipientFilter
-r typeinfo name for CSubscribedFileRequest
 r typeinfo name for CToolFrameworkInternal
 r typeinfo name for CTouchLinks_ClientSide
-r typeinfo name for CUGCFileRequestManager
 r typeinfo name for ISocketCreatorListener
 r typeinfo name for ISpatialLeafEnumerator
 r typeinfo name for IToolFrameworkInternal
@@ -11581,12 +11323,11 @@ r typeinfo name for CDefaultDataCacheClient
 r typeinfo name for CEngineSingleUserFilter
 r typeinfo name for CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>
 r typeinfo name for IConCommandBaseAccessor
+r typeinfo name for CBlackMesaWorkshopServer
 r typeinfo name for CTriggerMoved_ClientSide
-r typeinfo name for CBasePublishedFileRequest
 r typeinfo name for ISpatialPartitionInternal
 r typeinfo name for CEngineUniformRandomStream
 r typeinfo name for CNetworkStringFilenameDict
-r typeinfo name for IBlackMesaWorkshopEventSink
 r typeinfo name for IKeyValuesDumpContextAsText
 r typeinfo name for CNetworkStringTableContainer
 r typeinfo name for CPooledVBAllocator_ColorMesh
@@ -11594,12 +11335,6 @@ r typeinfo name for IConnectionlessPacketHandler
 r typeinfo name for INetworkStringTableContainer
 r typeinfo name for CKeyValuesDumpContextAsDevMsg
 r typeinfo name for CTraceFilterWorldAndPropsOnly
-r typeinfo name for CBlackMesaWorkshopEventManager
-r typeinfo name for IBlackMesaWorkshopEventManager
-r typeinfo name for IWorkshopManagerCallbackInterface
-r typeinfo name for CBaseWorkshopManagerCallbackInterface
-r typeinfo name for CTerrorWorkshopManagerCallbackInterface
-r typeinfo name for IWorkshopFileInfoManagerCallbackInterface
 r typeinfo name for CLog
 r typeinfo name for CGame
 r typeinfo name for IGame
@@ -11623,13 +11358,12 @@ r typeinfo name for CCallback<CSteam3Server, SteamServersDisconnected_t, true>
 r typeinfo name for CCallback<CSteam3Server, SteamServerConnectFailure_t, true>
 r typeinfo name for CCallback<CSteam3Server, ValidateAuthTicketResponse_t, true>
 r typeinfo name for CCallback<CSteam3Server, ComputeNewPlayerCompatibilityResult_t, true>
-r typeinfo name for CCallback<CWorkshopManager, RemoteStoragePublishedFileSubscribed_t, false>
-r typeinfo name for CCallback<CWorkshopManager, RemoteStoragePublishedFileUnsubscribed_t, false>
+r typeinfo name for CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileSubscribed_t, false>
+r typeinfo name for CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileUnsubscribed_t, false>
 r typeinfo name for CDispInfo
 r typeinfo name for CFunctor2<void (*)(bool, bool), bool, bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r typeinfo name for CRegistry
 r typeinfo name for CStatTime
-r typeinfo name for CWorkshop
 r typeinfo name for IDispInfo
 r typeinfo name for IRegistry
 r typeinfo name for IWorkshop
@@ -11646,22 +11380,13 @@ r vtable for CModelInfo
 r vtable for ConCommand
 r vtable for CPhoneHome
 r vtable for CVoxelTree
-r vtable for IAppSystem
 r vtable for IGameEvent
 r vtable for IGameTypes
 r vtable for MM_Migrate
 r vtable for SVC_Sounds
 r vtable for CBaseClient
 r vtable for CBaseServer
-r vtable for CCallResult<CUGCFileRequest, RemoteStorageFileShareResult_t>
-r vtable for CCallResult<CUGCFileRequest, RemoteStorageDownloadUGCResult_t>
-r vtable for CCallResult<CWorkshopManager, RemoteStorageDeletePublishedFileResult_t>
-r vtable for CCallResult<CWorkshopManager, RemoteStorageUpdateUserPublishedItemVoteResult_t>
-r vtable for CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedFileDetailsResult_t>
-r vtable for CCallResult<CWorkshopFileInfoManager, RemoteStorageGetPublishedItemVoteDetailsResult_t>
-r vtable for CCallResult<CWorkshop, RemoteStorageEnumerateWorkshopFilesResult_t>
-r vtable for CCallResult<CWorkshop, RemoteStorageEnumerateUserSubscribedFilesResult_t>
-r vtable for CCallResult<CWorkshop, RemoteStorageEnumeratePublishedFilesByUserActionResult_t>
+r vtable for CCallResult<CBlackMesaWorkshopBase, SteamUGCQueryCompleted_t>
 r vtable for CEncodeInfo
 r vtable for CEntityInfo
 r vtable for CGameClient
@@ -11731,7 +11456,6 @@ r vtable for SVC_SendTable
 r vtable for SVC_VoiceData
 r vtable for SVC_VoiceInit
 r vtable for VStdAllocator
-r vtable for CBaseAppSystem<IWorkshop>
 r vtable for CEngineBSPTree
 r vtable for CLC_ClientInfo
 r vtable for CLC_SaveReplay
@@ -11771,7 +11495,6 @@ r vtable for CDllDemandLoader
 r vtable for CEntityWriteInfo
 r vtable for CFileTransferMgr
 r vtable for CHLTVClientState
-r vtable for CItemFileRequest
 r vtable for CLC_CmdKeyValues
 r vtable for CLC_FileCRCCheck
 r vtable for CLC_FileMD5Check
@@ -11781,11 +11504,9 @@ r vtable for COcclusionSystem
 r vtable for COM_IOReadBinary
 r vtable for CUploadGameStats
 r vtable for CVEngineServer22
-r vtable for CWorkshopManager
 r vtable for IChangeFrameList
 r vtable for IOcclusionSystem
 r vtable for IRecipientFilter
-r vtable for IWorkshopManager
 r vtable for SVC_CmdKeyValues
 r vtable for SVC_GetCvarValue
 r vtable for SVC_TempEntities
@@ -11804,7 +11525,6 @@ r vtable for SVC_EntityMessage
 r vtable for SVC_GameEventList
 r vtable for CBlockingUDPSocket
 r vtable for CClientEngineTools
-r vtable for CCopyableUtlVector<char*, CUtlMemory<char*, int> >
 r vtable for CEngineSoundServer
 r vtable for CEngineTraceServer
 r vtable for CEnumerationFilter
@@ -11856,21 +11576,19 @@ r vtable for IClientMessageHandler
 r vtable for IServerMessageHandler
 r vtable for SVC_CreateStringTable
 r vtable for SVC_UpdateStringTable
+r vtable for CBlackMesaWorkshopBase
 r vtable for CEngineRecipientFilter
-r vtable for CSubscribedFileRequest
 r vtable for CToolFrameworkInternal
 r vtable for CTouchLinks_ClientSide
-r vtable for CUGCFileRequestManager
 r vtable for ISocketCreatorListener
 r vtable for ISpatialLeafEnumerator
 r vtable for CEngineSingleUserFilter
 r vtable for CManagedDataCacheClient<CColorMeshData, colormeshparams_t, CColorMeshData*>
+r vtable for CBlackMesaWorkshopServer
 r vtable for CTriggerMoved_ClientSide
-r vtable for CBasePublishedFileRequest
 r vtable for ISpatialPartitionInternal
 r vtable for CEngineUniformRandomStream
 r vtable for CNetworkStringFilenameDict
-r vtable for IBlackMesaWorkshopEventSink
 r vtable for IKeyValuesDumpContextAsText
 r vtable for CNetworkStringTableContainer
 r vtable for CPooledVBAllocator_ColorMesh
@@ -11878,8 +11596,6 @@ r vtable for IConnectionlessPacketHandler
 r vtable for INetworkStringTableContainer
 r vtable for CKeyValuesDumpContextAsDevMsg
 r vtable for CTraceFilterWorldAndPropsOnly
-r vtable for CBlackMesaWorkshopEventManager
-r vtable for CTerrorWorkshopManagerCallbackInterface
 r vtable for CLog
 r vtable for CGame
 r vtable for IGame
@@ -11903,13 +11619,12 @@ r vtable for CCallback<CSteam3Server, SteamServersDisconnected_t, true>
 r vtable for CCallback<CSteam3Server, SteamServerConnectFailure_t, true>
 r vtable for CCallback<CSteam3Server, ValidateAuthTicketResponse_t, true>
 r vtable for CCallback<CSteam3Server, ComputeNewPlayerCompatibilityResult_t, true>
-r vtable for CCallback<CWorkshopManager, RemoteStoragePublishedFileSubscribed_t, false>
-r vtable for CCallback<CWorkshopManager, RemoteStoragePublishedFileUnsubscribed_t, false>
+r vtable for CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileSubscribed_t, false>
+r vtable for CCallback<CBlackMesaWorkshopBase, RemoteStoragePublishedFileUnsubscribed_t, false>
 r vtable for CDispInfo
 r vtable for CFunctor2<void (*)(bool, bool), bool, bool, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r vtable for CRegistry
 r vtable for CStatTime
-r vtable for CWorkshop
 r vtable for IDispInfo
 r vtable for IRegistry
 r vtable for IWorkshop
@@ -12076,8 +11791,6 @@ d CUtlRBTree<CUtlMap<void*, DecalEntry, unsigned short>::Node_t, unsigned short,
 d CUtlRBTree<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CNetworkStringTableItem, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CNetworkStringTableItem, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 d CUtlRBTree<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short, CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<void*, CModelLoader::ModelEntry_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 d CUtlRBTree<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned short, PropIndicesCollection_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, PublishedFileInfo_t, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long long, UGCFileRequest_t const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 d CUtlRBTree<CEventInfo*, unsigned short, bool (*)(CEventInfo* const&, CEventInfo* const&), CUtlMemory<UtlRBTreeNode_t<CEventInfo*, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 d CUtlRBTree<ConCommandBase const*, unsigned short, bool (*)(ConCommandBase const* const&, ConCommandBase const* const&), CUtlMemory<UtlRBTreeNode_t<ConCommandBase const*, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 d CUtlRBTree<void*, unsigned short, bool (*)(void* const&, void* const&), CUtlMemory<UtlRBTreeNode_t<void*, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel

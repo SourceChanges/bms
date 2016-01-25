@@ -81,7 +81,7 @@ t create_hostcache_id
 T CreateInterface
 U CreateThreadPool
 r CSWTCH.100
-r CSWTCH.177
+r CSWTCH.178
 r CSWTCH.2
 r CSWTCH.29
 r CSWTCH.3

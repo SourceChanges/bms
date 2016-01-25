@@ -1350,6 +1350,7 @@ t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertE
 t SplitFileComponents(char const*, char*, char*, char*)
 t SrgbGammaTo360Gamma(float)
 t UTIL_ComputeBaseDir(char*, int)
+t bool _V_strEndsWithInner<true>(char const*, char const*)
 t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
 t DoesPathExistAlready(char const*, char const*)
@@ -2458,6 +2459,7 @@ t CBaseFileSystem::CheckVPKFileHash(int, int, int, MD5Value_t&)
 t CBaseFileSystem::DestroyFileCache(void*)
 t CBaseFileSystem::FileTimeToString(char*, int, long)
 t CBaseFileSystem::FS_GetSectorSize(_IO_FILE*)
+t CBaseFileSystem::MakeSymbolicLink(char const*, char const*)
 t CBaseFileSystem::MoveOrAddVPKFile(char const*, char const*, SearchPathAdd_t)
 t CBaseFileSystem::PrintOpenedFiles()
 t CBaseFileSystem::PrintSearchPaths()
@@ -5929,7 +5931,7 @@ t CEmptyConVar::GetName() const
 t CEmptyConVar::IsFlagSet(int) const
 t CPackedStore::CheckSignature(int, void const*) const
 t CPackedStore::GetDataFileName(char*, int, int) const
-t CPackedStore::GetDataFileName(char*, int, int) const [clone .part.8]
+t CPackedStore::GetDataFileName(char*, int, int) const [clone .part.9]
 t CPackedStore::GetPackFileName(CPackedStoreFileHandle&, char*, int) const
 t CPackedStore::IsEmpty() const
 t CFileAsyncJob::IsWrite() const

@@ -253,6 +253,7 @@ b bm_lagcompensation_default_maxspeed
 b bm_lagcompensation_max_usercmds
 b bm_lagcompensation_playerdist
 b bm_lagcompensation_speedmult
+b bm_multiplayer_balanced_spawning_enabled
 b bm_multiplayer_debug_spawns
 b bm_multiplayer_fall_protection
 b bm_multiplayer_persistent_scores
@@ -310,33 +311,33 @@ U cosf@@GLIBC_2.0
 U cos@@GLIBC_2.0
 T CreateInterface
 r CSWTCH.1013
-r CSWTCH.1037
-r CSWTCH.1039
-r CSWTCH.1089
+r CSWTCH.1038
+r CSWTCH.1040
+r CSWTCH.1090
 r CSWTCH.1110
 r CSWTCH.1125
 r CSWTCH.1186
 r CSWTCH.1198
 r CSWTCH.1199
-r CSWTCH.1434
-r CSWTCH.1457
-r CSWTCH.1459
-r CSWTCH.1461
-r CSWTCH.1785
-r CSWTCH.1787
-r CSWTCH.1789
-r CSWTCH.1825
-r CSWTCH.1994
+r CSWTCH.1435
+r CSWTCH.1458
+r CSWTCH.1460
+r CSWTCH.1462
+r CSWTCH.1786
+r CSWTCH.1788
+r CSWTCH.1790
+r CSWTCH.1826
 r CSWTCH.1995
 r CSWTCH.1996
 r CSWTCH.1997
-r CSWTCH.2017
+r CSWTCH.1998
 r CSWTCH.2018
 r CSWTCH.2019
 r CSWTCH.2020
-r CSWTCH.2048
+r CSWTCH.2021
 r CSWTCH.2049
-r CSWTCH.2216
+r CSWTCH.2050
+r CSWTCH.2217
 r CSWTCH.29
 r CSWTCH.31
 r CSWTCH.794
@@ -4490,7 +4491,6 @@ t SignbitsForPlane(cplane_t*)
 t SpawnAllEntities(int, HierarchicalSpawn_t*, bool)
 t Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, Vector&, Vector&)
 t _SSE_InvRSquared(float const*)
-t _SSE_RSqrtInline(float, float*)
 t SweepBoxToStudio(IPhysicsSurfaceProps*, Ray_t const&, CStudioHdr*, mstudiohitboxset_t*, matrix3x4_t**, int, CGameTrace&)
 t Sys_UnloadModule(CSysModule*)
 t TE_ArmorRicochet(IRecipientFilter&, float, Vector const*, Vector const*)
@@ -19576,7 +19576,6 @@ t IntervalTimer::GetBaseMap()
 t IntervalTimer::GetDataDescMap()
 t IntervalTimer::NetworkStateChanged(void*)
 t IntervalTimer::NetworkStateChanged()
-t IntervalTimer::Start()
 d IntervalTimer::m_DataMap
 t IServerEntity::~IServerEntity()
 t IServerEntity::~IServerEntity()
@@ -25964,7 +25963,7 @@ t CBlackMesaPlayer::CBlackMesaPlayer()
 t CBlackMesaPlayer::~CBlackMesaPlayer()
 t CBlackMesaPlayer::~CBlackMesaPlayer()
 t CBlackMesaPlayer::~CBlackMesaPlayer()
-t CBM_MP_GameRules::OnForceWin(int)
+t CBM_MP_GameRules::OnForceWin()
 t CBM_MP_GameRules::PlayerSpawn(CBasePlayer*)
 t CBM_MP_GameRules::PlayerThink(CBasePlayer*)
 t CBM_MP_GameRules::PlayerKilled(CBasePlayer*, CTakeDamageInfo const&)
@@ -27833,6 +27832,7 @@ t CTargetCDAudioRep::~CTargetCDAudioRep()
 t CTargetCDAudioRep::~CTargetCDAudioRep()
 t CTargetCDAudioRep::~CTargetCDAudioRep()
 t CTeamplayRoundWin::GetBaseMap()
+t CTeamplayRoundWin::InputSetTeam(inputdata_t&)
 t CTeamplayRoundWin::InputRoundWin(inputdata_t&)
 t CTeamplayRoundWin::GetDataDescMap()
 d CTeamplayRoundWin::m_DataMap
@@ -33498,6 +33498,7 @@ t CBlackMesaPlayerAnimState::~CBlackMesaPlayerAnimState()
 t CBlackMesaPlayerAnimState::~CBlackMesaPlayerAnimState()
 t CBlackMesaPlayerAnimState::~CBlackMesaPlayerAnimState()
 t CBM_MP_Teamplay_GameRules::IsTeamplay()
+t CBM_MP_Teamplay_GameRules::OnForceWin(int)
 t CBM_MP_Teamplay_GameRules::CreateTeams()
 t CBM_MP_Teamplay_GameRules::PlayerKilled(CBasePlayer*, CTakeDamageInfo const&)
 t CBM_MP_Teamplay_GameRules::GetChatFormat(bool, CBasePlayer*)

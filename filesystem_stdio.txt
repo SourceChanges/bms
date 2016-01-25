@@ -146,6 +146,7 @@ U __sprintf_chk@@GLIBC_2.3.4
 U sscanf@@GLIBC_2.0
 U __stack_chk_fail@@GLIBC_2.4
 U stderr@@GLIBC_2.0
+U __stpcpy_chk@@GLIBC_2.3.4
 U strcasecmp@@GLIBC_2.0
 U strcasestr@@GLIBC_2.1
 U strchr@@GLIBC_2.0
