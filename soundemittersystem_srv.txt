@@ -4,15 +4,18 @@ d adds.8776
 t base_from_cb_data.isra.4
 t base_from_object.isra.3
 A __bss_start
+t _calloc_dbg
+t _calloc_dbg_impl
 U chdir@@GLIBC_2.0
 t classify_object_over_fdes
+b colorcorrection
 b completed.6767
 U COM_TimestampedLog
 T CreateInterface
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
-B cvar
+b cvar
 U __cxa_atexit@@GLIBC_2.1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
@@ -41,6 +44,7 @@ U __errno_location@@GLIBC_2.0
 U Error
 t execute_cfa_program
 t execute_stack_op
+t _expand_dbg
 t fde_mixed_encoding_compare
 t fde_single_encoding_compare
 t fde_unencoded_compare
@@ -53,12 +57,12 @@ b frame_hdr_cache
 b frame_hdr_cache_head
 t frame_heapsort
 t __frame_state_for
+t _free_dbg
 U free@@GLIBC_2.0
 t get_cie_encoding
 U getcwd@@GLIBC_2.0
 b g_KeyValuesErrorStack
 a _GLOBAL_OFFSET_TABLE_
-t _GLOBAL__sub_I_cvar
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z16TextToSoundLevelPKc
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
@@ -69,9 +73,40 @@ t _GLOBAL__sub_I__ZN23CSoundEmitterSystemBaseC2Ev
 t _GLOBAL__sub_I__ZN9KeyValues22s_pfGetSymbolForStringE
 w __gmon_start__
 b g_pCVar
+b g_pDataCache
+b g_pDmeMakefileUtils
+b g_pFullFileSystem
+b g_pInputSystem
+b g_pLocalize
+b g_pMaterialSystem
+b g_pMaterialSystemDebugTextureInfo
+b g_pMaterialSystemHardwareConfig
+b g_pMatSystemSurface
+b g_pMDLCache
+U g_pMemAlloc
+b g_pNetworkSystem
+b g_pPhysicsCollision
+b g_pPrecacheSystem
 b g_pProcessUtils
+b g_pQueuedLoader
+b g_pRenderDevice
+b g_pRenderHardwareConfig
+b g_pResourceAccessControl
+b g_pSoundEmitterSystem
+b g_pSoundSystem
+b g_pStudioRender
 b g_pUtlSortVectorQSortContext
+b g_pVGui
+b g_pVGuiInput
+b g_pVGuiLocalize
+b g_pVGuiPanel
+b g_pVGuiSchemeManager
+b g_pVGuiSurface
+b g_pVGuiSystem
+b g_pVideo
+b g_pVTex
 b g_SoundEmitterSystemBase
+b g_VBAllocTracker
 U __gxx_personality_v0@@CXXABI_1.3
 U iconv_close@@GLIBC_2.1
 U iconv@@GLIBC_2.1
@@ -194,17 +229,24 @@ t .L69
 t .L70
 t .L71
 t linear_search_fdes
+t _malloc_dbg
 U malloc@@GLIBC_2.0
 b marker.8514
+b materials
 U mbstowcs@@GLIBC_2.0
+b mdlcache
+b mdllib
 U memcmp@@GLIBC_2.0
 U __memcpy_chk@@GLIBC_2.3.4
 U memcpy@@GLIBC_2.0
 U memmove@@GLIBC_2.0
 U memset@@GLIBC_2.0
 U Msg
+t _msize_dbg
+t _nh_malloc_dbg
 b object_mutex
 b once_regsizes.8974
+b p4
 U Plat_IsInDebugSession
 U Plat_localtime
 U __pow_finite@@GLIBC_2.15
@@ -226,7 +268,7 @@ d randomStream
 t read_encoded_value_with_base
 t read_sleb128
 t read_sleb128
-U realloc@@GLIBC_2.0
+t _realloc_dbg
 t __register_frame
 t __register_frame_info
 t __register_frame_info_bases
@@ -246,7 +288,6 @@ U strcasecmp@@GLIBC_2.0
 U strchr@@GLIBC_2.0
 U strcmp@@GLIBC_2.0
 U strcpy@@GLIBC_2.0
-U strdup@@GLIBC_2.0
 U strftime@@GLIBC_2.0
 U strlen@@GLIBC_2.0
 U strncasecmp@@GLIBC_2.0
@@ -257,6 +298,7 @@ U strtod@@GLIBC_2.0
 U strtok@@GLIBC_2.0
 U strtol@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+b studiorender
 b subs.8777
 U __swprintf_chk@@GLIBC_2.4
 b terminator.8620
@@ -400,15 +442,18 @@ t V_StripExtension(char const*, char*, int)
 t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
 t CharacterSetBuild(characterset_t*, char const*)
+t ConnectInterfaces(void* (**)(char const*, int*), int)
 t ConVar_PrintFlags(ConCommandBase const*)
 t ConVar_Unregister()
 t Q_UnicodeValidate(char const*)
 t Q_UnicodeValidate(unsigned short const*)
 t Q_UnicodeValidate(wchar_t const*)
+t RegisterInterface(void* (*)(char const*, int*), char const*, void**)
 t StringAfterPrefix(char const*, char const*)
 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
 t V_ComposeFileName(char const*, char const*, char*, int)
 t V_ExtractFilePath(char const*, char*, int)
+t V_StringToColor32(color32_s*, char const*)
 t HashStringCaseless(char const*)
 t Q_UChar32ToUTF8Len(wchar_t)
 t Q_UChar32ToUTF8Len(wchar_t) [clone .part.2]
@@ -416,6 +461,8 @@ t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertError
 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t ReconnectInterface(void* (*)(char const*, int*), char const*)
+t ReconnectInterface(void* (*)(char const*, int*), char const*, void**)
 t SoundLevelToString(soundlevel_t)
 t Sys_GetFactoryThis()
 t V_DefaultExtension(char*, char const*, int)
@@ -424,6 +471,7 @@ t V_GetFileExtension(char const*)
 t V_MakeAbsolutePath(char*, int, char const*, char const*)
 t V_MakeRelativePath(char const*, char const*, char*, int)
 t V_RemoveDotSlashes(char*, char, bool)
+t V_StringToIntArray(int*, int, char const*)
 t CRC32_GetTableEntry(unsigned int)
 t CRC32_ProcessBuffer(unsigned int*, void const*, int)
 t EvaluateConditional(char const*)
@@ -434,9 +482,9 @@ t Q_URLEncodeInternal(char*, int, char const*, int, bool)
 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t DisconnectInterfaces()
 t MurmurHash2LowerCase(char const*, unsigned int)
 t V_StripTrailingSlash(char*)
-t ConnectTier1Libraries(void* (**)(char const*, int*), int)
 t DefaultCompletionFunc(char const*, char (*) [64])
 t Sys_IsDebuggerPresent()
 t V_GetCurrentDirectory(char*, int)
@@ -449,7 +497,6 @@ t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
 t ConVar_PrintDescription(ConCommandBase const*)
 t CreateInterfaceInternal(char const*, int*)
-t DisconnectTier1Libraries()
 t GetCStringCharConversion()
 t Q_RemoveAllEvilCharacters(char*)
 t Sys_RunningWithDebugModules()
@@ -497,8 +544,8 @@ t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
 t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
-U operator delete[](void*)@@GLIBCXX_3.4
-U operator delete(void*)@@GLIBCXX_3.4
+t operator delete[](void*)
+t operator delete(void*)
 b ZERO_FLOAT16
 b guard variable for CUtlString::GetEmptyString()::s_emptyString
 b guard variable for CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
@@ -519,9 +566,6 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
-b vec2_origin
-b s_bConnected
-b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -544,9 +588,13 @@ t ParseStringToken(char const*, char const**)
 b s_bBuiltBreakSet
 d s_nDLLIdentifier
 d s_DefaultAccessor
+b s_nConnectionCount
+r g_pInterfaceGlobals
 b g_CleanupSymbolTable
+b s_nRegistrationCount
 d s_LastFileLoadingFrom
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+b s_pConnectionRegistration
 d s_pConversionArrays_NoEscConversion
 d s_pConversionArrays_StringCharConversion
 t AccumulateFileNameAndTimestampIntoChecksum(unsigned int*, char const*)
@@ -621,6 +669,8 @@ t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlMemory<CUtlString, int>::Grow(int)
+t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Purge()
@@ -631,16 +681,27 @@ t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, emp
 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<char, int>::Grow(int)
 t CUtlMemory<char, int>::Purge()
 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
+t CUtlMemory<unsigned char, int>::Grow(int)
 t CUtlMemory<unsigned char, int>::Purge()
+t CUtlMemory<int, int>::Grow(int)
 t CUtlMemory<int, int>::Purge()
+t CUtlMemory<CSoundEmitterSystemBase::CSoundScriptFile, int>::Grow(int)
 t CUtlMemory<CSoundEmitterSystemBase::CSoundScriptFile, int>::Purge()
+t CUtlMemory<CSoundEntry*, int>::Grow(int)
 t CUtlMemory<CSoundEntry*, int>::Purge()
+t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
+t CUtlMemory<char*, int>::Grow(int)
+t CUtlMemory<char const*, int>::Grow(int)
 t CUtlMemory<char const*, int>::Purge()
+t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Grow(int)
 t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Purge()
+t CUtlMemory<void*, int>::Grow(int)
 t CUtlMemory<void*, int>::Purge()
+t CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int>::Purge()
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
@@ -691,18 +752,16 @@ t CUtlVector<char, CUtlMemory<char, int> >::ShiftElementsRight(int, int)
 t CUtlVector<int, CUtlMemory<int, int> >::GrowVector(int)
 t CUtlVector<int, CUtlMemory<int, int> >::InsertBefore(int, int const&)
 t CUtlVector<int, CUtlMemory<int, int> >::ShiftElementsRight(int, int)
-t CUtlVector<CSoundEmitterSystemBase::CSoundScriptFile, CUtlMemory<CSoundEmitterSystemBase::CSoundScriptFile, int> >::InsertBefore(int, CSoundEmitterSystemBase::CSoundScriptFile const&)
-t CUtlVector<CSoundEntry*, CUtlMemory<CSoundEntry*, int> >::InsertBefore(int, CSoundEntry* const&)
+t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
+t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::GrowVector(int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
-t CUtlVector<char const*, CUtlMemory<char const*, int> >::InsertBefore(int, char const* const&)
-t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::InsertBefore(int, CUtlSymbolTable::StringPool_t* const&)
-t CUtlVector<void*, CUtlMemory<void*, int> >::InsertBefore(int, void* const&)
-t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::SetCount(int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
 t CEmptyConVar::SetValue(float)
 t CEmptyConVar::SetValue(int)
 t CEmptyConVar::SetValue(char const*)
@@ -751,7 +810,9 @@ t ConCommandBase::~ConCommandBase()
 t CUtlLinkedList<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
 t CUtlSymbolTable::AddString(char const*)
 t CUtlSymbolTable::RemoveAll()
 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
@@ -871,11 +932,12 @@ t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
 t ConVar::ChangeStringValue(char const*, float)
+t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
 t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
-t ConVar::InternalSetFloatValue(float)
+t ConVar::InternalSetFloatValue(float, bool)
 t ConVar::Init()
-t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
 t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
@@ -884,11 +946,13 @@ t ConVar::SetValue(char const*)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::~ConVar()
@@ -958,7 +1022,7 @@ t KeyValues::GetStringForSymbolGrowable(int)
 t KeyValues::GetSymbolForStringGrowable(char const*, bool)
 t KeyValues::AddSubkeyUsingKnownLastChild(KeyValues*, KeyValues*)
 t KeyValues::CreateKeyUsingKnownLastChild(char const*, KeyValues*)
-t KeyValues::Dump(IKeyValuesDumpContext*, int)
+t KeyValues::Dump(IKeyValuesDumpContext*, int, bool)
 t KeyValues::Init()
 t KeyValues::Clear()
 t KeyValues::GetInt(char const*, int)
@@ -1000,7 +1064,8 @@ t KeyValues::operator delete(void*)
 t KeyValues::operator delete(void*, int, char const*, int)
 t KeyValues::operator new(unsigned int)
 t KeyValues::operator new(unsigned int, int, char const*, int)
-U operator new[](unsigned int)@@GLIBCXX_3.4
+t operator new[](unsigned int)
+t operator new[](unsigned int, int, char const*, int)
 t ConCommand::IsCommand() const
 t CUtlString::GetExtension() const
 t CUtlString::StripFilename() const
@@ -1061,6 +1126,8 @@ t CSoundParametersInternal::VolumeToString() const
 t CSoundParametersInternal::ChannelToString() const
 t CSoundParametersInternal::SoundLevelToString() const
 t CSoundParametersInternal::operator==(CSoundParametersInternal const&) const
+t ConVar::GetCompMax(float&) const
+t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
@@ -1078,7 +1145,8 @@ t KeyValues::GetName() const
 t KeyValues::MakeCopy(bool) const
 t KeyValues::MakeCopy() const
 U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
-U operator new(unsigned int)@@GLIBCXX_3.4
+t operator new(unsigned int)
+t operator new(unsigned int, int, char const*, int)
 t non-virtual thunk to CEmptyConVar::SetValue(float)
 t non-virtual thunk to CEmptyConVar::SetValue(int)
 t non-virtual thunk to CEmptyConVar::SetValue(char const*)

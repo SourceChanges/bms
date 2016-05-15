@@ -10,6 +10,8 @@ U atan@@GLIBC_2.0
 t base_from_cb_data.isra.4
 t base_from_object.isra.3
 A __bss_start
+t _calloc_dbg
+t _calloc_dbg_impl
 U cbrtf@@GLIBC_2.0
 U chdir@@GLIBC_2.0
 t classify_object_over_fdes
@@ -23,7 +25,7 @@ T CreateInterface
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
-B cvar
+b cvar
 U __cxa_atexit@@GLIBC_2.1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
@@ -52,6 +54,7 @@ U __errno_location@@GLIBC_2.0
 U Error
 t execute_cfa_program
 t execute_stack_op
+t _expand_dbg
 U __exp_finite@@GLIBC_2.15
 t fde_mixed_encoding_compare
 t fde_single_encoding_compare
@@ -81,22 +84,22 @@ b frame_hdr_cache
 b frame_hdr_cache_head
 t frame_heapsort
 t __frame_state_for
+t _free_dbg
 U free@@GLIBC_2.0
 t get_cie_encoding
 U GetCPUInformation
 U getcwd@@GLIBC_2.0
 b g_KeyValuesErrorStack
 a _GLOBAL_OFFSET_TABLE_
-t _GLOBAL__sub_I_cvar
 t _GLOBAL__sub_I_Four_PointFives
-t _GLOBAL__sub_I_g_pFullFileSystem
-t _GLOBAL__sub_I_g_pStudioRender
 t _GLOBAL__sub_I_g_StudioRender
 t _GLOBAL__sub_I_lineartovertex
 t _GLOBAL__sub_I_s_bMathlibInitialized
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z19SetupMatrixIdentityv
 t _GLOBAL__sub_I__Z20StudioChangeCallbackP7IConVarPKcf
+t _GLOBAL__sub_I__Z21ConnectTier1LibrariesPPFPvPKcPiEi
+t _GLOBAL__sub_I__Z21ConnectTier3LibrariesPPFPvPKcPiEi
 t _GLOBAL__sub_I__Z22CopyLocalLightingStateiP11LightDesc_tiPKS_
 t _GLOBAL__sub_I__Z9_SSE_Sqrtf
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
@@ -109,23 +112,32 @@ t _GLOBAL__sub_I__ZN13CStudioRender28R_StudioSetupSkinAndLightingEP17IMatRenderC
 t _GLOBAL__sub_I__ZN14ConCommandBase18s_pConCommandBasesE
 t _GLOBAL__sub_I__ZN17CCachedRenderDataC2Ev
 t _GLOBAL__sub_I__ZN20CStudioRenderContext12GetTrianglesERK15DrawModelInfo_tP11matrix3x4_tR21GetTriangles_Output_t
+t _GLOBAL__sub_I__ZN22CBaseResourcePrecacher9sm_pFirstE
 t _GLOBAL__sub_I__ZN9KeyValues22s_pfGetSymbolForStringE
 w __gmon_start__
+b g_nResourceFrameCount
 b g_pCVar
 b g_pDataCache
 b g_pDmeMakefileUtils
 b g_pFullFileSystem
 b g_pInputSystem
+b g_pLocalize
 b g_pMaterialSystem
 b g_pMaterialSystemDebugTextureInfo
 b g_pMaterialSystemHardwareConfig
 b g_pMatSystemSurface
 b g_pMDLCache
+U g_pMemAlloc
 b g_pNetworkSystem
 b g_pPhysicsCollision
+b g_pPrecacheSystem
 b g_pProcessUtils
 b g_pQueuedLoader
+b g_pRenderDevice
+b g_pRenderHardwareConfig
+b g_pResourceAccessControl
 b g_pSoundEmitterSystem
+b g_pSoundSystem
 b g_pStudioDataCache
 b g_pStudioRender
 d g_pStudioRenderImp
@@ -277,20 +289,22 @@ t linear_search_fdes
 b lineartolightmap
 b lineartovertex
 U __log_finite@@GLIBC_2.15
+t _malloc_dbg
 U malloc@@GLIBC_2.0
 b marker.8514
 b materials
 U mbstowcs@@GLIBC_2.0
 b mdlcache
 b mdllib
-U memalign@@GLIBC_2.0
 U memcmp@@GLIBC_2.0
 U __memcpy_chk@@GLIBC_2.3.4
 U memcpy@@GLIBC_2.0
 U memmove@@GLIBC_2.0
 U memset@@GLIBC_2.0
 U Msg
+t _msize_dbg
 r nanmask
+t _nh_malloc_dbg
 b object_mutex
 b once_regsizes.8974
 b p4
@@ -319,7 +333,7 @@ U RandomInt
 t read_encoded_value_with_base
 t read_sleb128
 t read_sleb128
-U realloc@@GLIBC_2.0
+t _realloc_dbg
 t __register_frame
 t __register_frame_info
 t __register_frame_info_bases
@@ -502,6 +516,7 @@ t _V_UCS2ToUTF8(unsigned short const*, char*, int)
 t _V_UTF8ToUCS2(char const*, int, unsigned short*, int)
 t AngleNormalize(float)
 t AnglesAreEqual(float, float, float)
+t AreBoundsValid(Vector const&, Vector const&)
 t BoxOnPlaneSide(float const*, float const*, cplane_t const*)
 t cIntToHexDigit(int)
 t Hermite_Spline(float, float, float, float)
@@ -531,12 +546,14 @@ t V_StripLastDir(char*, int)
 t V_vsnprintfRet(char*, int, char const*, char*, bool*)
 t AngleQuaternion(RadianEuler const&, Quaternion&)
 t AngleQuaternion(QAngle const&, Quaternion&)
+t AngleVectorsFLU(QAngle const&, Vector*, Vector*, Vector*)
 t BuildGammaTable(float, float, float, int)
 t ClipPolyToPlane(Vector*, int, Vector*, Vector const&, float, float)
 t ConcatRotations(float const (*) [3], float const (*) [3], float (*) [3])
 t ConVar_Register(int, IConCommandBaseAccessor*)
 t GetModuleHandle(char const*)
 t InitSinCosTable()
+t IsPointInBounds(Vector const&, Vector const&, Vector const&)
 t LinearToTexture(float)
 t MatrixGetColumn(matrix3x4_t const&, int, Vector&)
 t MatrixInverseTR(VMatrix const&, VMatrix&)
@@ -600,6 +617,7 @@ t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
 t BasisToQuaternion(Vector const&, Vector const&, Vector const&, Quaternion&)
 t CharacterSetBuild(characterset_t*, char const*)
+t ConnectInterfaces(void* (**)(char const*, int*), int)
 t ConVar_PrintFlags(ConCommandBase const*)
 t ConVar_Unregister()
 t MatrixScaleByZero(matrix3x4_t&)
@@ -609,6 +627,7 @@ t Q_UnicodeValidate(char const*)
 t Q_UnicodeValidate(unsigned short const*)
 t Q_UnicodeValidate(wchar_t const*)
 t R_CullBoxSkipNear(Vector const&, Vector const&, Frustum_t const&)
+t RegisterInterface(void* (*)(char const*, int*), char const*, void**)
 t R_LightAmbient_3D(Vector const&, Vector const*, Vector&)
 t R_LightAmbient_4D(Vector const&, Vector4D*, Vector&)
 t R_WorldLightDelta(LightDesc_t const*, Vector const&, Vector&)
@@ -621,6 +640,7 @@ t StringAfterPrefix(char const*, char const*)
 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
 t V_ComposeFileName(char const*, char const*, char*, int)
 t V_ExtractFilePath(char const*, char*, int)
+t V_StringToColor32(color32_s*, char const*)
 t X360GammaToLinear(float)
 t X360LinearToGamma(float)
 t BSpline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -637,6 +657,8 @@ t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertError
 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t ReconnectInterface(void* (*)(char const*, int*), char const*)
+t ReconnectInterface(void* (*)(char const*, int*), char const*, void**)
 t R_StudioSetupModel(int, int, mstudiomodel_t**, studiohdr_t const*)
 t SetupMatrixAxisRot(Vector const&, float)
 t _SSE_RSqrtAccurate(float)
@@ -647,6 +669,7 @@ t V_GetFileExtension(char const*)
 t V_MakeAbsolutePath(char*, int, char const*, char const*)
 t V_MakeRelativePath(char const*, char const*, char*, int)
 t V_RemoveDotSlashes(char*, char, bool)
+t V_StringToIntArray(int*, int, char const*)
 t AxisAngleQuaternion(Vector const&, float, Quaternion&)
 t EvaluateConditional(char const*)
 t Hermite_SplineBasis(float, float*)
@@ -668,6 +691,8 @@ t SetupMatrixIdentity()
 t SrgbGammaTo360Gamma(float)
 t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
+t DisconnectInterfaces()
+t GenerateOrthoFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float, VPlane*)
 t GetInterpolationData(float const*, float const*, int, int, float, bool, float*, float*, float*)
 t MathLib_3DNowEnabled()
 t MatrixInverseGeneral(VMatrix const&, VMatrix&)
@@ -724,6 +749,7 @@ t ConVar_PrintDescription(ConCommandBase const*)
 t CreateInterfaceInternal(char const*, int*)
 t Cubic_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t FrustumPlanesFromMatrix(VMatrix const&, Frustum_t&)
+t GenerateOrthoFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float, VPlane*)
 t GenerateQuadIndexBuffer(unsigned short*, int, int)
 t Kochanek_Bartels_Spline(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t MatrixBuildPerspectiveX(VMatrix&, double, double, double, double)
@@ -737,6 +763,7 @@ t DisconnectTier3Libraries()
 t GetCStringCharConversion()
 t RandomVectorInUnitCircle(Vector2D*)
 t RandomVectorInUnitSphere(Vector*)
+t SetupMatrixAxisToAxisRot(Vector const&, Vector const&)
 t _SSE_VectorNormalizeFast(Vector&)
 t Vector4DMultiplyPosition(VMatrix const&, Vector const&, Vector4D&)
 t CalcClosestPointToLineT2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&)
@@ -758,6 +785,7 @@ t R_WorldLightDistanceFalloff(LightDesc_t const*, Vector const&)
 t Sys_RunningWithDebugModules()
 t TransformAnglesToLocalSpace(QAngle const&, matrix3x4_t const&)
 t TransformAnglesToWorldSpace(QAngle const&, matrix3x4_t const&)
+t VectorPerpendicularToVector(Vector const&, Vector*)
 t CalcDistanceSqrToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Catmull_Rom_Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t GenerateLineStripIndexBuffer(unsigned short*, int, int)
@@ -767,6 +795,7 @@ t MatrixBuildRotationAboutAxis(Vector const&, float, matrix3x4_t&)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t CalcClosestPointOnLineSegment(Vector const&, Vector const&, Vector const&, Vector&, float*)
 t Catmull_Rom_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t GeneratePerspectiveFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, VPlane*)
 t GenerateSequentialIndexBuffer(unsigned short*, int, int)
 t GetModelSpecificDecalMaterial(IMaterial*)
 t CalcDistanceSqrToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
@@ -787,6 +816,7 @@ t Catmull_Rom_Spline_Integral_Normalize(Vector const&, Vector const&, Vector con
 t Q_StripPrecedingAndTrailingWhitespace(char*)
 t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
 t CalculateAABBFromProjectionMatrixInverse(VMatrix const&, Vector*, Vector*)
+t ExtractClipPlanesFromNonTransposedMatrix(VMatrix const&, VPlane*, bool)
 t CalculateSphereFromProjectionMatrixInverse(VMatrix const&, Vector*, float*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespace(char*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespaceW(wchar_t*)
@@ -844,8 +874,8 @@ t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
 t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
-U operator delete[](void*)@@GLIBCXX_3.4
-U operator delete(void*)@@GLIBCXX_3.4
+t operator delete[](void*)
+t operator delete(void*)
 b guard variable for CUtlString::GetEmptyString()::s_emptyString
 b guard variable for CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
 b eyeUpCache
@@ -894,9 +924,7 @@ b vec4_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
-b vec4_origin
 b r_randomflex
-b s_bConnected
 r sg_IndexSwap
 r s_pLightMask
 b s_pProcGlint
@@ -923,7 +951,6 @@ b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
-b vec4_invalid
 b vec4_invalid
 b vec4_invalid
 b vec4_invalid
@@ -975,22 +1002,27 @@ b studio_queue_mode
 b g_nTotalDecalVerts
 b r_glint_alwaysdraw
 b r_glint_procedural
+b s_nConnectionCount
 d s_pAmbientLightDir
 b s_pZeroFlexWeights
+r g_pInterfaceGlobals
 b r_flashlightscissor
 b s_GlintTextureRegen
 r _ps_minus_cephes_DP1
 r _ps_minus_cephes_DP2
 r _ps_minus_cephes_DP3
+b s_nRegistrationCount
 d s_LastFileLoadingFrom
 b s_StudioRenderContext
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+b s_bPrecachesRegistered
 b s_nSolidModelHullCache
 b g_Mathlib_GammaToLinear
 b g_Mathlib_LinearToGamma
 t ClipTriangleAgainstPlane(DecalClipState_t&, int, int, float)
 r g_SoftwareProcessMeshFunc
 t SetupMatrixAnglesInternal(float (*) [4], QAngle const&)
+b s_pConnectionRegistration
 t ReleaseMaterialSystemObjects()
 t RestoreMaterialSystemObjects(int)
 b s_nTranslucentModelHullCache
@@ -1078,30 +1110,51 @@ t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlMemory<CUtlString, int>::Grow(int)
+t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Purge()
+t CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int>::Purge()
+t CUtlMemory<CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >, int>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<DecalVertex_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<DecalVertex_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalHistory_t, unsigned short>, unsigned short>::Grow(int)
+t CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalHistory_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CStudioRender::Decal_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CStudioRender::Decal_t, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<GetTriangles_Vertex_t, int>::Grow(int)
 t CUtlMemory<GetTriangles_Vertex_t, int>::Purge()
+t CUtlMemory<GetTriangles_MaterialBatch_t, int>::Grow(int)
+t CUtlMemory<Vector, int>::Grow(int)
 t CUtlMemory<Vector, int>::Purge()
+t CUtlMemory<Vector2D, int>::Grow(int)
 t CUtlMemory<Vector2D, int>::Purge()
+t CUtlMemory<bool, int>::Grow(int)
 t CUtlMemory<bool, int>::Purge()
+t CUtlMemory<char, int>::Grow(int)
 t CUtlMemory<char, int>::Purge()
+t CUtlMemory<float, int>::Grow(int)
 t CUtlMemory<float, int>::Purge()
 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
+t CUtlMemory<unsigned char, int>::Grow(int)
 t CUtlMemory<unsigned char, int>::Purge()
+t CUtlMemory<int, int>::Grow(int)
 t CUtlMemory<int, int>::Purge()
+t CUtlMemory<CStudioRender::ShadowState_t, int>::Grow(int)
 t CUtlMemory<CStudioRender::ShadowState_t, int>::Purge()
+t CUtlMemory<CCachedRenderData::CacheDict_t, int>::Grow(int)
 t CUtlMemory<CCachedRenderData::CacheDict_t, int>::Purge()
+t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
+t CUtlMemory<char*, int>::Grow(int)
+t CUtlMemory<short, int>::Grow(int)
 t CUtlMemory<short, int>::Purge()
+t CUtlMemory<unsigned short, int>::Grow(int)
 t CUtlMemory<unsigned short, int>::Purge()
+t CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int>::Purge()
 t CUtlString::FixSlashes(char)
 t CUtlString::AllocMemory(unsigned int)
 t CUtlString::GetForModify()
@@ -1135,7 +1188,6 @@ t CUtlString::operator+=(int)
 t CUtlString::operator+=(char const*)
 t CUtlString::operator+=(CUtlString const&)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
-t CUtlVector<GetTriangles_Vertex_t, CUtlMemory<GetTriangles_Vertex_t, int> >::GrowVector(int)
 t CUtlVector<GetTriangles_MaterialBatch_t, CUtlMemory<GetTriangles_MaterialBatch_t, int> >::InsertBefore(int)
 t CUtlVector<bool, CUtlMemory<bool, int> >::EnsureCount(int)
 t CUtlVector<char, CUtlMemory<char, int> >::GrowVector(int)
@@ -1151,8 +1203,9 @@ t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, 
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
-t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::SetCount(int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
 t CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >::GrowVector(int)
 t CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >::ShiftElementsRight(int, int)
 t CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >::operator=(CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> > const&)
@@ -1173,6 +1226,19 @@ t CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::Release()
 t CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
 t CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
 t CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
+t fourplanes_t::Set2Planes(VPlane const*)
+t fourplanes_t::Set4Planes(VPlane const*)
+t fourplanes_t::ComputeSignbits()
+t fourplanes_t::SetPlane(int, Vector const&, float)
+t FrustumCSM_t::CreateOrthoFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float)
+t FrustumCSM_t::CreateOrthoFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float)
+t FrustumCSM_t::SetPlane(int, Vector const&, float)
+t FrustumCSM_t::SetPlanes(VPlane const*)
+t FrustumCSM_t::FrustumCSM_t()
+t FrustumCSM_t::FrustumCSM_t()
 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
 b InterfaceReg::s_pInterfaceRegs
@@ -1300,6 +1366,7 @@ t CUtlLinkedList<CStudioRender::DecalLRU_t, int, true, int, CUtlFixedMemory<UtlL
 t CUtlLinkedList<CStudioRender::DecalLRU_t, int, true, int, CUtlFixedMemory<UtlLinkedListElem_t<CStudioRender::DecalLRU_t, int> > >::RemoveAll()
 t CUtlLinkedList<CStudioRender::DecalHistory_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalHistory_t, unsigned short>, unsigned short> >::InsertBefore(unsigned short)
 t CUtlLinkedList<CStudioRender::DecalHistory_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalHistory_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlLinkedList<CStudioRender::DecalHistory_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalHistory_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlLinkedList<CStudioRender::DecalMaterial_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short> >::AllocInternal(bool)
 t CUtlLinkedList<CStudioRender::DecalMaterial_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlLinkedList<CStudioRender::DecalMaterial_t, unsigned short, true, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::DecalMaterial_t, unsigned short>, unsigned short> >::RemoveAll()
@@ -1309,7 +1376,9 @@ t CUtlLinkedList<CStudioRender::DecalModelList_t, int, true, int, CUtlFixedMemor
 t CUtlLinkedList<CStudioRender::Decal_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::Decal_t, unsigned short>, unsigned short> >::InsertBefore(unsigned short)
 t CUtlLinkedList<CStudioRender::Decal_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::Decal_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlLinkedList<CStudioRender::Decal_t, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CStudioRender::Decal_t, unsigned short>, unsigned short> >::RemoveAll()
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
 t CVertexBuilder::~CVertexBuilder()
 t CVertexBuilder::~CVertexBuilder()
 t mstudiomodel_t::CacheVertexData(void*)
@@ -1347,6 +1416,8 @@ t CTier2AppSystem<IStudioRender, 0>::Connect(void* (*)(char const*, int*))
 t CTier2AppSystem<IStudioRender, 0>::Shutdown()
 t CTier3AppSystem<IStudioRender, 0>::Disconnect()
 t CTier3AppSystem<IStudioRender, 0>::Connect(void* (*)(char const*, int*))
+t CUtlFixedMemory<UtlLinkedListElem_t<CStudioRender::DecalLRU_t, int> >::Purge() [clone .isra.20]
+t CUtlFixedMemory<UtlLinkedListElem_t<CStudioRender::DecalModelList_t, int> >::Purge() [clone .isra.17]
 t CDefaultAccessor::RegisterConCommandBase(ConCommandBase*)
 t CDllDemandLoader::GetFactory()
 t CDllDemandLoader::Unload()
@@ -1471,6 +1542,7 @@ t CStudioRenderContext::UnlockBoneMatrices()
 t CStudioRenderContext::CountFlexedVertices(mstudiomesh_t*, OptimizedModel::StripGroupHeader_t*)
 t CStudioRenderContext::DetermineHWMorphing(mstudiomodel_t*, OptimizedModel::ModelLODHeader_t*)
 t CStudioRenderContext::DrawModelStaticProp(DrawModelInfo_t const&, matrix3x4_t const&, int)
+t CStudioRenderContext::GetMaterialOverride(IMaterial**, OverrideType_t*)
 t CStudioRenderContext::ComputeMaterialFlags(studiohdr_t*, studioloddata_t&, IMaterial*)
 t CStudioRenderContext::DrawStaticPropDecals(DrawModelInfo_t const&, matrix3x4_t const&)
 t CStudioRenderContext::CalculateVertexFormat(studiohdr_t const*, studioloddata_t const*, mstudiomesh_t const*, OptimizedModel::StripGroupHeader_t*, bool)
@@ -1508,6 +1580,8 @@ t CStudioRenderContext::~CStudioRenderContext()
 t CUtlCStringConversion::FindConversion(char const*, int*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+t CBaseResourcePrecacher::RegisterAll()
+b CBaseResourcePrecacher::sm_pFirst
 t CGlintTextureRegenerator::RegenerateTextureBits(ITexture*, IVTFTexture*, Rect_t*)
 t CGlintTextureRegenerator::RegenerateTextureBits(ITexture*, IVTFTexture*, Rect_t*) [clone .part.22]
 t CGlintTextureRegenerator::Release()
@@ -2054,11 +2128,12 @@ t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
 t ConVar::ChangeStringValue(char const*, float)
+t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
 t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
-t ConVar::InternalSetFloatValue(float)
+t ConVar::InternalSetFloatValue(float, bool)
 t ConVar::Init()
-t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
 t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
@@ -2067,11 +2142,13 @@ t ConVar::SetValue(char const*)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::~ConVar()
@@ -2149,7 +2226,7 @@ t KeyValues::GetStringForSymbolGrowable(int)
 t KeyValues::GetSymbolForStringGrowable(char const*, bool)
 t KeyValues::AddSubkeyUsingKnownLastChild(KeyValues*, KeyValues*)
 t KeyValues::CreateKeyUsingKnownLastChild(char const*, KeyValues*)
-t KeyValues::Dump(IKeyValuesDumpContext*, int)
+t KeyValues::Dump(IKeyValuesDumpContext*, int, bool)
 t KeyValues::Init()
 t KeyValues::Clear()
 t KeyValues::GetInt(char const*, int)
@@ -2191,7 +2268,8 @@ t KeyValues::operator delete(void*)
 t KeyValues::operator delete(void*, int, char const*, int)
 t KeyValues::operator new(unsigned int)
 t KeyValues::operator new(unsigned int, int, char const*, int)
-U operator new[](unsigned int)@@GLIBCXX_3.4
+t operator new[](unsigned int)
+t operator new[](unsigned int, int, char const*, int)
 t ConCommand::IsCommand() const
 t CUtlString::GetExtension() const
 t CUtlString::StripFilename() const
@@ -2216,6 +2294,26 @@ t CUtlString::operator+(char const*) const
 t CUtlString::operator+(CUtlString const&) const
 t CEmptyConVar::GetName() const
 t CEmptyConVar::IsFlagSet(int) const
+t fourplanes_t::Get2Planes(VPlane*) const
+t fourplanes_t::Get4Planes(VPlane*) const
+t fourplanes_t::GetPlane(int, Vector*, float*) const
+t FrustumCSM_t::GetCorners(Vector*) const
+t FrustumCSM_t::Intersects(Vector const&, Vector const&) const
+t FrustumCSM_t::Intersects(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::Intersects(float __vector const&, float __vector const&) const
+t FrustumCSM_t::Intersects(FrustumCSM_t&) const
+t FrustumCSM_t::CullBoxCenterExtents(Vector const&, Vector const&) const
+t FrustumCSM_t::CullBoxCenterExtents(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::CullBoxCenterExtents(float __vector const&, float __vector const&) const
+t FrustumCSM_t::IntersectsCenterExtents(Vector const&, Vector const&) const
+t FrustumCSM_t::IntersectsCenterExtents(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::IntersectsCenterExtents(float __vector const&, float __vector const&) const
+t FrustumCSM_t::CullBox(Vector const&, Vector const&) const
+t FrustumCSM_t::CullBox(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::CullBox(float __vector const&, float __vector const&) const
+t FrustumCSM_t::Contains(Vector const&, Vector const&) const
+t FrustumCSM_t::GetPlane(int, Vector*, float*) const
+t FrustumCSM_t::GetPlanes(VPlane*) const
 t CStudioRender::ComputeTotalMeshCount(int, int, int) const
 t ConCommandBase::GetHelpText() const
 t ConCommandBase::IsRegistered() const
@@ -2234,6 +2332,8 @@ t CUtlCharConversion::MaxConversionLength() const
 t CStudioRenderContext::GetNumLODs(studiohwdata_t const&) const
 t CStudioRenderContext::GetPerfStats(DrawModelResults_t*, DrawModelInfo_t const&, CUtlBuffer*) const
 t CStudioRenderContext::GetLODSwitchValue(studiohwdata_t const&, int) const
+t ConVar::GetCompMax(float&) const
+t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
@@ -2263,7 +2363,8 @@ t KeyValues::GetName() const
 t KeyValues::MakeCopy(bool) const
 t KeyValues::MakeCopy() const
 U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
-U operator new(unsigned int)@@GLIBCXX_3.4
+t operator new(unsigned int)
+t operator new(unsigned int, int, char const*, int)
 t non-virtual thunk to CEmptyConVar::SetValue(float)
 t non-virtual thunk to CEmptyConVar::SetValue(int)
 t non-virtual thunk to CEmptyConVar::SetValue(char const*)

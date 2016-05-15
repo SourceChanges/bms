@@ -53,6 +53,8 @@ d BZ2_crc32Table
 d BZ2_rNums
 U CallAssertFailedNotifyFunc
 t call_disconnect_if_dead
+t _calloc_dbg
+t _calloc_dbg_impl
 U calloc@@GLIBC_2.0
 U cbrtf@@GLIBC_2.0
 U chdir@@GLIBC_2.0
@@ -459,7 +461,7 @@ t curlx_uztoso
 t curlx_uztosz
 t curlx_uztoui
 t curlx_uztoul
-B cvar
+b cvar
 U __cxa_atexit@@GLIBC_2.1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
@@ -501,6 +503,7 @@ t execute_cfa_program
 t execute_stack_op
 U exit@@GLIBC_2.0
 U _ExitOnFatalAssert
+t _expand_dbg
 t expect100
 U fclose@@GLIBC_2.1
 U fcntl@@GLIBC_2.0
@@ -557,6 +560,7 @@ U fread@@GLIBC_2.0
 U freeaddrinfo@@GLIBC_2.0
 t free_bundle_hash_entry
 t freecookie
+t _free_dbg
 t freedirs
 t freednsentry
 U free@@GLIBC_2.0
@@ -621,14 +625,12 @@ b g_ExtraMasks
 b g_KeyValuesErrorStack
 b g_LittleBits
 a _GLOBAL_OFFSET_TABLE_
-t _GLOBAL__sub_I_cvar
 t _GLOBAL__sub_I_Four_PointFives
 t _GLOBAL__sub_I_g_pAcceptableFileserverProtocols
 t _GLOBAL__sub_I_g_pBlockSpewer
 t _GLOBAL__sub_I_g_pClientReplayContext
 t _GLOBAL__sub_I_g_pCompressorTypes
-t _GLOBAL__sub_I_g_pFullFileSystem
-t _GLOBAL__sub_I_g_pVGuiLocalize
+t _GLOBAL__sub_I_g_pServerReplayContext
 t _GLOBAL__sub_I_lineartovertex
 t _GLOBAL__sub_I_replay_debug
 t _GLOBAL__sub_I_replay_enable
@@ -637,6 +639,8 @@ t _GLOBAL__sub_I_replay_publish_simulate_delay_local_http
 t _GLOBAL__sub_I_s_bMathlibInitialized
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z16PrintSessionInfoPKc
+t _GLOBAL__sub_I__Z19SetupMatrixIdentityv
+t _GLOBAL__sub_I__Z21ConnectTier1LibrariesPPFPvPKcPiEi
 t _GLOBAL__sub_I__Z26InternalBitBufErrorHandler15BitBufErrorTypePKc
 t _GLOBAL__sub_I__Z27OnFileserverHostnameChangedP7IConVarPKcf
 t _GLOBAL__sub_I__Z32Replay_GetFirstAvailableFilenamePciPKcS1_S1_i
@@ -653,6 +657,7 @@ t _GLOBAL__sub_I__ZN20CServerReplayContextC2Ev
 t _GLOBAL__sub_I__ZN20CSharedReplayContextC2EP14IReplayContext
 t _GLOBAL__sub_I__ZN21CBaseRecordingSessionC2EP14IReplayContext
 t _GLOBAL__sub_I__ZN21CSessionInfoPublisherC2EP23CServerRecordingSession
+t _GLOBAL__sub_I__ZN22CBaseResourcePrecacher9sm_pFirstE
 t _GLOBAL__sub_I__ZN22CSessionBlockPublisherC2EP23CServerRecordingSessionP21CSessionInfoPublisher
 t _GLOBAL__sub_I__ZN22CSessionPublishManagerC2EP23CServerRecordingSession
 t _GLOBAL__sub_I__ZN23CServerRecordingSessionC2EP14IReplayContext
@@ -671,6 +676,7 @@ w __gmon_start__
 d g_MostCommonPathIDs
 d g_MostCommonPrefixes
 U gmtime_r@@GLIBC_2.0
+b g_nResourceFrameCount
 t gopher_do
 d g_pAcceptableFileserverProtocols
 d g_pAcceptableOffloadProtocols
@@ -679,29 +685,51 @@ b g_pClient
 b g_pClientReplayContext
 d g_pCompressorTypes
 b g_pCVar
+b g_pDataCache
 b g_pDefaultSpewer
+b g_pDmeMakefileUtils
 b g_pEngine
 b g_pEngineTraceClient
 b g_pFullFileSystem
 b g_pGameEventManager
 b g_pInputSystem
+b g_pLocalize
 b g_pMaterialSystem
 b g_pMaterialSystemDebugTextureInfo
 b g_pMaterialSystemHardwareConfig
+b g_pMatSystemSurface
+b g_pMDLCache
+U g_pMemAlloc
 b g_pNetworkSystem
 d g_pNullSpewer
+b g_pPhysicsCollision
+b g_pPrecacheSystem
 b g_pProcessUtils
 b g_pQueuedLoader
+b g_pRenderDevice
+b g_pRenderHardwareConfig
 d g_pReplay
 b g_pReplayDemoPlayer
+b g_pResourceAccessControl
 b g_pServer
 b g_pServerReplayContext
 d g_pSimpleSpewer
+b g_pSoundEmitterSystem
+b g_pSoundSystem
+b g_pStudioRender
 d g_pThinkManager
 U g_pThreadPool
 b g_pUtlSortVectorQSortContext
 U g_pVCR
+b g_pVGui
+b g_pVGuiInput
 b g_pVGuiLocalize
+b g_pVGuiPanel
+b g_pVGuiSchemeManager
+b g_pVGuiSurface
+b g_pVGuiSystem
+b g_pVideo
+b g_pVTex
 r g_SIMD_0123
 r g_SIMD_AllOnesMask
 r g_SIMD_clear_signmask
@@ -897,6 +925,7 @@ t lstat
 t __lstat
 U __lxstat64@@GLIBC_2.2
 U __lxstat@@GLIBC_2.0
+t _malloc_dbg
 U malloc@@GLIBC_2.0
 b marker.8514
 b materials
@@ -907,6 +936,7 @@ t MD5_Init
 t md5_to_ascii
 t MD5Transform
 t MD5_Update
+b mdlcache
 b mdllib
 U memchr@@GLIBC_2.0
 U memcmp@@GLIBC_2.0
@@ -924,6 +954,7 @@ r mode.8652
 r month_days_cumulative.5755
 U mount@@GLIBC_2.0
 U Msg
+t _msize_dbg
 t mstate.isra.0
 t multi_addtimeout
 t multi_freeamsg
@@ -933,6 +964,7 @@ t multi_runsingle
 t multi_socket
 t multi_timeout.isra.5.part.6
 r nanmask
+t _nh_malloc_dbg
 r null.5916
 b object_mutex
 b once_regsizes.8974
@@ -998,6 +1030,7 @@ U read@@GLIBC_2.0
 t readmoredata
 t read_sleb128
 t read_sleb128
+t _realloc_dbg
 U realloc@@GLIBC_2.0
 U realpath@@GLIBC_2.3
 t ReceivedServerConnect
@@ -1143,6 +1176,7 @@ U __strtok_r@@GLIBC_2.0
 U strtol@@GLIBC_2.0
 U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+b studiorender
 t suboption.isra.5
 b subs.8777
 U __swprintf_chk@@GLIBC_2.4
@@ -1282,6 +1316,7 @@ U __xstat@@GLIBC_2.0
 t HashString(char const*)
 t IsDenormal(float const&)
 t MatrixCopy(matrix3x4_t const&, matrix3x4_t&)
+t MatrixCopy(VMatrix const&, VMatrix&)
 t RotateAABB(matrix3x4_t const&, Vector const&, Vector const&, Vector&, Vector&)
 t V_FileBase(char const*, char*, int)
 t _V_memmove(char const*, int, void*, void const*, int)
@@ -1371,6 +1406,7 @@ t _V_UCS2ToUTF8(unsigned short const*, char*, int)
 t _V_UTF8ToUCS2(char const*, int, unsigned short*, int)
 t AngleNormalize(float)
 t AnglesAreEqual(float, float, float)
+t AreBoundsValid(Vector const&, Vector const&)
 t BoxOnPlaneSide(float const*, float const*, cplane_t const*)
 t BZ2_decompress(DState*)
 t cIntToHexDigit(int)
@@ -1380,6 +1416,8 @@ t Hermite_Spline(Quaternion const&, Quaternion const&, Quaternion const&, float,
 t Hermite_Spline(Vector const&, Vector const&, Vector const&, float, Vector&)
 t Hermite_Spline(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t ITransformAABB(matrix3x4_t const&, Vector const&, Vector const&, Vector&, Vector&)
+t MatrixMultiply(VMatrix const&, VMatrix const&, VMatrix&)
+t MatrixToAngles(VMatrix const&, QAngle&)
 t Q_IsMeanSpaceW(wchar_t)
 t QuaternionMult(Quaternion const&, Quaternion const&, Quaternion&)
 t Q_URLDecodeRaw(char*, int, char const*, int)
@@ -1402,6 +1440,7 @@ t V_StripLastDir(char*, int)
 t V_vsnprintfRet(char*, int, char const*, char*, bool*)
 t AngleQuaternion(RadianEuler const&, Quaternion&)
 t AngleQuaternion(QAngle const&, Quaternion&)
+t AngleVectorsFLU(QAngle const&, Vector*, Vector*, Vector*)
 t BuildGammaTable(float, float, float, int)
 t BZ2_bsInitWrite(EState*)
 t ClipPolyToPlane(Vector*, int, Vector*, Vector const&, float, float)
@@ -1409,11 +1448,14 @@ t ConcatRotations(float const (*) [3], float const (*) [3], float (*) [3])
 t ConVar_Register(int, IConCommandBaseAccessor*)
 t GetModuleHandle(char const*)
 t InitSinCosTable()
+t IsPointInBounds(Vector const&, Vector const&, Vector const&)
 t LinearToTexture(float)
 t MatrixGetColumn(matrix3x4_t const&, int, Vector&)
+t MatrixInverseTR(VMatrix const&, VMatrix&)
 t MatrixSetColumn(Vector const&, int, matrix3x4_t&)
 t MatrixTranspose(matrix3x4_t&)
 t MatrixTranspose(matrix3x4_t const&, matrix3x4_t&)
+t MatrixTranspose(VMatrix const&, VMatrix&)
 t QuaternionAlign(Quaternion const&, Quaternion const&, Quaternion&)
 t QuaternionBlend(Quaternion const&, Quaternion const&, float, Quaternion&)
 t QuaternionScale(Quaternion const&, float, Quaternion&)
@@ -1438,6 +1480,10 @@ t AddPointToBounds(Vector const&, Vector&, Vector&)
 t ConcatTransforms(matrix3x4_t const&, matrix3x4_t const&, matrix3x4_t&)
 t CreateCompressor(CompressorType_t)
 t MatricesAreEqual(matrix3x4_t const&, matrix3x4_t const&, float)
+t MatrixBuildOrtho(VMatrix&, double, double, double, double, double, double)
+t MatrixBuildScale(VMatrix&, float, float, float)
+t MatrixBuildScale(VMatrix&, Vector const&)
+t MatrixFromAngles(QAngle const&, VMatrix&)
 t MatrixInitialize(matrix3x4_t&, Vector const&, Vector const&, Vector const&, Vector const&)
 t MatrixQuaternion(matrix3x4_t const&, Quaternion&)
 t Parabolic_Spline(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -1454,11 +1500,14 @@ t Q_UnicodeAdvance(char*, int)
 t Q_UnicodeAdvance(unsigned short*, int)
 t Q_UnicodeAdvance(wchar_t*, int)
 t Q_UTF16ToUChar32(unsigned short const*, wchar_t&, bool&)
+t SetupMatrixScale(Vector const&)
 t SignbitsForPlane(cplane_t*)
 t Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, Vector&, Vector&)
 t _SSE_InvRSquared(float const*)
 t SV_DoTestPublish()
 t Sys_UnloadModule(CSysModule*)
+t Vector3DMultiply(VMatrix const&, Vector const&, Vector&)
+t Vector4DMultiply(VMatrix const&, Vector4D const&, Vector4D&)
 t VectorITransform(float const*, matrix3x4_t const&, float*)
 t _VectorNormalize(Vector&)
 t V_IsAbsolutePath(char const*)
@@ -1469,17 +1518,22 @@ t BasisToQuaternion(Vector const&, Vector const&, Vector const&, Quaternion&)
 t BZ2_compressBlock(EState*, unsigned char)
 t BZ2_hbAssignCodes(int*, unsigned char*, int, int, int)
 t CharacterSetBuild(characterset_t*, char const*)
+t ConnectInterfaces(void* (**)(char const*, int*), int)
 t ConVar_PrintFlags(ConCommandBase const*)
 t ConVar_Unregister()
 t MatrixScaleByZero(matrix3x4_t&)
+t MatrixSetIdentity(VMatrix&)
+t PlaneIntersection(VPlane const&, VPlane const&, VPlane const&, Vector&)
 t Q_UnicodeValidate(char const*)
 t Q_UnicodeValidate(unsigned short const*)
 t Q_UnicodeValidate(wchar_t const*)
 t R_CullBoxSkipNear(Vector const&, Vector const&, Frustum_t const&)
+t RegisterInterface(void* (*)(char const*, int*), char const*, void**)
 t Replay_GetBaseDir()
 t Replay_GetGameDir()
 t Replay_SetGameDir(char const*)
 t SetIdentityMatrix(matrix3x4_t&)
+t SetupMatrixAngles(QAngle const&)
 t SmoothCurve_Tweak(float, float, float)
 t SrgbGammaToLinear(float)
 t SrgbLinearToGamma(float)
@@ -1487,6 +1541,7 @@ t StringAfterPrefix(char const*, char const*)
 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
 t V_ComposeFileName(char const*, char const*, char*, int)
 t V_ExtractFilePath(char const*, char*, int)
+t V_StringToColor32(color32_s*, char const*)
 t X360GammaToLinear(float)
 t X360LinearToGamma(float)
 t BSpline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -1495,14 +1550,18 @@ t Catmull_Rom_Spline(Vector const&, Vector const&, Vector const&, Vector const&,
 t HashStringCaseless(char const*)
 t MathLib_MMXEnabled()
 t MathLib_SSEEnabled()
+t MatrixBuildRotateZ(VMatrix&, float)
 t Q_UChar32ToUTF8Len(wchar_t)
 t Q_UChar32ToUTF8Len(wchar_t) [clone .part.2]
 t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t ReconnectInterface(void* (*)(char const*, int*), char const*)
+t ReconnectInterface(void* (*)(char const*, int*), char const*, void**)
 t Replay_GetAutoName(wchar_t*, int, char const*)
 t RunJobToCompletion(IThreadPool*, CJob*)
+t SetupMatrixAxisRot(Vector const&, float)
 t _SSE_RSqrtAccurate(float)
 t Sys_GetFactoryThis()
 t V_DefaultExtension(char*, char const*, int)
@@ -1511,11 +1570,13 @@ t V_GetFileExtension(char const*)
 t V_MakeAbsolutePath(char*, int, char const*, char const*)
 t V_MakeRelativePath(char const*, char const*, char*, int)
 t V_RemoveDotSlashes(char*, char, bool)
+t V_StringToIntArray(int*, int, char const*)
 t AxisAngleQuaternion(Vector const&, float, Quaternion&)
 t EvaluateConditional(char const*)
 t Hermite_SplineBasis(float, float*)
 t LinearToScreenGamma(float)
 t MathLib_SSE2Enabled()
+t MatrixBuildRotation(VMatrix&, Vector const&, Vector const&)
 t QuaternionAngleDiff(Quaternion const&, Quaternion const&)
 t QuaternionAxisAngle(Quaternion const&, Vector&, float&)
 t QuaternionConjugate(Quaternion const&, Quaternion&)
@@ -1527,13 +1588,19 @@ t Q_URLEncodeInternal(char*, int, char const*, int, bool)
 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t SetupMatrixIdentity()
 t SrgbGammaTo360Gamma(float)
 t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
+t DisconnectInterfaces()
+t GenerateOrthoFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float, VPlane*)
 t GetInterpolationData(float const*, float const*, int, int, float, bool, float*, float*, float*)
 t MathLib_3DNowEnabled()
+t MatrixInverseGeneral(VMatrix const&, VMatrix&)
+t MatrixTransformPlane(VMatrix const&, cplane_t const&, cplane_t&)
 t MurmurHash2LowerCase(char const*, unsigned int)
 t QuaternionDotProduct(Quaternion const&, Quaternion const&)
+t SetupMatrixOrgAngles(Vector const&, QAngle const&)
 t _SSE_VectorNormalize(Vector&)
 t _VectorNormalizeFast(Vector&)
 t V_StripTrailingSlash(char*)
@@ -1552,6 +1619,8 @@ t OnReplayEnableChanged(IConVar*, char const*, float)
 t ReadSessionInfoHeader(void const*, int, SessionInfoHeader_t&)
 t Replay_GetDownloadURL()
 t SetBitBufErrorHandler(void (*)(BitBufErrorType, char const*))
+t SetupMatrixProjection(Vector const&, VPlane const&)
+t SetupMatrixReflection(VPlane const&)
 t SolveInverseQuadratic(float, float, float, float, float, float, float&, float&, float&)
 t SV_CreateFtpUploadJob(char const*)
 t SV_RunJobToCompletion(CJob*)
@@ -1568,9 +1637,15 @@ t CalcClosestPointOnLine(Vector const&, Vector const&, Vector const&, Vector&, f
 t GammaToLinearFullRange(float)
 t GetNoEscCharConversion()
 t LinearToGammaFullRange(float)
+t MatrixBuildPerspective(VMatrix&, float, float, float, float)
+t MatrixBuildTranslation(VMatrix&, float, float, float)
+t MatrixBuildTranslation(VMatrix&, Vector const&)
+t MatrixInverseTranspose(matrix3x4_t const&, matrix3x4_t&)
+t MatrixInverseTranspose(VMatrix const&, VMatrix&)
 t QuaternionBlendNoAlign(Quaternion const&, Quaternion const&, float, Quaternion&)
 t QuaternionSlerpNoAlign(Quaternion const&, Quaternion const&, float, Quaternion&)
 t RotationDeltaAxisAngle(QAngle const&, QAngle const&, Vector&, float&)
+t SetupMatrixTranslation(Vector const&)
 t SV_CreateDeleteFileJob()
 t SV_DoFileserverCleanup(bool, ISpewer*)
 t SV_IsOffloadingEnabled()
@@ -1582,9 +1657,12 @@ t ClipPolyToPlane_Precise(double*, int, double*, double const*, double, double)
 t ConVar_PrintDescription(ConCommandBase const*)
 t CreateInterfaceInternal(char const*, int*)
 t Cubic_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t FrustumPlanesFromMatrix(VMatrix const&, Frustum_t&)
+t GenerateOrthoFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float, VPlane*)
 t char const* GetTypedKeyValuesString<char>(KeyValues*, char const*)
 t wchar_t const* GetTypedKeyValuesString<wchar_t>(KeyValues*, char const*)
 t Kochanek_Bartels_Spline(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t MatrixBuildPerspectiveX(VMatrix&, double, double, double, double)
 t QuaternionIdentityBlend(Quaternion const&, float, Quaternion&)
 t BZ2_hbCreateDecodeTables(int*, int*, int*, unsigned char*, int, int, int)
 t CalcClosestPointOnLine2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&, float*)
@@ -1596,17 +1674,22 @@ t GetCStringCharConversion()
 t OnReplayRecordingChanged(IConVar*, char const*, float)
 t RandomVectorInUnitCircle(Vector2D*)
 t RandomVectorInUnitSphere(Vector*)
+t SetupMatrixAxisToAxisRot(Vector const&, Vector const&)
 t _SSE_VectorNormalizeFast(Vector&)
 t SV_CreateLocalPublishJob(char const*)
+t Vector4DMultiplyPosition(VMatrix const&, Vector const&, Vector4D&)
 t CalcClosestPointToLineT2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&)
 t CalcDistanceToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Q_RemoveAllEvilCharacters(char*)
 t Replay_GetDownloadURLPath()
+t Vector3DMultiplyTranspose(VMatrix const&, Vector const&, Vector&)
+t Vector4DMultiplyTranspose(VMatrix const&, Vector4D const&, Vector4D&)
 t Catmull_Rom_Spline_Tangent(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t GeneratePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, float, Frustum_t&)
 t GeneratePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, Frustum_t&)
 t InternalBitBufErrorHandler(BitBufErrorType, char const*)
 t SV_CreateFtpFileDeleterJob(char const*)
+t Vector3DMultiplyProjective(VMatrix const&, Vector const&, Vector&)
 t CalcDistanceToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, Vector&)
@@ -1615,13 +1698,17 @@ t Parabolic_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vecto
 t Sys_RunningWithDebugModules()
 t TransformAnglesToLocalSpace(QAngle const&, matrix3x4_t const&)
 t TransformAnglesToWorldSpace(QAngle const&, matrix3x4_t const&)
+t VectorPerpendicularToVector(Vector const&, Vector*)
 t CalcDistanceSqrToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Catmull_Rom_Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t MatrixBuildPerspectiveZRange(VMatrix&, double, double)
+t MatrixBuildRotationAboutAxis(VMatrix&, Vector const&, float)
 t MatrixBuildRotationAboutAxis(Vector const&, float, matrix3x4_t&)
 t SV_CreateLocalFileDeleterJob()
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t CalcClosestPointOnLineSegment(Vector const&, Vector const&, Vector const&, Vector&, float*)
 t Catmull_Rom_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t GeneratePerspectiveFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, VPlane*)
 t CalcDistanceSqrToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t HashStringCaselessConventional(char const*)
 t SolveInverseQuadraticMonotonic(float, float, float, float, float, float, float&, float&, float&)
@@ -1630,20 +1717,27 @@ t V_AddBackSlashesToSpecialChars(char const*)
 t CalcClosestPointOnLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&, float*)
 t SolveInverseReciprocalQuadratic(float, float, float, float, float, float, float&, float&, float&)
 t CalcSqrDistAndClosestPointOnAABB(Vector const&, Vector const&, Vector const&, Vector&, float&)
+t MatrixBuildPerspectiveOffCenterX(VMatrix&, double, double, double, double, double, double, double, double)
 t OnFileserverProxyHostnameChanged(IConVar*, char const*, float)
 t Replay_GetFirstAvailableFilename(char*, int, char const*, char const*, char const*, int)
 t SV_GetRecordingSessionInProgress()
 t CalcLineToLineIntersectionSegment(Vector const&, Vector const&, Vector const&, Vector const&, Vector*, Vector*, float*, float*)
+t CalculateAABBFromProjectionMatrix(VMatrix const&, Vector*, Vector*)
 t void ConstructStringVArgsInternal_Impl<char>(char*, int, char const*, int, char*)
 t void ConstructStringVArgsInternal_Impl<wchar_t>(wchar_t*, int, wchar_t const*, int, char*)
 t SV_CastJobToIFileserverCleanerJob(CBaseJob*)
 t Kochanek_Bartels_Spline_NormalizeX(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t Vector3DMultiplyPositionProjective(VMatrix const&, Vector const&, Vector&)
+t CalculateSphereFromProjectionMatrix(VMatrix const&, Vector*, float*)
 t Replay_ConstructReplayFilenameString(CUtlString&, char const*, char const*, char const*)
 t Catmull_Rom_Spline_Integral_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t void ConstructStringKeyValuesInternal_Impl<char>(char*, int, char const*, KeyValues*)
 t void ConstructStringKeyValuesInternal_Impl<wchar_t>(wchar_t*, int, wchar_t const*, KeyValues*)
 t Q_StripPrecedingAndTrailingWhitespace(char*)
 t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
+t CalculateAABBFromProjectionMatrixInverse(VMatrix const&, Vector*, Vector*)
+t ExtractClipPlanesFromNonTransposedMatrix(VMatrix const&, VPlane*, bool)
+t CalculateSphereFromProjectionMatrixInverse(VMatrix const&, Vector*, float*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespace(char*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespaceW(wchar_t*)
 t Bias(float, float)
@@ -1702,8 +1796,8 @@ t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
 t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
-U operator delete[](void*)@@GLIBCXX_3.4
-U operator delete(void*)@@GLIBCXX_3.4
+t operator delete[](void*)
+t operator delete(void*)
 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszDbgPathMatch
 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszPathMatchEnabled
 b guard variable for CUtlString::GetEmptyString()::s_emptyString
@@ -1761,6 +1855,8 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
+b vec4_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
@@ -1774,7 +1870,6 @@ b vec4_origin
 b vec4_origin
 t fallbackSort(unsigned int*, unsigned int*, unsigned int*, int, int)
 b gs_szGameDir
-b s_bConnected
 d s_NullSpewer
 b vec2_invalid
 b vec2_invalid
@@ -1821,6 +1916,8 @@ b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
+b vec2_invalid
+b vec4_invalid
 b vec4_invalid
 b vec4_invalid
 b vec4_invalid
@@ -1872,20 +1969,26 @@ t bzopen_or_bzdopen(char const*, int, char const*, int)
 r _ps_inv_sign_mask
 t replay_stoprecord(CCommand const&)
 d s_DefaultAccessor
+b s_nConnectionCount
 b g_BitWriteMasksInit
+r g_pInterfaceGlobals
 b g_BitBufErrorHandler
 r _ps_minus_cephes_DP1
 r _ps_minus_cephes_DP2
 r _ps_minus_cephes_DP3
 t replay_dopublishtest(CCommand const&)
+b s_nRegistrationCount
 b replay_record_command
 d s_LastFileLoadingFrom
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+b s_bPrecachesRegistered
 b g_Mathlib_GammaToLinear
 b g_Mathlib_LinearToGamma
 t replay_printsessioninfo(CCommand const&)
 b replay_docleanup_command
 b replay_stoprecord_command
+t SetupMatrixAnglesInternal(float (*) [4], QAngle const&)
+b s_pConnectionRegistration
 b replay_dopublishtest_command
 b f3
 b replay_printsessioninfo_command
@@ -1973,23 +2076,46 @@ t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlMemory<CUtlString, int>::Grow(int)
+t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Purge()
+t CUtlMemory<_XUSER_CONTEXT, int>::Grow(int)
 t CUtlMemory<_XUSER_CONTEXT, int>::Purge()
+t CUtlMemory<_XUSER_PROPERTY, int>::Grow(int)
 t CUtlMemory<_XUSER_PROPERTY, int>::Purge()
+t CUtlMemory<UtlLinkedListElem_t<unsigned int, int>, int>::Grow(int)
+t CUtlMemory<UtlLinkedListElem_t<CBaseRecordingSession*, int>, int>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CBaseRecordingSession*, int>, int>::Purge()
+t CUtlMemory<UtlLinkedListElem_t<CSessionPublishManager*, int>, int>::Grow(int)
+t CUtlMemory<UtlLinkedListElem_t<CBaseRecordingSessionBlock*, int>, int>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CBaseRecordingSessionBlock*, int>, int>::Purge()
+t CUtlMemory<UtlLinkedListElem_t<CServerRecordingSessionBlock*, int>, int>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CServerRecordingSessionBlock*, int>, int>::Purge()
+t CUtlMemory<UtlLinkedListElem_t<IThinker*, int>, int>::Grow(int)
+t CUtlMemory<UtlLinkedListElem_t<IThinker*, int>, int>::Purge()
+t CUtlMemory<UtlLinkedListElem_t<wchar_t*, int>, int>::Grow(int)
+t CUtlMemory<char, int>::Grow(int)
 t CUtlMemory<char, int>::Purge()
 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
+t CUtlMemory<unsigned char, int>::Grow(int)
 t CUtlMemory<unsigned char, int>::Purge()
+t CUtlMemory<int, int>::Grow(int)
 t CUtlMemory<int, int>::Purge()
+t CUtlMemory<NET_SetConVar::cvar_s, int>::Grow(int)
 t CUtlMemory<NET_SetConVar::cvar_s, int>::Purge()
+t CUtlMemory<SVC_ClassInfo::class_s, int>::Grow(int)
 t CUtlMemory<SVC_ClassInfo::class_s, int>::Purge()
+t CUtlMemory<CBaseRecordingSession*, int>::Grow(int)
 t CUtlMemory<CBaseRecordingSession*, int>::Purge()
+t CUtlMemory<CBaseRecordingSessionBlock*, int>::Grow(int)
 t CUtlMemory<CBaseRecordingSessionBlock*, int>::Purge()
+t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
+t CUtlMemory<char*, int>::Grow(int)
 t CUtlMemory<char*, int>::Purge()
+t CUtlMemory<unsigned long long, int>::Grow(int)
 t CUtlMemory<unsigned long long, int>::Purge()
+t CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int>::Purge()
 t CUtlString::FixSlashes(char)
 t CUtlString::AllocMemory(unsigned int)
 t CUtlString::GetForModify()
@@ -2038,8 +2164,9 @@ t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, 
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
-t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::SetCount(int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
 U CVProfNode::EnterScope()
 U CVProfNode::GetSubNode(char const*, int, char const*, int)
 U CVProfNode::ExitScope()
@@ -2139,6 +2266,19 @@ t CRefCounted1<IRefCounted, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1(
 t CRefCounted1<IRefCounted, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
 U CThreadEvent::Set()
 U CThreadEvent::CThreadEvent(bool)
+t fourplanes_t::Set2Planes(VPlane const*)
+t fourplanes_t::Set4Planes(VPlane const*)
+t fourplanes_t::ComputeSignbits()
+t fourplanes_t::SetPlane(int, Vector const&, float)
+t FrustumCSM_t::CreateOrthoFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float)
+t FrustumCSM_t::CreateOrthoFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float)
+t FrustumCSM_t::SetPlane(int, Vector const&, float)
+t FrustumCSM_t::SetPlanes(VPlane const*)
+t FrustumCSM_t::FrustumCSM_t()
+t FrustumCSM_t::FrustumCSM_t()
 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
 b InterfaceReg::s_pInterfaceRegs
@@ -2346,7 +2486,9 @@ t CUtlLinkedList<wchar_t*, int, false, int, CUtlMemory<UtlLinkedListElem_t<wchar
 t CUtlSortVector<CBaseRecordingSession*, CGenericPersistentManager<CBaseRecordingSession>::CLessFunctor, CUtlVector<CBaseRecordingSession*, CUtlMemory<CBaseRecordingSession*, int> > >::Insert(CBaseRecordingSession* const&)
 t CUtlSortVector<CBaseRecordingSessionBlock*, CBaseRecordingSession::CLessFunctor, CUtlVector<CBaseRecordingSessionBlock*, CUtlMemory<CBaseRecordingSessionBlock*, int> > >::Insert(CBaseRecordingSessionBlock* const&)
 t CUtlSortVector<CBaseRecordingSessionBlock*, CGenericPersistentManager<CBaseRecordingSessionBlock>::CLessFunctor, CUtlVector<CBaseRecordingSessionBlock*, CUtlMemory<CBaseRecordingSessionBlock*, int> > >::Insert(CBaseRecordingSessionBlock* const&)
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
 t IBaseInterface::~IBaseInterface()
 t IBaseInterface::~IBaseInterface()
 t IBaseInterface::~IBaseInterface()
@@ -2520,6 +2662,12 @@ t SVC_GameEventList::Process()
 t SVC_GameEventList::~SVC_GameEventList()
 t SVC_GameEventList::~SVC_GameEventList()
 t SVC_GameEventList::~SVC_GameEventList()
+t SVC_SetPauseTimed::WriteToBuffer(bf_write&)
+t SVC_SetPauseTimed::ReadFromBuffer(bf_read&)
+t SVC_SetPauseTimed::Process()
+t SVC_SetPauseTimed::~SVC_SetPauseTimed()
+t SVC_SetPauseTimed::~SVC_SetPauseTimed()
+t SVC_SetPauseTimed::~SVC_SetPauseTimed()
 t CBaseFilePublisher::AbortAndCleanup()
 d CBaseFilePublisher::sm_aPhaseIOTypes
 t CBaseFilePublisher::FinishSynchronouslyAndCleanup()
@@ -2697,6 +2845,8 @@ t SVC_UpdateStringTable::Process()
 t SVC_UpdateStringTable::~SVC_UpdateStringTable()
 t SVC_UpdateStringTable::~SVC_UpdateStringTable()
 t SVC_UpdateStringTable::~SVC_UpdateStringTable()
+t CBaseResourcePrecacher::RegisterAll()
+b CBaseResourcePrecacher::sm_pFirst
 t CSessionBlockPublisher::AbortPublish()
 t CSessionBlockPublisher::AdjustHeader(IFilePublisher const*, void*)
 t CSessionBlockPublisher::OnStopRecord(bool)
@@ -2898,11 +3048,12 @@ t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
 t ConVar::ChangeStringValue(char const*, float)
+t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
 t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
-t ConVar::InternalSetFloatValue(float)
+t ConVar::InternalSetFloatValue(float, bool)
 t ConVar::Init()
-t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
 t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
@@ -2911,11 +3062,13 @@ t ConVar::SetValue(char const*)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::~ConVar()
@@ -2969,6 +3122,10 @@ t CMd5Job::~CMd5Job()
 t ISpewer::~ISpewer()
 t ISpewer::~ISpewer()
 t ISpewer::~ISpewer()
+t VMatrix::SetupMatrixAngles(QAngle const&)
+t VMatrix::SetupMatrixOrgAngles(Vector const&, QAngle const&)
+t VMatrix::Scale(Vector const&)
+t VMatrix::operator=(VMatrix const&)
 t bf_write::WriteBytes(void const*, int)
 t bf_write::WriteFloat(float)
 t bf_write::WriteShort(int)
@@ -3116,7 +3273,7 @@ t KeyValues::GetStringForSymbolGrowable(int)
 t KeyValues::GetSymbolForStringGrowable(char const*, bool)
 t KeyValues::AddSubkeyUsingKnownLastChild(KeyValues*, KeyValues*)
 t KeyValues::CreateKeyUsingKnownLastChild(char const*, KeyValues*)
-t KeyValues::Dump(IKeyValuesDumpContext*, int)
+t KeyValues::Dump(IKeyValuesDumpContext*, int, bool)
 t KeyValues::Init()
 t KeyValues::Clear()
 t KeyValues::GetInt(char const*, int)
@@ -3164,7 +3321,8 @@ t SVC_Print::Process()
 t SVC_Print::~SVC_Print()
 t SVC_Print::~SVC_Print()
 t SVC_Print::~SVC_Print()
-U operator new[](unsigned int)@@GLIBCXX_3.4
+t operator new[](unsigned int)
+t operator new[](unsigned int, int, char const*, int)
 t ConCommand::IsCommand() const
 t CUtlString::GetExtension() const
 t CUtlString::StripFilename() const
@@ -3236,6 +3394,26 @@ t CBlockSpewer::PrintMsg(char const*) const
 t CEmptyConVar::GetName() const
 t CEmptyConVar::IsFlagSet(int) const
 t CErrorSystem::GetNextThinkTime() const
+t fourplanes_t::Get2Planes(VPlane*) const
+t fourplanes_t::Get4Planes(VPlane*) const
+t fourplanes_t::GetPlane(int, Vector*, float*) const
+t FrustumCSM_t::GetCorners(Vector*) const
+t FrustumCSM_t::Intersects(Vector const&, Vector const&) const
+t FrustumCSM_t::Intersects(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::Intersects(float __vector const&, float __vector const&) const
+t FrustumCSM_t::Intersects(FrustumCSM_t&) const
+t FrustumCSM_t::CullBoxCenterExtents(Vector const&, Vector const&) const
+t FrustumCSM_t::CullBoxCenterExtents(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::CullBoxCenterExtents(float __vector const&, float __vector const&) const
+t FrustumCSM_t::IntersectsCenterExtents(Vector const&, Vector const&) const
+t FrustumCSM_t::IntersectsCenterExtents(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::IntersectsCenterExtents(float __vector const&, float __vector const&) const
+t FrustumCSM_t::CullBox(Vector const&, Vector const&) const
+t FrustumCSM_t::CullBox(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::CullBox(float __vector const&, float __vector const&) const
+t FrustumCSM_t::Contains(Vector const&, Vector const&) const
+t FrustumCSM_t::GetPlane(int, Vector*, float*) const
+t FrustumCSM_t::GetPlanes(VPlane*) const
 t MM_Heartbeat::GetName() const
 t MM_Heartbeat::GetType() const
 t MM_Heartbeat::ToString() const
@@ -3367,6 +3545,9 @@ t SVC_EntityMessage::ToString() const
 t SVC_GameEventList::GetName() const
 t SVC_GameEventList::GetType() const
 t SVC_GameEventList::ToString() const
+t SVC_SetPauseTimed::GetName() const
+t SVC_SetPauseTimed::GetType() const
+t SVC_SetPauseTimed::ToString() const
 t CBaseFilePublisher::Compressed() const
 t CBaseFilePublisher::GetCompressedSize() const
 t CBaseFilePublisher::GetCompressorType() const
@@ -3483,6 +3664,8 @@ t CServerRecordingSessionBlockManager::GetReplayContext() const
 t CServerRecordingSessionBlockManager::ShouldLoadBlocks() const
 t CFtp::FTP_GetFilename() const
 t CFtp::FTP_IsCurlResultOK(int) const
+t ConVar::GetCompMax(float&) const
+t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
@@ -3491,6 +3674,18 @@ t ConVar::GetMin(float&) const
 t ConVar::GetName() const
 t ConVar::IsCommand() const
 t ConVar::IsFlagSet(int) const
+t VMatrix::Transpose3x3() const
+t VMatrix::InverseGeneral(VMatrix&) const
+t VMatrix::IsRotationMatrix() const
+t VMatrix::NormalizeBasisVectors() const
+t VMatrix::GetScale() const
+t VMatrix::InverseTR(VMatrix&) const
+t VMatrix::InverseTR() const
+t VMatrix::MatrixMul(VMatrix const&, VMatrix&) const
+t VMatrix::Transpose() const
+t VMatrix::operator==(VMatrix const&) const
+t VMatrix::operator*(VPlane const&) const
+t VMatrix::operator*(VMatrix const&) const
 t CCommand::FindArgInt(char const*, int) const
 t CCommand::FindArg(char const*) const
 t CLC_Move::GetName() const
@@ -3513,7 +3708,8 @@ t SVC_Print::GetName() const
 t SVC_Print::GetType() const
 t SVC_Print::ToString() const
 U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
-U operator new(unsigned int)@@GLIBCXX_3.4
+t operator new(unsigned int)
+t operator new(unsigned int, int, char const*, int)
 t covariant return thunk to CServerReplayContext::GetRecordingSession(unsigned int)
 t covariant return thunk to CServerReplayContext::GetRecordingSessionBlockManager()
 t non-virtual thunk to CBaseRecordingSession::AddBlock(CBaseRecordingSessionBlock*)
@@ -3699,6 +3895,7 @@ r typeinfo for Base_CmdKeyValues
 r typeinfo for IRecordingSession
 r typeinfo for SVC_EntityMessage
 r typeinfo for SVC_GameEventList
+r typeinfo for SVC_SetPauseTimed
 r typeinfo for CBaseFilePublisher
 r typeinfo for CFileserverCleaner
 r typeinfo for CFtpFileDeleterJob
@@ -3832,6 +4029,7 @@ r typeinfo name for Base_CmdKeyValues
 r typeinfo name for IRecordingSession
 r typeinfo name for SVC_EntityMessage
 r typeinfo name for SVC_GameEventList
+r typeinfo name for SVC_SetPauseTimed
 r typeinfo name for CBaseFilePublisher
 r typeinfo name for CFileserverCleaner
 r typeinfo name for CFtpFileDeleterJob
@@ -3959,6 +4157,7 @@ r vtable for Base_CmdKeyValues
 r vtable for IRecordingSession
 r vtable for SVC_EntityMessage
 r vtable for SVC_GameEventList
+r vtable for SVC_SetPauseTimed
 r vtable for CBaseFilePublisher
 r vtable for CFileserverCleaner
 r vtable for CFtpFileDeleterJob

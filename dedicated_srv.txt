@@ -24,6 +24,8 @@ b buffsize.6510
 b bufsiz.4017
 U BuildCmdLine
 U CallAssertFailedNotifyFunc
+t _calloc_dbg
+t _calloc_dbg_impl
 U calloc@@GLIBC_2.0
 U cbrtf@@GLIBC_2.0
 T c_delafter
@@ -85,7 +87,7 @@ U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
 t cv_action
-B cvar
+b cvar
 T cv_csearch
 T cv_delfini
 T cv__endword
@@ -232,6 +234,7 @@ t execute_stack_op
 U _exit@@GLIBC_2.0
 U exit@@GLIBC_2.0
 U _ExitOnFatalAssert
+t _expand_dbg
 U fchmod@@GLIBC_2.0
 U fclose@@GLIBC_2.1
 U fcntl@@GLIBC_2.0
@@ -285,6 +288,7 @@ t frame_heapsort
 t __frame_state_for
 U __fread_chk@@GLIBC_2.7
 U fread@@GLIBC_2.0
+t _free_dbg
 U free@@GLIBC_2.0
 U freopen@@GLIBC_2.0
 U fseek@@GLIBC_2.0
@@ -315,7 +319,6 @@ a _GLOBAL_OFFSET_TABLE_
 t _GLOBAL__sub_I_async_mode
 t _GLOBAL__sub_I_console
 t _GLOBAL__sub_I_cryptlib.cpp
-t _GLOBAL__sub_I_cvar
 t _GLOBAL__sub_I_dll.cpp
 t _GLOBAL__sub_I_filetracker.cpp
 t _GLOBAL__sub_I_Four_PointFives
@@ -323,7 +326,6 @@ t _GLOBAL__sub_I_fs_monitor_read_from_pack
 t _GLOBAL__sub_I_fs_report_sync_opens
 t _GLOBAL__sub_I_g_Commands
 t _GLOBAL__sub_I_gf2n.cpp
-t _GLOBAL__sub_I_g_pFullFileSystem
 t _GLOBAL__sub_I_g_ResourceLoaderNames
 t _GLOBAL__sub_I_g_szEXEName
 t _GLOBAL__sub_I_g_tslistPAutoSeededRNG
@@ -334,6 +336,8 @@ t _GLOBAL__sub_I_s_HInstance
 t _GLOBAL__sub_I_s_hMatSystemModule
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z17FileSystemFactoryPKcPi
+t _GLOBAL__sub_I__Z19SetupMatrixIdentityv
+t _GLOBAL__sub_I__Z21ConnectTier1LibrariesPPFPvPKcPiEi
 t _GLOBAL__sub_I__Z28FileSystem_UseVProjectBinDirb
 t _GLOBAL__sub_I__Z9_SSE_Sqrtf
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
@@ -344,26 +348,51 @@ t _GLOBAL__sub_I__ZN12CPackedStore13FindFileEntryEPKcS1_S1_PPhS3_
 t _GLOBAL__sub_I__ZN14ConCommandBase18s_pConCommandBasesE
 t _GLOBAL__sub_I__ZN15CAppSystemGroupC2EPS_
 t _GLOBAL__sub_I__ZN16CSimpleBitString10AppendBitsEyj
+t _GLOBAL__sub_I__ZN22CBaseResourcePrecacher9sm_pFirstE
 t _GLOBAL__sub_I__ZN25ZIP_EndOfCentralDirRecord9m_DataMapE
 t _GLOBAL__sub_I__ZN9CByteswap23SwapFieldToTargetEndianEPvS0_P17typedescription_t
 t _GLOBAL__sub_I__ZN9KeyValues22s_pfGetSymbolForStringE
 w __gmon_start__
+b g_nResourceFrameCount
 b g_PathIDTable
 d g_pBaseFileSystem
 b g_pCVar
+b g_pDataCache
+b g_pDmeMakefileUtils
 d g_pFileSystem
 b g_pFullFileSystem
 b g_pInputSystem
+b g_pLocalize
 b g_pMaterialSystem
 b g_pMaterialSystemDebugTextureInfo
 b g_pMaterialSystemHardwareConfig
+b g_pMatSystemSurface
+b g_pMDLCache
+U g_pMemAlloc
 b g_pNetworkSystem
+b g_pPhysicsCollision
+b g_pPrecacheSystem
 b g_pProcessUtils
 b g_pQueuedLoader
+b g_pRenderDevice
+b g_pRenderHardwareConfig
+b g_pResourceAccessControl
+b g_pSoundEmitterSystem
+b g_pSoundSystem
+b g_pStudioRender
 b g_pszReadFilename
 U g_pThreadPool
 b g_pUtlSortVectorQSortContext
 U g_pVCR
+b g_pVGui
+b g_pVGuiInput
+b g_pVGuiLocalize
+b g_pVGuiPanel
+b g_pVGuiSchemeManager
+b g_pVGuiSurface
+b g_pVGuiSystem
+b g_pVideo
+b g_pVTex
 d g_ResourceLoaderNames
 r g_SIMD_0123
 r g_SIMD_AllOnesMask
@@ -609,6 +638,7 @@ t LzmaDecode
 t LzmaProps_Decode
 t LzmaProps_Decode.part.2
 t main
+t _malloc_dbg
 U malloc@@GLIBC_2.0
 T map_addfunc
 T map_bind
@@ -625,6 +655,7 @@ b marker.8514
 b materials
 U mbstowcs@@GLIBC_2.0
 U mbtowc@@GLIBC_2.0
+b mdlcache
 b mdllib
 U memalign@@GLIBC_2.0
 U memcmp@@GLIBC_2.0
@@ -639,9 +670,11 @@ t __mknod
 U mkstemp@@GLIBC_2.0
 U mount@@GLIBC_2.0
 U Msg
+t _msize_dbg
 d name.7020
 r nanmask
 d net
+t _nh_malloc_dbg
 d no.8069
 t node__delete
 t node_enum
@@ -714,6 +747,7 @@ t read_pop
 T read_prepare
 t read_sleb128
 t read_sleb128
+t _realloc_dbg
 U realloc@@GLIBC_2.0
 U realpath@@GLIBC_2.3
 T re_clear_display
@@ -846,6 +880,7 @@ T strunvis
 T strunvisx
 T strvis
 T strvisx
+b studiorender
 b subs.8777
 T svis
 U __swprintf_chk@@GLIBC_2.4
@@ -1084,6 +1119,7 @@ t FileSelect(dirent const*)
 t HashString(char const*)
 t IsDenormal(float const&)
 t MatrixCopy(matrix3x4_t const&, matrix3x4_t&)
+t MatrixCopy(VMatrix const&, VMatrix&)
 t RotateAABB(matrix3x4_t const&, Vector const&, Vector const&, Vector&, Vector&)
 t V_FileBase(char const*, char*, int)
 t _V_memmove(char const*, int, void*, void const*, int)
@@ -1183,6 +1219,7 @@ t _V_UCS2ToUTF8(unsigned short const*, char*, int)
 t _V_UTF8ToUCS2(char const*, int, unsigned short*, int)
 t AngleNormalize(float)
 t AnglesAreEqual(float, float, float)
+t AreBoundsValid(Vector const&, Vector const&)
 t BaseFileSystem()
 t BoxOnPlaneSide(float const*, float const*, cplane_t const*)
 t cIntToHexDigit(int)
@@ -1194,6 +1231,8 @@ t Hermite_Spline(Quaternion const&, Quaternion const&, Quaternion const&, float,
 t Hermite_Spline(Vector const&, Vector const&, Vector const&, float, Vector&)
 t Hermite_Spline(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t ITransformAABB(matrix3x4_t const&, Vector const&, Vector const&, Vector&, Vector&)
+t MatrixMultiply(VMatrix const&, VMatrix const&, VMatrix&)
+t MatrixToAngles(VMatrix const&, QAngle&)
 t Q_IsMeanSpaceW(wchar_t)
 t QuaternionMult(Quaternion const&, Quaternion const&, Quaternion&)
 t Q_URLDecodeRaw(char*, int, char const*, int)
@@ -1217,6 +1256,7 @@ t V_StripLastDir(char*, int)
 t V_vsnprintfRet(char*, int, char const*, char*, bool*)
 t AngleQuaternion(RadianEuler const&, Quaternion&)
 t AngleQuaternion(QAngle const&, Quaternion&)
+t AngleVectorsFLU(QAngle const&, Vector*, Vector*, Vector*)
 t BuildGammaTable(float, float, float, int)
 t ClipPolyToPlane(Vector*, int, Vector*, Vector const&, float, float)
 t ConcatRotations(float const (*) [3], float const (*) [3], float (*) [3])
@@ -1226,11 +1266,14 @@ t GetModuleHandle(char const*)
 t GetSteamCfgPath(char*, int)
 t InitSinCosTable()
 t IOAsyncCallback(FileAsyncRequest_t const&, int, FSAsyncStatus_t)
+t IsPointInBounds(Vector const&, Vector const&, Vector const&)
 t LinearToTexture(float)
 t MatrixGetColumn(matrix3x4_t const&, int, Vector&)
+t MatrixInverseTR(VMatrix const&, VMatrix&)
 t MatrixSetColumn(Vector const&, int, matrix3x4_t&)
 t MatrixTranspose(matrix3x4_t&)
 t MatrixTranspose(matrix3x4_t const&, matrix3x4_t&)
+t MatrixTranspose(VMatrix const&, VMatrix&)
 t QuaternionAlign(Quaternion const&, Quaternion const&, Quaternion&)
 t QuaternionBlend(Quaternion const&, Quaternion const&, float, Quaternion&)
 t QuaternionScale(Quaternion const&, float, Quaternion&)
@@ -1257,6 +1300,10 @@ t ConcatTransforms(matrix3x4_t const&, matrix3x4_t const&, matrix3x4_t&)
 t IOComputationJob(FileJob_t*, void*, int, LoaderError_t)
 t LoadGameInfoFile(char const*, KeyValues*&, KeyValues*&, KeyValues*&)
 t MatricesAreEqual(matrix3x4_t const&, matrix3x4_t const&, float)
+t MatrixBuildOrtho(VMatrix&, double, double, double, double, double, double)
+t MatrixBuildScale(VMatrix&, float, float, float)
+t MatrixBuildScale(VMatrix&, Vector const&)
+t MatrixFromAngles(QAngle const&, VMatrix&)
 t MatrixInitialize(matrix3x4_t&, Vector const&, Vector const&, Vector const&, Vector const&)
 t MatrixQuaternion(matrix3x4_t const&, Quaternion&)
 t MD5_PseudoRandom(unsigned int)
@@ -1273,10 +1320,13 @@ t Q_UnicodeAdvance(char*, int)
 t Q_UnicodeAdvance(unsigned short*, int)
 t Q_UnicodeAdvance(wchar_t*, int)
 t Q_UTF16ToUChar32(unsigned short const*, wchar_t&, bool&)
+t SetupMatrixScale(Vector const&)
 t SignbitsForPlane(cplane_t*)
 t Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, Vector&, Vector&)
 t _SSE_InvRSquared(float const*)
 t Sys_UnloadModule(CSysModule*)
+t Vector3DMultiply(VMatrix const&, Vector const&, Vector&)
+t Vector4DMultiply(VMatrix const&, Vector4D const&, Vector4D&)
 t VectorITransform(float const*, matrix3x4_t const&, float*)
 t _VectorNormalize(Vector&)
 t V_IsAbsolutePath(char const*)
@@ -1285,17 +1335,22 @@ t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
 t BasisToQuaternion(Vector const&, Vector const&, Vector const&, Quaternion&)
 t CharacterSetBuild(characterset_t*, char const*)
+t ConnectInterfaces(void* (**)(char const*, int*), int)
 t ConVar_PrintFlags(ConCommandBase const*)
 t ConVar_Unregister()
 t FileSystemFactory(char const*, int*)
 t GetExecutableName(char*, int)
 t MatrixScaleByZero(matrix3x4_t&)
+t MatrixSetIdentity(VMatrix&)
+t PlaneIntersection(VPlane const&, VPlane const&, VPlane const&, Vector&)
 t Q_UnicodeValidate(char const*)
 t Q_UnicodeValidate(unsigned short const*)
 t Q_UnicodeValidate(wchar_t const*)
 t R_CullBoxSkipNear(Vector const&, Vector const&, Frustum_t const&)
 t ReadKeyValuesFile(char const*)
+t RegisterInterface(void* (*)(char const*, int*), char const*, void**)
 t SetIdentityMatrix(matrix3x4_t&)
+t SetupMatrixAngles(QAngle const&)
 t SmoothCurve_Tweak(float, float, float)
 t SrgbGammaToLinear(float)
 t SrgbLinearToGamma(float)
@@ -1303,6 +1358,7 @@ t StringAfterPrefix(char const*, char const*)
 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
 t V_ComposeFileName(char const*, char const*, char*, int)
 t V_ExtractFilePath(char const*, char*, int)
+t V_StringToColor32(color32_s*, char const*)
 t X360GammaToLinear(float)
 t X360LinearToGamma(float)
 t AdjustAsyncIOSpeed()
@@ -1314,12 +1370,16 @@ t HashStringCaseless(char const*)
 t LocateGameInfoFile(CFSSteamSetupInfo const&, char*, int)
 t MathLib_MMXEnabled()
 t MathLib_SSEEnabled()
+t MatrixBuildRotateZ(VMatrix&, float)
 t Q_UChar32ToUTF8Len(wchar_t)
 t Q_UChar32ToUTF8Len(wchar_t) [clone .part.2]
 t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t ReconnectInterface(void* (*)(char const*, int*), char const*)
+t ReconnectInterface(void* (*)(char const*, int*), char const*, void**)
+t SetupMatrixAxisRot(Vector const&, float)
 t _SSE_RSqrtAccurate(float)
 t Sys_GetFactoryThis()
 t V_DefaultExtension(char*, char const*, int)
@@ -1328,6 +1388,7 @@ t V_GetFileExtension(char const*)
 t V_MakeAbsolutePath(char*, int, char const*, char const*)
 t V_MakeRelativePath(char const*, char const*, char*, int)
 t V_RemoveDotSlashes(char*, char, bool)
+t V_StringToIntArray(int*, int, char const*)
 t AxisAngleQuaternion(Vector const&, float, Quaternion&)
 t CRC32_GetTableEntry(unsigned int)
 t CRC32_ProcessBuffer(unsigned int*, void const*, int)
@@ -1335,6 +1396,7 @@ t EvaluateConditional(char const*)
 t Hermite_SplineBasis(float, float*)
 t LinearToScreenGamma(float)
 t MathLib_SSE2Enabled()
+t MatrixBuildRotation(VMatrix&, Vector const&, Vector const&)
 t ProcessConsoleInput()
 t QuaternionAngleDiff(Quaternion const&, Quaternion const&)
 t QuaternionAxisAngle(Quaternion const&, Vector&, float&)
@@ -1347,18 +1409,24 @@ t Q_URLEncodeInternal(char*, int, char const*, int, bool)
 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t SetupMatrixIdentity()
 t SplitFileComponents(char const*, char*, char*, char*)
 t SrgbGammaTo360Gamma(float)
 t UTIL_ComputeBaseDir(char*, int)
 t bool _V_strEndsWithInner<true>(char const*, char const*)
 t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
+t DisconnectInterfaces()
 t DoesPathExistAlready(char const*, char const*)
+t GenerateOrthoFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float, VPlane*)
 t GetInterpolationData(float const*, float const*, int, int, float, bool, float*, float*, float*)
 t MathLib_3DNowEnabled()
+t MatrixInverseGeneral(VMatrix const&, VMatrix&)
+t MatrixTransformPlane(VMatrix const&, cplane_t const&, cplane_t&)
 t MurmurHash2LowerCase(char const*, unsigned int)
 t QuaternionDotProduct(Quaternion const&, Quaternion const&)
 t SetupFileSystemError(bool, FSReturnCode_t, char const*, ...)
+t SetupMatrixOrgAngles(Vector const&, QAngle const&)
 t _SSE_VectorNormalize(Vector&)
 t _VectorNormalizeFast(Vector&)
 t V_StripTrailingSlash(char*)
@@ -1371,6 +1439,8 @@ t ConnectTier2Libraries(void* (**)(char const*, int*), int)
 t DefaultCompletionFunc(char const*, char (*) [64])
 t EF_VID_ForceLockState(int)
 t GreatestCommonDivisor(int, int)
+t SetupMatrixProjection(Vector const&, VPlane const&)
+t SetupMatrixReflection(VPlane const&)
 t SolveInverseQuadratic(float, float, float, float, float, float, float&, float&, float&)
 t Sys_GetExecutableName(char*)
 t Sys_IsDebuggerPresent()
@@ -1388,10 +1458,16 @@ t CaselessStringLessThan(char const* const&, char const* const&)
 t GammaToLinearFullRange(float)
 t GetNoEscCharConversion()
 t LinearToGammaFullRange(float)
+t MatrixBuildPerspective(VMatrix&, float, float, float, float)
+t MatrixBuildTranslation(VMatrix&, float, float, float)
+t MatrixBuildTranslation(VMatrix&, Vector const&)
+t MatrixInverseTranspose(matrix3x4_t const&, matrix3x4_t&)
+t MatrixInverseTranspose(VMatrix const&, VMatrix&)
 t QuaternionBlendNoAlign(Quaternion const&, Quaternion const&, float, Quaternion&)
 t QuaternionSlerpNoAlign(Quaternion const&, Quaternion const&, float, Quaternion&)
 t RotationDeltaAxisAngle(QAngle const&, QAngle const&, Vector&, float&)
 t SetSteamUserPassphrase(KeyValues*, CSteamEnvVars&)
+t SetupMatrixTranslation(Vector const&)
 t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
 t CalcClosestPointToLineT(Vector const&, Vector const&, Vector const&, Vector&)
@@ -1404,9 +1480,12 @@ t DedicatedSpewOutputFunc(SpewType_t, char const*)
 t FileSystem_MountContent(CFSMountContentInfo&)
 t FileSystem_SetBasePaths(IFileSystem*)
 t FileSystem_SetErrorMode(FSErrorMode_t)
+t FrustumPlanesFromMatrix(VMatrix const&, Frustum_t&)
+t GenerateOrthoFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float, VPlane*)
 t GetVProjectCmdLineValue()
 t Kochanek_Bartels_Spline(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t LzmaDec_InitDicAndState(CLzmaDec*, int, int)
+t MatrixBuildPerspectiveX(VMatrix&, double, double, double, double)
 t MD5_ProcessSingleBuffer(void const*, int, MD5Value_t&)
 t QuaternionIdentityBlend(Quaternion const&, float, Quaternion&)
 t Rijndael_VC60Workaround()
@@ -1419,17 +1498,22 @@ t DisconnectTier2Libraries()
 t GetCStringCharConversion()
 t RandomVectorInUnitCircle(Vector2D*)
 t RandomVectorInUnitSphere(Vector*)
+t SetupMatrixAxisToAxisRot(Vector const&, Vector const&)
 t _SSE_VectorNormalizeFast(Vector&)
+t Vector4DMultiplyPosition(VMatrix const&, Vector const&, Vector4D&)
 t CalcClosestPointToLineT2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&)
 t CalcDistanceToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Q_RemoveAllEvilCharacters(char*)
 t ThreadInterlockedExchange(unsigned int volatile*, unsigned int)
+t Vector3DMultiplyTranspose(VMatrix const&, Vector const&, Vector&)
+t Vector4DMultiplyTranspose(VMatrix const&, Vector4D const&, Vector4D&)
 t AppSystemCreateInterfaceFn(char const*, int*)
 t Catmull_Rom_Spline_Tangent(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t FileSystem_LoadSearchPaths(CFSSearchPathsInit&)
 t GeneratePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, float, Frustum_t&)
 t GeneratePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, Frustum_t&)
 t UseOptimalBufferAllocation()
+t Vector3DMultiplyProjective(VMatrix const&, Vector const&, Vector&)
 t CalcDistanceToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, Vector&)
@@ -1439,16 +1523,20 @@ t Parabolic_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vecto
 t Sys_RunningWithDebugModules()
 t TransformAnglesToLocalSpace(QAngle const&, matrix3x4_t const&)
 t TransformAnglesToWorldSpace(QAngle const&, matrix3x4_t const&)
+t VectorPerpendicularToVector(Vector const&, Vector*)
 t CalcDistanceSqrToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Catmull_Rom_Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t FileSystem_ClearSteamEnvVars()
 t FileSystem_UseVProjectBinDir(bool)
 t findFileInDirCaseInsensitive(char const*, char*, unsigned int)
+t MatrixBuildPerspectiveZRange(VMatrix&, double, double)
+t MatrixBuildRotationAboutAxis(VMatrix&, Vector const&, float)
 t MatrixBuildRotationAboutAxis(Vector const&, float, matrix3x4_t&)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t CalcClosestPointOnLineSegment(Vector const&, Vector const&, Vector const&, Vector&, float*)
 t Catmull_Rom_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t FileSystem_GetLastErrorString()
+t GeneratePerspectiveFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, VPlane*)
 t CalcDistanceSqrToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t HashStringCaselessConventional(char const*)
 t SolveInverseQuadraticMonotonic(float, float, float, float, float, float, float&, float&, float&)
@@ -1460,14 +1548,21 @@ t FileSystem_LoadFileSystemModule(CFSLoadModuleInfo&)
 t SolveInverseReciprocalQuadratic(float, float, float, float, float, float, float&, float&, float&)
 t CalcSqrDistAndClosestPointOnAABB(Vector const&, Vector const&, Vector const&, Vector&, float&)
 t FileSystem_SetupSteamEnvironment(CFSSteamSetupInfo&)
+t MatrixBuildPerspectiveOffCenterX(VMatrix&, double, double, double, double, double, double, double, double)
 t CalcLineToLineIntersectionSegment(Vector const&, Vector const&, Vector const&, Vector const&, Vector*, Vector*, float*, float*)
+t CalculateAABBFromProjectionMatrix(VMatrix const&, Vector*, Vector*)
 t FileSystem_AddSearchPath_Platform(IFileSystem*, char const*)
 t EF_VID_ForceUnlockedAndReturnState()
 t Kochanek_Bartels_Spline_NormalizeX(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t Vector3DMultiplyPositionProjective(VMatrix const&, Vector const&, Vector&)
+t CalculateSphereFromProjectionMatrix(VMatrix const&, Vector*, float*)
 t CaselessStringLessThanIgnoreSlashes(char const* const&, char const* const&)
 t Catmull_Rom_Spline_Integral_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Q_StripPrecedingAndTrailingWhitespace(char*)
 t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
+t CalculateAABBFromProjectionMatrixInverse(VMatrix const&, Vector*, Vector*)
+t ExtractClipPlanesFromNonTransposedMatrix(VMatrix const&, VPlane*, bool)
+t CalculateSphereFromProjectionMatrixInverse(VMatrix const&, Vector*, float*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespace(char*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespaceW(wchar_t*)
 t Bias(float, float)
@@ -1536,8 +1631,8 @@ t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
 t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
-U operator delete[](void*)@@GLIBCXX_3.4
-U operator delete(void*)@@GLIBCXX_3.4
+t operator delete[](void*)
+t operator delete(void*)
 b reference temporary #0 for CryptoPP::BufferedTransformation::NULL_CHANNEL
 b guard variable for datamap_t* DataMapInit<ZIP_FileHeader>(ZIP_FileHeader*)::nameHolder
 b guard variable for datamap_t* DataMapInit<ZIP_PreloadHeader>(ZIP_PreloadHeader*)::nameHolder
@@ -1632,6 +1727,8 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
+b vec4_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
@@ -1644,7 +1741,6 @@ b vec4_origin
 b vec4_origin
 t async_resume(CCommand const&)
 t MD5Transform(unsigned int*, unsigned int const*)
-b s_bConnected
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -1676,6 +1772,8 @@ b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
+b vec2_invalid
+b vec4_invalid
 b vec4_invalid
 b vec4_invalid
 b vec4_invalid
@@ -1736,9 +1834,11 @@ b g_pBaseFileSystem
 t loader_dump_table(CCommand const&)
 r _ps_inv_sign_mask
 d s_DefaultAccessor
+b s_nConnectionCount
 t AsyncWriteJobFilter(CJob*)
 t editline_threadproc(void*)
 b g_nHighPriorityJobs
+r g_pInterfaceGlobals
 t LzmaDec_DecodeReal2(CLzmaDec*, unsigned int, unsigned char const*)
 t s_GameInfoSuggestFN(CFSSteamSetupInfo const*, char*, int, bool*)
 t StripTrailingString(char*, char const*)
@@ -1750,6 +1850,7 @@ r _ps_minus_cephes_DP1
 r _ps_minus_cephes_DP2
 r _ps_minus_cephes_DP3
 b s_bUseVProjectBinDir
+b s_nRegistrationCount
 b async_suspend_command
 d g_FileSystemErrorMode
 d s_LastFileLoadingFrom
@@ -1757,12 +1858,15 @@ t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
 t TryLocateGameInfoFile(char*, int, bool)
 t AddSeperatorAndFixPath(char*)
 t LzmaDec_AllocateProbs2(CLzmaDec*, _CLzmaProps const*, ISzAlloc*) [clone .isra.1]
-t SymmetricDecryptWorker(unsigned char const*, unsigned int, unsigned char const*, unsigned int, unsigned char*, unsigned int*, CryptoPP::BlockCipherFinal<(CryptoPP::CipherDir)1, CryptoPP::Rijndael::Dec>&) [clone .isra.59]
+b s_bPrecachesRegistered
+t SymmetricDecryptWorker(unsigned char const*, unsigned int, unsigned char const*, unsigned int, unsigned char*, unsigned int*, CryptoPP::BlockCipherFinal<(CryptoPP::CipherDir)1, CryptoPP::Rijndael::Dec>&) [clone .isra.57]
 b g_Mathlib_GammaToLinear
 b g_Mathlib_LinearToGamma
 b g_nAnonymousIOMemoryPeak
 b g_nJobsToFinishBeforePlay
 b loader_dump_table_command
+t SetupMatrixAnglesInternal(float (*) [4], QAngle const&)
+b s_pConnectionRegistration
 b s_StaticCryptoConstructor
 d s_ResourcePreloadAnonymous
 b f3
@@ -1874,7 +1978,9 @@ t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlMemory<CUtlString, int>::Grow(int)
 t CUtlMemory<CUtlString, int>::Purge()
+t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short>::Purge()
@@ -1884,14 +1990,18 @@ t CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, AsyncOpenedFile_t*, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int>::Purge()
+t CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CZipFile::CZipEntry, int>, int>::Purge()
 t CUtlMemory<CUtlHashtableEntry<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t>, int>::Purge()
 t CUtlMemory<CUtlHashtableEntry<char const*, CMemoryFileBacking*>, int>::Purge()
+t CUtlMemory<ChunkHashFraction_t, int>::Grow(int)
 t CUtlMemory<ChunkHashFraction_t, int>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CUtlString, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Grow(int)
@@ -1901,37 +2011,57 @@ t CUtlMemory<UtlLinkedListElem_t<CBaseFileSystem::FindData_t, unsigned short>, u
 t CUtlMemory<UtlLinkedListElem_t<CZip*, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<FileJob_t*, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<FileJob_t*, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<VPKContentFileInfo_t, int>::Grow(int)
+t CUtlMemory<char, int>::Grow(int)
 t CUtlMemory<char, int>::Purge()
 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
+t CUtlMemory<unsigned char, int>::Grow(int)
 t CUtlMemory<unsigned char, int>::Purge()
+t CUtlMemory<int, int>::Grow(int)
 t CUtlMemory<int, int>::Purge()
+t CUtlMemory<CZipPackFile::CPackFileEntry, int>::Grow(int)
 t CUtlMemory<CZipPackFile::CPackFileEntry, int>::Purge()
 t CUtlMemory<CAppSystemGroup::Module_t, int>::Grow(int)
 t CUtlMemory<CAppSystemGroup::Module_t, int>::Purge()
+t CUtlMemory<CBaseFileSystem::COpenedFile, int>::Grow(int)
 t CUtlMemory<CBaseFileSystem::COpenedFile, int>::Purge()
+t CUtlMemory<CBaseFileSystem::CSearchPath, int>::Grow(int)
 t CUtlMemory<CBaseFileSystem::CSearchPath, int>::Purge()
+t CUtlMemory<IAppSystem*, int>::Grow(int)
 t CUtlMemory<IAppSystem*, int>::Purge()
+t CUtlMemory<IAsyncFileFetch*, int>::Grow(int)
 t CUtlMemory<IAsyncFileFetch*, int>::Purge()
+t CUtlMemory<CFileAsyncReadJob*, int>::Grow(int)
 t CUtlMemory<CFileAsyncReadJob*, int>::Purge()
+t CUtlMemory<CFunctor*, int>::Grow(int)
 t CUtlMemory<CFunctor*, int>::Purge()
+t CUtlMemory<CPackFile*, int>::Grow(int)
 t CUtlMemory<CPackFile*, int>::Purge()
+t CUtlMemory<FileJob_t*, int>::Grow(int)
 t CUtlMemory<FileJob_t*, int>::Purge()
+t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
+t CUtlMemory<char*, int>::Grow(int)
 t CUtlMemory<char*, int>::Purge()
+t CUtlMemory<void (*)(char const*, char const*), int>::Grow(int)
 t CUtlMemory<void (*)(char const*, char const*), int>::Purge()
+t CUtlMemory<CBaseFileSystem::CPathIDInfo*, int>::Grow(int)
 t CUtlMemory<CBaseFileSystem::CPathIDInfo*, int>::Purge()
+t CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int>::Grow(int)
 t CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int>::Purge()
+t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Grow(int)
 t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Purge()
+t CUtlMemory<void*, int>::Grow(int)
 t CUtlMemory<void*, int>::Purge()
+t CUtlMemory<long long, int>::Grow(int)
 t CUtlMemory<long long, int>::Purge()
+t CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int>::Purge()
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::Insert(CachedVPKRead_t const&)
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::RemoveAll()
-t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::~CUtlRBTree()
-t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
@@ -1941,8 +2071,7 @@ t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned sho
 t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<int, CUtlStringList*, unsigned short>::Node_t const&)
-t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
-t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
+t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long, CThreadMutex*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long, CThreadMutex*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short, CUtlMap<unsigned long, CThreadMutex*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
@@ -1954,6 +2083,8 @@ t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, i
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, int, int>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RemoveAll()
+t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::~CUtlRBTree()
+t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
@@ -2028,6 +2159,8 @@ t CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> >::ShiftE
 t CUtlVector<VPKContentFileInfo_t, CUtlMemory<VPKContentFileInfo_t, int> >::InsertBefore(int)
 t CUtlVector<char, CUtlMemory<char, int> >::GrowVector(int)
 t CUtlVector<char, CUtlMemory<char, int> >::ShiftElementsRight(int, int)
+t CUtlVector<char, CUtlMemory<char, int> >::~CUtlVector()
+t CUtlVector<char, CUtlMemory<char, int> >::~CUtlVector()
 t CUtlVector<unsigned char, CUtlMemory<unsigned char, int> >::GrowVector(int)
 t CUtlVector<unsigned char, CUtlMemory<unsigned char, int> >::ShiftElementsRight(int, int)
 t CUtlVector<unsigned char, CUtlMemory<unsigned char, int> >::~CUtlVector()
@@ -2035,7 +2168,6 @@ t CUtlVector<unsigned char, CUtlMemory<unsigned char, int> >::~CUtlVector()
 t CUtlVector<unsigned char, CUtlBlockMemory<unsigned char, int> >::GrowVector(int)
 t CUtlVector<unsigned char, CUtlBlockMemory<unsigned char, int> >::ShiftElementsRight(int, int)
 t CUtlVector<int, CUtlMemory<int, int> >::GrowVector(int)
-t CUtlVector<int, CUtlMemory<int, int> >::InsertBefore(int, int const&)
 t CUtlVector<int, CUtlMemory<int, int> >::ShiftElementsRight(int, int)
 t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
 t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
@@ -2050,7 +2182,6 @@ t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPa
 t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> >::~CUtlVector()
 t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> >::~CUtlVector()
 t CUtlVector<IAppSystem*, CUtlMemory<IAppSystem*, int> >::InsertBefore(int, IAppSystem* const&)
-t CUtlVector<CFileAsyncReadJob*, CUtlMemory<CFileAsyncReadJob*, int> >::InsertBefore(int, CFileAsyncReadJob* const&)
 t CUtlVector<CPackFile*, CUtlMemory<CPackFile*, int> >::InsertBefore(int, CPackFile* const&)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::GrowVector(int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, int)
@@ -2061,12 +2192,11 @@ t CUtlVector<char*, CUtlMemory<char*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<char*, CUtlMemory<char*, int> >::Sort(int (*)(char* const*, char* const*))
 t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::GrowVector(int)
 t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::ShiftElementsRight(int, int)
-t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::InsertBefore(int, CUtlSymbolTable::StringPool_t* const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
-t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::SetCount(int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
-t CUtlVector<long long, CUtlMemory<long long, int> >::InsertBefore(int, long long const&)
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
+t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
 U CVProfNode::EnterScope()
 U CVProfNode::GetSubNode(char const*, int, char const*, int)
 U CVProfNode::ExitScope()
@@ -2108,6 +2238,8 @@ t CRefCounted<CRefCountServiceBase<true, CRefMT> >::~CRefCounted()
 t CRefCounted<CRefCountServiceBase<true, CRefMT> >::~CRefCounted()
 t CRefCounted<CRefCountServiceBase<true, CRefMT> >::~CRefCounted()
 t CTempEnvVar::SetValue(char const*, ...)
+t CTempEnvVar::~CTempEnvVar()
+t CTempEnvVar::~CTempEnvVar()
 t CTSListBase::Push(TSLNodeBase_t*)
 t CTSListBase::Detach()
 t CVCRHelpers::ErrorMessage(char const*)
@@ -2186,6 +2318,7 @@ t CZipPackFile::IndexToFilename(int, char*, int)
 t CZipPackFile::SetupPreloadData()
 t CZipPackFile::CPackFileLessFunc::Less(CZipPackFile::CPackFileEntry const&, CZipPackFile::CPackFileEntry const&, void*)
 t CZipPackFile::DiscardPreloadData()
+t CZipPackFile::GetFileAndDirLists(char const*, CUtlStringList&, CUtlStringList&, bool)
 t CZipPackFile::GetPackFileBaseOffset()
 t CZipPackFile::Prepare(long long, long long)
 t CZipPackFile::OpenFile(char const*, char const*)
@@ -2194,6 +2327,19 @@ t CZipPackFile::CZipPackFile(CBaseFileSystem*, void*)
 t CZipPackFile::~CZipPackFile()
 t CZipPackFile::~CZipPackFile()
 t CZipPackFile::~CZipPackFile()
+t fourplanes_t::Set2Planes(VPlane const*)
+t fourplanes_t::Set4Planes(VPlane const*)
+t fourplanes_t::ComputeSignbits()
+t fourplanes_t::SetPlane(int, Vector const&, float)
+t FrustumCSM_t::CreateOrthoFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float)
+t FrustumCSM_t::CreateOrthoFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float)
+t FrustumCSM_t::CreatePerspectiveFrustumFLU(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float)
+t FrustumCSM_t::SetPlane(int, Vector const&, float)
+t FrustumCSM_t::SetPlanes(VPlane const*)
+t FrustumCSM_t::FrustumCSM_t()
+t FrustumCSM_t::FrustumCSM_t()
 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
 b InterfaceReg::s_pInterfaceRegs
@@ -2230,7 +2376,7 @@ t CQueuedLoader::SubmitPendingJobs()
 t CQueuedLoader::AddResourceToTable(char const*)
 t CQueuedLoader::CompleteDynamicLoad()
 t CQueuedLoader::CResourceNameLessFunc::Less(void* const&, void* const&, void*)
-t CQueuedLoader::CResourceNameLessFunc::Less(void* const&, void* const&, void*) [clone .part.6]
+t CQueuedLoader::CResourceNameLessFunc::Less(void* const&, void* const&, void*) [clone .part.4]
 t CQueuedLoader::BuildMaterialResources(IResourcePreload*, CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >*, float*)
 t CQueuedLoader::DynamicLoadMapResource(char const*, void (*)(char const*, void*, void*), void*, void*)
 t CQueuedLoader::QueueDynamicLoadFunctor(CFunctor*)
@@ -2251,8 +2397,6 @@ t CSteamEnvVars::~CSteamEnvVars()
 U CThreadRWLock::UnlockWrite()
 U CThreadRWLock::WaitForRead()
 U CThreadRWLock::LockForWrite()
-t CThreadRWLock::~CThreadRWLock()
-t CThreadRWLock::~CThreadRWLock()
 t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoInsertUnconstructed(unsigned int, bool)
 t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::BumpEntry(unsigned int)
 t CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoRealloc(int)
@@ -2318,12 +2462,13 @@ t CUtlLinkedList<FileJob_t*, unsigned short, false, unsigned short, CUtlMemory<U
 t CUtlSortVector<ChunkHashFraction_t, ChunkHashFractionLess_t, CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> > >::Insert(ChunkHashFraction_t const&)
 t CUtlSortVector<CZipPackFile::CPackFileEntry, CZipPackFile::CPackFileLessFunc, CUtlVector<CZipPackFile::CPackFileEntry, CUtlMemory<CZipPackFile::CPackFileEntry, int> > >::InsertNoSort(CZipPackFile::CPackFileEntry const&)
 t CUtlSortVector<CZipPackFile::CPackFileEntry, CZipPackFile::CPackFileLessFunc, CUtlVector<CZipPackFile::CPackFileEntry, CUtlMemory<CZipPackFile::CPackFileEntry, int> > >::CompareHelper(CZipPackFile::CPackFileEntry const*, CZipPackFile::CPackFileEntry const*)
-t CUtlSortVector<FileJob_t*, CQueuedLoader::CFileJobsLessFunc, CUtlVector<FileJob_t*, CUtlMemory<FileJob_t*, int> > >::InsertNoSort(FileJob_t* const&)
 t CUtlSortVector<FileJob_t*, CQueuedLoader::CFileJobsLessFunc, CUtlVector<FileJob_t*, CUtlMemory<FileJob_t*, int> > >::CompareHelper(FileJob_t* const*, FileJob_t* const*)
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
 t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::CompareHelper(void* const*, void* const*)
 t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::Remove(void* const&)
-t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::RedoSort(bool) [clone .part.49]
+t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::RedoSort(bool) [clone .part.48]
 t CUtlStringList::SortFunc(char* const*, char* const*)
 t CUtlStringList::~CUtlStringList()
 t CUtlStringList::~CUtlStringList()
@@ -2459,7 +2604,6 @@ t CBaseFileSystem::CheckVPKFileHash(int, int, int, MD5Value_t&)
 t CBaseFileSystem::DestroyFileCache(void*)
 t CBaseFileSystem::FileTimeToString(char*, int, long)
 t CBaseFileSystem::FS_GetSectorSize(_IO_FILE*)
-t CBaseFileSystem::MakeSymbolicLink(char const*, char const*)
 t CBaseFileSystem::MoveOrAddVPKFile(char const*, char const*, SearchPathAdd_t)
 t CBaseFileSystem::PrintOpenedFiles()
 t CBaseFileSystem::PrintSearchPaths()
@@ -2487,7 +2631,7 @@ t CBaseFileSystem::AsyncFinishAllWrites()
 t CBaseFileSystem::CSearchPathsIterator::CopySearchPaths(CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> > const&)
 t CBaseFileSystem::CSearchPathsIterator::GetNext()
 t CBaseFileSystem::CSearchPathsIterator::GetFirst()
-t CBaseFileSystem::CSearchPathsIterator::GetFirst() [clone .part.149]
+t CBaseFileSystem::CSearchPathsIterator::GetFirst() [clone .part.151]
 t CBaseFileSystem::CSearchPathsIterator::~CSearchPathsIterator()
 t CBaseFileSystem::CSearchPathsIterator::~CSearchPathsIterator()
 t CBaseFileSystem::FindFileAbsoluteList(CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&, char const*, char const*)
@@ -2509,7 +2653,6 @@ t CBaseFileSystem::AllocOptimalReadBuffer(void*, unsigned int, unsigned int)
 t CBaseFileSystem::FullPathToRelativePath(char const*, char*, int)
 t CBaseFileSystem::GetFileTypeForFullPath(char const*, wchar_t*, unsigned int)
 t CBaseFileSystem::RelativePathToFullPath(char const*, char const*, char*, int, PathTypeFilter_t, unsigned int*)
-t CBaseFileSystem::FindNextFileInVPKHelper(CBaseFileSystem::FindData_t*)
 t CBaseFileSystem::FindSearchPathByStoreId(int)
 t CBaseFileSystem::GetFilesystemStatistics()
 t CBaseFileSystem::GetOptimalIOConstraints(void*, unsigned int*, unsigned int*, unsigned int*)
@@ -2519,7 +2662,7 @@ t CBaseFileSystem::RemoveAllMapSearchPaths()
 t CBaseFileSystem::Trace_DumpUnclosedFiles()
 t CBaseFileSystem::UnloadCompiledKeyValues()
 t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int)
-t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int) [clone .part.78]
+t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int) [clone .part.80]
 t CBaseFileSystem::RemoveAsyncCustomFetchJob(CFileAsyncReadJob*)
 t CBaseFileSystem::FindFileAbsoluteListHelper(CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&, CBaseFileSystem::FindData_t&, char const*)
 t CBaseFileSystem::GetCaseCorrectFullPath_Ptr(char const*, char*, int)
@@ -2528,6 +2671,7 @@ t CBaseFileSystem::LookupKeyValuesRootKeyName(char const*, char const*, char*, u
 t CBaseFileSystem::RegisterVPKWithFileTracker(CPackedStore*)
 t CBaseFileSystem::EnableWhitelistFileTracking(bool, bool, bool)
 t CBaseFileSystem::AsyncReadMultipleCreditAlloc(FileAsyncRequest_t const*, int, char const*, int, FSAsyncControl_t__**)
+t CBaseFileSystem::FindNextFileInVPKOrPakHelper(CBaseFileSystem::FindData_t*)
 t CBaseFileSystem::SetSearchPathIsTrustedSource(CBaseFileSystem::CSearchPath*)
 t CBaseFileSystem::Init()
 t CBaseFileSystem::IsOk(void*)
@@ -2580,8 +2724,9 @@ t CTier2AppSystem<IQueuedLoader, 0>::Disconnect()
 t CTier2AppSystem<IQueuedLoader, 0>::Init()
 t CTier2AppSystem<IQueuedLoader, 0>::Connect(void* (*)(char const*, int*))
 t CTier2AppSystem<IQueuedLoader, 0>::Shutdown()
-t CUtlBlockMemory<unsigned char, int>::Grow(int) [clone .part.68]
-t CUtlBlockMemory<unsigned char, int>::Purge() [clone .isra.36]
+t CUtlBlockMemory<unsigned char, int>::ChangeSize(int)
+t CUtlBlockMemory<unsigned char, int>::Grow(int) [clone .part.67]
+t CUtlBlockMemory<unsigned char, int>::Purge() [clone .isra.35]
 t CUtlSymbolTable::AddString(char const*)
 t CUtlSymbolTable::RemoveAll()
 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
@@ -2734,6 +2879,7 @@ t CZipPackFileHandle::~CZipPackFileHandle()
 t CZipPackFileHandle::~CZipPackFileHandle()
 t CFSMountContentInfo::CFSMountContentInfo()
 t CFSMountContentInfo::CFSMountContentInfo()
+t CUtlConstStringBase<char>::Set(char const*)
 t CUtlNoEscConversion::FindConversion(char const*, int*)
 t ZIP_LocalFileHeader::GetBaseMap()
 d ZIP_LocalFileHeader::m_DataMap
@@ -2777,6 +2923,8 @@ t CPackedStoreReadCache::~CPackedStoreReadCache()
 t CUtlCStringConversion::FindConversion(char const*, int*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
+t CBaseResourcePrecacher::RegisterAll()
+b CBaseResourcePrecacher::sm_pFirst
 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
 t CFileAsyncWriteFileJob::DoCleanup()
@@ -2899,11 +3047,12 @@ t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
 t ConVar::ChangeStringValue(char const*, float)
+t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
 t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
-t ConVar::InternalSetFloatValue(float)
+t ConVar::InternalSetFloatValue(float, bool)
 t ConVar::Init()
-t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
 t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
@@ -2912,11 +3061,13 @@ t ConVar::SetValue(char const*)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::~ConVar()
@@ -2973,6 +3124,10 @@ t CTSList<CryptoPP::AutoSeededX917RNG<CryptoPP::Rijndael> >::~CTSList()
 t CTSList<FileJob_t*>::Purge()
 t CUtlMap<unsigned long, CThreadMutex*, unsigned short>::~CUtlMap()
 t CUtlMap<unsigned long, CThreadMutex*, unsigned short>::~CUtlMap()
+t VMatrix::SetupMatrixAngles(QAngle const&)
+t VMatrix::SetupMatrixOrgAngles(Vector const&, QAngle const&)
+t VMatrix::Scale(Vector const&)
+t VMatrix::operator=(VMatrix const&)
 t CCommand::DefaultBreakSet()
 t CCommand::Reset()
 t CCommand::Tokenize(char const*, characterset_t*)
@@ -4487,16 +4642,16 @@ t CryptoPP::AllocatorWithCleanup<unsigned char, false>::reallocate(unsigned char
 t CryptoPP::AllocatorWithCleanup<unsigned char, false>::allocate(unsigned int, void const*)
 t CryptoPP::AllocatorWithCleanup<unsigned char, true>::deallocate(void*, unsigned int) [clone .isra.113]
 t CryptoPP::AllocatorWithCleanup<unsigned char, true>::deallocate(void*, unsigned int) [clone .isra.22]
-t CryptoPP::AllocatorWithCleanup<unsigned char, true>::deallocate(void*, unsigned int) [clone .isra.55]
+t CryptoPP::AllocatorWithCleanup<unsigned char, true>::deallocate(void*, unsigned int) [clone .isra.53]
 t CryptoPP::AllocatorWithCleanup<unsigned char, true>::allocate(unsigned int, void const*) [clone .isra.14]
-t CryptoPP::AllocatorWithCleanup<unsigned char, true>::allocate(unsigned int, void const*) [clone .isra.40]
+t CryptoPP::AllocatorWithCleanup<unsigned char, true>::allocate(unsigned int, void const*) [clone .isra.38]
 t CryptoPP::AllocatorWithCleanup<unsigned char, true>::allocate(unsigned int, void const*) [clone .isra.60]
 t CryptoPP::AllocatorWithCleanup<unsigned int, false>::deallocate(void*, unsigned int)
 t CryptoPP::AllocatorWithCleanup<unsigned int, false>::reallocate(unsigned int*, unsigned int, unsigned int, bool)
 t CryptoPP::AllocatorWithCleanup<unsigned int, false>::allocate(unsigned int, void const*)
 t CryptoPP::AllocatorWithCleanup<unsigned int, false>::allocate(unsigned int, void const*) [clone .isra.37]
 t CryptoPP::AllocatorWithCleanup<unsigned int, true>::deallocate(void*, unsigned int)
-t CryptoPP::AllocatorWithCleanup<unsigned int, true>::deallocate(void*, unsigned int) [clone .isra.60]
+t CryptoPP::AllocatorWithCleanup<unsigned int, true>::deallocate(void*, unsigned int) [clone .isra.58]
 t CryptoPP::AllocatorWithCleanup<unsigned int, true>::deallocate(void*, unsigned int) [clone .isra.67]
 t CryptoPP::AllocatorWithCleanup<unsigned int, true>::reallocate(unsigned int*, unsigned int, unsigned int, bool)
 t CryptoPP::AllocatorWithCleanup<unsigned int, true>::allocate(unsigned int, void const*)
@@ -5730,6 +5885,8 @@ t CryptoPP::operator<<(std::ostream&, CryptoPP::PolynomialMod2 const&)
 t CryptoPP::operator<<(std::ostream&, CryptoPP::Integer const&)
 t CryptoPP::operator+(CryptoPP::OID const&, unsigned long)
 t CryptoPP::operator>>(std::istream&, CryptoPP::Integer&)
+t CTSQueue<CachedVPKRead_t, false>::~CTSQueue()
+t CTSQueue<CachedVPKRead_t, false>::~CTSQueue()
 t CUtlDict<int, int>::Insert(char const*, int const&)
 t CUtlDict<int, int>::RemoveAll()
 t CUtlDict<int, unsigned short>::Insert(char const*, int const&)
@@ -5847,7 +6004,7 @@ t KeyValues::GetStringForSymbolGrowable(int)
 t KeyValues::GetSymbolForStringGrowable(char const*, bool)
 t KeyValues::AddSubkeyUsingKnownLastChild(KeyValues*, KeyValues*)
 t KeyValues::CreateKeyUsingKnownLastChild(char const*, KeyValues*)
-t KeyValues::Dump(IKeyValuesDumpContext*, int)
+t KeyValues::Dump(IKeyValuesDumpContext*, int, bool)
 t KeyValues::Init()
 t KeyValues::Clear()
 t KeyValues::GetInt(char const*, int)
@@ -5889,7 +6046,8 @@ t KeyValues::operator delete(void*)
 t KeyValues::operator delete(void*, int, char const*, int)
 t KeyValues::operator new(unsigned int)
 t KeyValues::operator new(unsigned int, int, char const*, int)
-U operator new[](unsigned int)@@GLIBCXX_3.4
+t operator new[](unsigned int)
+t operator new[](unsigned int, int, char const*, int)
 t ConCommand::IsCommand() const
 t CUtlRBTree<CachedVPKRead_t, unsigned short, bool (*)(CachedVPKRead_t const&, CachedVPKRead_t const&), CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short> >::Find(CachedVPKRead_t const&) const
 t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
@@ -5931,9 +6089,29 @@ t CEmptyConVar::GetName() const
 t CEmptyConVar::IsFlagSet(int) const
 t CPackedStore::CheckSignature(int, void const*) const
 t CPackedStore::GetDataFileName(char*, int, int) const
-t CPackedStore::GetDataFileName(char*, int, int) const [clone .part.9]
+t CPackedStore::GetDataFileName(char*, int, int) const [clone .part.7]
 t CPackedStore::GetPackFileName(CPackedStoreFileHandle&, char*, int) const
 t CPackedStore::IsEmpty() const
+t fourplanes_t::Get2Planes(VPlane*) const
+t fourplanes_t::Get4Planes(VPlane*) const
+t fourplanes_t::GetPlane(int, Vector*, float*) const
+t FrustumCSM_t::GetCorners(Vector*) const
+t FrustumCSM_t::Intersects(Vector const&, Vector const&) const
+t FrustumCSM_t::Intersects(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::Intersects(float __vector const&, float __vector const&) const
+t FrustumCSM_t::Intersects(FrustumCSM_t&) const
+t FrustumCSM_t::CullBoxCenterExtents(Vector const&, Vector const&) const
+t FrustumCSM_t::CullBoxCenterExtents(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::CullBoxCenterExtents(float __vector const&, float __vector const&) const
+t FrustumCSM_t::IntersectsCenterExtents(Vector const&, Vector const&) const
+t FrustumCSM_t::IntersectsCenterExtents(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::IntersectsCenterExtents(float __vector const&, float __vector const&) const
+t FrustumCSM_t::CullBox(Vector const&, Vector const&) const
+t FrustumCSM_t::CullBox(float __vector(4) const&, float __vector(4) const&) const
+t FrustumCSM_t::CullBox(float __vector const&, float __vector const&) const
+t FrustumCSM_t::Contains(Vector const&, Vector const&) const
+t FrustumCSM_t::GetPlane(int, Vector*, float*) const
+t FrustumCSM_t::GetPlanes(VPlane*) const
 t CFileAsyncJob::IsWrite() const
 t CQueuedLoader::IsBatching() const
 t CQueuedLoader::IsFinished() const
@@ -5942,7 +6120,7 @@ t CQueuedLoader::GetSpewDetail() const
 t CQueuedLoader::IsSameMapLoading() const
 t CQueuedLoader::IsDynamic() const
 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
-t unsigned int CUtlHashtable<char const*, CMemoryFileBacking*, DefaultHashFunctor<char const*>, DefaultEqualFunctor<char const*>, undefined_t>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.134]
+t unsigned int CUtlHashtable<char const*, CMemoryFileBacking*, DefaultHashFunctor<char const*>, DefaultEqualFunctor<char const*>, undefined_t>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.136]
 t ConCommandBase::GetHelpText() const
 t ConCommandBase::IsRegistered() const
 t ConCommandBase::GetDLLIdentifier() const
@@ -5974,6 +6152,8 @@ t CUtlCharConversion::GetConversionString(char) const
 t CUtlCharConversion::MaxConversionLength() const
 t CSteamAppSystemGroup::GetGameInfoPath() const
 t CFileAsyncAppendFileJob::IsWrite() const
+t ConVar::GetCompMax(float&) const
+t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
@@ -5982,6 +6162,18 @@ t ConVar::GetMin(float&) const
 t ConVar::GetName() const
 t ConVar::IsCommand() const
 t ConVar::IsFlagSet(int) const
+t VMatrix::Transpose3x3() const
+t VMatrix::InverseGeneral(VMatrix&) const
+t VMatrix::IsRotationMatrix() const
+t VMatrix::NormalizeBasisVectors() const
+t VMatrix::GetScale() const
+t VMatrix::InverseTR(VMatrix&) const
+t VMatrix::InverseTR() const
+t VMatrix::MatrixMul(VMatrix const&, VMatrix&) const
+t VMatrix::Transpose() const
+t VMatrix::operator==(VMatrix const&) const
+t VMatrix::operator*(VPlane const&) const
+t VMatrix::operator*(VMatrix const&) const
 t CCommand::FindArgInt(char const*, int) const
 t CCommand::FindArg(char const*) const
 t CryptoPP::ASN1Object::BEREncode(CryptoPP::BufferedTransformation&) const
@@ -6984,7 +7176,7 @@ t CryptoPP::PK_SignatureMessageEncodingMethod::ProcessSemisignature(CryptoPP::Ha
 t CryptoPP::PK_SignatureMessageEncodingMethod::RecoverablePartFirst() const
 t CryptoPP::PK_SignatureMessageEncodingMethod::AllowNonrecoverablePart() const [clone .isra.142]
 t CryptoPP::PK_SignatureMessageEncodingMethod::AllowNonrecoverablePart() const [clone .isra.26]
-t CryptoPP::PK_SignatureMessageEncodingMethod::AllowNonrecoverablePart() const [clone .isra.37]
+t CryptoPP::PK_SignatureMessageEncodingMethod::AllowNonrecoverablePart() const [clone .isra.35]
 t CryptoPP::PK_SignatureMessageEncodingMethod::AllowNonrecoverablePart() const [clone .isra.51]
 t CryptoPP::PK_SignatureMessageEncodingMethod::AllowNonrecoverablePart() const [clone .isra.60]
 t CryptoPP::PK_SignatureMessageEncodingMethod::ProcessRecoverableMessage(CryptoPP::HashTransformation&, unsigned char const*, unsigned int, unsigned char const*, unsigned int, CryptoPP::SecBlock<unsigned char, CryptoPP::AllocatorWithCleanup<unsigned char, false> >&) const
@@ -7326,7 +7518,8 @@ U std::ios_base::Init::~Init()@@GLIBCXX_3.4
 U std::bad_alloc::~bad_alloc()@@GLIBCXX_3.4
 U std::exception::~exception()@@GLIBCXX_3.4
 U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
-U operator new(unsigned int)@@GLIBCXX_3.4
+t operator new(unsigned int)
+t operator new(unsigned int, int, char const*, int)
 t void std::__push_heap<__gnu_cxx::__normal_iterator<CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer>*, std::vector<CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer>, std::allocator<CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer> > > >, int, CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer> >(__gnu_cxx::__normal_iterator<CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer>*, std::vector<CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer>, std::allocator<CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer> > > >, int, int, CryptoPP::BaseAndExponent<CryptoPP::Integer, CryptoPP::Integer>)
 t void std::__push_heap<__gnu_cxx::__normal_iterator<CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer>*, std::vector<CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer>, std::allocator<CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer> > > >, int, CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer> >(__gnu_cxx::__normal_iterator<CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer>*, std::vector<CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer>, std::allocator<CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer> > > >, int, int, CryptoPP::BaseAndExponent<CryptoPP::ECPPoint, CryptoPP::Integer>)
 t void std::__push_heap<__gnu_cxx::__normal_iterator<CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer>*, std::vector<CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer>, std::allocator<CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer> > > >, int, CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer> >(__gnu_cxx::__normal_iterator<CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer>*, std::vector<CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer>, std::allocator<CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer> > > >, int, int, CryptoPP::BaseAndExponent<CryptoPP::EC2NPoint, CryptoPP::Integer>)

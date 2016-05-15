@@ -18,7 +18,6 @@ U ctime@@GLIBC_2.0
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
-B cvar
 U __cxa_allocate_exception@@CXXABI_1.3
 U __cxa_atexit@@GLIBC_2.1.3
 U __cxa_begin_catch@@CXXABI_1.3
@@ -71,6 +70,7 @@ U getcwd@@GLIBC_2.0
 U getenv@@GLIBC_2.0
 U gettimeofday@@GLIBC_2.0
 w __gmon_start__
+U g_pMemAlloc
 U g_pThreadPool
 U g_pVCR
 U g_VProfCurrentProfile
@@ -128,7 +128,6 @@ U raise@@GLIBC_2.0
 U RandomInt
 U readdir@@GLIBC_2.0
 U read@@GLIBC_2.0
-U realloc@@GLIBC_2.0
 U realpath@@GLIBC_2.3
 U ReleaseThreadHandle
 U rename@@GLIBC_2.0
@@ -209,8 +208,6 @@ U DevWarning(char const*, ...)
 U ConColorMsg(Color const&, char const*, ...)
 U ConMsg(char const*, ...)
 U DevMsg(char const*, ...)
-U operator delete[](void*)@@GLIBCXX_3.4
-U operator delete(void*)@@GLIBCXX_3.4
 U CVProfNode::EnterScope()
 U CVProfNode::GetSubNode(char const*, int, char const*, int)
 U CVProfNode::ExitScope()
@@ -228,7 +225,6 @@ U CThreadSpinRWLock::LockForRead()
 U CThreadSpinRWLock::UnlockWrite()
 U CThreadSpinRWLock::SpinLockForWrite(unsigned int)
 U CThreadSyncObject::~CThreadSyncObject()
-U operator new[](unsigned int)@@GLIBCXX_3.4
 U CThreadLocalBase::Get() const
 U std::istream::read(char*, int)@@GLIBCXX_3.4
 U std::istream::putback(char)@@GLIBCXX_3.4
@@ -253,7 +249,6 @@ U std::ios_base::Init::~Init()@@GLIBCXX_3.4
 U std::bad_alloc::~bad_alloc()@@GLIBCXX_3.4
 U std::exception::~exception()@@GLIBCXX_3.4
 U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
-U operator new(unsigned int)@@GLIBCXX_3.4
 U std::set_new_handler(void (*)())@@GLIBCXX_3.4
 U std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, int)@@GLIBCXX_3.4.9
 U std::__throw_bad_alloc()@@GLIBCXX_3.4

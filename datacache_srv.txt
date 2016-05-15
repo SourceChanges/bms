@@ -4,6 +4,8 @@ d adds.8776
 t base_from_cb_data.isra.4
 t base_from_object.isra.3
 A __bss_start
+t _calloc_dbg
+t _calloc_dbg_impl
 U chdir@@GLIBC_2.0
 t classify_object_over_fdes
 b colorcorrection
@@ -13,7 +15,7 @@ T CreateInterface
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
-B cvar
+b cvar
 U __cxa_atexit@@GLIBC_2.1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
@@ -43,6 +45,7 @@ A _end
 U Error
 t execute_cfa_program
 t execute_stack_op
+t _expand_dbg
 t fde_mixed_encoding_compare
 t fde_single_encoding_compare
 t fde_unencoded_compare
@@ -55,6 +58,7 @@ b frame_hdr_cache
 b frame_hdr_cache_head
 t frame_heapsort
 t __frame_state_for
+t _free_dbg
 U free@@GLIBC_2.0
 b g_ActivityModifiersTable
 b g_AsyncInfoMap
@@ -63,12 +67,13 @@ b g_DataCache
 t get_cie_encoding
 U getcwd@@GLIBC_2.0
 a _GLOBAL_OFFSET_TABLE_
-t _GLOBAL__sub_I_cvar
 t _GLOBAL__sub_I_g_DataCache
-t _GLOBAL__sub_I_g_pFullFileSystem
-t _GLOBAL__sub_I_g_pStudioRender
+t _GLOBAL__sub_I_g_PrecacheSystem
+t _GLOBAL__sub_I_g_ResourceAccessControl
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z18GetModSubdirectoryPKcPci
+t _GLOBAL__sub_I__Z21ConnectTier1LibrariesPPFPvPKcPiEi
+t _GLOBAL__sub_I__Z21ConnectTier3LibrariesPPFPvPKcPiEi
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
 t _GLOBAL__sub_I__ZN10CUtlString11AllocMemoryEj
 t _GLOBAL__sub_I__ZN10CUtlSymbol14s_pSymbolTableE
@@ -78,24 +83,34 @@ t _GLOBAL__sub_I__ZN14CUtlMemoryPool12g_ReportFuncE
 t _GLOBAL__sub_I__ZN14StudioByteSwap20ActivateByteSwappingEb
 t _GLOBAL__sub_I__ZN16CDataManagerBaseC2Ej
 t _GLOBAL__sub_I__ZN19CModelLookupContextC2EiPK11studiohdr_t
+t _GLOBAL__sub_I__ZN22CBaseResourcePrecacher9sm_pFirstE
 t _GLOBAL__sub_I__ZN9CByteswap23SwapFieldToTargetEndianEPvS0_P17typedescription_t
 t _GLOBAL__sub_I__ZNK11studiohdr_t9pAnimdescEi
 w __gmon_start__
+b g_nResourceFrameCount
 b g_pCVar
 b g_pDataCache
 b g_pDmeMakefileUtils
 b g_pFullFileSystem
 b g_pInputSystem
+b g_pLocalize
 b g_pMaterialSystem
 b g_pMaterialSystemDebugTextureInfo
 b g_pMaterialSystemHardwareConfig
 b g_pMatSystemSurface
 b g_pMDLCache
+U g_pMemAlloc
 b g_pNetworkSystem
 b g_pPhysicsCollision
+b g_pPrecacheSystem
 b g_pProcessUtils
 b g_pQueuedLoader
+b g_PrecacheSystem
+b g_pRenderDevice
+b g_pRenderHardwareConfig
+b g_pResourceAccessControl
 b g_pSoundEmitterSystem
+b g_pSoundSystem
 b g_pStudioRender
 b g_pUtlSortVectorQSortContext
 b g_pVGui
@@ -107,6 +122,7 @@ b g_pVGuiSurface
 b g_pVGuiSystem
 b g_pVideo
 b g_pVTex
+b g_ResourceAccessControl
 b g_VBAllocTracker
 U g_VProfCurrentProfile
 U __gxx_personality_v0@@CXXABI_1.3
@@ -231,18 +247,20 @@ t .L69
 t .L70
 t .L71
 t linear_search_fdes
+t _malloc_dbg
 U malloc@@GLIBC_2.0
 b marker.8514
 b materials
 U mbstowcs@@GLIBC_2.0
 b mdlcache
 b mdllib
-U memalign@@GLIBC_2.0
 U memcmp@@GLIBC_2.0
 U memcpy@@GLIBC_2.0
 U memmove@@GLIBC_2.0
 U memset@@GLIBC_2.0
 U Msg
+t _msize_dbg
+t _nh_malloc_dbg
 b object_mutex
 b once_regsizes.8974
 b p4
@@ -265,7 +283,7 @@ U raise@@GLIBC_2.0
 t read_encoded_value_with_base
 t read_sleb128
 t read_sleb128
-U realloc@@GLIBC_2.0
+t _realloc_dbg
 t __register_frame
 t __register_frame_info
 t __register_frame_info_bases
@@ -284,7 +302,6 @@ U strcasecmp@@GLIBC_2.0
 U strchr@@GLIBC_2.0
 U strcmp@@GLIBC_2.0
 U strcpy@@GLIBC_2.0
-U strdup@@GLIBC_2.0
 U strftime@@GLIBC_2.0
 U strlen@@GLIBC_2.0
 U strncasecmp@@GLIBC_2.0
@@ -493,17 +510,20 @@ t V_StripExtension(char const*, char*, int)
 t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
 t CharacterSetBuild(characterset_t*, char const*)
+t ConnectInterfaces(void* (**)(char const*, int*), int)
 t ConVar_PrintFlags(ConCommandBase const*)
 t ConVar_Unregister()
 t GetAsyncInfoIndex(unsigned short, MDLCacheDataType_t, int)
 t Q_UnicodeValidate(char const*)
 t Q_UnicodeValidate(unsigned short const*)
 t Q_UnicodeValidate(wchar_t const*)
+t RegisterInterface(void* (*)(char const*, int*), char const*, void**)
 t SetAsyncInfoIndex(unsigned short, MDLCacheDataType_t, int, int)
 t StringAfterPrefix(char const*, char const*)
 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
 t V_ComposeFileName(char const*, char const*, char*, int)
 t V_ExtractFilePath(char const*, char*, int)
+t V_StringToColor32(color32_s*, char const*)
 t ComputeModFilename(char const*, char*, unsigned int)
 t CreateX360Filename(char const*, char*, int)
 t GetModSubdirectory(char const*, char*, int)
@@ -514,6 +534,8 @@ t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertError
 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t ReconnectInterface(void* (*)(char const*, int*), char const*)
+t ReconnectInterface(void* (*)(char const*, int*), char const*, void**)
 t Sys_GetFactoryThis()
 t V_DefaultExtension(char*, char const*, int)
 t V_FixDoubleSlashes(char*)
@@ -521,6 +543,7 @@ t V_GetFileExtension(char const*)
 t V_MakeAbsolutePath(char*, int, char const*, char const*)
 t V_MakeRelativePath(char const*, char const*, char*, int)
 t V_RemoveDotSlashes(char*, char, bool)
+t V_StringToIntArray(int*, int, char const*)
 t Q_UChar32ToUTF16Len(wchar_t)
 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
 t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
@@ -528,6 +551,7 @@ t Q_URLEncodeInternal(char*, int, char const*, int, bool)
 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t DisconnectInterfaces()
 t MurmurHash2LowerCase(char const*, unsigned int)
 t V_StripTrailingSlash(char*)
 t ConnectTier1Libraries(void* (**)(char const*, int*), int)
@@ -601,8 +625,8 @@ t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
 t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
-U operator delete[](void*)@@GLIBCXX_3.4
-U operator delete(void*)@@GLIBCXX_3.4
+t operator delete[](void*)
+t operator delete(void*)
 b guard variable for datamap_t* DataMapInit<phyheader_s>(phyheader_s*)::nameHolder
 b guard variable for datamap_t* DataMapInit<studiohdr_t>(studiohdr_t*)::nameHolder
 b guard variable for datamap_t* DataMapInit<studiohdr2_t>(studiohdr2_t*)::nameHolder
@@ -701,13 +725,12 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
+b vec2_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
-b vec4_origin
-b vec4_origin
-b s_bConnected
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -725,8 +748,8 @@ b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
-b vec4_invalid
-b vec4_invalid
+b vec2_invalid
+b vec2_invalid
 b vec4_invalid
 b vec4_invalid
 b vec4_invalid
@@ -747,14 +770,22 @@ d s_DefaultAccessor
 d g_ModelLookupIndex
 b mod_load_fakestall
 b mod_load_showstall
+b s_nConnectionCount
+r g_pInterfaceGlobals
 b mod_load_mesh_async
+b res_restrict_access
+r s_pResourceTypeName
 b g_CleanupSymbolTable
 b mod_load_anims_async
+b s_nRegistrationCount
 b mod_lock_mdls_on_load
+r s_pResourceSystemName
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
 t MdlcacheCreateCallback(char const*, char const*, char const*, void*)
 b mod_test_not_available
+b s_bPrecachesRegistered
 b mod_load_vcollide_async
+b s_pConnectionRegistration
 b mod_test_mesh_not_available
 b mod_test_verts_not_available
 t ReleaseMaterialSystemObjects()
@@ -767,6 +798,10 @@ t __CreateCDataCacheIDataCache_interface()
 b __g_CreateCMDLCacheIStudioDataCache_reg
 d s_pConversionArrays_StringCharConversion
 t __CreateCMDLCacheIStudioDataCache_interface()
+b __g_CreateCPrecacheSystemIPrecacheSystem_reg
+t __CreateCPrecacheSystemIPrecacheSystem_interface()
+b __g_CreateCResourceAccessControlIResourceAccessControl_reg
+t __CreateCResourceAccessControlIResourceAccessControl_interface()
 b NO_ASYNC
 b r_rootlod
 t CDataCache::AddSection(IDataCacheClient*, char const*, DataCacheLimits_t const&, bool)
@@ -892,9 +927,13 @@ t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlMemory<CUtlString, int>::Grow(int)
 t CUtlMemory<CUtlString, int>::Purge()
+t CUtlMemory<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, int>::Purge()
+t CUtlMemory<modellookup_t, int>::Grow(int)
 t CUtlMemory<modellookup_t, int>::Purge()
+t CUtlMemory<virtualgroup_t, int>::Grow(int)
 t CUtlMemory<virtualgroup_t, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Purge()
@@ -904,24 +943,44 @@ t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, studiodata_t*, unsigned short>
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short>::Purge()
+t CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int>::Purge()
+t CUtlMemory<virtualgeneric_t, int>::Grow(int)
 t CUtlMemory<virtualgeneric_t, int>::Purge()
+t CUtlMemory<virtualsequence_t, int>::Grow(int)
 t CUtlMemory<virtualsequence_t, int>::Purge()
 t CUtlMemory<CUtlHashtableEntry<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t>, int>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CUtlConstStringBase<char>, empty_t>, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CUtlMultiList<CDataManagerBase::resource_lru_element_t, unsigned short>::List_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
+t CUtlMemory<unsigned char, int>::Grow(int)
 t CUtlMemory<unsigned char, int>::Purge()
+t CUtlMemory<int, int>::Grow(int)
 t CUtlMemory<int, int>::Purge()
+t CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int>::Grow(int)
 t CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int>::Purge()
+t CUtlMemory<CUtlMultiList<CDataManagerBase::resource_lru_element_t, unsigned short>::ListElem_t, int>::Grow(int)
+t CUtlMemory<CUtlMultiList<CDataManagerBase::resource_lru_element_t, unsigned short>::ListElem_t, int>::Purge()
+t CUtlMemory<CResourceAccessControl::ResourceInfo_t, int>::Grow(int)
+t CUtlMemory<CResourceAccessControl::ResourceInfo_t, int>::Purge()
+t CUtlMemory<memhandle_t__*, int>::Grow(int)
 t CUtlMemory<memhandle_t__*, int>::Purge()
+t CUtlMemory<ResourceList_t__*, int>::Grow(int)
+t CUtlMemory<ResourceList_t__*, int>::Purge()
+t CUtlMemory<CDataCacheSection*, int>::Grow(int)
 t CUtlMemory<CDataCacheSection*, int>::Purge()
+t CUtlMemory<IMaterial*, int>::Grow(int)
 t CUtlMemory<IMaterial*, int>::Purge()
+t CUtlMemory<char*, int>::Grow(int)
 t CUtlMemory<char*, int>::Purge()
+t CUtlMemory<studiohdr_t const*, int>::Grow(int)
 t CUtlMemory<studiohdr_t const*, int>::Purge()
+t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Grow(int)
 t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Purge()
+t CUtlMemory<void*, int>::Grow(int)
 t CUtlMemory<void*, int>::Purge()
+t CUtlMemory<unsigned short, int>::Grow(int)
 t CUtlMemory<unsigned short, int>::Purge()
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -942,19 +1001,22 @@ t CUtlRBTree<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsign
 t CUtlRBTree<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, studiodata_t*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, studiodata_t*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, studiodata_t*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
+t CUtlRBTree<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, studiodata_t*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
+t CUtlRBTree<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, studiodata_t*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, studiodata_t*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::RotateLeft(short)
 t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::RotateRight(short)
 t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::InsertRebalance(short)
 t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::Insert(CUtlMap<char const*, short, short>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::RemoveAll()
+t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::~CUtlRBTree()
+t CUtlRBTree<CUtlMap<char const*, short, short>::Node_t, short, CUtlMap<char const*, short, short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, short, short>::Node_t, short>, short> >::~CUtlRBTree()
 t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::RotateLeft(int)
 t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::RotateRight(int)
 t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::Insert(memhandle_t__* const&)
 t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::NewNode()
-t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::~CUtlRBTree()
-t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::~CUtlRBTree()
+t CUtlRBTree<memhandle_t__*, int, bool (*)(memhandle_t__* const&, memhandle_t__* const&), CUtlMemory<UtlRBTreeNode_t<memhandle_t__*, int>, int> >::RemoveAll()
 t CUtlString::FixSlashes(char)
 t CUtlString::AllocMemory(unsigned int)
 t CUtlString::GetForModify()
@@ -994,12 +1056,18 @@ d CUtlSymbol::s_bAllowStaticSymbolTable
 t CUtlSymbol::CurrTable()
 t CUtlSymbol::CUtlSymbol(char const*)
 t CUtlSymbol::CUtlSymbol(char const*)
+t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
+t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::RemoveAll()
+t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::~CUtlVector()
+t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::~CUtlVector()
 t CUtlVector<modellookup_t, CUtlMemory<modellookup_t, int> >::InsertBefore(int)
 t CUtlVector<modellookup_t, CUtlMemory<modellookup_t, int> >::~CUtlVector()
 t CUtlVector<modellookup_t, CUtlMemory<modellookup_t, int> >::~CUtlVector()
 t CUtlVector<virtualgroup_t, CUtlMemory<virtualgroup_t, int> >::InsertBefore(int)
 t CUtlVector<virtualgroup_t, CUtlMemory<virtualgroup_t, int> >::RemoveAll()
+t CUtlVector<virtualgroup_t, CUtlMemory<virtualgroup_t, int> >::~CUtlVector()
+t CUtlVector<virtualgroup_t, CUtlMemory<virtualgroup_t, int> >::~CUtlVector()
 t CUtlVector<virtualgeneric_t, CUtlMemory<virtualgeneric_t, int> >::GrowVector(int)
 t CUtlVector<virtualgeneric_t, CUtlMemory<virtualgeneric_t, int> >::InsertBefore(int, virtualgeneric_t const&)
 t CUtlVector<virtualgeneric_t, CUtlMemory<virtualgeneric_t, int> >::ShiftElementsRight(int, int)
@@ -1013,18 +1081,22 @@ t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
 t CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >::GrowVector(int)
 t CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >::ShiftElementsRight(int, int)
 t CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >::operator=(CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> > const&)
+t CUtlVector<CResourceAccessControl::ResourceInfo_t, CUtlMemory<CResourceAccessControl::ResourceInfo_t, int> >::InsertBefore(int)
+t CUtlVector<CResourceAccessControl::ResourceInfo_t, CUtlMemory<CResourceAccessControl::ResourceInfo_t, int> >::RemoveAll()
 t CUtlVector<memhandle_t__*, CUtlMemory<memhandle_t__*, int> >::InsertBefore(int, memhandle_t__* const&)
-t CUtlVector<CDataCacheSection*, CUtlMemory<CDataCacheSection*, int> >::InsertBefore(int, CDataCacheSection* const&)
-t CUtlVector<IMaterial*, CUtlMemory<IMaterial*, int> >::InsertBefore(int, IMaterial* const&)
+t CUtlVector<ResourceList_t__*, CUtlMemory<ResourceList_t__*, int> >::EnsureCount(int)
+t CUtlVector<ResourceList_t__*, CUtlMemory<ResourceList_t__*, int> >::~CUtlVector()
+t CUtlVector<ResourceList_t__*, CUtlMemory<ResourceList_t__*, int> >::~CUtlVector()
 t CUtlVector<IMaterial*, CUtlMemory<IMaterial*, int> >::~CUtlVector()
 t CUtlVector<IMaterial*, CUtlMemory<IMaterial*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
-t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::InsertBefore(int, CUtlSymbolTable::StringPool_t* const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::InsertBefore(int, void* const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
 t CUtlVector<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, CUtlMemory<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, int> >::SetCount(int)
 t CUtlVector<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, CUtlMemory<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, int> >::RemoveAll()
+t CUtlVector<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, CUtlMemory<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, int> >::~CUtlVector()
+t CUtlVector<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, CUtlMemory<CUtlVector<CStudioHdr::CActivityToSequenceMapping::HashValueType, CUtlMemory<CStudioHdr::CActivityToSequenceMapping::HashValueType, int> >, int> >::~CUtlVector()
 U CVProfNode::EnterScope()
 U CVProfNode::GetSubNode(char const*, int, char const*, int)
 U CVProfNode::ExitScope()
@@ -1061,7 +1133,6 @@ t CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
 t CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
 U CThreadEvent::Set()
 U CThreadEvent::CThreadEvent(bool)
-t CUtlHashFast<memhandle_t__*, CUtlHashFastNoHash>::Init(int)
 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
 b InterfaceReg::s_pInterfaceRegs
@@ -1100,6 +1171,16 @@ t CBaseAppSystem<IDataCache>::QueryInterface(char const*)
 t CBaseAppSystem<IDataCache>::Init()
 t CBaseAppSystem<IDataCache>::Connect(void* (*)(char const*, int*))
 t CBaseAppSystem<IDataCache>::Shutdown()
+t CBaseAppSystem<IPrecacheSystem>::Disconnect()
+t CBaseAppSystem<IPrecacheSystem>::QueryInterface(char const*)
+t CBaseAppSystem<IPrecacheSystem>::Init()
+t CBaseAppSystem<IPrecacheSystem>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IPrecacheSystem>::Shutdown()
+t CBaseAppSystem<IResourceAccessControl>::Disconnect()
+t CBaseAppSystem<IResourceAccessControl>::QueryInterface(char const*)
+t CBaseAppSystem<IResourceAccessControl>::Init()
+t CBaseAppSystem<IResourceAccessControl>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IResourceAccessControl>::Shutdown()
 t CBaseAppSystem<IMDLCache>::Disconnect()
 t CBaseAppSystem<IMDLCache>::QueryInterface(char const*)
 t CBaseAppSystem<IMDLCache>::Init()
@@ -1255,10 +1336,25 @@ t virtualmodel_t::AppendAnimations(int, studiohdr_t const*)
 t virtualmodel_t::AppendAttachments(int, studiohdr_t const*)
 t virtualmodel_t::AppendPoseParameters(int, studiohdr_t const*)
 t virtualmodel_t::UpdateAutoplaySequences(studiohdr_t const*)
+t CPrecacheSystem::UncacheAll(IPrecacheHandler*)
+t CPrecacheSystem::LimitResourceAccess(PrecacheSystem_t, char const*)
+t CPrecacheSystem::EndLimitedResourceAccess()
+t CPrecacheSystem::Cache(IPrecacheHandler*, PrecacheSystem_t, char const*, bool, ResourceList_t__*, bool)
+t CPrecacheSystem::Register(IResourcePrecacher*, PrecacheSystem_t)
+t CPrecacheSystem::~CPrecacheSystem()
+t CPrecacheSystem::~CPrecacheSystem()
 t CTier1AppSystem<IDataCache, 0>::Disconnect()
 t CTier1AppSystem<IDataCache, 0>::Init()
 t CTier1AppSystem<IDataCache, 0>::Connect(void* (*)(char const*, int*))
 t CTier1AppSystem<IDataCache, 0>::Shutdown()
+t CTier1AppSystem<IPrecacheSystem, 0>::Disconnect()
+t CTier1AppSystem<IPrecacheSystem, 0>::Init()
+t CTier1AppSystem<IPrecacheSystem, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IPrecacheSystem, 0>::Shutdown()
+t CTier1AppSystem<IResourceAccessControl, 0>::Disconnect()
+t CTier1AppSystem<IResourceAccessControl, 0>::Init()
+t CTier1AppSystem<IResourceAccessControl, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IResourceAccessControl, 0>::Shutdown()
 t CTier1AppSystem<IMDLCache, 0>::Disconnect()
 t CTier1AppSystem<IMDLCache, 0>::Init()
 t CTier1AppSystem<IMDLCache, 0>::Connect(void* (*)(char const*, int*))
@@ -1267,6 +1363,10 @@ t CTier2AppSystem<IDataCache, 0>::Disconnect()
 t CTier2AppSystem<IDataCache, 0>::Init()
 t CTier2AppSystem<IDataCache, 0>::Connect(void* (*)(char const*, int*))
 t CTier2AppSystem<IDataCache, 0>::Shutdown()
+t CTier2AppSystem<IPrecacheSystem, 0>::Disconnect()
+t CTier2AppSystem<IPrecacheSystem, 0>::Init()
+t CTier2AppSystem<IPrecacheSystem, 0>::Connect(void* (*)(char const*, int*))
+t CTier2AppSystem<IPrecacheSystem, 0>::Shutdown()
 t CTier2AppSystem<IMDLCache, 0>::Disconnect()
 t CTier2AppSystem<IMDLCache, 0>::Init()
 t CTier2AppSystem<IMDLCache, 0>::Connect(void* (*)(char const*, int*))
@@ -1275,7 +1375,7 @@ t CTier3AppSystem<IDataCache, 0>::Disconnect()
 t CTier3AppSystem<IDataCache, 0>::Connect(void* (*)(char const*, int*))
 t CTier3AppSystem<IMDLCache, 0>::Disconnect()
 t CTier3AppSystem<IMDLCache, 0>::Connect(void* (*)(char const*, int*))
-t CUtlFixedMemory<UtlLinkedListElem_t<CUtlHashFast<memhandle_t__*, CUtlHashFastNoHash>::HashFastData_t_<memhandle_t__*>, int> >::Purge() [clone .isra.42]
+t CUtlFixedMemory<UtlLinkedListElem_t<CUtlHashFast<memhandle_t__*, CUtlHashFastNoHash>::HashFastData_t_<memhandle_t__*>, int> >::Purge() [clone .isra.43]
 t CUtlSymbolTable::AddString(char const*)
 t CUtlSymbolTable::RemoveAll()
 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
@@ -1433,6 +1533,7 @@ t CModelLookupContext::CModelLookupContext(int, studiohdr_t const*)
 t CModelLookupContext::CModelLookupContext(int, studiohdr_t const*)
 t CModelLookupContext::~CModelLookupContext()
 t CModelLookupContext::~CModelLookupContext()
+t CUtlConstStringBase<char>::Set(char const*)
 t CUtlNoEscConversion::FindConversion(char const*, int*)
 t mstudioattachment_t::GetBaseMap()
 d mstudioattachment_t::m_DataMap
@@ -1453,8 +1554,22 @@ t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharC
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t mstudioanimsections_t::GetBaseMap()
 d mstudioanimsections_t::m_DataMap
+t CBaseResourcePrecacher::RegisterAll()
+b CBaseResourcePrecacher::sm_pFirst
 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
 t CCleanupUtlSymbolTable::~CCleanupUtlSymbolTable()
+t CResourceAccessControl::AddResource(ResourceList_t__*, ResourceTypeOld_t, char const*)
+t CResourceAccessControl::LimitAccess(ResourceList_t__*)
+t CResourceAccessControl::IsAccessAllowed(ResourceTypeOld_t, char const*)
+t CResourceAccessControl::FixupResourceName(char const*, char*, int)
+t CResourceAccessControl::CreateResourceList(char const*)
+t CResourceAccessControl::DestroyAllResourceLists()
+t CResourceAccessControl::FindOrAddCurrentThreadID()
+t CResourceAccessControl::Shutdown()
+t CResourceAccessControl::CResourceAccessControl()
+t CResourceAccessControl::CResourceAccessControl()
+t CResourceAccessControl::~CResourceAccessControl()
+t CResourceAccessControl::~CResourceAccessControl()
 t mstudioanim_valueptr_t::GetBaseMap()
 d mstudioanim_valueptr_t::m_DataMap
 t mstudioposeparamdesc_t::GetBaseMap()
@@ -1561,11 +1676,12 @@ t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
 t ConVar::ChangeStringValue(char const*, float)
+t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
 t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
-t ConVar::InternalSetFloatValue(float)
+t ConVar::InternalSetFloatValue(float, bool)
 t ConVar::Init()
-t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
 t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
@@ -1574,11 +1690,13 @@ t ConVar::SetValue(char const*)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
 t ConVar::~ConVar()
@@ -1700,7 +1818,6 @@ t CMDLCache::EndLock()
 t CMDLCache::FindMDL(char const*)
 t CMDLCache::Release(unsigned short)
 t CMDLCache::FreeData(MDLCacheDataType_t, void*)
-t CMDLCache::FreeData(MDLCacheDataType_t, void*) [clone .part.22]
 t CMDLCache::LoadData(char const*, char const*, void*, int, int, bool, FSAsyncControl_t__**)
 t CMDLCache::LoadData(char const*, char const*, void*, int, int, bool, FSAsyncControl_t__**) [clone .part.19]
 t CMDLCache::Shutdown()
@@ -1721,7 +1838,8 @@ t ConVarRef::ConVarRef(IConVar*)
 t ConVarRef::ConVarRef(char const*)
 t ConVarRef::ConVarRef(char const*, bool)
 t CVProfile::ExitScope()
-U operator new[](unsigned int)@@GLIBCXX_3.4
+t operator new[](unsigned int)
+t operator new[](unsigned int, int, char const*, int)
 t ConCommand::IsCommand() const
 t CStudioHdr::ResetVModel(virtualmodel_t const*) const
 t CStudioHdr::iRelativeSeq(int, int) const
@@ -1815,6 +1933,8 @@ t CUtlCharConversion::GetDelimiterLength() const
 t CUtlCharConversion::GetConversionLength(char) const
 t CUtlCharConversion::GetConversionString(char) const
 t CUtlCharConversion::MaxConversionLength() const
+t ConVar::GetCompMax(float&) const
+t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
@@ -1827,7 +1947,8 @@ t CCommand::FindArgInt(char const*, int) const
 t CCommand::FindArg(char const*) const
 t ConVarRef::IsValid() const
 U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
-U operator new(unsigned int)@@GLIBCXX_3.4
+t operator new(unsigned int)
+t operator new(unsigned int, int, char const*, int)
 t non-virtual thunk to CMDLCache::GetItemName(unsigned int, void const*, char*, unsigned int)
 t non-virtual thunk to CMDLCache::HandleCacheNotification(DataCacheNotification_t const&)
 t non-virtual thunk to CEmptyConVar::SetValue(float)
@@ -1860,16 +1981,25 @@ r typeinfo for CDataManager<DataCacheItem_t, DataCacheItemData_t, DataCacheItem_
 r typeinfo for CEmptyConVar
 r typeinfo for CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >
 r typeinfo for CBaseAppSystem<IDataCache>
+r typeinfo for CBaseAppSystem<IPrecacheSystem>
+r typeinfo for CBaseAppSystem<IResourceAccessControl>
 r typeinfo for CBaseAppSystem<IMDLCache>
 r typeinfo for ConCommandBase
+r typeinfo for CPrecacheSystem
 r typeinfo for CTier0AppSystem<IDataCache>
+r typeinfo for CTier0AppSystem<IPrecacheSystem>
+r typeinfo for CTier0AppSystem<IResourceAccessControl>
 r typeinfo for CTier0AppSystem<IMDLCache>
 r typeinfo for CTier1AppSystem<IDataCache, 0>
+r typeinfo for CTier1AppSystem<IPrecacheSystem, 0>
+r typeinfo for CTier1AppSystem<IResourceAccessControl, 0>
 r typeinfo for CTier1AppSystem<IMDLCache, 0>
 r typeinfo for CTier2AppSystem<IDataCache, 0>
+r typeinfo for CTier2AppSystem<IPrecacheSystem, 0>
 r typeinfo for CTier2AppSystem<IMDLCache, 0>
 r typeinfo for CTier3AppSystem<IDataCache, 0>
 r typeinfo for CTier3AppSystem<IMDLCache, 0>
+r typeinfo for IPrecacheSystem
 r typeinfo for CDataManagerBase
 r typeinfo for CDefaultAccessor
 r typeinfo for CDllDemandLoader
@@ -1882,6 +2012,8 @@ r typeinfo for CUtlNoEscConversion
 r typeinfo for ConVar_ServerBounded
 r typeinfo for CRefCountServiceBase<true, CRefMT>
 r typeinfo for CUtlCStringConversion
+r typeinfo for CResourceAccessControl
+r typeinfo for IResourceAccessControl
 r typeinfo for CDefaultDataCacheClient
 r typeinfo for IConCommandBaseAccessor
 r typeinfo for CDataCacheSectionFastFind
@@ -1901,16 +2033,25 @@ r typeinfo name for CDataManager<DataCacheItem_t, DataCacheItemData_t, DataCache
 r typeinfo name for CEmptyConVar
 r typeinfo name for CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >
 r typeinfo name for CBaseAppSystem<IDataCache>
+r typeinfo name for CBaseAppSystem<IPrecacheSystem>
+r typeinfo name for CBaseAppSystem<IResourceAccessControl>
 r typeinfo name for CBaseAppSystem<IMDLCache>
 r typeinfo name for ConCommandBase
+r typeinfo name for CPrecacheSystem
 r typeinfo name for CTier0AppSystem<IDataCache>
+r typeinfo name for CTier0AppSystem<IPrecacheSystem>
+r typeinfo name for CTier0AppSystem<IResourceAccessControl>
 r typeinfo name for CTier0AppSystem<IMDLCache>
 r typeinfo name for CTier1AppSystem<IDataCache, 0>
+r typeinfo name for CTier1AppSystem<IPrecacheSystem, 0>
+r typeinfo name for CTier1AppSystem<IResourceAccessControl, 0>
 r typeinfo name for CTier1AppSystem<IMDLCache, 0>
 r typeinfo name for CTier2AppSystem<IDataCache, 0>
+r typeinfo name for CTier2AppSystem<IPrecacheSystem, 0>
 r typeinfo name for CTier2AppSystem<IMDLCache, 0>
 r typeinfo name for CTier3AppSystem<IDataCache, 0>
 r typeinfo name for CTier3AppSystem<IMDLCache, 0>
+r typeinfo name for IPrecacheSystem
 r typeinfo name for CDataManagerBase
 r typeinfo name for CDefaultAccessor
 r typeinfo name for CDllDemandLoader
@@ -1923,6 +2064,8 @@ r typeinfo name for CUtlNoEscConversion
 r typeinfo name for ConVar_ServerBounded
 r typeinfo name for CRefCountServiceBase<true, CRefMT>
 r typeinfo name for CUtlCStringConversion
+r typeinfo name for CResourceAccessControl
+r typeinfo name for IResourceAccessControl
 r typeinfo name for CDefaultDataCacheClient
 r typeinfo name for IConCommandBaseAccessor
 r typeinfo name for CDataCacheSectionFastFind
@@ -1942,11 +2085,15 @@ r vtable for CDataManager<DataCacheItem_t, DataCacheItemData_t, DataCacheItem_t*
 r vtable for CEmptyConVar
 r vtable for CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >
 r vtable for CBaseAppSystem<IDataCache>
+r vtable for CBaseAppSystem<IResourceAccessControl>
 r vtable for CBaseAppSystem<IMDLCache>
 r vtable for ConCommandBase
+r vtable for CPrecacheSystem
 r vtable for CTier0AppSystem<IDataCache>
+r vtable for CTier0AppSystem<IResourceAccessControl>
 r vtable for CTier0AppSystem<IMDLCache>
 r vtable for CTier1AppSystem<IDataCache, 0>
+r vtable for CTier1AppSystem<IResourceAccessControl, 0>
 r vtable for CTier1AppSystem<IMDLCache, 0>
 r vtable for CTier2AppSystem<IDataCache, 0>
 r vtable for CTier2AppSystem<IMDLCache, 0>
@@ -1963,6 +2110,8 @@ r vtable for CUtlCharConversion
 r vtable for CUtlNoEscConversion
 r vtable for CRefCountServiceBase<true, CRefMT>
 r vtable for CUtlCStringConversion
+r vtable for CResourceAccessControl
+r vtable for IResourceAccessControl
 r vtable for CDefaultDataCacheClient
 r vtable for CDataCacheSectionFastFind
 r vtable for ConVar
