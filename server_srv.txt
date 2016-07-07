@@ -295,6 +295,7 @@ b cc_Test_SpawnRandomEntities
 b changelevel_next
 U chdir@@GLIBC_2.0
 t classify_object_over_fdes
+b cl_autoweaponpickup
 b cl_backspeed
 b cl_csm_auto_entity
 b cl_forwardspeed
@@ -2528,6 +2529,7 @@ b sk_zombie_security_health
 b sk_zombie_security_melee_range
 b Small_Centered_Hull
 b s_meleeParams
+d sNamecacheFilename
 b sniperLines
 b sniperspeak
 b sniperviewdist
@@ -2559,6 +2561,7 @@ U sscanf@@GLIBC_2.0
 b s_selectedSetBorderColor
 b s_selectedSetColor
 b s_soundParams
+d sStatisticsFilename
 b s_StringCharConversion
 d s_szAmmoNames
 d s_szDebugRagdollNames
@@ -7419,6 +7422,7 @@ b sky_camera
 b s_pMapName
 b spriteteam
 b s_RndOrder
+b strUnnamed
 b team_names
 b wc_destroy
 b weapon_357
