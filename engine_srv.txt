@@ -8987,7 +8987,6 @@ b CBaseResourcePrecacher::sm_pFirst
 t CBlackMesaWorkshopBase::Initialize()
 t CBlackMesaWorkshopBase::DebugMessage(EBlackMesaWorkshopMessageType, char const*, ...)
 t CBlackMesaWorkshopBase::AddVPKSearchPath(char const*)
-t CBlackMesaWorkshopBase::AddFolderSearchPath(char const*)
 t CBlackMesaWorkshopBase::GetSubscribedAddons(CUtlVector<SteamUGCDetails_t, CUtlMemory<SteamUGCDetails_t, int> >&)
 t CBlackMesaWorkshopBase::OnQuerySusbcribedAddons(SteamUGCQueryCompleted_t*, bool)
 t CBlackMesaWorkshopBase::OnQuerySusbcribedAddons(SteamUGCQueryCompleted_t*, bool) [clone .part.10]

@@ -815,6 +815,7 @@ t _GLOBAL__sub_I_sk_charger_health_rate
 t _GLOBAL__sub_I_sk_charger_refill_delay
 t _GLOBAL__sub_I_sk_charger_suit_rate
 t _GLOBAL__sub_I_sk_controller_health
+t _GLOBAL__sub_I_sk_crossbow_tracer_speed
 t _GLOBAL__sub_I_sk_crow_health
 t _GLOBAL__sub_I_sk_detenator_apache_rpg_health
 t _GLOBAL__sub_I_sk_detenator_bolt_gravity
@@ -860,6 +861,7 @@ t _GLOBAL__sub_I_sk_weapon_satchel_max_active
 t _GLOBAL__sub_I_sk_weapon_snark_plr_dmg_bite
 t _GLOBAL__sub_I_sk_weapon_tau_overcharge_bais
 t _GLOBAL__sub_I_sk_weapon_tripmine_max_active
+t _GLOBAL__sub_I_sk_zombie_grunt_health
 t _GLOBAL__sub_I_sk_zombie_scientist_health
 t _GLOBAL__sub_I_sk_zombie_security_health
 t _GLOBAL__sub_I_soundscape_debug
@@ -1075,6 +1077,7 @@ t _GLOBAL__sub_I__ZN13CTEBeamSplineC2EPKc
 t _GLOBAL__sub_I__ZN13CTEBreakModelC2EPKc
 t _GLOBAL__sub_I__ZN13CTEGlowSpriteC2EPKc
 t _GLOBAL__sub_I__ZN13CTEWorldDecalC2EPKc
+t _GLOBAL__sub_I__ZN13CTracerBullet9m_DataMapE
 t _GLOBAL__sub_I__ZN13CUserMessagesC2Ev
 t _GLOBAL__sub_I__ZN13CWeapon_Glock10m_acttableE
 t _GLOBAL__sub_I__ZN13CWeapon_Snark10m_acttableE
@@ -1179,7 +1182,6 @@ t _GLOBAL__sub_I__ZN16CStressEntityReg7s_pHeadE
 t _GLOBAL__sub_I__ZN16CTEBeamRingPointC2EPKc
 t _GLOBAL__sub_I__ZN16CTriggerTeleport14GetServerClassEv
 t _GLOBAL__sub_I__ZN16CWaterLODControl9m_DataMapE
-t _GLOBAL__sub_I__ZN16CWeapon_CrossbowC2Ev
 t _GLOBAL__sub_I__ZN16CWeapon_Headcrab9m_DataMapE
 t _GLOBAL__sub_I__ZN17CAI_BaseFlyingBot9m_DataMapE
 t _GLOBAL__sub_I__ZN17CAI_ChaseBehavior17CanSelectScheduleEv
@@ -2234,6 +2236,8 @@ b sk_controller_max_linear_speed
 b sk_controller_max_small_eballs
 b sk_controller_min_small_eballs
 b sk_controller_throw_next_attack
+b sk_crossbow_tracer_enabled
+b sk_crossbow_tracer_speed
 b sk_crow_health
 b sk_crow_melee_dmg
 b sk_detenator_apache_rpg_health
@@ -2514,6 +2518,12 @@ b sk_weapon_tripmine_max_active
 b sk_zombie_dmg_both_slash
 b sk_zombie_dmg_one_slash
 b sk_zombie_dmg_take_scale
+b sk_zombie_grunt_357_dmg_scale
+b sk_zombie_grunt_blunt_dmg_scale
+b sk_zombie_grunt_buckshot_dmg_scale
+b sk_zombie_grunt_bullet_dmg_scale
+b sk_zombie_grunt_health
+b sk_zombie_grunt_melee_range
 b sk_zombie_scientist_357_dmg_scale
 b sk_zombie_scientist_blunt_dmg_scale
 b sk_zombie_scientist_buckshot_dmg_scale
@@ -2573,6 +2583,7 @@ b staticpropmgr
 d steamapicontext
 U SteamAPI_GetHSteamPipe
 U SteamAPI_GetHSteamUser
+U SteamAPI_InitSafe
 U SteamAPI_RegisterCallback
 U SteamAPI_UnregisterCallback
 U SteamClient
@@ -3348,6 +3359,7 @@ t datamap_t* DataMapInit<CSniperBullet>(CSniperBullet*)
 t datamap_t* DataMapInit<CSniperTarget>(CSniperTarget*)
 t datamap_t* DataMapInit<CSpotlightEnd>(CSpotlightEnd*)
 t datamap_t* DataMapInit<CStripWeapons>(CStripWeapons*)
+t datamap_t* DataMapInit<CTracerBullet>(CTracerBullet*)
 t datamap_t* DataMapInit<CTriggerBrush>(CTriggerBrush*)
 t datamap_t* DataMapInit<CWeapon_Glock>(CWeapon_Glock*)
 t datamap_t* DataMapInit<CWeapon_Gluon>(CWeapon_Gluon*)
@@ -5299,7 +5311,7 @@ t PrecacheInstancedScene(char const*)
 t PrecacheParticleSystem(char const*)
 t PrecachePointTemplates()
 t PropBoneMergeRemoveAll(CBaseAnimating*)
-t PropBreakableCreateAll(int, IPhysicsObject*, breakablepropparams_t const&, CBaseEntity*, int, bool, bool)
+t PropBreakableCreateAll(int, IPhysicsObject*, breakablepropparams_t const&, CBaseEntity*, int, bool, bool, bool)
 t PropBreakableCreateAll(int, IPhysicsObject*, Vector const&, QAngle const&, Vector const&, Vector const&, float, float, int, CBaseEntity*, bool)
 t QuaternionBlendNoAlign(Quaternion const&, Quaternion const&, float, Quaternion&)
 t QuaternionSlerpNoAlign(Quaternion const&, Quaternion const&, float, Quaternion&)
@@ -6268,6 +6280,8 @@ b guard variable for datamap_t* DataMapInit<CSniperBullet>(CSniperBullet*)::data
 b guard variable for datamap_t* DataMapInit<CSniperTarget>(CSniperTarget*)::nameHolder
 b guard variable for datamap_t* DataMapInit<CSpotlightEnd>(CSpotlightEnd*)::nameHolder
 b guard variable for datamap_t* DataMapInit<CStripWeapons>(CStripWeapons*)::nameHolder
+b guard variable for datamap_t* DataMapInit<CTracerBullet>(CTracerBullet*)::nameHolder
+b guard variable for datamap_t* DataMapInit<CTracerBullet>(CTracerBullet*)::dataDesc
 b guard variable for datamap_t* DataMapInit<CTriggerBrush>(CTriggerBrush*)::nameHolder
 b guard variable for datamap_t* DataMapInit<CTriggerBrush>(CTriggerBrush*)::dataDesc
 b guard variable for datamap_t* DataMapInit<CWeapon_Glock>(CWeapon_Glock*)::nameHolder
@@ -8233,6 +8247,10 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
+b vec2_origin
+b vec4_origin
+b vec4_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
@@ -9021,6 +9039,7 @@ b st_szNextMap
 b s_VictimList
 b tanktrain_ai
 b team_manager
+b tracerbullet
 b trigger_hurt
 b trigger_lift
 b trigger_look
@@ -9753,6 +9772,10 @@ b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec4_invalid
+b vec4_invalid
 b vec4_invalid
 b vec4_invalid
 b vec4_invalid
@@ -10561,7 +10584,7 @@ b env_soundscape
 b env_sporetrail
 b env_xen_portal
 b find_ent_index
-t FixupModelName(char*, int, char const*) [clone .constprop.76]
+t FixupModelName(char*, int, char const*) [clone .constprop.77]
 b func_breakable
 b func_dustcloud
 b func_dustmotes
@@ -10817,6 +10840,7 @@ t npc_ammo_deplete(CCommand const&)
 b npc_create_aimed
 b npc_heal_command
 b npc_steering_all
+b npc_zombie_grunt
 t ParseStringToken(char const*, char const**)
 b phys_keepupright
 b player_loadsaved
@@ -11119,6 +11143,7 @@ t physics_constraints(CCommand const&)
 t Physics_TraceEntity(CBaseEntity*, Vector const&, Vector const&, unsigned int, CGameTrace*)
 b point_clientcommand
 b point_servercommand
+t PreGluonGibCallback(CBaseEntity*, CTakeDamageInfo const&)
 t PreUpdateQueryCache()
 b prop_dynamic_create
 b prop_physics_create
@@ -11206,6 +11231,7 @@ b phys_slideconstraint
 b point_devshot_camera
 b point_posecontroller
 b point_velocitysensor
+t PostGluonGibCallback(CBaseEntity*, CBaseEntity*)
 t PostUpdateQueryCache()
 r _ps_minus_cephes_DP1
 r _ps_minus_cephes_DP2
@@ -11366,6 +11392,7 @@ b nav_store_selected_set
 b nav_toggle_deselecting
 t NearbyDismountLessFunc(NearbyDismount_t const&, NearbyDismount_t const&)
 b npc_destroy_unselected
+b npc_zombie_grunt_torso
 b physics_budget_command
 b physics_select_command
 b phys_ragdollconstraint
@@ -14232,6 +14259,8 @@ t CUtlVector<Relationship_t, CUtlMemory<Relationship_t, int> >::FastRemove(int)
 t CUtlVector<Relationship_t, CUtlMemory<Relationship_t, int> >::GrowVector(int)
 t CUtlVector<Relationship_t, CUtlMemory<Relationship_t, int> >::InsertBefore(int)
 t CUtlVector<Relationship_t, CUtlMemory<Relationship_t, int> >::ShiftElementsRight(int, int)
+t CUtlVector<Relationship_t, CUtlMemory<Relationship_t, int> >::~CUtlVector()
+t CUtlVector<Relationship_t, CUtlMemory<Relationship_t, int> >::~CUtlVector()
 t CUtlVector<SItemCrateSpew, CUtlMemory<SItemCrateSpew, int> >::GrowVector(int)
 t CUtlVector<SItemCrateSpew, CUtlMemory<SItemCrateSpew, int> >::InsertBefore(int, SItemCrateSpew const&)
 t CUtlVector<SItemCrateSpew, CUtlMemory<SItemCrateSpew, int> >::ShiftElementsRight(int, int)
@@ -17167,6 +17196,7 @@ t CWeapon_RPG::Deploy()
 t CWeapon_RPG::Holster(CBaseCombatWeapon*)
 t CWeapon_RPG::Precache()
 d CWeapon_RPG::m_DataMap
+t CWeapon_RPG::OnRestore()
 t CWeapon_RPG::~CWeapon_RPG()
 t CWeapon_RPG::~CWeapon_RPG()
 t CWeapon_RPG::~CWeapon_RPG()
@@ -20233,6 +20263,15 @@ t CTextStatsMgr::CTextStatsMgr()
 U CThreadRWLock::UnlockWrite()
 U CThreadRWLock::WaitForRead()
 U CThreadRWLock::LockForWrite()
+t CTracerBullet::GetBaseMap()
+t CTracerBullet::BulletThink()
+t CTracerBullet::GetDataDescMap()
+t CTracerBullet::Stop()
+t CTracerBullet::Start(Vector const&, Vector const&, CBaseEntity*, float, float)
+d CTracerBullet::m_DataMap
+t CTracerBullet::~CTracerBullet()
+t CTracerBullet::~CTracerBullet()
+t CTracerBullet::~CTracerBullet()
 t CTriggerBrush::GetBaseMap()
 t CTriggerBrush::StartTouch(CBaseEntity*)
 t CTriggerBrush::InputEnable(inputdata_t&)
@@ -20457,6 +20496,7 @@ t IntervalTimer::GetBaseMap()
 t IntervalTimer::GetDataDescMap()
 t IntervalTimer::NetworkStateChanged(void*)
 t IntervalTimer::NetworkStateChanged()
+t IntervalTimer::Start()
 d IntervalTimer::m_DataMap
 t IServerEntity::~IServerEntity()
 t IServerEntity::~IServerEntity()
@@ -22023,6 +22063,9 @@ t CEntityFactory<CSpotlightEnd>::Destroy(IServerNetworkable*)
 t CEntityFactory<CStripWeapons>::GetEntitySize()
 t CEntityFactory<CStripWeapons>::Create(char const*)
 t CEntityFactory<CStripWeapons>::Destroy(IServerNetworkable*)
+t CEntityFactory<CTracerBullet>::GetEntitySize()
+t CEntityFactory<CTracerBullet>::Create(char const*)
+t CEntityFactory<CTracerBullet>::Destroy(IServerNetworkable*)
 t CEntityFactory<CTriggerBrush>::GetEntitySize()
 t CEntityFactory<CTriggerBrush>::Create(char const*)
 t CEntityFactory<CTriggerBrush>::Destroy(IServerNetworkable*)
@@ -22494,6 +22537,9 @@ t CEntityFactory<CMovementSpeedMod>::Destroy(IServerNetworkable*)
 t CEntityFactory<CNPC_BabyHeadcrab>::GetEntitySize()
 t CEntityFactory<CNPC_BabyHeadcrab>::Create(char const*)
 t CEntityFactory<CNPC_BabyHeadcrab>::Destroy(IServerNetworkable*)
+t CEntityFactory<CNPC_Zombie_Grunt>::GetEntitySize()
+t CEntityFactory<CNPC_Zombie_Grunt>::Create(char const*)
+t CEntityFactory<CNPC_Zombie_Grunt>::Destroy(IServerNetworkable*)
 t CEntityFactory<CPhysicsCannister>::GetEntitySize()
 t CEntityFactory<CPhysicsCannister>::Create(char const*)
 t CEntityFactory<CPhysicsCannister>::Destroy(IServerNetworkable*)
@@ -22937,6 +22983,9 @@ t CEntityFactory<CLoadingScreenGenerator>::Destroy(IServerNetworkable*)
 t CEntityFactory<CLogicRegisterActivator>::GetEntitySize()
 t CEntityFactory<CLogicRegisterActivator>::Create(char const*)
 t CEntityFactory<CLogicRegisterActivator>::Destroy(IServerNetworkable*)
+t CEntityFactory<CNPC_Zombie_Grunt_Torso>::GetEntitySize()
+t CEntityFactory<CNPC_Zombie_Grunt_Torso>::Create(char const*)
+t CEntityFactory<CNPC_Zombie_Grunt_Torso>::Destroy(IServerNetworkable*)
 t CEntityFactory<CPhysicsPropMultiplayer>::GetEntitySize()
 t CEntityFactory<CPhysicsPropMultiplayer>::Create(char const*)
 t CEntityFactory<CPhysicsPropMultiplayer>::Destroy(IServerNetworkable*)
@@ -27645,8 +27694,10 @@ t CWeapon_Crossbow::ItemPostFrame()
 t CWeapon_Crossbow::PrimaryAttack()
 t CWeapon_Crossbow::DartLiveUpdate()
 t CWeapon_Crossbow::GetServerClass()
+t CWeapon_Crossbow::OnSprintLeaved()
 t CWeapon_Crossbow::UpdateOnRemove()
 t CWeapon_Crossbow::FireHitscanBolt()
+t CWeapon_Crossbow::OnSprintEntered()
 t CWeapon_Crossbow::GetReloadActivity()
 d CWeapon_Crossbow::m_pClassSendTable
 t CWeapon_Crossbow::CheckRearmActivityState()
@@ -28645,6 +28696,16 @@ t CNPC_BabyHeadcrab::PainSound(CTakeDamageInfo const&)
 t CNPC_BabyHeadcrab::~CNPC_BabyHeadcrab()
 t CNPC_BabyHeadcrab::~CNPC_BabyHeadcrab()
 t CNPC_BabyHeadcrab::~CNPC_BabyHeadcrab()
+t CNPC_Zombie_Grunt::GetLegsModel()
+t CNPC_Zombie_Grunt::GetTorsoModel()
+t CNPC_Zombie_Grunt::SetZombieModel()
+t CNPC_Zombie_Grunt::CanBecomeLiveTorso()
+t CNPC_Zombie_Grunt::OnTakeDamage_Alive(CTakeDamageInfo const&)
+t CNPC_Zombie_Grunt::Spawn()
+t CNPC_Zombie_Grunt::Precache()
+t CNPC_Zombie_Grunt::~CNPC_Zombie_Grunt()
+t CNPC_Zombie_Grunt::~CNPC_Zombie_Grunt()
+t CNPC_Zombie_Grunt::~CNPC_Zombie_Grunt()
 b CParamsDefinition<weaponParams_t>::m_pDMXParams
 t CParamsDefinition<weaponParams_t>::~CParamsDefinition()
 t CParamsDefinition<weaponParams_t>::~CParamsDefinition()
@@ -34143,6 +34204,10 @@ t CLogicRegisterActivator::~CLogicRegisterActivator()
 t CLogicRegisterActivator::~CLogicRegisterActivator()
 b CMathRemap_DataDescInit::g_DataMapHolder
 b CNPC_Snark_DataDescInit::g_DataMapHolder
+t CNPC_Zombie_Grunt_Torso::Spawn()
+t CNPC_Zombie_Grunt_Torso::~CNPC_Zombie_Grunt_Torso()
+t CNPC_Zombie_Grunt_Torso::~CNPC_Zombie_Grunt_Torso()
+t CNPC_Zombie_Grunt_Torso::~CNPC_Zombie_Grunt_Torso()
 b CPathTrack_DataDescInit::g_DataMapHolder
 b CPhysForce_DataDescInit::g_DataMapHolder
 b CPhysHinge_DataDescInit::g_DataMapHolder
@@ -35104,6 +35169,7 @@ b CStripWeapons_DataDescInit::g_DataMapHolder
 t CTraceFilterGroundEntities::ShouldHitEntity(IHandleEntity*, int)
 t CTraceFilterNoNPCsOrPlayer::ShouldHitEntity(IHandleEntity*, int)
 t CTraceFilterTauBeamExclude::ShouldHitEntity(IHandleEntity*, int)
+b CTracerBullet_DataDescInit::g_DataMapHolder
 b CTriggerBrush_DataDescInit::g_DataMapHolder
 b CWeapon_Glock_DataDescInit::g_DataMapHolder
 b CWeapon_Gluon_DataDescInit::g_DataMapHolder
@@ -37507,7 +37573,7 @@ t CSpeaker::~CSpeaker()
 t CSpeaker::~CSpeaker()
 t CTauBeam::ApplyDamage(CGameTrace&, Vector const&, float)
 t CTauBeam::ProgressBeam(CGameTrace&, Vector const&, float, bool, bool)
-t CTauBeam::ProgressBeam(CGameTrace&, Vector const&, float, bool, bool) [clone .part.27]
+t CTauBeam::ProgressBeam(CGameTrace&, Vector const&, float, bool, bool) [clone .part.28]
 t CTauBeam::ShouldReflect(CGameTrace const&, Vector const&, float)
 t CTauBeam::ShouldPenetrate(CGameTrace const&, Vector const&, float, bool)
 t CTauBeam::ApplyRadiusDamage(Vector const&, Vector const&, float)
@@ -39295,7 +39361,9 @@ t CWeapon_Crossbow::GetDrawActivity() const
 t CWeapon_Crossbow::GetIdleActivity() const
 t CWeapon_Crossbow::IronSightsEnabled() const
 t CWeapon_Crossbow::GetHolsterActivity() const
+t CWeapon_Crossbow::GetISToggleActivity() const
 t CWeapon_Crossbow::GetCurrentAttackMode() const
+t CWeapon_Crossbow::ShouldPlaySprintAnim() const
 t CWeapon_Crossbow::GetCrossbowRearmActivity() const
 t CWeapon_Crossbow::IsOwnerInIronsightsClassic() const
 t CWeapon_Headcrab::GetWeaponID() const
@@ -39412,6 +39480,7 @@ t CItem_WeaponSnark::GetAmmoID() const
 t CItem_WeaponSnark::GetItemID() const
 t CMoveHelperServer::GetName(CBaseHandle) const
 t CNPC_BabyHeadcrab::GetJumpAttackDamage() const
+t CNPC_Zombie_Grunt::GetClawAttackRange() const
 t CParamsDefinition<weaponParams_t>::CreateInstance() const
 t CParamsDefinition<weaponParams_t>::GetDMXStructure() const
 t CParamsDefinition<weaponParams_t>::GetName() const
@@ -41030,6 +41099,7 @@ r typeinfo for CTEBeamSpline
 r typeinfo for CTEBreakModel
 r typeinfo for CTEGlowSprite
 r typeinfo for CTEWorldDecal
+r typeinfo for CTracerBullet
 r typeinfo for CTriggerBrush
 r typeinfo for CVoiceGameMgr
 r typeinfo for CWeapon_Glock
@@ -41241,6 +41311,7 @@ r typeinfo for CEntityFactory<CSniperBullet>
 r typeinfo for CEntityFactory<CSniperTarget>
 r typeinfo for CEntityFactory<CSpotlightEnd>
 r typeinfo for CEntityFactory<CStripWeapons>
+r typeinfo for CEntityFactory<CTracerBullet>
 r typeinfo for CEntityFactory<CTriggerBrush>
 r typeinfo for CEntityFactory<CWeapon_Glock>
 r typeinfo for CEntityFactory<CWeapon_Gluon>
@@ -41394,6 +41465,7 @@ r typeinfo for CEntityFactory<CLogicAchievement>
 r typeinfo for CEntityFactory<CLogicPlayerProxy>
 r typeinfo for CEntityFactory<CMovementSpeedMod>
 r typeinfo for CEntityFactory<CNPC_BabyHeadcrab>
+r typeinfo for CEntityFactory<CNPC_Zombie_Grunt>
 r typeinfo for CEntityFactory<CPhysicsCannister>
 r typeinfo for CEntityFactory<CPhysicsNPCSolver>
 r typeinfo for CEntityFactory<CPointAngleSensor>
@@ -41539,6 +41611,7 @@ r typeinfo for CEntityFactory<CTriggerVPhysicsMotion>
 r typeinfo for CEntityFactory<CCommentaryViewPosition>
 r typeinfo for CEntityFactory<CLoadingScreenGenerator>
 r typeinfo for CEntityFactory<CLogicRegisterActivator>
+r typeinfo for CEntityFactory<CNPC_Zombie_Grunt_Torso>
 r typeinfo for CEntityFactory<CPhysicsPropMultiplayer>
 r typeinfo for CEntityFactory<CPhysicsPropRespawnable>
 r typeinfo for CEntityFactory<CPlayerPickupController>
@@ -41929,6 +42002,7 @@ r typeinfo for CModelSoundsCache
 r typeinfo for CMoveHelperServer
 r typeinfo for CMovementSpeedMod
 r typeinfo for CNPC_BabyHeadcrab
+r typeinfo for CNPC_Zombie_Grunt
 r typeinfo for CParamsDefinition<weaponParams_t>
 r typeinfo for CPhysicsCannister
 r typeinfo for CPhysicsGameTrace
@@ -42343,6 +42417,7 @@ r typeinfo for CGameDLL_ConVarAccessor
 r typeinfo for CLagCompensationManager
 r typeinfo for CLoadingScreenGenerator
 r typeinfo for CLogicRegisterActivator
+r typeinfo for CNPC_Zombie_Grunt_Torso
 r typeinfo for CPhysicsPropMultiplayer
 r typeinfo for CPhysicsPropRespawnable
 r typeinfo for CPlayerPickupController
@@ -42928,6 +43003,7 @@ r typeinfo name for CTEBeamSpline
 r typeinfo name for CTEBreakModel
 r typeinfo name for CTEGlowSprite
 r typeinfo name for CTEWorldDecal
+r typeinfo name for CTracerBullet
 r typeinfo name for CTriggerBrush
 r typeinfo name for CVoiceGameMgr
 r typeinfo name for CWeapon_Glock
@@ -43139,6 +43215,7 @@ r typeinfo name for CEntityFactory<CSniperBullet>
 r typeinfo name for CEntityFactory<CSniperTarget>
 r typeinfo name for CEntityFactory<CSpotlightEnd>
 r typeinfo name for CEntityFactory<CStripWeapons>
+r typeinfo name for CEntityFactory<CTracerBullet>
 r typeinfo name for CEntityFactory<CTriggerBrush>
 r typeinfo name for CEntityFactory<CWeapon_Glock>
 r typeinfo name for CEntityFactory<CWeapon_Gluon>
@@ -43292,6 +43369,7 @@ r typeinfo name for CEntityFactory<CLogicAchievement>
 r typeinfo name for CEntityFactory<CLogicPlayerProxy>
 r typeinfo name for CEntityFactory<CMovementSpeedMod>
 r typeinfo name for CEntityFactory<CNPC_BabyHeadcrab>
+r typeinfo name for CEntityFactory<CNPC_Zombie_Grunt>
 r typeinfo name for CEntityFactory<CPhysicsCannister>
 r typeinfo name for CEntityFactory<CPhysicsNPCSolver>
 r typeinfo name for CEntityFactory<CPointAngleSensor>
@@ -43437,6 +43515,7 @@ r typeinfo name for CEntityFactory<CTriggerVPhysicsMotion>
 r typeinfo name for CEntityFactory<CCommentaryViewPosition>
 r typeinfo name for CEntityFactory<CLoadingScreenGenerator>
 r typeinfo name for CEntityFactory<CLogicRegisterActivator>
+r typeinfo name for CEntityFactory<CNPC_Zombie_Grunt_Torso>
 r typeinfo name for CEntityFactory<CPhysicsPropMultiplayer>
 r typeinfo name for CEntityFactory<CPhysicsPropRespawnable>
 r typeinfo name for CEntityFactory<CPlayerPickupController>
@@ -43827,6 +43906,7 @@ r typeinfo name for CModelSoundsCache
 r typeinfo name for CMoveHelperServer
 r typeinfo name for CMovementSpeedMod
 r typeinfo name for CNPC_BabyHeadcrab
+r typeinfo name for CNPC_Zombie_Grunt
 r typeinfo name for CParamsDefinition<weaponParams_t>
 r typeinfo name for CPhysicsCannister
 r typeinfo name for CPhysicsGameTrace
@@ -44241,6 +44321,7 @@ r typeinfo name for CGameDLL_ConVarAccessor
 r typeinfo name for CLagCompensationManager
 r typeinfo name for CLoadingScreenGenerator
 r typeinfo name for CLogicRegisterActivator
+r typeinfo name for CNPC_Zombie_Grunt_Torso
 r typeinfo name for CPhysicsPropMultiplayer
 r typeinfo name for CPhysicsPropRespawnable
 r typeinfo name for CPlayerPickupController
@@ -44824,6 +44905,7 @@ r vtable for CTEBeamSpline
 r vtable for CTEBreakModel
 r vtable for CTEGlowSprite
 r vtable for CTEWorldDecal
+r vtable for CTracerBullet
 r vtable for CTriggerBrush
 r vtable for CVoiceGameMgr
 r vtable for CWeapon_Glock
@@ -45033,6 +45115,7 @@ r vtable for CEntityFactory<CSniperBullet>
 r vtable for CEntityFactory<CSniperTarget>
 r vtable for CEntityFactory<CSpotlightEnd>
 r vtable for CEntityFactory<CStripWeapons>
+r vtable for CEntityFactory<CTracerBullet>
 r vtable for CEntityFactory<CTriggerBrush>
 r vtable for CEntityFactory<CWeapon_Glock>
 r vtable for CEntityFactory<CWeapon_Gluon>
@@ -45186,6 +45269,7 @@ r vtable for CEntityFactory<CLogicAchievement>
 r vtable for CEntityFactory<CLogicPlayerProxy>
 r vtable for CEntityFactory<CMovementSpeedMod>
 r vtable for CEntityFactory<CNPC_BabyHeadcrab>
+r vtable for CEntityFactory<CNPC_Zombie_Grunt>
 r vtable for CEntityFactory<CPhysicsCannister>
 r vtable for CEntityFactory<CPhysicsNPCSolver>
 r vtable for CEntityFactory<CPointAngleSensor>
@@ -45331,6 +45415,7 @@ r vtable for CEntityFactory<CTriggerVPhysicsMotion>
 r vtable for CEntityFactory<CCommentaryViewPosition>
 r vtable for CEntityFactory<CLoadingScreenGenerator>
 r vtable for CEntityFactory<CLogicRegisterActivator>
+r vtable for CEntityFactory<CNPC_Zombie_Grunt_Torso>
 r vtable for CEntityFactory<CPhysicsPropMultiplayer>
 r vtable for CEntityFactory<CPhysicsPropRespawnable>
 r vtable for CEntityFactory<CPlayerPickupController>
@@ -45714,6 +45799,7 @@ r vtable for CModelSoundsCache
 r vtable for CMoveHelperServer
 r vtable for CMovementSpeedMod
 r vtable for CNPC_BabyHeadcrab
+r vtable for CNPC_Zombie_Grunt
 r vtable for CParamsDefinition<weaponParams_t>
 r vtable for CPhysicsCannister
 r vtable for CPhysicsGameTrace
@@ -46109,6 +46195,7 @@ r vtable for CGameDLL_ConVarAccessor
 r vtable for CLagCompensationManager
 r vtable for CLoadingScreenGenerator
 r vtable for CLogicRegisterActivator
+r vtable for CNPC_Zombie_Grunt_Torso
 r vtable for CPhysicsPropMultiplayer
 r vtable for CPhysicsPropRespawnable
 r vtable for CPlayerPickupController
@@ -46789,6 +46876,8 @@ b datamap_t* DataMapInit<CSpotlightEnd>(CSpotlightEnd*)::nameHolder
 d datamap_t* DataMapInit<CSpotlightEnd>(CSpotlightEnd*)::dataDesc
 b datamap_t* DataMapInit<CStripWeapons>(CStripWeapons*)::nameHolder
 d datamap_t* DataMapInit<CStripWeapons>(CStripWeapons*)::dataDesc
+b datamap_t* DataMapInit<CTracerBullet>(CTracerBullet*)::nameHolder
+d datamap_t* DataMapInit<CTracerBullet>(CTracerBullet*)::dataDesc
 b datamap_t* DataMapInit<CTriggerBrush>(CTriggerBrush*)::nameHolder
 d datamap_t* DataMapInit<CTriggerBrush>(CTriggerBrush*)::dataDesc
 b datamap_t* DataMapInit<CWeapon_Glock>(CWeapon_Glock*)::nameHolder
