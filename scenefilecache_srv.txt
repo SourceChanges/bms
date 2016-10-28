@@ -8,12 +8,15 @@ t _calloc_dbg
 t _calloc_dbg_impl
 U chdir@@GLIBC_2.0
 t classify_object_over_fdes
+b colorcorrection
 b completed.6767
 T CreateInterface
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
+b cvar
 U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 t __deregister_frame
 t __deregister_frame_info
@@ -57,7 +60,40 @@ t _GLOBAL__sub_I_filesystem
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
 w __gmon_start__
+b g_pCVar
+b g_pDataCache
+b g_pDmeMakefileUtils
+b g_pFullFileSystem
+b g_pInputSystem
+b g_pLocalize
+b g_pMaterialSystem
+b g_pMaterialSystemDebugTextureInfo
+b g_pMaterialSystemHardwareConfig
+b g_pMatSystemSurface
+b g_pMDLCache
 U g_pMemAlloc
+b g_pNetworkSystem
+b g_pPhysicsCollision
+b g_pPrecacheSystem
+b g_pProcessUtils
+b g_pQueuedLoader
+b g_pRenderDevice
+b g_pRenderHardwareConfig
+b g_pResourceAccessControl
+b g_pSoundEmitterSystem
+b g_pSoundSystem
+b g_pStudioRender
+b g_pUtlSortVectorQSortContext
+b g_pVGui
+b g_pVGuiInput
+b g_pVGuiLocalize
+b g_pVGuiPanel
+b g_pVGuiSchemeManager
+b g_pVGuiSurface
+b g_pVGuiSystem
+b g_pVideo
+b g_pVTex
+b g_VBAllocTracker
 U __gxx_personality_v0@@CXXABI_1.3
 U iconv_close@@GLIBC_2.1
 U iconv@@GLIBC_2.1
@@ -192,7 +228,10 @@ t LzmaProps_Decode.part.2
 t _malloc_dbg
 U malloc@@GLIBC_2.0
 b marker.8514
+b materials
 U mbstowcs@@GLIBC_2.0
+b mdlcache
+b mdllib
 U memcmp@@GLIBC_2.0
 U memcpy@@GLIBC_2.0
 U memmove@@GLIBC_2.0
@@ -202,6 +241,7 @@ t _msize_dbg
 t _nh_malloc_dbg
 b object_mutex
 b once_regsizes.8974
+b p4
 U Plat_IsInDebugSession
 U Plat_localtime
 U __pow_finite@@GLIBC_2.15
@@ -242,6 +282,7 @@ U strstr@@GLIBC_2.0
 U strtod@@GLIBC_2.0
 U strtol@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+b studiorender
 b subs.8777
 b terminator.8620
 U time@@GLIBC_2.0
@@ -363,10 +404,12 @@ t V_IsAbsolutePath(char const*)
 t V_StripExtension(char const*, char*, int)
 t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
+t ConnectInterfaces(void* (**)(char const*, int*), int)
 t IsBufferBinaryVCD(char*, int)
 t Q_UnicodeValidate(char const*)
 t Q_UnicodeValidate(unsigned short const*)
 t Q_UnicodeValidate(wchar_t const*)
+t RegisterInterface(void* (*)(char const*, int*), char const*, void**)
 t StringAfterPrefix(char const*, char const*)
 t Sys_LoadInterface(char const*, char const*, CSysModule**, void**)
 t V_ComposeFileName(char const*, char const*, char*, int)
@@ -378,6 +421,8 @@ t Q_UTF16CharsToUTF8(unsigned short const*, int, char*, int, EStringConvertError
 t Q_UTF32CharsToUTF8(wchar_t const*, int, char*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF16(char const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t Q_UTF8CharsToUTF32(char const*, int, wchar_t*, int, EStringConvertErrorPolicy)
+t ReconnectInterface(void* (*)(char const*, int*), char const*)
+t ReconnectInterface(void* (*)(char const*, int*), char const*, void**)
 t Sys_GetFactoryThis()
 t V_DefaultExtension(char*, char const*, int)
 t V_FixDoubleSlashes(char*)
@@ -395,6 +440,7 @@ t Q_URLEncodeInternal(char*, int, char const*, int, bool)
 t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t DisconnectInterfaces()
 t V_StripTrailingSlash(char*)
 t Sys_IsDebuggerPresent()
 t V_GetCurrentDirectory(char*, int)
@@ -447,6 +493,7 @@ t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 t FastToLower(char)
 r pulCRCTable
 b vec2_origin
@@ -460,9 +507,13 @@ d s_BackSlashMap
 b g_SceneFileCache
 t LzmaDec_TryDummy(CLzmaDec const*, unsigned char const*, unsigned int)
 t LzmaDec_WriteRem(CLzmaDec*, unsigned int)
+b s_nConnectionCount
+r g_pInterfaceGlobals
 t LzmaDec_DecodeReal2(CLzmaDec*, unsigned int, unsigned char const*)
+b s_nRegistrationCount
 t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
 t LzmaDec_AllocateProbs2(CLzmaDec*, _CLzmaProps const*, ISzAlloc*) [clone .isra.1]
+b s_pConnectionRegistration
 d s_pConversionArrays_NoEscConversion
 d s_pConversionArrays_StringCharConversion
 b __g_CreateCSceneFileCacheISceneFileCache_reg
@@ -548,9 +599,12 @@ t InterfaceReg::InterfaceReg(void* (*)(), char const*)
 t InterfaceReg::InterfaceReg(void* (*)(), char const*)
 t CBaseAppSystem<ISceneFileCache>::Disconnect()
 t CBaseAppSystem<ISceneFileCache>::QueryInterface(char const*)
+t CBaseAppSystem<ISceneFileCache>::GetDependencies()
 t CBaseAppSystem<ISceneFileCache>::Init()
 t CBaseAppSystem<ISceneFileCache>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<ISceneFileCache>::GetTier()
 t CBaseAppSystem<ISceneFileCache>::Shutdown()
+t CBaseAppSystem<ISceneFileCache>::Reconnect(void* (*)(char const*, int*), char const*)
 t CSceneFileCache::Disconnect()
 t CSceneFileCache::GetSceneData(char const*, unsigned char*, unsigned int)
 t CSceneFileCache::GetSceneString(short)

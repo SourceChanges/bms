@@ -296,11 +296,7 @@ b changelevel_next
 U chdir@@GLIBC_2.0
 t classify_object_over_fdes
 b cl_autoweaponpickup
-b cl_backspeed
 b cl_csm_auto_entity
-b cl_forwardspeed
-b cl_sidespeed
-b cl_upspeed
 b collision_shake_amp
 b collision_shake_freq
 b collision_shake_time
@@ -318,47 +314,47 @@ T CreateInterface
 r CSWTCH.1000
 r CSWTCH.1018
 r CSWTCH.1046
-r CSWTCH.1060
-r CSWTCH.1062
-r CSWTCH.1123
+r CSWTCH.1063
+r CSWTCH.1065
+r CSWTCH.1126
 r CSWTCH.1130
 r CSWTCH.1150
 r CSWTCH.1209
 r CSWTCH.1221
 r CSWTCH.1222
-r CSWTCH.1461
-r CSWTCH.1482
-r CSWTCH.1484
-r CSWTCH.1486
+r CSWTCH.1464
+r CSWTCH.1485
+r CSWTCH.1487
+r CSWTCH.1489
 r CSWTCH.1507
-r CSWTCH.1635
-r CSWTCH.1636
-r CSWTCH.1650
-r CSWTCH.1651
-r CSWTCH.1652
-r CSWTCH.1667
-r CSWTCH.1669
-r CSWTCH.1755
-r CSWTCH.1823
-r CSWTCH.1825
-r CSWTCH.1827
-r CSWTCH.1883
-r CSWTCH.2019
-r CSWTCH.2020
-r CSWTCH.2021
+r CSWTCH.1638
+r CSWTCH.1639
+r CSWTCH.1653
+r CSWTCH.1654
+r CSWTCH.1655
+r CSWTCH.1670
+r CSWTCH.1672
+r CSWTCH.1758
+r CSWTCH.1826
+r CSWTCH.1828
+r CSWTCH.1830
+r CSWTCH.1884
 r CSWTCH.2022
-r CSWTCH.2042
-r CSWTCH.2043
-r CSWTCH.2044
+r CSWTCH.2023
+r CSWTCH.2024
+r CSWTCH.2025
 r CSWTCH.2045
-r CSWTCH.2086
-r CSWTCH.2087
-r CSWTCH.2251
-r CSWTCH.2279
+r CSWTCH.2046
+r CSWTCH.2047
+r CSWTCH.2048
+r CSWTCH.2089
+r CSWTCH.2090
+r CSWTCH.2254
+r CSWTCH.2280
 r CSWTCH.29
 r CSWTCH.31
 r CSWTCH.812
-r CSWTCH.829
+r CSWTCH.830
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
@@ -366,6 +362,7 @@ b currenttoken
 b curve_bias
 b cvar
 U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
 U __cxa_guard_acquire@@CXXABI_1.3
@@ -588,6 +585,7 @@ b g_EventQueue_SaveRestoreBlockHandler
 d g_EventsSaveDataOps
 b g_EventStrings
 b gEvilImpulse101
+b g_ExpressionEvaluator
 b g_ExtraMasks
 b g_fCombineQuestion
 b g_fDrawLines
@@ -920,6 +918,7 @@ t _GLOBAL__sub_I__Z17ParseFileInternalPKcPcPbP14characterset_tj
 t _GLOBAL__sub_I__Z17Test_CreateEntityRK8CCommand
 t _GLOBAL__sub_I__Z18CreateEntityByNamePKci
 t _GLOBAL__sub_I__Z18PostTauGibCallbackP11CBaseEntityS0_
+t _GLOBAL__sub_I__Z18StrLessInsensitiveRKPKcS2_
 t _GLOBAL__sub_I__Z19DamageIDToClassnamej
 t _GLOBAL__sub_I__Z19Editor_BeginSessionPKcib
 t _GLOBAL__sub_I__Z19PropBoneMergeCreateP14CBaseAnimatingPKc
@@ -954,6 +953,7 @@ t _GLOBAL__sub_I__Z26InternalBitBufErrorHandler15BitBufErrorTypePKc
 t _GLOBAL__sub_I__Z26SendProxy_UtlVectorElementPK8SendPropPKvS3_P8DVariantii
 t _GLOBAL__sub_I__Z27BlackMesa_Relationship_Initv
 t _GLOBAL__sub_I__Z27MapCycleFileChangedCallbackP7IConVarPKcf
+t _GLOBAL__sub_I__Z28DefaultConditionalSymbolProcPKc
 t _GLOBAL__sub_I__Z28GetBlackMesaGameInstanceDatav
 t _GLOBAL__sub_I__Z29BlackMesa_EDS_Display_ChangedP7IConVarPKcf
 t _GLOBAL__sub_I__Z32__CreateGameRules_CTeamplayRulesv
@@ -965,7 +965,6 @@ t _GLOBAL__sub_I__Z34Pickup_ForcePlayerToDropThisObjectP11CBaseEntity
 t _GLOBAL__sub_I__Z35FinishSingleplayerClientPutInServerP16CBlackMesaPlayerb
 t _GLOBAL__sub_I__Z35UpdateDirtySpatialPartitionEntitiesv
 t _GLOBAL__sub_I__Z7DoSparkP11CBaseEntityRK6VectoriibS3_
-t _GLOBAL__sub_I__Z7StrLessRKPKcS2_
 t _GLOBAL__sub_I__Z9_SSE_Sqrtf
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
 t _GLOBAL__sub_I__Z9WaveTracePKcS0_
@@ -2631,6 +2630,7 @@ b sv_hudhint_sound
 b sv_infinite_ammo
 b sv_jump_height
 b sv_jump_height_crouch
+b sv_lagcompensateself
 b sv_lagcompensationforcerestore
 b sv_lagflushbonecache
 b sv_lagpushticks
@@ -4624,6 +4624,8 @@ t SignbitsForPlane(cplane_t*)
 t SpawnAllEntities(int, HierarchicalSpawn_t*, bool)
 t Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, Vector&, Vector&)
 t _SSE_InvRSquared(float const*)
+t _SSE_RSqrtInline(float, float*)
+t StrLessSensitive(char const* const&, char const* const&)
 t SweepBoxToStudio(IPhysicsSurfaceProps*, Ray_t const&, CStudioHdr*, mstudiohitboxset_t*, matrix3x4_t**, int, CGameTrace&)
 t Sys_UnloadModule(CSysModule*)
 t TE_ArmorRicochet(IRecipientFilter&, float, Vector const*, Vector const*)
@@ -4864,6 +4866,7 @@ t SimThink_ListCount()
 t SoundEmitterSystem()
 t SoundLevelToString(soundlevel_t)
 t _SSE_RSqrtAccurate(float)
+t StrLessInsensitive(char const* const&, char const* const&)
 t Studio_SeqMovement(CStudioHdr const*, int, float, float, float const*, Vector&, QAngle&)
 t Studio_SeqVelocity(CStudioHdr const*, int, float, float const*, Vector&)
 t Sys_GetFactoryThis()
@@ -5591,6 +5594,7 @@ t ComputePointFromBarycentric(Vector const&, Vector const&, Vector const&, float
 t ComputePointFromBarycentric(Vector2D const&, Vector2D const&, Vector2D const&, float, float, Vector2D&)
 t CreateServerRagdollAttached(CBaseAnimating*, Vector const&, int, int, IPhysicsObject*, CBaseAnimating*, int, Vector const&, int, Vector const&)
 t CreateServerRagdollSubmodel(CBaseAnimating*, char const*, Vector const&, QAngle const&, int, Vector const&)
+t DefaultConditionalErrorProc(char const*)
 t FireSystem_GetFiresInSphere(CFire**, int, bool, Vector const&, float)
 t GenerateLineLoopIndexBuffer(unsigned short*, int, int)
 t GetLanguageVGUILocalization(ELanguage)
@@ -5637,6 +5641,7 @@ t CommandNavLowerDragVolumeMin()
 t CommandNavRaiseDragVolumeMax()
 t CommandNavRaiseDragVolumeMin()
 t CommandNavSelectInvalidAreas()
+t DefaultConditionalSymbolProc(char const*)
 t DestroyCustomResponseSystems()
 t GenerateLineStripIndexBuffer(unsigned short*, int, int)
 t GetAISaveRestoreBlockHandler()
@@ -5661,6 +5666,7 @@ t Test_ProxyToggle_EnableProxy(CCommand const&)
 t Test_RemoveAllRandomEntities()
 t TimeModifierFunc_TimeSquared(float)
 t UTIL_GetPlayerConnectionInfo(int, int&, int&)
+t UTIL_GetRandomSoundFromEntry(char const*)
 t UTIL_IsFacingWithinTolerance(CBaseEntity*, Vector const&, float, float*)
 t UTIL_IsFacingWithinTolerance(CBaseEntity*, CBaseEntity*, float, float*)
 t UTIL_PointOnLineNearestPoint(Vector const&, Vector const&, Vector const&, bool)
@@ -5874,7 +5880,6 @@ t HashInt(int)
 t MD5Init(MD5Context_t*)
 t respawn(CBaseEntity*, bool)
 t _rsqrtf(float)
-t StrLess(char const* const&, char const* const&)
 t TE_Dust(IRecipientFilter&, float, Vector const&, Vector const&, float, float)
 t TE_Fizz(IRecipientFilter&, float, CBaseEntity const*, int, int, int)
 t TestVCD(CCommand const&)
@@ -5981,6 +5986,7 @@ t _V_wcsupr(char const*, int, wchar_t*)
 t WaveTrace(char const*, char const*)
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 b ZERO_FLOAT16
 b guard variable for GetAmmoDef()::def
 b guard variable for datamap_t* DataMapInit<CAI_Senses>(CAI_Senses*)::nameHolder
@@ -8226,6 +8232,7 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
@@ -9020,6 +9027,7 @@ b trigger_look
 b trigger_once
 b trigger_push
 b trigger_wind
+b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -12976,6 +12984,7 @@ t CUtlBuffer::Swap(CUtlBuffer&)
 t CUtlBuffer::Scanf(char const*, ...)
 t CUtlBuffer::Printf(char const*, ...)
 t CUtlBuffer::GetLine(char*, int)
+t void CUtlBuffer::GetType<char>(char&, char const*)
 t void CUtlBuffer::GetType<int>(int&, char const*)
 t void CUtlBuffer::GetType<unsigned int>(unsigned int&, char const*)
 t CUtlBuffer::GetUpTo(void*, int)
@@ -13468,8 +13477,6 @@ t CUtlMemory<CBaseServerVehicle::exitanim_t, int>::Grow(int)
 t CUtlMemory<CBaseServerVehicle::exitanim_t, int>::Purge()
 t CUtlMemory<CBaseServerVehicle::entryanim_t, int>::Grow(int)
 t CUtlMemory<CBaseServerVehicle::entryanim_t, int>::Purge()
-t CUtlMemory<CCountedStringPool::hash_item_t, int>::Grow(int)
-t CUtlMemory<CCountedStringPool::hash_item_t, int>::Purge()
 t CUtlMemory<CParticleSystemMgr::BatchStep_t, int>::Grow(int)
 t CUtlMemory<CParticleSystemMgr::BatchStep_t, int>::Purge()
 t CUtlMemory<CParticleSystemMgr::RenderCache_t, int>::Grow(int)
@@ -14675,7 +14682,6 @@ t CUtlVector<CUtlVector<CNavNode*, CUtlMemory<CNavNode*, int> >, CUtlMemory<CUtl
 t CUtlVector<CUtlVector<CNavNode*, CUtlMemory<CNavNode*, int> >, CUtlMemory<CUtlVector<CNavNode*, CUtlMemory<CNavNode*, int> >, int> >::~CUtlVector()
 t CUtlVector<CUtlVector<CNavNode*, CUtlMemory<CNavNode*, int> >, CUtlMemory<CUtlVector<CNavNode*, CUtlMemory<CNavNode*, int> >, int> >::~CUtlVector()
 t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::GrowVector(int)
-t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::EnsureCount(int)
 t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::InsertBefore(int, unsigned short const&)
 t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::ShiftElementsRight(int, int)
 t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::~CUtlVector()
@@ -16683,6 +16689,7 @@ b CNPC_Apache::m_sDamageTransition
 t CNPC_Apache::UpdateWarningLights(int)
 t CNPC_Apache::InputSetRocketTarget(inputdata_t&)
 t CNPC_Apache::ShouldChooseNewEnemy()
+t CNPC_Apache::CanTargetRocketTarget()
 t CNPC_Apache::GetActualShootPosition(Vector const&)
 t CNPC_Apache::PopulatePoseParameters()
 t CNPC_Apache::IntializeBoneController()
@@ -17004,8 +17011,8 @@ t CSpriteTeam::~CSpriteTeam()
 t CStringPool::Find(char const*)
 t CStringPool::FreeAll()
 t CStringPool::Allocate(char const*)
-t CStringPool::CStringPool()
-t CStringPool::CStringPool()
+t CStringPool::CStringPool(StringPoolCase_t)
+t CStringPool::CStringPool(StringPoolCase_t)
 t CStringPool::~CStringPool()
 t CStringPool::~CStringPool()
 t CTEBaseBeam::GetServerClass()
@@ -17160,7 +17167,6 @@ t CWeapon_RPG::Deploy()
 t CWeapon_RPG::Holster(CBaseCombatWeapon*)
 t CWeapon_RPG::Precache()
 d CWeapon_RPG::m_DataMap
-t CWeapon_RPG::OnRestore()
 t CWeapon_RPG::~CWeapon_RPG()
 t CWeapon_RPG::~CWeapon_RPG()
 t CWeapon_RPG::~CWeapon_RPG()
@@ -19584,6 +19590,7 @@ t CGameMovement::CheckWater()
 t CGameMovement::FinishDuck()
 t CGameMovement::FinishMove()
 t CGameMovement::LadderMove()
+t CGameMovement::LadderMove() [clone .part.40]
 t CGameMovement::PlayerMove()
 t CGameMovement::PushEntity(Vector&, CGameTrace*)
 t CGameMovement::CheckFalling()
@@ -19637,6 +19644,7 @@ t CGameMovement::FinishTrackPredictionErrors(CBasePlayer*)
 t CGameMovement::ComputeConstraintSpeedFactor()
 t CGameMovement::PerformFlyCollisionResolution(CGameTrace&, Vector&)
 t CGameMovement::GetWaterContentsForPointCached(Vector const&, int)
+t CGameMovement::CheckValidStandableGroundCandidate(CGameTrace&, float)
 t CGameMovement::ResetGetWaterContentsForPointCache()
 t CGameMovement::Duck()
 t CGameMovement::Reset()
@@ -21179,9 +21187,12 @@ t CBaseAnimating::~CBaseAnimating()
 t CBaseAnimating::~CBaseAnimating()
 t CBaseAppSystem<IParticleSystemQuery>::Disconnect()
 t CBaseAppSystem<IParticleSystemQuery>::QueryInterface(char const*)
+t CBaseAppSystem<IParticleSystemQuery>::GetDependencies()
 t CBaseAppSystem<IParticleSystemQuery>::Init()
 t CBaseAppSystem<IParticleSystemQuery>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IParticleSystemQuery>::GetTier()
 t CBaseAppSystem<IParticleSystemQuery>::Shutdown()
+t CBaseAppSystem<IParticleSystemQuery>::Reconnect(void* (*)(char const*, int*), char const*)
 t CBaseGameStats::Event_Init()
 t CBaseGameStats::CollectData(StatSendType_t)
 t CBaseGameStats::Event_Punted(CBaseEntity*)
@@ -24079,7 +24090,7 @@ t CUtlSortVector<CBaseEntity*, CSortedEntityList::CEntityReportLess, CUtlVector<
 t CUtlSortVector<CDmxAttribute*, CDmxAttributeLess, CUtlVector<CDmxAttribute*, CUtlMemory<CDmxAttribute*, int> > >::CompareHelper(CDmxAttribute* const*, CDmxAttribute* const*)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
-t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.65]
 t CVarBitVecBase<unsigned short>::Resize(int, bool)
 t CZombieBotIdle::Update(CBotAI*, float)
 t CZombieBotIdle::~CZombieBotIdle()
@@ -25586,7 +25597,7 @@ t CResponseSystem::ResponseWarning(char const*, ...)
 t CResponseSystem::CopyCriteriaFrom(Rule*, Rule*, CResponseSystem*)
 t CResponseSystem::FindBestResponse(AI_CriteriaSet const&, AI_Response&, IResponseFilter*)
 t CResponseSystem::GetCurrentScript(char*, unsigned int)
-t CResponseSystem::GetCurrentScript(char*, unsigned int) [clone .part.38]
+t CResponseSystem::GetCurrentScript(char*, unsigned int) [clone .part.39]
 t CResponseSystem::ParseEnumeration()
 t CResponseSystem::ParseOneResponse(char const*, ResponseGroup&)
 t CResponseSystem::CopyResponsesFrom(Rule*, Rule*, CResponseSystem*)
@@ -25827,7 +25838,7 @@ t CUtlBinaryBlock::CUtlBinaryBlock(int, int)
 t CUtlBinaryBlock::CUtlBinaryBlock(void const*, int)
 t CUtlBinaryBlock::CUtlBinaryBlock(void*, int, int)
 t CUtlBinaryBlock::CUtlBinaryBlock(CUtlBinaryBlock const&)
-t CUtlFixedMemory<UtlLinkedListElem_t<LagRecord, int> >::Purge() [clone .isra.53]
+t CUtlFixedMemory<UtlLinkedListElem_t<LagRecord, int> >::Purge() [clone .isra.54]
 t CUtlSymbolTable::AddString(char const*)
 t CUtlSymbolTable::RemoveAll()
 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
@@ -26944,6 +26955,7 @@ t CBM_MP_GameRules::ClientCommand(CBaseEntity*, CCommand const&)
 t CBM_MP_GameRules::FindSpawnSpot(CUtlLinkedList<SSpawnPointProperties*, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<SSpawnPointProperties*, unsigned short>, unsigned short> > const&, CBasePlayer*)
 t CBM_MP_GameRules::ShouldCollide(int, int)
 t CBM_MP_GameRules::ExecuteCfgFile(char const*)
+t CBM_MP_GameRules::IPointsForKill(CBasePlayer*, CBasePlayer*)
 t CBM_MP_GameRules::IsSavingAllowed()
 t CBM_MP_GameRules::Damage_ShowOnHUD(int)
 t CBM_MP_GameRules::FAllowFlashlight()
@@ -28094,6 +28106,7 @@ t CBaseCombatWeapon::CanBePickedUpByNPCs()
 t CBaseCombatWeapon::GetControlPanelInfo(int, char const*&)
 t CBaseCombatWeapon::GetDefaultAnimSpeed()
 t CBaseCombatWeapon::NetworkVar_m_iClip1::NetworkStateChanged(void*)
+t CBaseCombatWeapon::NetworkVar_m_iClip2::NetworkStateChanged(void*)
 t CBaseCombatWeapon::UpdateTransmitState()
 t CBaseCombatWeapon::AttemptToMaterialize()
 t CBaseCombatWeapon::DisplayReloadHudHint()
@@ -29241,6 +29254,7 @@ b DT_Weapon_Shotgun::g_SendTable
 b DT_Weapon_Shotgun::g_SendTableInit
 t EntityMpGameRules::GetBaseMap()
 t EntityMpGameRules::GetDataDescMap()
+t EntityMpGameRules::SetPointsPerFrag(inputdata_t&)
 t EntityMpGameRules::EnableCanisterDrops(inputdata_t&)
 t EntityMpGameRules::DisableCanisterDrops(inputdata_t&)
 d EntityMpGameRules::m_DataMap
@@ -29733,19 +29747,6 @@ t CCopyableUtlVector<S_VM_BodygroupOverride, CUtlMemory<S_VM_BodygroupOverride, 
 t CCopyableUtlVector<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, CUtlMemory<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, int> >::~CCopyableUtlVector()
 t CCopyableUtlVector<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, CUtlMemory<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, int> >::~CCopyableUtlVector()
 t CCopyableUtlVector<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, CUtlMemory<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, int> >::~CCopyableUtlVector()
-t CCountedStringPool::FindString(char const*)
-t CCountedStringPool::SpewStrings()
-t CCountedStringPool::HandleToString(unsigned short)
-t CCountedStringPool::ReferenceString(char const*)
-t CCountedStringPool::FindStringHandle(char const*)
-t CCountedStringPool::DereferenceString(char const*)
-t CCountedStringPool::ReferenceStringHandle(char const*)
-t CCountedStringPool::FreeAll()
-t CCountedStringPool::CCountedStringPool()
-t CCountedStringPool::CCountedStringPool()
-t CCountedStringPool::~CCountedStringPool()
-t CCountedStringPool::~CCountedStringPool()
-t CCountedStringPool::~CCountedStringPool()
 t CDefSaveRestoreOps::Save(SaveRestoreFieldInfo_t const&, ISave*)
 t CDefSaveRestoreOps::Parse(SaveRestoreFieldInfo_t const&, char const*)
 t CDefSaveRestoreOps::IsEmpty(SaveRestoreFieldInfo_t const&)
@@ -32087,6 +32088,24 @@ d CEnv_XenPortalEffect::m_DataMap
 t CEnv_XenPortalEffect::~CEnv_XenPortalEffect()
 t CEnv_XenPortalEffect::~CEnv_XenPortalEffect()
 t CEnv_XenPortalEffect::~CEnv_XenPortalEffect()
+t CExpressionEvaluator::MakeFactor(ExprNode*&)
+t CExpressionEvaluator::AllocateNode()
+t CExpressionEvaluator::GetNextToken()
+t CExpressionEvaluator::MakeExprNode(ExprNode*&, char, Kind, ExprNode*, ExprNode*)
+t CExpressionEvaluator::SimplifyNode(ExprNode*&)
+t CExpressionEvaluator::IsConditional(bool&, char)
+t CExpressionEvaluator::MakeExpression(ExprNode*&)
+t CExpressionEvaluator::BuildExpression()
+t CExpressionEvaluator::IsIdentifierOrConstant(char)
+t CExpressionEvaluator::IsNotOp(char)
+t CExpressionEvaluator::Evaluate(bool&, char const*, bool (*)(char const*), void (*)(char const*))
+t CExpressionEvaluator::FreeNode(ExprNode*)
+t CExpressionEvaluator::FreeTree(ExprNode*&)
+t CExpressionEvaluator::MakeTerm(ExprNode*&)
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
 t CFailableAchievement::GetBaseMap()
 t CFailableAchievement::IsAchieved()
 t CFailableAchievement::OnMapEvent(char const*)
@@ -34079,6 +34098,7 @@ t CGameDLL_ConVarAccessor::RegisterConCommandBase(ConCommandBase*)
 b CGameScore_DataDescInit::g_DataMapHolder
 b CGruntList_DataDescInit::g_DataMapHolder
 b CGunTarget_DataDescInit::g_DataMapHolder
+t CLagCompensationManager::ClearHistory()
 t CLagCompensationManager::BacktrackEntity(CBaseEntity*, float, CUtlFixedLinkedList<LagRecord>*, LagRecord*, LagRecord*, bool)
 t CLagCompensationManager::AddAdditionalEntity(CBaseEntity*)
 t CLagCompensationManager::RecordDataIntoTrack(CBaseEntity*, CUtlFixedLinkedList<LagRecord>*, bool)
@@ -38566,6 +38586,7 @@ t CUtlRBTree<VisibilityCacheEntry_t, unsigned short, CVisibilityCacheEntryLess, 
 t CUtlRBTree<VisibilityCacheEntry_t, unsigned short, CVisibilityCacheEntryLess, CUtlMemory<UtlRBTreeNode_t<VisibilityCacheEntry_t, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlRBTree<CHandle<CBaseEntity>, unsigned short, bool (*)(CHandle<CBaseEntity> const&, CHandle<CBaseEntity> const&), CUtlMemory<UtlRBTreeNode_t<CHandle<CBaseEntity>, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CHandle<CBaseEntity>, unsigned short, bool (*)(CHandle<CBaseEntity> const&, CHandle<CBaseEntity> const&), CUtlMemory<UtlRBTreeNode_t<CHandle<CBaseEntity>, unsigned short>, unsigned short> >::Find(CHandle<CBaseEntity> const&) const
+t CUtlRBTree<CHandle<CBaseEntity>, unsigned short, bool (*)(CHandle<CBaseEntity> const&, CHandle<CBaseEntity> const&), CUtlMemory<UtlRBTreeNode_t<CHandle<CBaseEntity>, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlRBTree<ThinkSync, unsigned short, bool (*)(ThinkSync const&, ThinkSync const&), CUtlMemory<UtlRBTreeNode_t<ThinkSync, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<int, unsigned short, bool (*)(int const&, int const&), CUtlMemory<UtlRBTreeNode_t<int, unsigned short>, unsigned short> >::Find(int const&) const
 t CUtlRBTree<CChoreoScene::ActiveList, int, bool (*)(CChoreoScene::ActiveList const&, CChoreoScene::ActiveList const&), CUtlMemory<UtlRBTreeNode_t<CChoreoScene::ActiveList, int>, int> >::NextInorder(int) const
@@ -38579,6 +38600,7 @@ t CUtlRBTree<CDmxSerializationDictionary::DmxElementInfo_t, int, bool (*)(CDmxSe
 t CUtlRBTree<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short, CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short, CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short, CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t const&) const
+t CUtlRBTree<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short, CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CHandle<CBaseEntity>, CLagCompensationManager::EntityLagData*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlRBTree<CUtlMap<CSteamID, float, unsigned short>::Node_t, unsigned short, CUtlMap<CSteamID, float, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CSteamID, float, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<CSteamID, float, unsigned short>::Node_t, unsigned short, CUtlMap<CSteamID, float, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CSteamID, float, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<CSteamID, float, unsigned short>::Node_t, unsigned short, CUtlMap<CSteamID, float, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CSteamID, float, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<CSteamID, float, unsigned short>::Node_t const&) const
@@ -42005,7 +42027,6 @@ r typeinfo for CCollisionProperty
 r typeinfo for CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >
 r typeinfo for CCopyableUtlVector<S_VM_BodygroupOverride, CUtlMemory<S_VM_BodygroupOverride, int> >
 r typeinfo for CCopyableUtlVector<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, CUtlMemory<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, int> >
-r typeinfo for CCountedStringPool
 r typeinfo for CDefSaveRestoreOps
 r typeinfo for CEnableMotionFixup
 r typeinfo for CEnvGargantuaFlame
@@ -43904,7 +43925,6 @@ r typeinfo name for CCollisionProperty
 r typeinfo name for CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >
 r typeinfo name for CCopyableUtlVector<S_VM_BodygroupOverride, CUtlMemory<S_VM_BodygroupOverride, int> >
 r typeinfo name for CCopyableUtlVector<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, CUtlMemory<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, int> >
-r typeinfo name for CCountedStringPool
 r typeinfo name for CDefSaveRestoreOps
 r typeinfo name for CEnableMotionFixup
 r typeinfo name for CEnvGargantuaFlame
@@ -45789,7 +45809,6 @@ r vtable for CCollisionProperty
 r vtable for CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >
 r vtable for CCopyableUtlVector<S_VM_BodygroupOverride, CUtlMemory<S_VM_BodygroupOverride, int> >
 r vtable for CCopyableUtlVector<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, CUtlMemory<CCopyableUtlVector<SBodygroupOverride, CUtlMemory<SBodygroupOverride, int> >, int> >
-r vtable for CCountedStringPool
 r vtable for CDefSaveRestoreOps
 r vtable for CEnableMotionFixup
 r vtable for CEnvGargantuaFlame

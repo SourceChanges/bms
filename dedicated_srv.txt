@@ -103,6 +103,7 @@ T cv_yank
 U __cxa_allocate_exception@@CXXABI_1.3
 U __cxa_atexit@@GLIBC_2.1.3
 U __cxa_begin_catch@@CXXABI_1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 U __cxa_end_catch@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_free_exception@@CXXABI_1.3
@@ -312,6 +313,7 @@ U gethostbyname@@GLIBC_2.0
 U gethostname@@GLIBC_2.0
 U getsockname@@GLIBC_2.0
 U gettimeofday@@GLIBC_2.0
+b g_ExpressionEvaluator
 b g_FileSystem_Stdio
 d g_iNextSearchPathID
 b g_KeyValuesErrorStack
@@ -338,6 +340,7 @@ t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z17FileSystemFactoryPKcPi
 t _GLOBAL__sub_I__Z19SetupMatrixIdentityv
 t _GLOBAL__sub_I__Z21ConnectTier1LibrariesPPFPvPKcPiEi
+t _GLOBAL__sub_I__Z28DefaultConditionalSymbolProcPKc
 t _GLOBAL__sub_I__Z28FileSystem_UseVProjectBinDirb
 t _GLOBAL__sub_I__Z9_SSE_Sqrtf
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
@@ -1517,6 +1520,7 @@ t Vector3DMultiplyProjective(VMatrix const&, Vector const&, Vector&)
 t CalcDistanceToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, Vector&)
+t DefaultConditionalErrorProc(char const*)
 t FileSystem_GetExecutableDir(char*, int)
 t FileSystem_GetExecutableDir(char*, int) [clone .part.7]
 t Parabolic_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -1526,6 +1530,7 @@ t TransformAnglesToWorldSpace(QAngle const&, matrix3x4_t const&)
 t VectorPerpendicularToVector(Vector const&, Vector*)
 t CalcDistanceSqrToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Catmull_Rom_Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t DefaultConditionalSymbolProc(char const*)
 t FileSystem_ClearSteamEnvVars()
 t FileSystem_UseVProjectBinDir(bool)
 t findFileInDirCaseInsensitive(char const*, char*, unsigned int)
@@ -1633,6 +1638,7 @@ t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 b reference temporary #0 for CryptoPP::BufferedTransformation::NULL_CHANNEL
 b guard variable for datamap_t* DataMapInit<ZIP_FileHeader>(ZIP_FileHeader*)::nameHolder
 b guard variable for datamap_t* DataMapInit<ZIP_PreloadHeader>(ZIP_PreloadHeader*)::nameHolder
@@ -1728,6 +1734,7 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
 b vec4_origin
 b vec4_origin
 b vec4_origin
@@ -1741,6 +1748,7 @@ b vec4_origin
 b vec4_origin
 t async_resume(CCommand const&)
 t MD5Transform(unsigned int*, unsigned int const*)
+b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -1982,6 +1990,8 @@ t CUtlMemory<CUtlString, int>::Grow(int)
 t CUtlMemory<CUtlString, int>::Purge()
 t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Grow(int)
 t CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int>::Purge()
+t CUtlMemory<CUtlSymbolTable, int>::Grow(int)
+t CUtlMemory<CUtlSymbolTable, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CachedVPKRead_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short>::Grow(int)
@@ -2043,6 +2053,8 @@ t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
 t CUtlMemory<char*, int>::Grow(int)
 t CUtlMemory<char*, int>::Purge()
+t CUtlMemory<void* (*)(char const*, int*), int>::Grow(int)
+t CUtlMemory<void* (*)(char const*, int*), int>::Purge()
 t CUtlMemory<void (*)(char const*, char const*), int>::Grow(int)
 t CUtlMemory<void (*)(char const*, char const*), int>::Purge()
 t CUtlMemory<CBaseFileSystem::CPathIDInfo*, int>::Grow(int)
@@ -2066,6 +2078,7 @@ t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable:
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Insert(CUtlSymbolTable::CStringPoolIndex const&)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::CopyFrom(CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> > const&)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short, CUtlMap<int, CUtlStringList*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, CUtlStringList*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -2154,6 +2167,9 @@ t CUtlSymbol::CUtlSymbol(char const*)
 t CUtlSymbol::CUtlSymbol(char const*)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::RemoveAll()
+t CUtlVector<CUtlSymbolTable, CUtlMemory<CUtlSymbolTable, int> >::EnsureCount(int)
+t CUtlVector<CUtlSymbolTable, CUtlMemory<CUtlSymbolTable, int> >::~CUtlVector()
+t CUtlVector<CUtlSymbolTable, CUtlMemory<CUtlSymbolTable, int> >::~CUtlVector()
 t CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> >::GrowVector(int)
 t CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> >::ShiftElementsRight(int, int)
 t CUtlVector<VPKContentFileInfo_t, CUtlMemory<VPKContentFileInfo_t, int> >::InsertBefore(int)
@@ -2182,6 +2198,9 @@ t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPa
 t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> >::~CUtlVector()
 t CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> >::~CUtlVector()
 t CUtlVector<IAppSystem*, CUtlMemory<IAppSystem*, int> >::InsertBefore(int, IAppSystem* const&)
+t CUtlVector<CFunctor*, CUtlMemory<CFunctor*, int> >::InsertBefore(int, CFunctor* const&)
+t CUtlVector<CFunctor*, CUtlMemory<CFunctor*, int> >::~CUtlVector()
+t CUtlVector<CFunctor*, CUtlMemory<CFunctor*, int> >::~CUtlVector()
 t CUtlVector<CPackFile*, CUtlMemory<CPackFile*, int> >::InsertBefore(int, CPackFile* const&)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::GrowVector(int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, int)
@@ -2192,6 +2211,7 @@ t CUtlVector<char*, CUtlMemory<char*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<char*, CUtlMemory<char*, int> >::Sort(int (*)(char* const*, char* const*))
 t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::GrowVector(int)
 t CUtlVector<CBaseFileSystem::CFileCacheObject::Info_t*, CUtlMemory<CBaseFileSystem::CFileCacheObject::Info_t*, int> >::ShiftElementsRight(int, int)
+t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::operator=(CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> > const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
@@ -2374,6 +2394,7 @@ t CQueuedLoader::ParseResourceList(CUtlBuffer&)
 t CQueuedLoader::SubmitBatchedJobs()
 t CQueuedLoader::SubmitPendingJobs()
 t CQueuedLoader::AddResourceToTable(char const*)
+t CQueuedLoader::CleanupDynamicLoad()
 t CQueuedLoader::CompleteDynamicLoad()
 t CQueuedLoader::CResourceNameLessFunc::Less(void* const&, void* const&, void*)
 t CQueuedLoader::CResourceNameLessFunc::Less(void* const&, void* const&, void*) [clone .part.4]
@@ -2382,6 +2403,7 @@ t CQueuedLoader::DynamicLoadMapResource(char const*, void (*)(char const*, void*
 t CQueuedLoader::QueueDynamicLoadFunctor(CFunctor*)
 t CQueuedLoader::SubmitBatchedJobsAndWait()
 t CQueuedLoader::PurgeUnreferencedResources()
+t CQueuedLoader::QueueCleanupDynamicLoadFunctor(CFunctor*)
 t CQueuedLoader::Init()
 t CQueuedLoader::AddJob(LoaderJob_t const*)
 t CQueuedLoader::PurgeAll()
@@ -2411,19 +2433,28 @@ t HexDecoderTKS::~HexDecoderTKS()
 t HexDecoderTKS::~HexDecoderTKS()
 t CBaseAppSystem<IFileSystem>::Disconnect()
 t CBaseAppSystem<IFileSystem>::QueryInterface(char const*)
+t CBaseAppSystem<IFileSystem>::GetDependencies()
 t CBaseAppSystem<IFileSystem>::Init()
 t CBaseAppSystem<IFileSystem>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IFileSystem>::GetTier()
 t CBaseAppSystem<IFileSystem>::Shutdown()
+t CBaseAppSystem<IFileSystem>::Reconnect(void* (*)(char const*, int*), char const*)
 t CBaseAppSystem<IQueuedLoader>::Disconnect()
 t CBaseAppSystem<IQueuedLoader>::QueryInterface(char const*)
+t CBaseAppSystem<IQueuedLoader>::GetDependencies()
 t CBaseAppSystem<IQueuedLoader>::Init()
 t CBaseAppSystem<IQueuedLoader>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IQueuedLoader>::GetTier()
 t CBaseAppSystem<IQueuedLoader>::Shutdown()
+t CBaseAppSystem<IQueuedLoader>::Reconnect(void* (*)(char const*, int*), char const*)
 t CBaseAppSystem<IDedicatedExports>::Disconnect()
 t CBaseAppSystem<IDedicatedExports>::QueryInterface(char const*)
+t CBaseAppSystem<IDedicatedExports>::GetDependencies()
 t CBaseAppSystem<IDedicatedExports>::Init()
 t CBaseAppSystem<IDedicatedExports>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IDedicatedExports>::GetTier()
 t CBaseAppSystem<IDedicatedExports>::Shutdown()
+t CBaseAppSystem<IDedicatedExports>::Reconnect(void* (*)(char const*, int*), char const*)
 t CDummyProgress::EndProgress()
 t CDummyProgress::BeginProgress()
 t CDummyProgress::UpdateProgress(float)
@@ -2465,10 +2496,10 @@ t CUtlSortVector<CZipPackFile::CPackFileEntry, CZipPackFile::CPackFileLessFunc, 
 t CUtlSortVector<FileJob_t*, CQueuedLoader::CFileJobsLessFunc, CUtlVector<FileJob_t*, CUtlMemory<FileJob_t*, int> > >::CompareHelper(FileJob_t* const*, FileJob_t* const*)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
-t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.65]
 t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::CompareHelper(void* const*, void* const*)
 t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::Remove(void* const&)
-t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::RedoSort(bool) [clone .part.48]
+t CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::RedoSort(bool) [clone .part.46]
 t CUtlStringList::SortFunc(char* const*, char* const*)
 t CUtlStringList::~CUtlStringList()
 t CUtlStringList::~CUtlStringList()
@@ -2482,15 +2513,27 @@ t CAppSystemGroup::LoadModule(void* (*)(char const*, int*))
 t CAppSystemGroup::LoadModule(char const*)
 t CAppSystemGroup::OnShutdown()
 t CAppSystemGroup::InitSystems()
+t CAppSystemGroup::PreShutdown()
+t CAppSystemGroup::ReloadModule(char const*)
+t CAppSystemGroup::SortLessFunc(int const&, int const&)
 t CAppSystemGroup::LoadModuleDLL(char const*)
 t CAppSystemGroup::ConnectSystems()
+t CAppSystemGroup::FindSystemName(int)
 t CAppSystemGroup::ShutdownSystems()
+t CAppSystemGroup::ReconnectSystems(char const*)
 t CAppSystemGroup::RemoveAllSystems()
 t CAppSystemGroup::UnloadAllModules()
 t CAppSystemGroup::DisconnectSystems()
+t CAppSystemGroup::ComputeDependencies(CUtlStringMap<CUtlSymbolTable>&)
+t CAppSystemGroup::LoadDependentSystems()
 t CAppSystemGroup::ReportStartupFailure(int, int)
+b CAppSystemGroup::sm_pSortDependencies
+t CAppSystemGroup::AddNonAppSystemFactory(void* (*)(char const*, int*))
+t CAppSystemGroup::SortDependentLibraries(CUtlStringMap<CUtlSymbolTable>&)
+t CAppSystemGroup::RemoveNonAppSystemFactory(void* (*)(char const*, int*))
 t CAppSystemGroup::Run()
 t CAppSystemGroup::Startup()
+t CAppSystemGroup::PostInit()
 t CAppSystemGroup::Shutdown()
 t CAppSystemGroup::AddSystem(int, char const*)
 t CAppSystemGroup::AddSystem(IAppSystem*, char const*)
@@ -2567,6 +2610,7 @@ t CBaseFileSystem::LoadKeyValues(KeyValues&, IFileSystem::KeyValuesPreloadType_t
 t CBaseFileSystem::LogFileAccess(char const*)
 t CBaseFileSystem::LogFileAccess(char const*) [clone .part.37]
 t CBaseFileSystem::RemoveVPKFile(char const*)
+t CBaseFileSystem::RemoveVPKFile(char const*, char const*)
 t CBaseFileSystem::SetBufferSize(void*, unsigned int)
 t CBaseFileSystem::ShutdownAsync()
 t CBaseFileSystem::AddLoggingFunc(void (*)(char const*, char const*))
@@ -2631,7 +2675,7 @@ t CBaseFileSystem::AsyncFinishAllWrites()
 t CBaseFileSystem::CSearchPathsIterator::CopySearchPaths(CUtlVector<CBaseFileSystem::CSearchPath, CUtlMemory<CBaseFileSystem::CSearchPath, int> > const&)
 t CBaseFileSystem::CSearchPathsIterator::GetNext()
 t CBaseFileSystem::CSearchPathsIterator::GetFirst()
-t CBaseFileSystem::CSearchPathsIterator::GetFirst() [clone .part.151]
+t CBaseFileSystem::CSearchPathsIterator::GetFirst() [clone .part.148]
 t CBaseFileSystem::CSearchPathsIterator::~CSearchPathsIterator()
 t CBaseFileSystem::CSearchPathsIterator::~CSearchPathsIterator()
 t CBaseFileSystem::FindFileAbsoluteList(CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&, char const*, char const*)
@@ -2662,7 +2706,7 @@ t CBaseFileSystem::RemoveAllMapSearchPaths()
 t CBaseFileSystem::Trace_DumpUnclosedFiles()
 t CBaseFileSystem::UnloadCompiledKeyValues()
 t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int)
-t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int) [clone .part.80]
+t CBaseFileSystem::FullPathToRelativePathEx(char const*, char const*, char*, int) [clone .part.77]
 t CBaseFileSystem::RemoveAsyncCustomFetchJob(CFileAsyncReadJob*)
 t CBaseFileSystem::FindFileAbsoluteListHelper(CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&, CBaseFileSystem::FindData_t&, char const*)
 t CBaseFileSystem::GetCaseCorrectFullPath_Ptr(char const*, char*, int)
@@ -2715,14 +2759,17 @@ t CPackFileHandle::~CPackFileHandle()
 t CTier1AppSystem<IFileSystem, 0>::Disconnect()
 t CTier1AppSystem<IFileSystem, 0>::Init()
 t CTier1AppSystem<IFileSystem, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IFileSystem, 0>::GetTier()
 t CTier1AppSystem<IFileSystem, 0>::Shutdown()
 t CTier1AppSystem<IQueuedLoader, 0>::Disconnect()
 t CTier1AppSystem<IQueuedLoader, 0>::Init()
 t CTier1AppSystem<IQueuedLoader, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IQueuedLoader, 0>::GetTier()
 t CTier1AppSystem<IQueuedLoader, 0>::Shutdown()
 t CTier2AppSystem<IQueuedLoader, 0>::Disconnect()
 t CTier2AppSystem<IQueuedLoader, 0>::Init()
 t CTier2AppSystem<IQueuedLoader, 0>::Connect(void* (*)(char const*, int*))
+t CTier2AppSystem<IQueuedLoader, 0>::GetTier()
 t CTier2AppSystem<IQueuedLoader, 0>::Shutdown()
 t CUtlBlockMemory<unsigned char, int>::ChangeSize(int)
 t CUtlBlockMemory<unsigned char, int>::Grow(int) [clone .part.67]
@@ -2891,6 +2938,24 @@ t CCustomBase32Encoder::CCustomBase32Encoder(char const*)
 t CCustomBase32Encoder::CCustomBase32Encoder(char const*)
 t CCustomBase32Encoder::~CCustomBase32Encoder()
 t CCustomBase32Encoder::~CCustomBase32Encoder()
+t CExpressionEvaluator::MakeFactor(ExprNode*&)
+t CExpressionEvaluator::AllocateNode()
+t CExpressionEvaluator::GetNextToken()
+t CExpressionEvaluator::MakeExprNode(ExprNode*&, char, Kind, ExprNode*, ExprNode*)
+t CExpressionEvaluator::SimplifyNode(ExprNode*&)
+t CExpressionEvaluator::IsConditional(bool&, char)
+t CExpressionEvaluator::MakeExpression(ExprNode*&)
+t CExpressionEvaluator::BuildExpression()
+t CExpressionEvaluator::IsIdentifierOrConstant(char)
+t CExpressionEvaluator::IsNotOp(char)
+t CExpressionEvaluator::Evaluate(bool&, char const*, bool (*)(char const*), void (*)(char const*))
+t CExpressionEvaluator::FreeNode(ExprNode*)
+t CExpressionEvaluator::FreeTree(ExprNode*&)
+t CExpressionEvaluator::MakeTerm(ExprNode*&)
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
 t CPackedStoreRefCount::CPackedStoreRefCount(char const*, char*, IBaseFileSystem*)
 t CPackedStoreRefCount::CPackedStoreRefCount(char const*, char*, IBaseFileSystem*)
 t CPackedStoreRefCount::~CPackedStoreRefCount()
@@ -3135,6 +3200,9 @@ t CCommand::CCommand(int, char const**)
 t CCommand::CCommand()
 t CCommand::CCommand(int, char const**)
 t CCommand::CCommand()
+t CFmtStrN<256, false>::InitQuietTruncation()
+t CFmtStrN<256, false>::CFmtStrN(char const*, ...)
+t CFmtStrN<256, false>::CFmtStrN(char const*, ...)
 t CFunctor::~CFunctor()
 t CFunctor::~CFunctor()
 t CFunctor::~CFunctor()
@@ -6055,6 +6123,7 @@ t CUtlRBTree<CUtlMap<unsigned long, CThreadMutex*, unsigned short>::Node_t, unsi
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::NextInorder(int) const
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
+t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<char const*, int, unsigned short>::Node_t const&) const
 t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::NextInorder(int) const
 t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<char const*, FileJob_t*, int>::Node_t, int, CUtlMap<char const*, FileJob_t*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, FileJob_t*, int>::Node_t, int>, int> >::Find(CUtlMap<char const*, FileJob_t*, int>::Node_t const&) const
@@ -6120,7 +6189,7 @@ t CQueuedLoader::GetSpewDetail() const
 t CQueuedLoader::IsSameMapLoading() const
 t CQueuedLoader::IsDynamic() const
 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
-t unsigned int CUtlHashtable<char const*, CMemoryFileBacking*, DefaultHashFunctor<char const*>, DefaultEqualFunctor<char const*>, undefined_t>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.136]
+t unsigned int CUtlHashtable<char const*, CMemoryFileBacking*, DefaultHashFunctor<char const*>, DefaultEqualFunctor<char const*>, undefined_t>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.133]
 t ConCommandBase::GetHelpText() const
 t ConCommandBase::IsRegistered() const
 t ConCommandBase::GetDLLIdentifier() const
@@ -6132,7 +6201,7 @@ t int CUtlSortVector<ChunkHashFraction_t, ChunkHashFractionLess_t, CUtlVector<Ch
 t int CUtlSortVector<ChunkHashFraction_t, ChunkHashFractionLess_t, CUtlVector<ChunkHashFraction_t, CUtlMemory<ChunkHashFraction_t, int> > >::Find<ChunkHashFraction_t>(ChunkHashFraction_t const&) const
 t int CUtlSortVector<CZipPackFile::CPackFileEntry, CZipPackFile::CPackFileLessFunc, CUtlVector<CZipPackFile::CPackFileEntry, CUtlMemory<CZipPackFile::CPackFileEntry, int> > >::Find<CZipPackFile::CPackFileEntry>(CZipPackFile::CPackFileEntry const&) const
 t int CUtlSortVector<void*, CQueuedLoader::CResourceNameLessFunc, CUtlVector<void*, CUtlMemory<void*, int> > >::Find<void*>(void* const&) const
-t CAppSystemGroup::GetErrorStage() const
+t CAppSystemGroup::GetCurrentStage() const
 t CBaseFileSystem::COpenedFile::operator==(CBaseFileSystem::COpenedFile const&) const
 t CBaseFileSystem::CSearchPath::GetDebugString() const
 t CBaseFileSystem::CSearchPath::IsMapPath() const
@@ -8928,6 +8997,7 @@ r typeinfo for ConVar
 r typeinfo for CNetAPI
 r typeinfo for IConVar
 r typeinfo for INetAPI
+r typeinfo for CFmtStrN<256, false>
 r typeinfo for CFunctor
 r typeinfo for CFunctor4<void (*)(FileJob_t*, void (*)(void*, void*, void const*, int, LoaderError_t), void*, void*), FileJob_t*, void (*)(void*, void*, void const*, int, LoaderError_t), void*, void*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r typeinfo for CFunctor4<void (*)(FileJob_t*, void*, int, LoaderError_t), FileJob_t*, void*, int, LoaderError_t, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
@@ -9573,6 +9643,7 @@ r typeinfo name for ConVar
 r typeinfo name for CNetAPI
 r typeinfo name for IConVar
 r typeinfo name for INetAPI
+r typeinfo name for CFmtStrN<256, false>
 r typeinfo name for CFunctor
 r typeinfo name for CFunctor4<void (*)(FileJob_t*, void (*)(void*, void*, void const*, int, LoaderError_t), void*, void*), FileJob_t*, void (*)(void*, void*, void const*, int, LoaderError_t), void*, void*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r typeinfo name for CFunctor4<void (*)(FileJob_t*, void*, int, LoaderError_t), FileJob_t*, void*, int, LoaderError_t, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
@@ -10484,6 +10555,7 @@ r vtable for IZip
 r vtable for ConVar
 r vtable for CNetAPI
 r vtable for IConVar
+r vtable for CFmtStrN<256, false>
 r vtable for CFunctor
 r vtable for CFunctor4<void (*)(FileJob_t*, void (*)(void*, void*, void const*, int, LoaderError_t), void*, void*), FileJob_t*, void (*)(void*, void*, void const*, int, LoaderError_t), void*, void*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r vtable for CFunctor4<void (*)(FileJob_t*, void*, int, LoaderError_t), FileJob_t*, void*, int, LoaderError_t, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
@@ -11028,6 +11100,7 @@ r CThreadSpinRWLock::TryLockForWrite(unsigned int)::oldValue
 b CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
 r CCrypto::Base64Decode(char const*, unsigned int, unsigned char*, unsigned int*, bool)::rgchInvBase64
 b CNetAPI::AdrToString(netadr_s*)::s
+b CFmtStrN<256, false>::CFmtStrN(char const*, ...)::scAsserted
 b CryptoPP::HexDecoder::GetDefaultDecodingLookupArray()::s_initialized
 b CryptoPP::HexDecoder::GetDefaultDecodingLookupArray()::s_array
 b CryptoPP::TheBitBucket()::bitBucket

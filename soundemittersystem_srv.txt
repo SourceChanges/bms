@@ -17,6 +17,7 @@ U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
 b cvar
 U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
 U __cxa_guard_acquire@@CXXABI_1.3
@@ -61,10 +62,12 @@ t _free_dbg
 U free@@GLIBC_2.0
 t get_cie_encoding
 U getcwd@@GLIBC_2.0
+b g_ExpressionEvaluator
 b g_KeyValuesErrorStack
 a _GLOBAL_OFFSET_TABLE_
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z16TextToSoundLevelPKc
+t _GLOBAL__sub_I__Z28DefaultConditionalSymbolProcPKc
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
 t _GLOBAL__sub_I__ZN10CUtlString11AllocMemoryEj
 t _GLOBAL__sub_I__ZN10CUtlSymbol14s_pSymbolTableE
@@ -499,7 +502,9 @@ t ConVar_PrintDescription(ConCommandBase const*)
 t CreateInterfaceInternal(char const*, int*)
 t GetCStringCharConversion()
 t Q_RemoveAllEvilCharacters(char*)
+t DefaultConditionalErrorProc(char const*)
 t Sys_RunningWithDebugModules()
+t DefaultConditionalSymbolProc(char const*)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t HashStringCaselessConventional(char const*)
 t StringAfterPrefixCaseSensitive(char const*, char const*)
@@ -546,6 +551,7 @@ t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 b ZERO_FLOAT16
 b guard variable for CUtlString::GetEmptyString()::s_emptyString
 b guard variable for CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
@@ -566,6 +572,8 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
+b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -792,6 +800,14 @@ t int CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFu
 t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::BumpEntry(unsigned int)
 t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::DoRealloc(int)
 t CUtlHashtable<CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CSoundEntry*, empty_t, CSoundEntryHashFunctor, CSoundEntryEqualFunctor, unsigned short, char const*>::EqualProxy, char const*>::RemoveAll()
+t CBaseAppSystem<ISoundEmitterSystemBase>::Disconnect()
+t CBaseAppSystem<ISoundEmitterSystemBase>::QueryInterface(char const*)
+t CBaseAppSystem<ISoundEmitterSystemBase>::GetDependencies()
+t CBaseAppSystem<ISoundEmitterSystemBase>::Init()
+t CBaseAppSystem<ISoundEmitterSystemBase>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<ISoundEmitterSystemBase>::GetTier()
+t CBaseAppSystem<ISoundEmitterSystemBase>::Shutdown()
+t CBaseAppSystem<ISoundEmitterSystemBase>::Reconnect(void* (*)(char const*, int*), char const*)
 t ConCommandBase::CopyString(char const*)
 t ConCommandBase::CreateBase(char const*, char const*, int)
 b ConCommandBase::s_pAccessor
@@ -812,7 +828,7 @@ t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false,
 t CUtlLinkedList<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short, false, unsigned short, CUtlMemory<UtlLinkedListElem_t<CUtlKeyValuePair<CSoundEntry*, empty_t>, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
-t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.65]
 t CUtlSymbolTable::AddString(char const*)
 t CUtlSymbolTable::RemoveAll()
 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
@@ -841,6 +857,24 @@ t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConvers
 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlConstStringBase<char>::Set(char const*)
 t CUtlNoEscConversion::FindConversion(char const*, int*)
+t CExpressionEvaluator::MakeFactor(ExprNode*&)
+t CExpressionEvaluator::AllocateNode()
+t CExpressionEvaluator::GetNextToken()
+t CExpressionEvaluator::MakeExprNode(ExprNode*&, char, Kind, ExprNode*, ExprNode*)
+t CExpressionEvaluator::SimplifyNode(ExprNode*&)
+t CExpressionEvaluator::IsConditional(bool&, char)
+t CExpressionEvaluator::MakeExpression(ExprNode*&)
+t CExpressionEvaluator::BuildExpression()
+t CExpressionEvaluator::IsIdentifierOrConstant(char)
+t CExpressionEvaluator::IsNotOp(char)
+t CExpressionEvaluator::Evaluate(bool&, char const*, bool (*)(char const*), void (*)(char const*))
+t CExpressionEvaluator::FreeNode(ExprNode*)
+t CExpressionEvaluator::FreeTree(ExprNode*&)
+t CExpressionEvaluator::MakeTerm(ExprNode*&)
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
 t CUtlCStringConversion::FindConversion(char const*, int*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
@@ -965,6 +999,9 @@ t CCommand::CCommand(int, char const**)
 t CCommand::CCommand()
 t CCommand::CCommand(int, char const**)
 t CCommand::CCommand()
+t CFmtStrN<256, false>::InitQuietTruncation()
+t CFmtStrN<256, false>::CFmtStrN(char const*, ...)
+t CFmtStrN<256, false>::CFmtStrN(char const*, ...)
 t ConVarRef::Init(char const*, bool)
 t ConVarRef::ConVarRef(IConVar*)
 t ConVarRef::ConVarRef(char const*)
@@ -1160,6 +1197,7 @@ t non-virtual thunk to ConVar::IsFlagSet(int) const
 r typeinfo for ConCommand
 r typeinfo for IAppSystem
 r typeinfo for CEmptyConVar
+r typeinfo for CBaseAppSystem<ISoundEmitterSystemBase>
 r typeinfo for ConCommandBase
 r typeinfo for CDefaultAccessor
 r typeinfo for CDllDemandLoader
@@ -1177,9 +1215,11 @@ r typeinfo for CKeyValuesDumpContextAsDevMsg
 r typeinfo for CSoundEmitterUniformRandomStream
 r typeinfo for ConVar
 r typeinfo for IConVar
+r typeinfo for CFmtStrN<256, false>
 r typeinfo name for ConCommand
 r typeinfo name for IAppSystem
 r typeinfo name for CEmptyConVar
+r typeinfo name for CBaseAppSystem<ISoundEmitterSystemBase>
 r typeinfo name for ConCommandBase
 r typeinfo name for CDefaultAccessor
 r typeinfo name for CDllDemandLoader
@@ -1197,9 +1237,11 @@ r typeinfo name for CKeyValuesDumpContextAsDevMsg
 r typeinfo name for CSoundEmitterUniformRandomStream
 r typeinfo name for ConVar
 r typeinfo name for IConVar
+r typeinfo name for CFmtStrN<256, false>
 r vtable for ConCommand
 r vtable for IAppSystem
 r vtable for CEmptyConVar
+r vtable for CBaseAppSystem<ISoundEmitterSystemBase>
 r vtable for ConCommandBase
 r vtable for CDefaultAccessor
 r vtable for CDllDemandLoader
@@ -1213,6 +1255,7 @@ r vtable for CKeyValuesDumpContextAsDevMsg
 r vtable for CSoundEmitterUniformRandomStream
 r vtable for ConVar
 r vtable for IConVar
+r vtable for CFmtStrN<256, false>
 U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
 U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
 U vtable for __cxxabiv1::__vmi_class_type_info@@CXXABI_1.3
@@ -1235,6 +1278,7 @@ b CSoundEmitterSystemBase::GetWavFileForSound(char const*, gender_t)::outsound
 b CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
 b CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)::soundWarnings
 b CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
+b CFmtStrN<256, false>::CFmtStrN(char const*, ...)::scAsserted
 d ConVarRef::Init(char const*, bool)::bFirst
 b KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)::buf
 d CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel

@@ -17,6 +17,7 @@ U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
 b cvar
 U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
 U __cxa_guard_acquire@@CXXABI_1.3
@@ -627,6 +628,7 @@ t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 b guard variable for datamap_t* DataMapInit<phyheader_s>(phyheader_s*)::nameHolder
 b guard variable for datamap_t* DataMapInit<studiohdr_t>(studiohdr_t*)::nameHolder
 b guard variable for datamap_t* DataMapInit<studiohdr2_t>(studiohdr2_t*)::nameHolder
@@ -1087,8 +1089,6 @@ t CUtlVector<memhandle_t__*, CUtlMemory<memhandle_t__*, int> >::InsertBefore(int
 t CUtlVector<ResourceList_t__*, CUtlMemory<ResourceList_t__*, int> >::EnsureCount(int)
 t CUtlVector<ResourceList_t__*, CUtlMemory<ResourceList_t__*, int> >::~CUtlVector()
 t CUtlVector<ResourceList_t__*, CUtlMemory<ResourceList_t__*, int> >::~CUtlVector()
-t CUtlVector<IMaterial*, CUtlMemory<IMaterial*, int> >::~CUtlVector()
-t CUtlVector<IMaterial*, CUtlMemory<IMaterial*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::InsertBefore(int, void* const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::~CUtlVector()
@@ -1168,24 +1168,36 @@ t mstudiomesh_t::GetBaseMap()
 d mstudiomesh_t::m_DataMap
 t CBaseAppSystem<IDataCache>::Disconnect()
 t CBaseAppSystem<IDataCache>::QueryInterface(char const*)
+t CBaseAppSystem<IDataCache>::GetDependencies()
 t CBaseAppSystem<IDataCache>::Init()
 t CBaseAppSystem<IDataCache>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IDataCache>::GetTier()
 t CBaseAppSystem<IDataCache>::Shutdown()
+t CBaseAppSystem<IDataCache>::Reconnect(void* (*)(char const*, int*), char const*)
 t CBaseAppSystem<IPrecacheSystem>::Disconnect()
 t CBaseAppSystem<IPrecacheSystem>::QueryInterface(char const*)
+t CBaseAppSystem<IPrecacheSystem>::GetDependencies()
 t CBaseAppSystem<IPrecacheSystem>::Init()
 t CBaseAppSystem<IPrecacheSystem>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IPrecacheSystem>::GetTier()
 t CBaseAppSystem<IPrecacheSystem>::Shutdown()
+t CBaseAppSystem<IPrecacheSystem>::Reconnect(void* (*)(char const*, int*), char const*)
 t CBaseAppSystem<IResourceAccessControl>::Disconnect()
 t CBaseAppSystem<IResourceAccessControl>::QueryInterface(char const*)
+t CBaseAppSystem<IResourceAccessControl>::GetDependencies()
 t CBaseAppSystem<IResourceAccessControl>::Init()
 t CBaseAppSystem<IResourceAccessControl>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IResourceAccessControl>::GetTier()
 t CBaseAppSystem<IResourceAccessControl>::Shutdown()
+t CBaseAppSystem<IResourceAccessControl>::Reconnect(void* (*)(char const*, int*), char const*)
 t CBaseAppSystem<IMDLCache>::Disconnect()
 t CBaseAppSystem<IMDLCache>::QueryInterface(char const*)
+t CBaseAppSystem<IMDLCache>::GetDependencies()
 t CBaseAppSystem<IMDLCache>::Init()
 t CBaseAppSystem<IMDLCache>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IMDLCache>::GetTier()
 t CBaseAppSystem<IMDLCache>::Shutdown()
+t CBaseAppSystem<IMDLCache>::Reconnect(void* (*)(char const*, int*), char const*)
 t ConCommandBase::CopyString(char const*)
 t ConCommandBase::CreateBase(char const*, char const*, int)
 b ConCommandBase::s_pAccessor
@@ -1346,36 +1358,45 @@ t CPrecacheSystem::~CPrecacheSystem()
 t CTier1AppSystem<IDataCache, 0>::Disconnect()
 t CTier1AppSystem<IDataCache, 0>::Init()
 t CTier1AppSystem<IDataCache, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IDataCache, 0>::GetTier()
 t CTier1AppSystem<IDataCache, 0>::Shutdown()
 t CTier1AppSystem<IPrecacheSystem, 0>::Disconnect()
 t CTier1AppSystem<IPrecacheSystem, 0>::Init()
 t CTier1AppSystem<IPrecacheSystem, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IPrecacheSystem, 0>::GetTier()
 t CTier1AppSystem<IPrecacheSystem, 0>::Shutdown()
 t CTier1AppSystem<IResourceAccessControl, 0>::Disconnect()
 t CTier1AppSystem<IResourceAccessControl, 0>::Init()
 t CTier1AppSystem<IResourceAccessControl, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IResourceAccessControl, 0>::GetTier()
 t CTier1AppSystem<IResourceAccessControl, 0>::Shutdown()
 t CTier1AppSystem<IMDLCache, 0>::Disconnect()
 t CTier1AppSystem<IMDLCache, 0>::Init()
 t CTier1AppSystem<IMDLCache, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IMDLCache, 0>::GetTier()
 t CTier1AppSystem<IMDLCache, 0>::Shutdown()
 t CTier2AppSystem<IDataCache, 0>::Disconnect()
 t CTier2AppSystem<IDataCache, 0>::Init()
 t CTier2AppSystem<IDataCache, 0>::Connect(void* (*)(char const*, int*))
+t CTier2AppSystem<IDataCache, 0>::GetTier()
 t CTier2AppSystem<IDataCache, 0>::Shutdown()
 t CTier2AppSystem<IPrecacheSystem, 0>::Disconnect()
 t CTier2AppSystem<IPrecacheSystem, 0>::Init()
 t CTier2AppSystem<IPrecacheSystem, 0>::Connect(void* (*)(char const*, int*))
+t CTier2AppSystem<IPrecacheSystem, 0>::GetTier()
 t CTier2AppSystem<IPrecacheSystem, 0>::Shutdown()
 t CTier2AppSystem<IMDLCache, 0>::Disconnect()
 t CTier2AppSystem<IMDLCache, 0>::Init()
 t CTier2AppSystem<IMDLCache, 0>::Connect(void* (*)(char const*, int*))
+t CTier2AppSystem<IMDLCache, 0>::GetTier()
 t CTier2AppSystem<IMDLCache, 0>::Shutdown()
 t CTier3AppSystem<IDataCache, 0>::Disconnect()
 t CTier3AppSystem<IDataCache, 0>::Connect(void* (*)(char const*, int*))
+t CTier3AppSystem<IDataCache, 0>::GetTier()
 t CTier3AppSystem<IMDLCache, 0>::Disconnect()
 t CTier3AppSystem<IMDLCache, 0>::Connect(void* (*)(char const*, int*))
-t CUtlFixedMemory<UtlLinkedListElem_t<CUtlHashFast<memhandle_t__*, CUtlHashFastNoHash>::HashFastData_t_<memhandle_t__*>, int> >::Purge() [clone .isra.43]
+t CTier3AppSystem<IMDLCache, 0>::GetTier()
+t CUtlFixedMemory<UtlLinkedListElem_t<CUtlHashFast<memhandle_t__*, CUtlHashFastNoHash>::HashFastData_t_<memhandle_t__*>, int> >::Purge() [clone .isra.41]
 t CUtlSymbolTable::AddString(char const*)
 t CUtlSymbolTable::RemoveAll()
 t CUtlSymbolTable::CUtlSymbolTable(int, int, bool)
@@ -1729,6 +1750,10 @@ t CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefC
 t CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
 t CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
 t CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
+t CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::operator()()
+t CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
+t CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
+t CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
 t CMDLCache::ClearAsync(unsigned short, MDLCacheDataType_t, int, bool)
 t CMDLCache::Disconnect()
 t CMDLCache::EndMapLoad()
@@ -1755,7 +1780,7 @@ t CMDLCache::GetVertexData(unsigned short)
 t CMDLCache::LockStudioHdr(unsigned short)
 t CMDLCache::VerifyHeaders(studiohdr_t*)
 t CMDLCache::BreakFrameLock(bool, bool)
-t CMDLCache::BreakFrameLock(bool, bool) [clone .part.17]
+t CMDLCache::BreakFrameLock(bool, bool) [clone .part.19]
 t CMDLCache::FreeAnimBlocks(unsigned short)
 t CMDLCache::InitStudioData(unsigned short)
 t CMDLCache::LoadVertexData(studiohdr_t*)
@@ -1768,6 +1793,7 @@ t CMDLCache::CacheVertexData(studiohdr_t*)
 t CMDLCache::ConvertFlexData(studiohdr_t*)
 t CMDLCache::DestroyVCollide(unsigned short)
 t CMDLCache::GetAutoplayList(unsigned short, unsigned short**)
+t CMDLCache::GetDependencies()
 t CMDLCache::GetHardwareData(unsigned short)
 t CMDLCache::GetVCollideSize(unsigned short, int*)
 t CMDLCache::GetVirtualModel(unsigned short)
@@ -1781,6 +1807,7 @@ t CMDLCache::RestoreFrameLock()
 t CMDLCache::BuildHardwareData(unsigned short, studiodata_t*, studiohdr_t*, OptimizedModel::FileHeader_t*)
 t CMDLCache::ProcessQueuedData(ModelParts_t*, bool)
 t CMDLCache::AllocateAnimBlocks(studiodata_t*, int)
+t CMDLCache::CleanupDynamicLoad(CleanupModelParts_t*)
 t CMDLCache::CreateThinVertexes(vertexFileHeader_t*, studiohdr_t const*, int*)
 t CMDLCache::FinishPendingLoads()
 t CMDLCache::GetActualModelName(unsigned short)
@@ -1816,16 +1843,18 @@ t CMDLCache::GetRef(unsigned short)
 t CMDLCache::Connect(void* (*)(char const*, int*))
 t CMDLCache::EndLock()
 t CMDLCache::FindMDL(char const*)
+t CMDLCache::GetTier()
 t CMDLCache::Release(unsigned short)
 t CMDLCache::FreeData(MDLCacheDataType_t, void*)
 t CMDLCache::LoadData(char const*, char const*, void*, int, int, bool, FSAsyncControl_t__**)
-t CMDLCache::LoadData(char const*, char const*, void*, int, int, bool, FSAsyncControl_t__**) [clone .part.19]
+t CMDLCache::LoadData(char const*, char const*, void*, int, int, bool, FSAsyncControl_t__**) [clone .part.21]
 t CMDLCache::Shutdown()
 t CMDLCache::AllocData(MDLCacheDataType_t, int)
 t CMDLCache::BeginLock()
 t CMDLCache::CacheData(memhandle_t__**, void*, int, char const*, MDLCacheDataType_t, unsigned int)
 t CMDLCache::CheckData(memhandle_t__*, MDLCacheDataType_t)
 t CMDLCache::MarkFrame()
+t CMDLCache::Reconnect(void* (*)(char const*, int*), char const*)
 t CMDLCache::CMDLCache()
 t CMDLCache::CMDLCache()
 t CMDLCache::~CMDLCache()
@@ -1949,8 +1978,6 @@ t ConVarRef::IsValid() const
 U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
 t operator new(unsigned int)
 t operator new(unsigned int, int, char const*, int)
-t non-virtual thunk to CMDLCache::GetItemName(unsigned int, void const*, char*, unsigned int)
-t non-virtual thunk to CMDLCache::HandleCacheNotification(DataCacheNotification_t const&)
 t non-virtual thunk to CEmptyConVar::SetValue(float)
 t non-virtual thunk to CEmptyConVar::SetValue(int)
 t non-virtual thunk to CEmptyConVar::SetValue(char const*)
@@ -1961,17 +1988,24 @@ t non-virtual thunk to CEmptyConVar::GetName() const
 t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
 t non-virtual thunk to ConVar::GetName() const
 t non-virtual thunk to ConVar::IsFlagSet(int) const
-t non-virtual thunk to CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
-t non-virtual thunk to CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
-t non-virtual thunk to CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
-t non-virtual thunk to CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
 t non-virtual thunk to CMDLCache::Disconnect()
 t non-virtual thunk to CMDLCache::VerifyHeaders(studiohdr_t*)
 t non-virtual thunk to CMDLCache::QueryInterface(char const*)
 t non-virtual thunk to CMDLCache::CacheVertexData(studiohdr_t*)
+t non-virtual thunk to CMDLCache::GetDependencies()
 t non-virtual thunk to CMDLCache::Init()
 t non-virtual thunk to CMDLCache::Connect(void* (*)(char const*, int*))
+t non-virtual thunk to CMDLCache::GetTier()
 t non-virtual thunk to CMDLCache::Shutdown()
+t non-virtual thunk to CMDLCache::Reconnect(void* (*)(char const*, int*), char const*)
+t non-virtual thunk to CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
+t non-virtual thunk to CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> >::~CRefCounted1()
+t non-virtual thunk to CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
+t non-virtual thunk to CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
+t non-virtual thunk to CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
+t non-virtual thunk to CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >::~CFunctor1()
+t non-virtual thunk to CMDLCache::GetItemName(unsigned int, void const*, char*, unsigned int)
+t non-virtual thunk to CMDLCache::HandleCacheNotification(DataCacheNotification_t const&)
 r typeinfo for CDataCache
 r typeinfo for ConCommand
 r typeinfo for IAppSystem
@@ -2022,6 +2056,7 @@ r typeinfo for IConVar
 r typeinfo for CFmtStrN<256, false>
 r typeinfo for CFunctor
 r typeinfo for CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
+r typeinfo for CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r typeinfo for CMDLCache
 r typeinfo for IMDLCache
 r typeinfo name for CDataCache
@@ -2074,6 +2109,7 @@ r typeinfo name for IConVar
 r typeinfo name for CFmtStrN<256, false>
 r typeinfo name for CFunctor
 r typeinfo name for CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
+r typeinfo name for CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r typeinfo name for CMDLCache
 r typeinfo name for IMDLCache
 r vtable for CDataCache
@@ -2119,6 +2155,7 @@ r vtable for IConVar
 r vtable for CFmtStrN<256, false>
 r vtable for CFunctor
 r vtable for CFunctor1<void (*)(ModelParts_t*), ModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
+r vtable for CFunctor1<void (*)(CleanupModelParts_t*), CleanupModelParts_t*, CRefCounted1<CFunctor, CRefCountServiceBase<true, CRefMT> > >
 r vtable for CMDLCache
 r vtable for IMDLCache
 U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3

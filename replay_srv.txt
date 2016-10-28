@@ -83,7 +83,7 @@ t create_hostcache_id
 T CreateInterface
 U CreateThreadPool
 r CSWTCH.100
-r CSWTCH.178
+r CSWTCH.181
 r CSWTCH.2
 r CSWTCH.29
 r CSWTCH.3
@@ -463,6 +463,7 @@ t curlx_uztoui
 t curlx_uztoul
 b cvar
 U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
 U __cxa_guard_acquire@@CXXABI_1.3
@@ -621,6 +622,7 @@ U getpwuid_r@@GLIBC_2.1.2
 U getsockname@@GLIBC_2.0
 U getsockopt@@GLIBC_2.0
 U gettimeofday@@GLIBC_2.0
+b g_ExpressionEvaluator
 b g_ExtraMasks
 b g_KeyValuesErrorStack
 b g_LittleBits
@@ -643,6 +645,7 @@ t _GLOBAL__sub_I__Z19SetupMatrixIdentityv
 t _GLOBAL__sub_I__Z21ConnectTier1LibrariesPPFPvPKcPiEi
 t _GLOBAL__sub_I__Z26InternalBitBufErrorHandler15BitBufErrorTypePKc
 t _GLOBAL__sub_I__Z27OnFileserverHostnameChangedP7IConVarPKcf
+t _GLOBAL__sub_I__Z28DefaultConditionalSymbolProcPKc
 t _GLOBAL__sub_I__Z32Replay_GetFirstAvailableFilenamePciPKcS1_S1_i
 t _GLOBAL__sub_I__Z33SV_CastJobToIFileserverCleanerJobP8CBaseJob
 t _GLOBAL__sub_I__Z9_SSE_Sqrtf
@@ -1693,6 +1696,7 @@ t Vector3DMultiplyProjective(VMatrix const&, Vector const&, Vector&)
 t CalcDistanceToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, Vector&)
+t DefaultConditionalErrorProc(char const*)
 t OnFileserverHostnameChanged(IConVar*, char const*, float)
 t Parabolic_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Sys_RunningWithDebugModules()
@@ -1701,6 +1705,7 @@ t TransformAnglesToWorldSpace(QAngle const&, matrix3x4_t const&)
 t VectorPerpendicularToVector(Vector const&, Vector*)
 t CalcDistanceSqrToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Catmull_Rom_Spline_Normalize(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
+t DefaultConditionalSymbolProc(char const*)
 t MatrixBuildPerspectiveZRange(VMatrix&, double, double)
 t MatrixBuildRotationAboutAxis(VMatrix&, Vector const&, float)
 t MatrixBuildRotationAboutAxis(Vector const&, float, matrix3x4_t&)
@@ -1798,6 +1803,7 @@ t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszDbgPathMatch
 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszPathMatchEnabled
 b guard variable for CUtlString::GetEmptyString()::s_emptyString
@@ -1810,6 +1816,7 @@ t FastToLower(char)
 b s_bShowDiag
 b s_nCVarFlag
 b s_pTokenBuf
+b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
@@ -1871,6 +1878,7 @@ b vec4_origin
 t fallbackSort(unsigned int*, unsigned int*, unsigned int*, int, int)
 b gs_szGameDir
 d s_NullSpewer
+b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -2007,7 +2015,7 @@ r _pi32_2
 r _pi32_4
 r _ps_0p5
 t mainSort(unsigned int*, unsigned char*, unsigned short*, unsigned int*, int, int, int*)
-b s_Replay
+d s_Replay
 t ConCommand::CanAutoComplete()
 t ConCommand::AutoCompleteSuggest(char const*, CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&)
 t ConCommand::Dispatch(CCommand const&)
@@ -2417,11 +2425,9 @@ t SVC_VoiceInit::Process()
 t SVC_VoiceInit::~SVC_VoiceInit()
 t SVC_VoiceInit::~SVC_VoiceInit()
 t SVC_VoiceInit::~SVC_VoiceInit()
-t CBaseAppSystem<IReplaySystem>::Disconnect()
 t CBaseAppSystem<IReplaySystem>::QueryInterface(char const*)
-t CBaseAppSystem<IReplaySystem>::Init()
-t CBaseAppSystem<IReplaySystem>::Connect(void* (*)(char const*, int*))
-t CBaseAppSystem<IReplaySystem>::Shutdown()
+t CBaseAppSystem<IReplaySystem>::GetDependencies()
+t CBaseAppSystem<IReplaySystem>::Reconnect(void* (*)(char const*, int*), char const*)
 t CLC_ClientInfo::WriteToBuffer(bf_write&)
 t CLC_ClientInfo::ReadFromBuffer(bf_read&)
 t CLC_ClientInfo::Process()
@@ -2488,7 +2494,7 @@ t CUtlSortVector<CBaseRecordingSessionBlock*, CBaseRecordingSession::CLessFuncto
 t CUtlSortVector<CBaseRecordingSessionBlock*, CGenericPersistentManager<CBaseRecordingSessionBlock>::CLessFunctor, CUtlVector<CBaseRecordingSessionBlock*, CUtlMemory<CBaseRecordingSessionBlock*, int> > >::Insert(CBaseRecordingSessionBlock* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
-t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.65]
 t IBaseInterface::~IBaseInterface()
 t IBaseInterface::~IBaseInterface()
 t IBaseInterface::~IBaseInterface()
@@ -2528,14 +2534,7 @@ t CLC_BaselineAck::Process()
 t CLC_BaselineAck::~CLC_BaselineAck()
 t CLC_BaselineAck::~CLC_BaselineAck()
 t CLC_BaselineAck::~CLC_BaselineAck()
-t CTier1AppSystem<IReplaySystem, 0>::Disconnect()
-t CTier1AppSystem<IReplaySystem, 0>::Init()
-t CTier1AppSystem<IReplaySystem, 0>::Connect(void* (*)(char const*, int*))
-t CTier1AppSystem<IReplaySystem, 0>::Shutdown()
-t CTier2AppSystem<IReplaySystem, 0>::Disconnect()
-t CTier2AppSystem<IReplaySystem, 0>::Init()
-t CTier2AppSystem<IReplaySystem, 0>::Connect(void* (*)(char const*, int*))
-t CTier2AppSystem<IReplaySystem, 0>::Shutdown()
+t CTier2AppSystem<IReplaySystem, 0>::GetTier()
 t MM_JoinResponse::WriteToBuffer(bf_write&)
 t MM_JoinResponse::ReadFromBuffer(bf_read&)
 t MM_JoinResponse::Process()
@@ -2732,6 +2731,24 @@ t MM_RegisterResponse::Process()
 t MM_RegisterResponse::~MM_RegisterResponse()
 t MM_RegisterResponse::~MM_RegisterResponse()
 t MM_RegisterResponse::~MM_RegisterResponse()
+t CExpressionEvaluator::MakeFactor(ExprNode*&)
+t CExpressionEvaluator::AllocateNode()
+t CExpressionEvaluator::GetNextToken()
+t CExpressionEvaluator::MakeExprNode(ExprNode*&, char, Kind, ExprNode*, ExprNode*)
+t CExpressionEvaluator::SimplifyNode(ExprNode*&)
+t CExpressionEvaluator::IsConditional(bool&, char)
+t CExpressionEvaluator::MakeExpression(ExprNode*&)
+t CExpressionEvaluator::BuildExpression()
+t CExpressionEvaluator::IsIdentifierOrConstant(char)
+t CExpressionEvaluator::IsNotOp(char)
+t CExpressionEvaluator::Evaluate(bool&, char const*, bool (*)(char const*), void (*)(char const*))
+t CExpressionEvaluator::FreeNode(ExprNode*)
+t CExpressionEvaluator::FreeTree(ExprNode*&)
+t CExpressionEvaluator::MakeTerm(ExprNode*&)
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
 t CFtpDirListRetriever::WriteCallback(void*, unsigned int, unsigned int, void*)
 t CFtpDirListRetriever::FTP_OnPostExecuteCurlOperations()
 t CFtpDirListRetriever::FTP_SetupAdditionalCurlOperations(void*)

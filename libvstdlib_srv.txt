@@ -35,6 +35,7 @@ U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
 b cvar
 U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
 U __cxa_guard_acquire@@CXXABI_1.3
@@ -94,6 +95,7 @@ T GetNameFromOSType
 T GetOSDetailString
 T GetOSType
 T GetPlatformName
+b g_ExpressionEvaluator
 b g_KeyValuesErrorStack
 a _GLOBAL_OFFSET_TABLE_
 t _GLOBAL__sub_I_CreateThreadPool
@@ -103,6 +105,7 @@ t _GLOBAL__sub_I_InstallUniformRandomStream
 t _GLOBAL__sub_I_KeyValuesSystem
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z21ConnectTier1LibrariesPPFPvPKcPiEi
+t _GLOBAL__sub_I__Z28DefaultConditionalSymbolProcPKc
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
 t _GLOBAL__sub_I__ZN10CUtlString11AllocMemoryEj
 t _GLOBAL__sub_I__ZN12CMemoryStackC2Ev
@@ -486,6 +489,7 @@ t __x86.get_pc_thunk.cx
 U __xmknod@@GLIBC_2.0
 U __xstat64@@GLIBC_2.2
 U __xstat@@GLIBC_2.0
+U DevWarning(char const*, ...)
 t HashString(char const*)
 t V_FileBase(char const*, char*, int)
 t _V_memmove(char const*, int, void*, void const*, int)
@@ -629,8 +633,10 @@ t CreateInterfaceInternal(char const*, int*)
 t DisconnectTier1Libraries()
 t GetCStringCharConversion()
 t Q_RemoveAllEvilCharacters(char*)
+t DefaultConditionalErrorProc(char const*)
 t Internal_Coroutine_Continue(int, char const*, char const*)
 t Sys_RunningWithDebugModules()
+t DefaultConditionalSymbolProc(char const*)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t GetOSTypeFromString_Deprecated(char const*)
 t HashStringCaselessConventional(char const*)
@@ -679,6 +685,7 @@ t V_wcsncpy(wchar_t*, wchar_t const*, int)
 t _V_wcsupr(char const*, int, wchar_t*)
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszDbgPathMatch
 b guard variable for pathmatch(char const*, char**, bool, char*, unsigned int)::s_pszPathMatchEnabled
 b guard variable for CUtlString::GetEmptyString()::s_emptyString
@@ -689,6 +696,7 @@ b guard variable for CCvar::FindVar(char const*)::_counter
 b guard variable for CUtlRBTree<CVCoverage::Location_t, unsigned short, CVCoverage::CLocationLess, CUtlMemory<UtlRBTreeNode_t<CVCoverage::Location_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CUtlRBTree<CKeyValuesSystem::MemoryLeakTracker_t, int, bool (*)(CKeyValuesSystem::MemoryLeakTracker_t const&, CKeyValuesSystem::MemoryLeakTracker_t const&), CUtlMemory<UtlRBTreeNode_t<CKeyValuesSystem::MemoryLeakTracker_t, int>, int> >::Links(int) const::s_Sentinel
 b guard variable for CUtlRBTree<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, KeyValues*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
+b guard variable for CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CCvar::FindVar(char const*) const::_counter
 b s_BreakSet
 t FastToLower(char)
@@ -708,7 +716,9 @@ b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
+b vec2_origin
 b s_pCVarQuery
+b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -828,6 +838,8 @@ t CUtlMemory<UtlRBTreeNode_t<CVCoverage::Location_t, unsigned short>, unsigned s
 t CUtlMemory<UtlRBTreeNode_t<CKeyValuesSystem::MemoryLeakTracker_t, int>, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
+t CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
+t CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlLinkedListElem_t<CCoroutine, int>, int>::Grow(int)
 t CUtlMemory<UtlLinkedListElem_t<CCoroutine, int>, int>::Purge()
 t CUtlMemory<char, int>::Grow(int)
@@ -869,6 +881,11 @@ t CUtlRBTree<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned s
 t CUtlRBTree<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, KeyValues*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlRBTree<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, KeyValues*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, KeyValues*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
+t CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
+t CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
+t CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
+t CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<int, bool, unsigned short>::Node_t const&)
+t CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlString::FixSlashes(char)
 t CUtlString::AllocMemory(unsigned int)
 t CUtlString::GetForModify()
@@ -1022,9 +1039,20 @@ t CWorkerThread::~CWorkerThread()
 t CWorkerThread::~CWorkerThread()
 t CWorkerThread::~CWorkerThread()
 t CBaseAppSystem<ICvarQuery>::Disconnect()
+t CBaseAppSystem<ICvarQuery>::GetDependencies()
 t CBaseAppSystem<ICvarQuery>::Init()
 t CBaseAppSystem<ICvarQuery>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<ICvarQuery>::GetTier()
 t CBaseAppSystem<ICvarQuery>::Shutdown()
+t CBaseAppSystem<ICvarQuery>::Reconnect(void* (*)(char const*, int*), char const*)
+t CBaseAppSystem<ICvar>::Disconnect()
+t CBaseAppSystem<ICvar>::QueryInterface(char const*)
+t CBaseAppSystem<ICvar>::GetDependencies()
+t CBaseAppSystem<ICvar>::Init()
+t CBaseAppSystem<ICvar>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<ICvar>::GetTier()
+t CBaseAppSystem<ICvar>::Shutdown()
+t CBaseAppSystem<ICvar>::Reconnect(void* (*)(char const*, int*), char const*)
 t ConCommandBase::CopyString(char const*)
 t ConCommandBase::CreateBase(char const*, char const*, int)
 b ConCommandBase::s_pAccessor
@@ -1061,7 +1089,7 @@ t CUtlMemoryPool::~CUtlMemoryPool()
 t CUtlMemoryPool::~CUtlMemoryPool()
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
-t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.65]
 b ThreadPoolTest::g_bOutputError
 t ThreadPoolTest::CExecuteTestJob::DoExecute()
 t ThreadPoolTest::CExecuteTestJob::~CExecuteTestJob()
@@ -1107,6 +1135,8 @@ t CKeyValuesSystem::AddFileKeyValuesToCache(KeyValues const*, char const*, char 
 t CKeyValuesSystem::RegisterSizeofKeyValues(int)
 t CKeyValuesSystem::MemoryLeakTrackerLessFunc(CKeyValuesSystem::MemoryLeakTracker_t const&, CKeyValuesSystem::MemoryLeakTracker_t const&)
 t CKeyValuesSystem::AddKeyValuesToMemoryLeakList(void*, int)
+t CKeyValuesSystem::GetKeyValuesExpressionSymbol(char const*)
+t CKeyValuesSystem::SetKeyValuesExpressionSymbol(char const*, bool)
 t CKeyValuesSystem::RemoveKeyValuesFromMemoryLeakList(void*)
 t CKeyValuesSystem::CKeyValuesSystem()
 t CKeyValuesSystem::CKeyValuesSystem()
@@ -1131,6 +1161,24 @@ t CUtlCharConversion::FindConversion(char const*, int*)
 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlCharConversion::CUtlCharConversion(char, char const*, int, CUtlCharConversion::ConversionArray_t*)
 t CUtlNoEscConversion::FindConversion(char const*, int*)
+t CExpressionEvaluator::MakeFactor(ExprNode*&)
+t CExpressionEvaluator::AllocateNode()
+t CExpressionEvaluator::GetNextToken()
+t CExpressionEvaluator::MakeExprNode(ExprNode*&, char, Kind, ExprNode*, ExprNode*)
+t CExpressionEvaluator::SimplifyNode(ExprNode*&)
+t CExpressionEvaluator::IsConditional(bool&, char)
+t CExpressionEvaluator::MakeExpression(ExprNode*&)
+t CExpressionEvaluator::BuildExpression()
+t CExpressionEvaluator::IsIdentifierOrConstant(char)
+t CExpressionEvaluator::IsNotOp(char)
+t CExpressionEvaluator::Evaluate(bool&, char const*, bool (*)(char const*), void (*)(char const*))
+t CExpressionEvaluator::FreeNode(ExprNode*)
+t CExpressionEvaluator::FreeTree(ExprNode*&)
+t CExpressionEvaluator::MakeTerm(ExprNode*&)
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
 t CRefCountServiceBase<true, CRefMT>::OnFinalRelease()
 t CRefCountServiceBase<true, CRefMT>::~CRefCountServiceBase()
 t CRefCountServiceBase<true, CRefMT>::~CRefCountServiceBase()
@@ -1239,6 +1287,7 @@ t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, 
 t ConVar::~ConVar()
 t ConVar::~ConVar()
 t ConVar::~ConVar()
+t CDefOps<int>::LessFunc(int const&, int const&)
 U CThread::GetThreadProc()
 U CThread::IsThreadRunning()
 U CThread::ResumeCooperative()
@@ -1368,6 +1417,7 @@ t operator new[](unsigned int)
 t operator new[](unsigned int, int, char const*, int)
 t ConCommand::IsCommand() const
 t CUtlRBTree<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, KeyValues*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t const&) const
+t CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<int, bool, unsigned short>::Node_t const&) const
 t CUtlString::GetExtension() const
 t CUtlString::StripFilename() const
 t CUtlString::MatchesPattern(CUtlString const&, int) const
@@ -1483,6 +1533,7 @@ r typeinfo for CRefCounted1<IRefCounted, CRefCountServiceBase<true, CRefMT> >
 r typeinfo for CRefCounted1<IThreadPool, CRefCountServiceBase<true, CRefMT> >
 r typeinfo for CWorkerThread
 r typeinfo for CBaseAppSystem<ICvarQuery>
+r typeinfo for CBaseAppSystem<ICvar>
 r typeinfo for ConCommandBase
 r typeinfo for CDefaultAccessor
 r typeinfo for CDllDemandLoader
@@ -1530,6 +1581,7 @@ r typeinfo name for CRefCounted1<IRefCounted, CRefCountServiceBase<true, CRefMT>
 r typeinfo name for CRefCounted1<IThreadPool, CRefCountServiceBase<true, CRefMT> >
 r typeinfo name for CWorkerThread
 r typeinfo name for CBaseAppSystem<ICvarQuery>
+r typeinfo name for CBaseAppSystem<ICvar>
 r typeinfo name for ConCommandBase
 r typeinfo name for CDefaultAccessor
 r typeinfo name for CDllDemandLoader
@@ -1574,6 +1626,7 @@ r vtable for CEmptyConVar
 r vtable for CRefCounted1<IRefCounted, CRefCountServiceBase<true, CRefMT> >
 r vtable for CRefCounted1<IThreadPool, CRefCountServiceBase<true, CRefMT> >
 r vtable for CWorkerThread
+r vtable for CBaseAppSystem<ICvar>
 r vtable for ConCommandBase
 r vtable for CDefaultAccessor
 r vtable for CDllDemandLoader
@@ -1631,4 +1684,5 @@ b KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int
 d CUtlRBTree<CVCoverage::Location_t, unsigned short, CVCoverage::CLocationLess, CUtlMemory<UtlRBTreeNode_t<CVCoverage::Location_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 d CUtlRBTree<CKeyValuesSystem::MemoryLeakTracker_t, int, bool (*)(CKeyValuesSystem::MemoryLeakTracker_t const&, CKeyValuesSystem::MemoryLeakTracker_t const&), CUtlMemory<UtlRBTreeNode_t<CKeyValuesSystem::MemoryLeakTracker_t, int>, int> >::Links(int) const::s_Sentinel
 d CUtlRBTree<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, KeyValues*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, KeyValues*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
+d CUtlRBTree<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short, CUtlMap<int, bool, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<int, bool, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b CCvar::FindVar(char const*) const::_counter

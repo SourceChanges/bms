@@ -79,7 +79,7 @@ U CreateSimpleThread
 r CSWTCH.18
 r CSWTCH.379
 r CSWTCH.603
-r CSWTCH.994
+r CSWTCH.998
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
 U __ctype_toupper_loc@@GLIBC_2.3
@@ -87,6 +87,7 @@ d cv
 b cvar
 U __cxa_atexit@@GLIBC_2.1.3
 U __cxa_begin_catch@@CXXABI_1.3
+U __cxa_call_unexpected@@CXXABI_1.3
 U __cxa_end_catch@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
 U __cxa_guard_abort@@CXXABI_1.3
@@ -285,6 +286,7 @@ U getsockname@@GLIBC_2.0
 U getsockopt@@GLIBC_2.0
 U GetSpewOutputColor
 U getuid@@GLIBC_2.0
+b g_ExpressionEvaluator
 b g_ExtraClientCmdCanExecuteCvars
 b g_ExtraMasks
 b gfExtendedError
@@ -453,6 +455,7 @@ t _GLOBAL__sub_I__Z26DataTable_FindRenamedTablePKc
 t _GLOBAL__sub_I__Z26InternalBitBufErrorHandler15BitBufErrorTypePKc
 t _GLOBAL__sub_I__Z26SendProxy_UtlVectorElementPK8SendPropPKvS3_P8DVariantii
 t _GLOBAL__sub_I__Z27InitializeStandardMaterialsv
+t _GLOBAL__sub_I__Z28DefaultConditionalSymbolProcPKc
 t _GLOBAL__sub_I__Z28FileSystem_UseVProjectBinDirb
 t _GLOBAL__sub_I__Z28Pow_FixedPoint_Exponent_SIMDRKU8__vectorfi
 t _GLOBAL__sub_I__Z8CCS_Initv
@@ -2454,6 +2457,7 @@ t AsyncUpload_QueueData(char const*, unsigned int, unsigned int, void const*)
 t CalcBarycentricCooefs(Vector const&, Vector const&, Vector const&, Vector const&, float&, float&, float&)
 t CalcDistanceSqrToLine(Vector const&, Vector const&, Vector const&, float*)
 t CalcSqrDistanceToAABB(Vector const&, Vector const&, Vector const&)
+t Cbuf_EscapeCommandArg(char const*, char*, unsigned int)
 t CheckSpecialCheatVars()
 t CheckVarRange_Generic(ConVar*, int, int)
 t CM_GetAreaPortalPlane(Vector const&, int, VPlane*)
@@ -2860,6 +2864,7 @@ t ComputePointFromBarycentric(Vector const&, Vector const&, Vector const&, float
 t ComputePointFromBarycentric(Vector2D const&, Vector2D const&, Vector2D const&, float, float, Vector2D&)
 t DataTable_ClearWriteFlags_R(SendTable*)
 t DataTable_GetTypeNameString()
+t DefaultConditionalErrorProc(char const*)
 t DispCommon_GetNumTriIndices(int)
 t DispInfo_InitMaterialSystem()
 t DrawSavedModelDebugOverlays()
@@ -2889,6 +2894,7 @@ t CollisionBSPData_LoadBrushes(CCollisionBSPData*)
 t CollisionBSPData_LoadPhysics(CCollisionBSPData*)
 t CollisionBSPData_LoadTexinfo(CCollisionBSPData*, CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >&)
 t COM_BufferToBufferDecompress(void*, unsigned int*, void const*, unsigned int)
+t DefaultConditionalSymbolProc(char const*)
 t FileSystem_ClearSteamEnvVars()
 t FileSystem_UseVProjectBinDir(bool)
 t GenerateLineStripIndexBuffer(unsigned short*, int, int)
@@ -3220,6 +3226,7 @@ t zcalloc
 t zcfree
 t operator delete[](void*)
 t operator delete(void*)
+t operator delete(void*, unsigned int)
 U operator delete(void*, std::nothrow_t const&)@@GLIBCXX_3.4
 t operator==(CUtlVector<unsigned char, CUtlMemory<unsigned char, int> > const&, CUtlVector<unsigned char, CUtlMemory<unsigned char, int> > const&)
 D z_errmsg
@@ -3367,6 +3374,7 @@ t sv_showtags(CCommand const&)
 b sv_shutdown
 t sv_ShutDown()
 b tv_password
+b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
@@ -3740,6 +3748,7 @@ b sv_logblocks
 b sv_logsecret
 b tv_autoretry
 b user_command
+b vec2_invalid
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
@@ -4376,7 +4385,7 @@ t vprof_record_stop(CCommand const&)
 t vprof_reset_peaks(CCommand const&)
 t vprof_vtune_group(CCommand const&)
 b BindToggle_command
-t CM_UnsweptBoxTrace(TraceInfo_t*, Ray_t const&, int, int) [clone .isra.24]
+t CM_UnsweptBoxTrace(TraceInfo_t*, Ray_t const&, int, int) [clone .isra.26]
 t CreateTempFilename(TempFilename_t&, char const*, char const*, bool)
 b disconnect_command
 t FindSentGroupIndex(VProfListenInfo_t&, char const*)
@@ -4508,7 +4517,7 @@ b sv_instancebaselines
 t SvTagsChangeCallback(IConVar*, char const*, float)
 b sv_useexplicitdelete
 b s_WingedTestEdgeList
-t Sys_TryInitSteamInfo(void*, SteamInfVersionInfo_t&, char const*, char const*, bool) [clone .constprop.65]
+t Sys_TryInitSteamInfo(void*, SteamInfVersionInfo_t&, char const*, char const*, bool) [clone .constprop.68]
 t vprof_cachemiss_Impl()
 t vprof_playback_start(CCommand const&)
 t campaigns_debug_print(CCommand const&)
@@ -4605,7 +4614,6 @@ b dumpstringtables_command
 b fs_warning_level_command
 b g_QuarterSizedFBTexture0
 b g_QuarterSizedFBTexture1
-b g_ResolvedFullFrameDepth
 b g_WaterReflectionTexture
 b g_WaterRefractionTexture
 b mem_test_every_n_seconds
@@ -4642,7 +4650,6 @@ b vprof_reset_peaks_command
 b vprof_vtune_group_command
 t CM_TriggerWorldSpaceBounds(ICollideable*, Vector*, Vector*)
 d __g_CVoiceServer_singleton
-b g_ResolvedFullFrameDepthRT
 b plugin_unpause_all_command
 b r_drawmodelstatsoverlaymax
 b r_drawmodelstatsoverlaymin
@@ -5175,6 +5182,8 @@ t CUtlMemory<CEmphasisSample, int>::Grow(int)
 t CUtlMemory<CEmphasisSample, int>::Purge()
 t CUtlMemory<CheatCodeData_t, int>::Grow(int)
 t CUtlMemory<CheatCodeData_t, int>::Purge()
+t CUtlMemory<CUtlSymbolTable, int>::Grow(int)
+t CUtlMemory<CUtlSymbolTable, int>::Purge()
 t CUtlMemory<FindFileIndex_t, int>::Grow(int)
 t CUtlMemory<FindFileIndex_t, int>::Purge()
 t CUtlMemory<pendingsocket_t, int>::Grow(int)
@@ -5444,6 +5453,8 @@ t CUtlMemory<SendTable*, int>::Grow(int)
 t CUtlMemory<SendTable*, int>::Purge()
 t CUtlMemory<char*, int>::Grow(int)
 t CUtlMemory<char*, int>::Purge()
+t CUtlMemory<void* (*)(char const*, int*), int>::Grow(int)
+t CUtlMemory<void* (*)(char const*, int*), int>::Purge()
 t CUtlMemory<studiohdr_t const*, int>::Grow(int)
 t CUtlMemory<studiohdr_t const*, int>::Purge()
 t CUtlMemory<RecvProp const*, int>::Grow(int)
@@ -5516,6 +5527,7 @@ t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable:
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Insert(CUtlSymbolTable::CStringPoolIndex const&)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::CopyFrom(CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> > const&)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short, CUtlMap<CUtlString, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CUtlString, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -5675,6 +5687,9 @@ t CUtlVector<CClientSendProp, CUtlMemory<CClientSendProp, int> >::SetCount(int)
 t CUtlVector<CEmphasisSample, CUtlMemory<CEmphasisSample, int> >::InsertBefore(int, CEmphasisSample const&)
 t CUtlVector<CheatCodeData_t, CUtlMemory<CheatCodeData_t, int> >::~CUtlVector()
 t CUtlVector<CheatCodeData_t, CUtlMemory<CheatCodeData_t, int> >::~CUtlVector()
+t CUtlVector<CUtlSymbolTable, CUtlMemory<CUtlSymbolTable, int> >::EnsureCount(int)
+t CUtlVector<CUtlSymbolTable, CUtlMemory<CUtlSymbolTable, int> >::~CUtlVector()
+t CUtlVector<CUtlSymbolTable, CUtlMemory<CUtlSymbolTable, int> >::~CUtlVector()
 t CUtlVector<pendingsocket_t, CUtlMemory<pendingsocket_t, int> >::InsertBefore(int, pendingsocket_t const&)
 t CUtlVector<pendingsocket_t, CUtlMemory<pendingsocket_t, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<sentencegroup_t, CUtlMemory<sentencegroup_t, int> >::InsertBefore(int)
@@ -5825,6 +5840,7 @@ t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
 t CUtlVector<char*, CUtlMemory<char*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::~CUtlVector()
 t CUtlVector<SendProp const*, CUtlMemory<SendProp const*, int> >::CopyArray(SendProp const* const*, int)
+t CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> >::operator=(CUtlVector<CUtlSymbolTable::StringPool_t*, CUtlMemory<CUtlSymbolTable::StringPool_t*, int> > const&)
 t CUtlVector<CQueuedPacketSender::CQueuedPacket*, CUtlMemory<CQueuedPacketSender::CQueuedPacket*, int> >::FastRemove(int)
 t CUtlVector<CNetChan::dataFragments_s*, CUtlMemory<CNetChan::dataFragments_s*, int> >::InsertBefore(int, CNetChan::dataFragments_s* const&)
 t CUtlVector<void*, CUtlMemory<void*, int> >::InsertBefore(int, void* const&)
@@ -6098,7 +6114,7 @@ t CGameClient::SendSignonData()
 t CGameClient::SetSignonState(int, int)
 t CGameClient::GetPrevPackInfo()
 t CGameClient::WriteGameSounds(bf_write&)
-t CGameClient::WriteGameSounds(bf_write&) [clone .part.34]
+t CGameClient::WriteGameSounds(bf_write&) [clone .part.37]
 t CGameClient::IgnoreTempEntity(CEventInfo*)
 t CGameClient::ProcessVoiceData(CLC_VoiceData*)
 t CGameClient::ConnectionClosing(char const*)
@@ -6262,9 +6278,9 @@ t CHLTVServer::GetPlaybackStartTick()
 t CHLTVServer::GetPlaybackTimeScale()
 t CHLTVServer::InitClientRecvTables()
 t CHLTVServer::InterpolateViewpoint()
+t CHLTVServer::ReadCompleteDemoFile()
 t CHLTVServer::SetPlaybackTimeScale(float)
 t CHLTVServer::LinkInstanceBaselines()
-t CHLTVServer::ReadCompeleteDemoFile()
 t CHLTVServer::OnLastDemoInLoopPlayed()
 t CHLTVServer::ResetDemoInterpolation()
 t CHLTVServer::ShouldUpdateMasterServer()
@@ -7283,11 +7299,25 @@ t SVC_VoiceInit::~SVC_VoiceInit()
 t VStdAllocator::Free(void*)
 t VStdAllocator::Alloc(unsigned long)
 t CBaseAppSystem<ICvarQuery>::Disconnect()
+t CBaseAppSystem<ICvarQuery>::GetDependencies()
+t CBaseAppSystem<ICvarQuery>::GetTier()
+t CBaseAppSystem<ICvarQuery>::Reconnect(void* (*)(char const*, int*), char const*)
 t CBaseAppSystem<IDedicatedServerAPI>::Disconnect()
 t CBaseAppSystem<IDedicatedServerAPI>::QueryInterface(char const*)
+t CBaseAppSystem<IDedicatedServerAPI>::GetDependencies()
 t CBaseAppSystem<IDedicatedServerAPI>::Init()
 t CBaseAppSystem<IDedicatedServerAPI>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IDedicatedServerAPI>::GetTier()
 t CBaseAppSystem<IDedicatedServerAPI>::Shutdown()
+t CBaseAppSystem<IDedicatedServerAPI>::Reconnect(void* (*)(char const*, int*), char const*)
+t CBaseAppSystem<IToolFrameworkInternal>::Disconnect()
+t CBaseAppSystem<IToolFrameworkInternal>::QueryInterface(char const*)
+t CBaseAppSystem<IToolFrameworkInternal>::GetDependencies()
+t CBaseAppSystem<IToolFrameworkInternal>::Init()
+t CBaseAppSystem<IToolFrameworkInternal>::Connect(void* (*)(char const*, int*))
+t CBaseAppSystem<IToolFrameworkInternal>::GetTier()
+t CBaseAppSystem<IToolFrameworkInternal>::Shutdown()
+t CBaseAppSystem<IToolFrameworkInternal>::Reconnect(void* (*)(char const*, int*), char const*)
 t CClockDriftMgr::SetServerTick(int)
 t CClockDriftMgr::ShowDebugInfo(float)
 t CClockDriftMgr::AdjustFrameTime(float)
@@ -7359,7 +7389,7 @@ t CMapLoadHelper::InitFromMemory(model_t*, void const*, int)
 t CMapLoadHelper::LoadLumpElement(int, int, void*)
 t CMapLoadHelper::FreeLightingLump()
 t CMapLoadHelper::Init(model_t*, char const*)
-t CMapLoadHelper::Init(model_t*, char const*) [clone .part.37]
+t CMapLoadHelper::Init(model_t*, char const*) [clone .part.38]
 t CMapLoadHelper::GetMap()
 t CMapLoadHelper::LumpBase()
 t CMapLoadHelper::LumpSize(int)
@@ -7593,7 +7623,7 @@ t CUtlSortVector<FindFileIndex_t, CStupidLess, CUtlVector<FindFileIndex_t, CUtlM
 t CUtlSortVector<int, WingedEdgeLessFunc, CUtlVector<int, CUtlMemory<int, int> > >::Insert(int const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::InsertNoSort(KeyValues* const&)
 t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::CompareHelper(KeyValues* const*, KeyValues* const*)
-t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.64]
+t CUtlSortVector<KeyValues*, CUtlSortVectorKeyValuesByName, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> > >::RedoSort(bool) [clone .part.65]
 t CUtlSortVector<unsigned short, CEdgeList::EdgeLess, CUtlVector<unsigned short, CUtlMemory<unsigned short, int> > >::Insert(unsigned short const&)
 t CUtlStringList::~CUtlStringList()
 t CUtlStringList::~CUtlStringList()
@@ -7758,15 +7788,27 @@ t CAppSystemGroup::LoadModule(void* (*)(char const*, int*))
 t CAppSystemGroup::LoadModule(char const*)
 t CAppSystemGroup::OnShutdown()
 t CAppSystemGroup::InitSystems()
+t CAppSystemGroup::PreShutdown()
+t CAppSystemGroup::ReloadModule(char const*)
+t CAppSystemGroup::SortLessFunc(int const&, int const&)
 t CAppSystemGroup::LoadModuleDLL(char const*)
 t CAppSystemGroup::ConnectSystems()
+t CAppSystemGroup::FindSystemName(int)
 t CAppSystemGroup::ShutdownSystems()
+t CAppSystemGroup::ReconnectSystems(char const*)
 t CAppSystemGroup::RemoveAllSystems()
 t CAppSystemGroup::UnloadAllModules()
 t CAppSystemGroup::DisconnectSystems()
+t CAppSystemGroup::ComputeDependencies(CUtlStringMap<CUtlSymbolTable>&)
+t CAppSystemGroup::LoadDependentSystems()
 t CAppSystemGroup::ReportStartupFailure(int, int)
+b CAppSystemGroup::sm_pSortDependencies
+t CAppSystemGroup::AddNonAppSystemFactory(void* (*)(char const*, int*))
+t CAppSystemGroup::SortDependentLibraries(CUtlStringMap<CUtlSymbolTable>&)
+t CAppSystemGroup::RemoveNonAppSystemFactory(void* (*)(char const*, int*))
 t CAppSystemGroup::Run()
 t CAppSystemGroup::Startup()
+t CAppSystemGroup::PostInit()
 t CAppSystemGroup::Shutdown()
 t CAppSystemGroup::AddSystem(int, char const*)
 t CAppSystemGroup::AddSystem(IAppSystem*, char const*)
@@ -7847,16 +7889,19 @@ t CThreadLocalInt<unsigned int>::~CThreadLocalInt()
 t CTier1AppSystem<IDedicatedServerAPI, 0>::Disconnect()
 t CTier1AppSystem<IDedicatedServerAPI, 0>::Init()
 t CTier1AppSystem<IDedicatedServerAPI, 0>::Connect(void* (*)(char const*, int*))
+t CTier1AppSystem<IDedicatedServerAPI, 0>::GetTier()
 t CTier1AppSystem<IDedicatedServerAPI, 0>::Shutdown()
 t CTier2AppSystem<IDedicatedServerAPI, 0>::Disconnect()
 t CTier2AppSystem<IDedicatedServerAPI, 0>::Init()
 t CTier2AppSystem<IDedicatedServerAPI, 0>::Connect(void* (*)(char const*, int*))
+t CTier2AppSystem<IDedicatedServerAPI, 0>::GetTier()
 t CTier2AppSystem<IDedicatedServerAPI, 0>::Shutdown()
 t CTier3AppSystem<IDedicatedServerAPI, 0>::Disconnect()
 t CTier3AppSystem<IDedicatedServerAPI, 0>::Connect(void* (*)(char const*, int*))
+t CTier3AppSystem<IDedicatedServerAPI, 0>::GetTier()
 t CUtlFixedMemory<UtlLinkedListElem_t<CEventInfo, int> >::Purge() [clone .isra.11]
-t CUtlFixedMemory<UtlLinkedListElem_t<CSpatialEntry, int> >::Purge() [clone .isra.27]
-t CUtlFixedMemory<UtlLinkedListElem_t<LeafListData_t, int> >::Purge() [clone .isra.38]
+t CUtlFixedMemory<UtlLinkedListElem_t<CSpatialEntry, int> >::Purge() [clone .isra.28]
+t CUtlFixedMemory<UtlLinkedListElem_t<LeafListData_t, int> >::Purge() [clone .isra.39]
 t CUtlFixedMemory<UtlLinkedListElem_t<CCommandBuffer::Command_t, int> >::Grow(int)
 t CUtlFixedMemory<UtlLinkedListElem_t<CCommandBuffer::Command_t, int> >::Purge() [clone .isra.14]
 t CUtlFixedMemory<UtlLinkedListElem_t<PackedEntity*, int> >::Purge() [clone .isra.40]
@@ -8734,6 +8779,24 @@ t CDispSubEdgeIterator::Next()
 t CDispSubEdgeIterator::Start(CDispUtilsHelper*, int, int, bool)
 t CDispSubEdgeIterator::CDispSubEdgeIterator()
 t CDispSubEdgeIterator::CDispSubEdgeIterator()
+t CExpressionEvaluator::MakeFactor(ExprNode*&)
+t CExpressionEvaluator::AllocateNode()
+t CExpressionEvaluator::GetNextToken()
+t CExpressionEvaluator::MakeExprNode(ExprNode*&, char, Kind, ExprNode*, ExprNode*)
+t CExpressionEvaluator::SimplifyNode(ExprNode*&)
+t CExpressionEvaluator::IsConditional(bool&, char)
+t CExpressionEvaluator::MakeExpression(ExprNode*&)
+t CExpressionEvaluator::BuildExpression()
+t CExpressionEvaluator::IsIdentifierOrConstant(char)
+t CExpressionEvaluator::IsNotOp(char)
+t CExpressionEvaluator::Evaluate(bool&, char const*, bool (*)(char const*), void (*)(char const*))
+t CExpressionEvaluator::FreeNode(ExprNode*)
+t CExpressionEvaluator::FreeTree(ExprNode*&)
+t CExpressionEvaluator::MakeTerm(ExprNode*&)
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
+t CExpressionEvaluator::~CExpressionEvaluator()
 t CGameEventManagerOld::AddListener(IGameEventListener*, bool)
 t CGameEventManagerOld::AddListener(IGameEventListener*, char const*, bool)
 t CGameEventManagerOld::RemoveListener(IGameEventListener*)
@@ -10052,6 +10115,7 @@ t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, i
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Find(CUtlMap<char const*, int, int>::Node_t const&) const
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
+t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<char const*, int, unsigned short>::Node_t const&) const
 t CUtlRBTree<CUtlMap<char const*, memhandle_t__*, int>::Node_t, int, CUtlMap<char const*, memhandle_t__*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, memhandle_t__*, int>::Node_t, int>, int> >::NextInorder(int) const
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::NextInorder(int) const
 t CUtlRBTree<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int, CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CPureServerWhitelist::CCommand*, int>::Node_t, int>, int> >::FirstInorder() const
@@ -10277,7 +10341,7 @@ t CReplayServer::IsReplay() const
 t unsigned int CUtlHashtable<unsigned int, int, DefaultHashFunctor<unsigned int>, DefaultEqualFunctor<unsigned int>, undefined_t>::DoLookup<unsigned int>(unsigned int, unsigned int, unsigned int*) const [clone .part.154]
 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, CNetworkStringTableItem, CaselessStringHashFunctor, UTLConstStringCaselessStringEqualFunctor<char>, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.76] [clone .constprop.81]
 t unsigned int CUtlHashtable<CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::IndirectIndex, empty_t, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::HashProxy, CUtlStableHashtable<CUtlConstStringBase<char>, empty_t, DefaultHashFunctor<CUtlConstStringBase<char> >, DefaultEqualFunctor<CUtlConstStringBase<char> >, unsigned short, char const*>::EqualProxy, char const*>::DoLookup<char const*>(char const*, unsigned int, unsigned int*) const [clone .part.48] [clone .constprop.51]
-t unsigned int CUtlHashtable<model_t*, CModelLoader::CDynamicModelInfo, DefaultHashFunctor<model_t*>, DefaultEqualFunctor<model_t*>, undefined_t>::DoLookup<model_t*>(model_t*, unsigned int, unsigned int*) const [clone .part.109]
+t unsigned int CUtlHashtable<model_t*, CModelLoader::CDynamicModelInfo, DefaultHashFunctor<model_t*>, DefaultEqualFunctor<model_t*>, undefined_t>::DoLookup<model_t*>(model_t*, unsigned int, unsigned int*) const [clone .part.111]
 t MM_Checkpoint::GetName() const
 t MM_Checkpoint::GetType() const
 t MM_Checkpoint::ToString() const
@@ -10355,7 +10419,7 @@ t SVC_ServerInfo::GetType() const
 t SVC_ServerInfo::GetGroup() const
 t SVC_ServerInfo::ToString() const
 t virtualgroup_t::GetStudioHdr() const
-t CAppSystemGroup::GetErrorStage() const
+t CAppSystemGroup::GetCurrentStage() const
 t CLC_BaselineAck::GetName() const
 t CLC_BaselineAck::GetType() const
 t CLC_BaselineAck::GetGroup() const
@@ -11129,6 +11193,7 @@ r typeinfo for SVC_VoiceInit
 r typeinfo for VStdAllocator
 r typeinfo for CBaseAppSystem<ICvarQuery>
 r typeinfo for CBaseAppSystem<IDedicatedServerAPI>
+r typeinfo for CBaseAppSystem<IToolFrameworkInternal>
 r typeinfo for CEngineBSPTree
 r typeinfo for CLC_ClientInfo
 r typeinfo for CLC_SaveReplay
@@ -11431,6 +11496,7 @@ r typeinfo name for SVC_VoiceInit
 r typeinfo name for VStdAllocator
 r typeinfo name for CBaseAppSystem<ICvarQuery>
 r typeinfo name for CBaseAppSystem<IDedicatedServerAPI>
+r typeinfo name for CBaseAppSystem<IToolFrameworkInternal>
 r typeinfo name for CEngineBSPTree
 r typeinfo name for CLC_ClientInfo
 r typeinfo name for CLC_SaveReplay
