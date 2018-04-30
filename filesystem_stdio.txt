@@ -1,6 +1,7 @@
 U abort@@GLIBC_2.0
 U access@@GLIBC_2.0
 U alphasort@@GLIBC_2.0
+U __asinf_finite@@GLIBC_2.15
 A __bss_start
 U CallAssertFailedNotifyFunc
 U chdir@@GLIBC_2.0
@@ -138,6 +139,7 @@ U scandir@@GLIBC_2.0
 U _setjmp@@GLIBC_2.0
 U ShouldUseNewAssertDialog
 U signal@@GLIBC_2.0
+U sinf@@GLIBC_2.0
 U sleep@@GLIBC_2.0
 U __snprintf_chk@@GLIBC_2.3.4
 U _SpewInfo
@@ -164,7 +166,9 @@ U strrchr@@GLIBC_2.0
 U strstr@@GLIBC_2.0
 U strtod@@GLIBC_2.0
 U strtol@@GLIBC_2.0
+U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
 U __swprintf_chk@@GLIBC_2.4
 U symlink@@GLIBC_2.0
 U sysconf@@GLIBC_2.0

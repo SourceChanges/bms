@@ -3,6 +3,7 @@ U __acosf_finite@@GLIBC_2.15
 U __acos_finite@@GLIBC_2.15
 t add_fdes
 d adds.8776
+U __asinf_finite@@GLIBC_2.15
 U __asin_finite@@GLIBC_2.15
 U __atan2f_finite@@GLIBC_2.15
 U __atan2_finite@@GLIBC_2.15
@@ -28,10 +29,10 @@ U cos@@GLIBC_2.0
 T CreateInterface
 U CreateSimpleThread
 U CreateThreadPool
-r CSWTCH.157
-r CSWTCH.159
-r CSWTCH.18
-r CSWTCH.1862
+r CSWTCH.1956
+r CSWTCH.210
+r CSWTCH.212
+r CSWTCH.66
 d cTextureCachePathDir
 U __ctype_b_loc@@GLIBC_2.3
 U __ctype_tolower_loc@@GLIBC_2.3
@@ -394,6 +395,7 @@ b marker.8514
 b mat_accelerate_adjust_exposure_down
 b mat_debugalttab
 b materials
+b mat_forcebumpmap
 b mat_forcemanagedtextureintohardware
 b mat_hdr_manual_tonemap_rate
 b mat_hdr_tonemapscale
@@ -404,6 +406,7 @@ b mat_report_queue_status
 b mat_requires_rt_alloc_first
 b mat_spewalloc
 b mat_supportflashlight
+b mat_texture_reload_frame_swap_workaround
 b mat_texture_tracking
 b mat_tonemap_algorithm
 U mbstowcs@@GLIBC_2.0
@@ -495,7 +498,9 @@ U strspn@@GLIBC_2.0
 U strstr@@GLIBC_2.0
 U strtod@@GLIBC_2.0
 U strtol@@GLIBC_2.0
+U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
 b studiorender
 b subs.8777
 U __swprintf_chk@@GLIBC_2.4
@@ -586,8 +591,9 @@ t V_strnistr(char const*, char const*, int)
 t _V_strrchr(char const*, int, char const*, char)
 t V_StrRight(char const*, int, char*, int)
 t V_StrSlice(char const*, int, int, char*, int)
-t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
+t V_StrSlice(char const*, int, int, char*, int) [clone .part.7]
 t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
+t V_strtoi64(char const*, char**, int)
 t V_strtowcs(char const*, int, wchar_t*, int)
 t V_wcstostr(wchar_t const*, int, char*, int)
 t AllocString(char const*, int)
@@ -614,6 +620,7 @@ t SmoothCurve(float)
 t SpinPresent()
 t _SSE_SinCos(float, float*, float*)
 t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
+t V_strtoui64(char const*, char**, int)
 t V_vsnprintf(char*, int, char const*, char*)
 t _V_wcslower(char const*, int, wchar_t*)
 t AngleIMatrix(RadianEuler const&, matrix3x4_t&)
@@ -715,6 +722,9 @@ t Sys_GetFactory(CSysModule*)
 t Sys_GetFactory(char const*)
 t Sys_LoadModule(char const*, Sys_Flags)
 t TexStageFromKV(CTCStage**, char const*, KeyValues*, unsigned int)
+t V_BBCodeToHTML(char*, int, char const*, int)
+t V_IsMeanSpaceW(wchar_t)
+t V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)
 t V_SetExtension(char*, char const*, int)
 t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
 t int V_sprintf_safe<12u>(char (&) [12u], char const*, ...)
@@ -742,7 +752,6 @@ t MatrixSetColumn(Vector const&, int, matrix3x4_t&)
 t MatrixTranspose(matrix3x4_t&)
 t MatrixTranspose(matrix3x4_t const&, matrix3x4_t&)
 t MatrixTranspose(VMatrix const&, VMatrix&)
-t MemAlloc_StrDup(char const*)
 t ParseBoolFromKV(KeyValues*, void*)
 t void ParseIntoStruct<CombineStageParameters>(CombineStageParameters*, CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >*, KeyValues*, unsigned int, ParseTableEntry const*)
 t QuaternionAlign(Quaternion const&, Quaternion const&, Quaternion&)
@@ -765,6 +774,7 @@ t TextureToLinear(int)
 t VectorTransform(float const*, matrix3x4_t const&, float*)
 t VectorYawRotate(Vector const&, float, Vector&)
 t V_FixupPathName(char*, unsigned int, char const*)
+t V_IsDeprecatedW(wchar_t)
 t V_StripFilename(char*)
 t AddPointToBounds(Vector const&, Vector&, Vector&)
 t BetterResolution(int, int, int)
@@ -886,15 +896,17 @@ t QuaternionConjugate(Quaternion const&, Quaternion&)
 t QuaternionNormalize(Quaternion&)
 t Q_UChar32ToUTF16Len(wchar_t)
 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
-t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
+t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.10]
 t Q_URLEncodeInternal(char*, int, char const*, int, bool)
-t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
+t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.9]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t ResolveAllVariables(char const*, CUtlDict<char const*, int> const&, KeyValues*, unsigned int, bool*)
 t SetupMatrixIdentity()
 t SrgbGammaTo360Gamma(float)
 t TempCreateInterface(char const*, int*)
+t V_IsMeanUnderscoreW(wchar_t)
+t V_URLContainsDomain(char const*, char const*)
 t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
 t DisconnectInterfaces()
@@ -922,7 +934,6 @@ t ConnectTier1Libraries(void* (**)(char const*, int*), int)
 t ConnectTier2Libraries(void* (**)(char const*, int*), int)
 t DefaultCompletionFunc(char const*, char (*) [64])
 t GreatestCommonDivisor(int, int)
-t MemAlloc_AllocAligned(unsigned int, unsigned int, char const*, int)
 t RenderWireframeSphere(Vector const&, float, int, int, Color, bool)
 t SetupMatrixProjection(Vector const&, VPlane const&)
 t SetupMatrixReflection(VPlane const&)
@@ -930,6 +941,7 @@ t SolveInverseQuadratic(float, float, float, float, float, float, float&, float&
 t Sys_IsDebuggerPresent()
 t VectorToColorRGBExp32(Vector const&, ColorRGBExp32&)
 t V_GetCurrentDirectory(char*, int)
+t V_IsValidURLCharacter(char const*, int*)
 t V_SetCurrentDirectory(char const*)
 t V_UnqualifiedFileName(char const*)
 t AngleNormalizePositive(float)
@@ -955,8 +967,10 @@ t RestoreColorCorrection(int)
 t RotationDeltaAxisAngle(QAngle const&, QAngle const&, Vector&, float&)
 t SetupMatrixTranslation(Vector const&)
 t stb_compress_dxt_block(unsigned char*, unsigned char const*, int, int)
+t V_ExtractDomainFromURL(char const*, char*, int)
 t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
+t V_StripAndPreserveHTML(CUtlBuffer*, char const*, char const**, unsigned int, unsigned int)
 t ApplyStickerStageFromKV(CTCStage**, char const*, KeyValues*, unsigned int)
 t CalcClosestPointToLineT(Vector const&, Vector const&, Vector const&, Vector&)
 t CalcDistanceSqrToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
@@ -977,6 +991,7 @@ t ParseInverseRangeFromKV(KeyValues*, void*)
 t QuaternionIdentityBlend(Quaternion const&, float, Quaternion&)
 t RenderWireframeSweptBox(Vector const&, Vector const&, QAngle const&, Vector const&, Vector const&, Color, bool)
 t SubstituteVarsRecursive(char*, int*, CUtlVector<char const*, CUtlMemory<char const*, int> >&, char const*, unsigned int, CUtlDict<char const*, int> const&)
+t V_BasicHtmlEntityEncode(char*, int, char const*, int, bool)
 t AccumulatePatchKeyValues(KeyValues&, KeyValues&)
 t CalcClosestPointOnLine2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&, float*)
 t CalcTriangleTangentSpace(Vector const&, Vector const&, Vector const&, Vector2D const&, Vector2D const&, Vector2D const&, Vector&, Vector&)
@@ -991,12 +1006,16 @@ t SetupDirtyDiskReportFunc()
 t SetupMatrixAxisToAxisRot(Vector const&, Vector const&)
 t _SSE_VectorNormalizeFast(Vector&)
 t Vector4DMultiplyPosition(VMatrix const&, Vector const&, Vector4D&)
+t V_HtmlEntityDecodeToUTF8(char*, int, char const*, int)
+t V_StripLeadingWhitespace(char*)
+t V_StripSurroundingQuotes(char*)
 t CalcClosestPointToLineT2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&)
 t CalcDistanceToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Q_RemoveAllEvilCharacters(char*)
 t ShutdownStandardMaterials()
 t Vector3DMultiplyTranspose(VMatrix const&, Vector const&, Vector&)
 t Vector4DMultiplyTranspose(VMatrix const&, Vector4D const&, Vector4D&)
+t V_StripTrailingWhitespace(char*)
 t Catmull_Rom_Spline_Tangent(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t DummyMaterialSystemFactory(char const*, int*)
 t ExtractVariableDefinitions(CUtlDict<char const*, int>*, char const*, KeyValues*)
@@ -1004,6 +1023,7 @@ t GeneratePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, 
 t GeneratePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, Frustum_t&)
 t GeneratePolygonIndexBuffer(unsigned short*, int, int)
 t Vector3DMultiplyProjective(VMatrix const&, Vector const&, Vector&)
+t V_StripAndPreserveHTMLCore(CUtlBuffer*, char const*, char const**, unsigned int, char const**, unsigned int, unsigned int)
 t CalcDistanceToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, Vector&)
@@ -1026,6 +1046,7 @@ t MatrixBuildRotationAboutAxis(Vector const&, float, matrix3x4_t&)
 t Pow_FixedPoint_Exponent_SIMD(float __vector(4) const&, int)
 t Pow_FixedPoint_Exponent_SIMD(float __vector const&, int)
 t ResolveAllVariablesRecursive(CUtlVector<char const*, CUtlMemory<char const*, int> >&, CUtlDict<char const*, int> const&, KeyValues*, unsigned int, CUtlString&)
+t V_IsValidDomainNameCharacter(char const*, int*)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t CalcClosestPointOnLineSegment(Vector const&, Vector const&, Vector const&, Vector&, float*)
 t Catmull_Rom_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -1069,6 +1090,7 @@ t Hash16(void const*)
 t Q_log2(int)
 t SinCos(float, float*, float*)
 t _sqrtf(float)
+t V_atod(char const*)
 t V_atof(char const*)
 t V_atoi(char const*)
 t Advance(CTextureCompositorTemplate*, int)
@@ -1095,6 +1117,7 @@ t CUtlString AsStringT<int>(int const&)
 t FastPow10(float)
 t FloorPow2(int)
 t HashBlock(void const*, unsigned int)
+t nexttoken(char*, char const*, char)
 t R_CullBox(Vector const&, Vector const&, Frustum_t const&)
 t RenderBox(Vector const&, QAngle const&, Vector const&, Vector const&, Color, bool, bool)
 t RenderBox(Vector const&, QAngle const&, Vector const&, Vector const&, Color, IMaterial*, bool)
@@ -1117,6 +1140,7 @@ t V_strncmp(char const*, char const*, int)
 t V_strncpy(char*, char const*, int)
 t V_strnlwr(char*, unsigned int)
 t _V_strstr(char const*, int, char const*, char const*)
+t V_StrTrim(char*)
 t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
 t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
@@ -1144,21 +1168,6 @@ b guard variable for CMatQueuedRenderContext::BeginRender()::_counter
 b guard variable for CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
 b guard variable for CTexture::ApplyRenderTargetSizeMode(int&, int&, ImageFormat)::replay_screenshotresolution
 b guard variable for CMorphMgr::EndMorphAccumulation(IMorphMgrRenderContext*)::_counter
-b guard variable for CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CMaterialDict::MissingMaterial_t, int, bool (*)(CMaterialDict::MissingMaterial_t const&, CMaterialDict::MissingMaterial_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MissingMaterial_t, int>, int> >::Links(int) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, KeyValues*, int>::Node_t, int, CUtlMap<char const*, KeyValues*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, KeyValues*, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, char const*, int>::Node_t, int, CUtlMap<char const*, char const*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-b guard variable for CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b guard variable for CDummyMaterialSystem::GetCurrentConfigForVideoCard() const::dummy
 b g_BreakSet
 t GetVarName(KeyValues*)
@@ -1429,6 +1438,7 @@ b s_pTempMaterialVar
 t ApplyPatchKeyValues(KeyValues&, KeyValues&)
 t CalcHemisphereColor(SphereCalc_t*, float, float)
 t ComputeMipSkipCount(char const*, TexDimensions_t const&, bool, IVTFTexture*, unsigned int, int, unsigned short*, TextureLODControlSettings_t*, TexDimensions_t*, TexDimensions_t*, unsigned int*)
+r g_BasicHTMLEntities
 b __g_CreateICVar_reg
 t GenerateBoxVertices(Vector const&, QAngle const&, Vector const&, Vector const&, Vector*)
 r g_pInterfaceGlobals
@@ -1442,6 +1452,7 @@ b s_pWireframeIgnoreZ
 b s_RenderedQuadHisto
 b g_CleanupSymbolTable
 t GetOptimalReadBuffer(CUtlBuffer*, void*, int)
+r g_WhitespaceEntities
 b mat_bufferprimitives
 b mat_depthbias_normal
 b mat_lodin_hidden_pop
@@ -1464,7 +1475,7 @@ b s_bInitTextureRefList
 d s_LastFileLoadingFrom
 b s_pVertexColorIgnoreZ
 t stb__MatchColorsBlock(unsigned char*, unsigned char*, int)
-t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.29]
 b mat_compressedtextures
 b s_bPrecachesRegistered
 b g_Mathlib_GammaToLinear
@@ -1479,6 +1490,7 @@ b s_bEnableThreadedAccess
 b s_bMaterialsInitialized
 b s_TempFileSystemFactory
 t ForceTextureIntoHardware(ITexture*, IMaterial*, IMaterialVar*)
+r g_Tier1_FullHTMLEntities
 b mat_spew_on_texture_size
 b r_flashlightdepthtexture
 t SLoadTextureBitsFromFile(IVTFTexture**, void*, unsigned int, TextureLODControlSettings_t*, int, unsigned short*, char const*, char const*, TexDimensions_t*, TexDimensions_t*, TexDimensions_t*, unsigned int*)
@@ -1493,6 +1505,7 @@ b mat_monitorgamma_tv_enabled
 b r_waterforcereflectentities
 t mat_showmiplevels_Callback_f(IConVar*, char const*, float)
 t AccumulateRecursiveVmtPatches(KeyValues&, KeyValues**, KeyValues const&, char const*, CUtlVector<void*, CUtlMemory<void*, int> >*)
+r g_pszSimpleBBCodeReplacements
 b mat_monitorgamma_tv_range_max
 b mat_monitorgamma_tv_range_min
 b mat_slopescaledepthbias_decal
@@ -1681,8 +1694,8 @@ t CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned 
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short>::Purge()
-t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int>::Grow(int)
-t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int>::Purge()
+t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int>::Grow(int)
+t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int>::Grow(int)
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int>::Purge()
 t CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short>::Grow(int)
@@ -1768,6 +1781,8 @@ t CUtlMemory<char*, int>::Grow(int)
 t CUtlMemory<char*, int>::Purge()
 t CUtlMemory<void (*)(int), int>::Grow(int)
 t CUtlMemory<void (*)(int), int>::Purge()
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Purge()
 t CUtlMemory<void (*)(), int>::Grow(int)
 t CUtlMemory<void (*)(), int>::Purge()
 t CUtlMemory<char const*, int>::Grow(int)
@@ -1784,7 +1799,7 @@ t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterial
 t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::Insert(CMaterialDict::MaterialLookup_t const&)
 t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
 t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::NewNode()
-t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::RemoveAt(unsigned short) [clone .part.22]
+t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::RemoveAt(unsigned short) [clone .part.23]
 t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::~CUtlRBTree()
@@ -1798,6 +1813,7 @@ t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable:
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Insert(CUtlSymbolTable::CStringPoolIndex const&)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -1805,13 +1821,13 @@ t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned s
 t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<ITextureInternal*, int, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
-t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
-t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t const&)
+t CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
@@ -1819,29 +1835,25 @@ t CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, 
 t CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
-t CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::RotateLeft(int)
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::RotateRight(int)
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::InsertRebalance(int)
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::RemoveRebalance(int)
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t const&)
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::Unlink(int)
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::NewNode()
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::RemoveAll()
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::~CUtlRBTree()
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::~CUtlRBTree()
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::RotateLeft(int)
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::RotateRight(int)
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::InsertRebalance(int)
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::RemoveRebalance(int)
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t const&)
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::Unlink(int)
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::NewNode()
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::RemoveAll()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RotateLeft(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RotateRight(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::InsertRebalance(int)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Insert(CUtlMap<char const*, int, int>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::RemoveAll()
-t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::~CUtlRBTree()
-t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<char const*, int, unsigned short>::Node_t const&)
+t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
@@ -1849,22 +1861,21 @@ t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, un
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
-t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
-t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
-t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
-t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::~CUtlRBTree()
 t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateLeft(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<char const*, IShader*, unsigned short>::Node_t const&)
+t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlRBTree<CUtlMap<char const*, KeyValues*, int>::Node_t, int, CUtlMap<char const*, KeyValues*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, KeyValues*, int>::Node_t, int>, int> >::RotateLeft(int)
 t CUtlRBTree<CUtlMap<char const*, KeyValues*, int>::Node_t, int, CUtlMap<char const*, KeyValues*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, KeyValues*, int>::Node_t, int>, int> >::RotateRight(int)
@@ -1884,6 +1895,7 @@ t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned
 t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveRebalance(unsigned short)
 t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Insert(CUtlMap<char const*, char const*, unsigned short>::Node_t const&)
 t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Unlink(unsigned short)
+t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlString::FixSlashes(char)
 t CUtlString::AllocMemory(unsigned int)
@@ -1946,7 +1958,6 @@ t CUtlVector<Sticker_t, CUtlMemory<Sticker_t, int> >::~CUtlVector()
 t CUtlVector<char, CUtlMemory<char, int> >::GrowVector(int)
 t CUtlVector<char, CUtlMemory<char, int> >::ShiftElementsRight(int, int)
 t CUtlVector<int, CUtlMemory<int, int> >::GrowVector(int)
-t CUtlVector<int, CUtlMemory<int, int> >::EnsureCount(int)
 t CUtlVector<int, CUtlMemory<int, int> >::InsertBefore(int, int const&)
 t CUtlVector<int, CUtlMemory<int, int> >::ShiftElementsRight(int, int)
 t CUtlVector<int, CUtlMemory<int, int> >::~CUtlVector()
@@ -1960,7 +1971,6 @@ t CUtlVector<CShaderSystem::ShaderDLLInfo_t, CUtlMemory<CShaderSystem::ShaderDLL
 t CUtlVector<CShaderSystem::ShaderDLLInfo_t, CUtlMemory<CShaderSystem::ShaderDLLInfo_t, int> >::~CUtlVector()
 t CUtlVector<CShaderSystem::ShaderDLLInfo_t, CUtlMemory<CShaderSystem::ShaderDLLInfo_t, int> >::~CUtlVector()
 t CUtlVector<CVertexMorphDict::MorphVertexList_t, CUtlMemory<CVertexMorphDict::MorphVertexList_t, int> >::RemoveAll()
-t CUtlVector<TextureLodOverride::OverrideInfo, CUtlMemory<TextureLodOverride::OverrideInfo, int> >::EnsureCount(int)
 t CUtlVector<CMatRenderContextBase::PlaneStackElement, CUtlMemory<CMatRenderContextBase::PlaneStackElement, int> >::InsertBefore(int, CMatRenderContextBase::PlaneStackElement const&)
 t CUtlVector<CMatRenderContextBase::PlaneStackElement, CUtlMemory<CMatRenderContextBase::PlaneStackElement, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<CMorph::MorphSegment_t, CUtlMemory<CMorph::MorphSegment_t, int> >::InsertBefore(int, CMorph::MorphSegment_t const&)
@@ -1980,7 +1990,11 @@ t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, 
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::InsertBefore(int, void (* const&)(IConVar*, char const*, float))
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
 t CUtlVector<char const*, CUtlMemory<char const*, int> >::InsertBefore(int, char const* const&)
+t CUtlVector<char const*, CUtlMemory<char const*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<void*, CUtlMemory<void*, int> >::GrowVector(int)
 t CUtlVector<void*, CUtlMemory<void*, int> >::ShiftElementsRight(int, int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
@@ -1997,7 +2011,6 @@ U CVProfNode::ExitScope()
 t AsyncLoader::LoaderMain(void*)
 t AsyncReader::ReaderMain(void*)
 t AsyncReader::ThreadMain_Update()
-t AsyncReader::ThreadReader_ProcessRead(AsyncReadJob_t*)
 t CDummyMorph::AccumulateMorph(int, MorphWeight_t const*)
 t CDummyMorph::Lock(float)
 t CDummyMorph::Unlock()
@@ -2007,8 +2020,6 @@ t CFunctorJob::DoExecute()
 t CFunctorJob::~CFunctorJob()
 t CFunctorJob::~CFunctorJob()
 t CFunctorJob::~CFunctorJob()
-t CTSListBase::Pop()
-t CTSListBase::Push(TSLNodeBase_t*)
 t CTSListBase::Detach()
 t CVTFTexture::ReadHeader(CUtlBuffer&, VTFFileHeader_t&)
 t CVTFTexture::PostProcess(bool, LookDir_t, bool)
@@ -2313,7 +2324,7 @@ t IMaterialVar::Create(IMaterial*, char const*, VMatrix const&)
 t IMaterialVar::Create(IMaterial*, char const*, char const*)
 t IMaterialVar::Destroy(IMaterialVar*)
 t IMaterialVar::GetSymbol(char const*)
-t IMaterialVar::GetSymbol(char const*) [clone .part.9]
+t IMaterialVar::GetSymbol(char const*) [clone .part.8]
 b InterfaceReg::s_pInterfaceRegs
 t InterfaceReg::InterfaceReg(void* (*)(), char const*)
 t InterfaceReg::InterfaceReg(void* (*)(), char const*)
@@ -2322,6 +2333,7 @@ t CDummyTexture::SwapContents(ITexture*)
 t CDummyTexture::SetErrorTexture(bool)
 t CDummyTexture::ForceLODOverride(int)
 t CDummyTexture::GetEmbeddedTexture(int)
+t CDummyTexture::GetShareableHandle()
 t CDummyTexture::CopyToStagingTexture(ITexture*)
 t CDummyTexture::DeleteIfUnreferenced()
 t CDummyTexture::SetTextureRegenerator(ITextureRegenerator*)
@@ -2379,7 +2391,7 @@ t CShaderSystem::BindTexture(Sampler_t, ITexture*, int)
 t CShaderSystem::BindTexture(Sampler_t, Sampler_t, ITexture*, int)
 t CShaderSystem::LoadBumpMap(IMaterialVar*, char const*)
 t CShaderSystem::LoadCubeMap(IMaterialVar**, IMaterialVar*, int)
-t CShaderSystem::LoadCubeMap(IMaterialVar**, IMaterialVar*, int) [clone .part.14]
+t CShaderSystem::LoadCubeMap(IMaterialVar**, IMaterialVar*, int) [clone .part.13]
 t CShaderSystem::LoadTexture(IMaterialVar*, char const*, int)
 t CShaderSystem::ModShutdown()
 t CShaderSystem::DrawElements(IShader*, IMaterialVar**, ShaderRenderState_t*, VertexCompressionType_t, unsigned int)
@@ -2470,8 +2482,6 @@ t FloatBitMap_t::~FloatBitMap_t()
 t IVertexBuffer::~IVertexBuffer()
 t IVertexBuffer::~IVertexBuffer()
 t IVertexBuffer::~IVertexBuffer()
-t AsyncReadJob_t::~AsyncReadJob_t()
-t AsyncReadJob_t::~AsyncReadJob_t()
 t CBaseAppSystem<IMaterialSystemStub>::Disconnect()
 t CBaseAppSystem<IMaterialSystemStub>::QueryInterface(char const*)
 t CBaseAppSystem<IMaterialSystemStub>::GetDependencies()
@@ -2729,6 +2739,7 @@ t CMaterialSystem::CreateRenderContext(MaterialContextType_t)
 t CMaterialSystem::DrawClearBufferQuad(unsigned char, unsigned char, unsigned char, unsigned char, bool, bool, bool)
 t CMaterialSystem::ForceSingleThreaded()
 t CMaterialSystem::GetBoundMorphFormat()
+t CMaterialSystem::GetGbuffer_Warp_RGB()
 t CMaterialSystem::InitColorCorrection()
 t CMaterialSystem::PreloadReplacements()
 t CMaterialSystem::SetExcludedTextures(char const*)
@@ -2738,6 +2749,10 @@ t CMaterialSystem::BeginUpdateLightmaps()
 t CMaterialSystem::CleanUpErrorMaterial()
 t CMaterialSystem::CreateDebugMaterials()
 t CMaterialSystem::ForceDepthFuncEquals(bool)
+t CMaterialSystem::GetGbuffer_Diff_RGB8()
+t CMaterialSystem::GetGbuffer_Normal_32()
+t CMaterialSystem::GetGbuffer_Normal_64()
+t CMaterialSystem::GetGbuffer_Warp_ARGB()
 t CMaterialSystem::GetNullTextureFormat()
 t CMaterialSystem::NewTextureCompositor(int, int, char const*, int, unsigned long long, KeyValues*, unsigned int)
 t CMaterialSystem::NoteAnisotropicLevel(int)
@@ -2750,12 +2765,17 @@ t CMaterialSystem::CreateTextureFromBits(int, int, int, ImageFormat, int, unsign
 t CMaterialSystem::EnableEditorMaterials()
 t CMaterialSystem::EndLightmapAllocation()
 t CMaterialSystem::EvictManagedResources()
+t CMaterialSystem::GetGbuffer_DepthRT_16()
+t CMaterialSystem::GetGbuffer_DepthRT_32()
+t CMaterialSystem::GetGbuffer_Diff_RGB10()
+t CMaterialSystem::GetGbuffer_Diff_RGB16()
 t CMaterialSystem::GetLightmapDimensions(int*, int*)
 t CMaterialSystem::ReadConfigFromConVars(MaterialSystem_Config_t*)
 t CMaterialSystem::RemoveMaterialSubRect(IMaterialInternal*)
 t CMaterialSystem::DebugPrintUsedTextures(CCommand const&)
 t CMaterialSystem::DebugPrintUsedTextures()
 t CMaterialSystem::FindProceduralMaterial(char const*, char const*, KeyValues*)
+t CMaterialSystem::ResumeTextureStreaming()
 t CMaterialSystem::ScanDirForReplacements(char const*)
 t CMaterialSystem::ToggleSuppressMaterial(char const*)
 t CMaterialSystem::UncacheUnusedMaterials(bool)
@@ -2768,10 +2788,11 @@ t CMaterialSystem::DebugPrintUsedMaterials(char const*, bool)
 t CMaterialSystem::DebugPrintUsedMaterials(CCommand const&)
 t CMaterialSystem::GetMaterialProxyFactory()
 t CMaterialSystem::ReleaseStandardTextures()
-t CMaterialSystem::ReleaseStandardTextures() [clone .part.66]
+t CMaterialSystem::ReleaseStandardTextures() [clone .part.65]
 t CMaterialSystem::SetMaterialProxyFactory(IMaterialProxyFactory*)
+t CMaterialSystem::SuspendTextureStreaming()
 t CMaterialSystem::AllocateStandardTextures()
-t CMaterialSystem::AllocateStandardTextures() [clone .part.65]
+t CMaterialSystem::AllocateStandardTextures() [clone .part.64]
 t CMaterialSystem::CreateMatQueueThreadPool()
 t CMaterialSystem::InitReplacementsFromFile(char const*)
 t CMaterialSystem::LoadReplacementMaterials()
@@ -2800,7 +2821,9 @@ t CMaterialSystem::SupportsShadowDepthTextures()
 t CMaterialSystem::AddTextureCompositorTemplate(char const*, KeyValues*, int)
 t CMaterialSystem::CreateNamedTextureFromBitsEx(char const*, char const*, int, int, int, ImageFormat, int, unsigned char*, int)
 t CMaterialSystem::FinishRenderTargetAllocation()
+t CMaterialSystem::GetCSMDepthTextureFormat_Low()
 t CMaterialSystem::GetStandardTextureDimensions(int*, int*, StandardTextureId_t)
+t CMaterialSystem::GetCSMDepthTextureFormat_High()
 t CMaterialSystem::GetShaderAPITextureBindHandle(ITexture*, int, int)
 t CMaterialSystem::ResetMaterialLightmapPageInfo()
 t CMaterialSystem::CreateNamedRenderTargetTexture(char const*, int, int, RenderTargetSizeMode_t, ImageFormat, MaterialRenderTargetDepth_t, bool, bool)
@@ -2811,6 +2834,8 @@ t CMaterialSystem::CreateNamedRenderTargetTextureEx(char const*, int, int, Rende
 t CMaterialSystem::VerifyTextureCompositorTemplates()
 t CMaterialSystem::CreateNamedRenderTargetTextureEx2(char const*, int, int, RenderTargetSizeMode_t, ImageFormat, MaterialRenderTargetDepth_t, unsigned int, unsigned int)
 t CMaterialSystem::GenerateConfigFromConfigKeyValues(MaterialSystem_Config_t*, bool)
+t CMaterialSystem::GetDefShadow_DepthTextureFormat_Low()
+t CMaterialSystem::GetDefShadow_DepthTextureFormat_High()
 t CMaterialSystem::GetRenderTargetFrameBufferDimensions(int&, int&)
 t CMaterialSystem::SetRenderTargetFrameBufferSizeOverrides(int, int)
 t CMaterialSystem::Init(char const*, IMaterialProxyFactory*, void* (*)(char const*, int*), void* (*)(char const*, int*))
@@ -2936,6 +2961,10 @@ t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOpe
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::operator()()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::operator()()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
@@ -2972,6 +3001,10 @@ t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned i
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::operator()()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::operator()()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
@@ -3004,6 +3037,14 @@ t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float cons
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::operator()()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::operator()()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::operator()()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
@@ -3254,7 +3295,7 @@ t CTextureManager::ShadowNoise2D()
 t CTextureManager::ReloadTextures()
 t CTextureManager::RestoreTexture(ITextureInternal*)
 t CTextureManager::AddTextureAlias(char const*, char const*)
-t CTextureManager::AddTextureAlias(char const*, char const*) [clone .part.170]
+t CTextureManager::AddTextureAlias(char const*, char const*) [clone .part.175]
 t CTextureManager::FindFilesToLoad(CUtlDict<int, int>*, char const*)
 t CTextureManager::IsTextureLoaded(char const*)
 t CTextureManager::ReadFilesToLoad(CUtlDict<int, int>*, char const*)
@@ -3284,8 +3325,10 @@ t CTextureManager::ColorCorrectionTexture(int)
 t CTextureManager::DebugPrintUsedTextures()
 t CTextureManager::ReleaseAsyncScratchVTF(IVTFTexture*)
 t CTextureManager::ReleaseReadbackTexture(ITextureInternal*)
+t CTextureManager::ResumeTextureStreaming()
 t CTextureManager::UpdateExcludedTextures()
 t CTextureManager::CreateProceduralTexture(char const*, char const*, int, int, int, ImageFormat, int, ITextureRegenerator*)
+t CTextureManager::SuspendTextureStreaming()
 t CTextureManager::CreateRenderTargetTexture(char const*, int, int, RenderTargetSizeMode_t, ImageFormat, RenderTargetType_t, unsigned int, unsigned int)
 t CTextureManager::FreeStandardRenderTargets()
 t CTextureManager::SetColorCorrectionTexture(int, ITextureInternal*)
@@ -3512,6 +3555,9 @@ t CMatRenderContext::ClearColor4ub(unsigned char, unsigned char, unsigned char, 
 t CMatRenderContext::FogMaxDensity(float)
 t CMatRenderContext::OnSetFlexMesh(IMesh*, IMesh*, int)
 t CMatRenderContext::SelectionMode(bool)
+t CMatRenderContext::SetGodRayBlur(ITexture*)
+t CMatRenderContext::SetGodRayMask(ITexture*)
+t CMatRenderContext::SetGpuCsmData(GBGpuCsmData_t*)
 t CMatRenderContext::GetDynamicMesh(bool, IMesh*, IMesh*, IMaterial*)
 t CMatRenderContext::GetMaxToRender(IMesh*, bool, int*, int*)
 t CMatRenderContext::LoadBoneMatrix(int, matrix3x4_t const&)
@@ -3519,6 +3565,8 @@ t CMatRenderContext::OnSetColorMesh(IMesh*, IMesh*, int)
 t CMatRenderContext::PopDeformation()
 t CMatRenderContext::SetCSMDeferred(bool)
 t CMatRenderContext::SetFlexWeights(int, int, MorphWeight_t const*)
+t CMatRenderContext::SetGBufferMode(GBUffer_Modes_Type_t)
+t CMatRenderContext::SetGodRayState(GodRayState_t const&)
 t CMatRenderContext::SetScissorRect(int, int, int, int, bool)
 t CMatRenderContext::TestMatrixSync(MaterialMatrixMode_t)
 t CMatRenderContext::AccumulateMorph(IMorph*, int, MorphWeight_t const*)
@@ -3531,6 +3579,9 @@ t CMatRenderContext::MultMatrixLocal(VMatrix const&)
 t CMatRenderContext::PushDeformation(DeformationBase_t const*)
 t CMatRenderContext::SelectionBuffer(unsigned int*, int)
 t CMatRenderContext::SetAmbientLight(float, float, float)
+t CMatRenderContext::SetCSM_AtlasMap(ITexture*)
+t CMatRenderContext::SetGBufferNoise(ITexture*)
+t CMatRenderContext::SetGBufferState(GBufferState_t const&)
 t CMatRenderContext::SetLookupWeight(unsigned int, float)
 t CMatRenderContext::BindBumpLightmap(Sampler_t)
 t CMatRenderContext::BindLightmapPage(int)
@@ -3539,13 +3590,17 @@ t CMatRenderContext::BindVertexBuffer(int, IVertexBuffer*, int, int, int, unsign
 t CMatRenderContext::CreateStaticMesh(unsigned long long, char const*, IMaterial*)
 t CMatRenderContext::GetDynamicMeshEx(unsigned long long, bool, IMesh*, IMesh*, IMaterial*)
 t CMatRenderContext::PopSelectionName()
+t CMatRenderContext::SetCSM_StaticMap(ITexture*)
+t CMatRenderContext::SetGBufferTexCSM(ITexture*)
 t CMatRenderContext::SetStencilEnable(bool)
 t CMatRenderContext::DestroyStaticMesh(IMesh*)
 t CMatRenderContext::ForceHardwareSync()
 t CMatRenderContext::LoadSelectionName(int)
 t CMatRenderContext::PushSelectionName(int)
+t CMatRenderContext::SetCSM_AtlasMapRT(ITexture*)
 t CMatRenderContext::SetCSMQualityMode(CSMQualityMode_t)
 t CMatRenderContext::SetFlashlightMode(bool)
+t CMatRenderContext::SetGBufferTexData(ITexture*)
 t CMatRenderContext::SetLightingOrigin(Vector)
 t CMatRenderContext::SetNumBoneWeights(int)
 t CMatRenderContext::SetRenderTargetEx(int, ITexture*)
@@ -3554,7 +3609,9 @@ t CMatRenderContext::DestroyIndexBuffer(IIndexBuffer*)
 t CMatRenderContext::OnSetPrimitiveType(IMesh*, MaterialPrimitiveType_t)
 t CMatRenderContext::PopCustomClipPlane()
 t CMatRenderContext::ResetLookupWeights()
+t CMatRenderContext::SetCSM_StaticMapRT(ITexture*)
 t CMatRenderContext::SetFlashlightState(FlashlightState_t const&, VMatrix const&)
+t CMatRenderContext::SetGBufferTexDepth(ITexture*)
 t CMatRenderContext::SetStencilTestMask(unsigned int)
 t CMatRenderContext::BindLightmapTexture(ITexture*)
 t CMatRenderContext::BindStandardTexture(Sampler_t, StandardTextureId_t)
@@ -3566,6 +3623,9 @@ t CMatRenderContext::GetBoundMorphFormat()
 t CMatRenderContext::OverrideDepthEnable(bool, bool)
 t CMatRenderContext::PushCustomClipPlane(float const*)
 t CMatRenderContext::SetAmbientLightCube(Vector4D*)
+t CMatRenderContext::SetGBufferShadowMap(ITexture*)
+t CMatRenderContext::SetGBufferTexNormal(ITexture*)
+t CMatRenderContext::SetGodRayBackBuffer(ITexture*)
 t CMatRenderContext::SetStencilWriteMask(unsigned int)
 t CMatRenderContext::EndMorphAccumulation()
 t CMatRenderContext::ForceDepthFuncEquals(bool)
@@ -3580,13 +3640,20 @@ t CMatRenderContext::GetDynamicIndexBuffer(MaterialIndexFormat_t, bool)
 t CMatRenderContext::GetLightmapDimensions(int*, int*)
 t CMatRenderContext::GetMaxIndicesToRender()
 t CMatRenderContext::PerspectiveOffCenterX(double, double, double, double, double, double, double, double)
+t CMatRenderContext::SetGBufferEnableNoise(int)
+t CMatRenderContext::SetGBufferTexLightRim(ITexture*)
 t CMatRenderContext::BeginMorphAccumulation()
 t CMatRenderContext::BindFullbrightLightmap(Sampler_t)
 t CMatRenderContext::GetDynamicVertexBuffer(int, unsigned long long, bool)
 t CMatRenderContext::GetMaxVerticesToRender(IMaterial*)
 t CMatRenderContext::OnReleaseShaderObjects()
+t CMatRenderContext::SetGBufferQualityLevel(int)
+t CMatRenderContext::SetGBufferTexLightDiff(ITexture*)
+t CMatRenderContext::SetGBufferTexLightSpec(ITexture*)
 t CMatRenderContext::ClearBuffersObeyStencil(bool, bool)
 t CMatRenderContext::CreateStaticIndexBuffer(MaterialIndexFormat_t, int, char const*)
+t CMatRenderContext::SetGBNormalCompressMode(int)
+t CMatRenderContext::SetGBufferViewModelMode(int)
 t CMatRenderContext::SetStencilFailOperation(StencilOperation_t)
 t CMatRenderContext::SetStencilPassOperation(StencilOperation_t)
 t CMatRenderContext::CreateStaticVertexBuffer(unsigned long long, int, char const*)
@@ -3607,6 +3674,8 @@ t CMatRenderContext::DoStartupShaderPreloading()
 t CMatRenderContext::OnFlushBufferedPrimitives()
 t CMatRenderContext::ResetOcclusionQueryObject(OcclusionQueryObjectHandle_t__*)
 t CMatRenderContext::SetFrameBufferCopyTexture(ITexture*, int)
+t CMatRenderContext::SetGBufferShadowMapStatic(ITexture*)
+t CMatRenderContext::SetGBufferTexLightDiffNeg(ITexture*)
 t CMatRenderContext::SetShadowDepthBiasFactors(float, float)
 t CMatRenderContext::SetStencilCompareFunction(StencilComparisonFunction_t)
 t CMatRenderContext::SetToneMappingScaleLinear(Vector const&)
@@ -3621,6 +3690,7 @@ t CMatRenderContext::GetMorphAccumulatorTexCoord(Vector2D*, IMorph*, int)
 t CMatRenderContext::SetVectorRenderingParameter(int, Vector const&)
 t CMatRenderContext::BindBumpedFullbrightLightmap(Sampler_t)
 t CMatRenderContext::GetStandardTextureDimensions(int*, int*, StandardTextureId_t)
+t CMatRenderContext::SetGBLightBufferQualityLevel(int)
 t CMatRenderContext::CommitRenderTargetAndViewport()
 t CMatRenderContext::SetCascadedShadowMappingState(CascadedShadowMappingState_t const&, ITexture*)
 t CMatRenderContext::UpdateHeightClipUserClipPlane()
@@ -3712,15 +3782,15 @@ t IMatRenderContext::Unused5()
 t IMatRenderContext::Unused6()
 t IMatRenderContext::Unused7()
 t IMatRenderContext::Unused8()
-t CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<Sticker_t, CUtlMemory<Sticker_t, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<Sticker_t, CUtlMemory<Sticker_t, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<Sticker_t, CUtlMemory<Sticker_t, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<int, CUtlMemory<int, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<int, CUtlMemory<int, int> >::~CCopyableUtlVector()
-t CCopyableUtlVector<int, CUtlMemory<int, int> >::~CCopyableUtlVector()
+t CCopyableUtlVector<AsyncLoadJob_t>::~CCopyableUtlVector()
+t CCopyableUtlVector<AsyncLoadJob_t>::~CCopyableUtlVector()
+t CCopyableUtlVector<AsyncLoadJob_t>::~CCopyableUtlVector()
+t CCopyableUtlVector<Sticker_t>::~CCopyableUtlVector()
+t CCopyableUtlVector<Sticker_t>::~CCopyableUtlVector()
+t CCopyableUtlVector<Sticker_t>::~CCopyableUtlVector()
+t CCopyableUtlVector<int>::~CCopyableUtlVector()
+t CCopyableUtlVector<int>::~CCopyableUtlVector()
+t CCopyableUtlVector<int>::~CCopyableUtlVector()
 t CMaterialReference::Init(IMaterial*)
 t CMaterialReference::Init(char const*, KeyValues*)
 t CMaterialReference::Init(char const*, char const*, bool)
@@ -3790,6 +3860,7 @@ t CCheckerboardTexture::~CCheckerboardTexture()
 t CCheckerboardTexture::~CCheckerboardTexture()
 t CCheckerboardTexture::~CCheckerboardTexture()
 t CDummyHardwareConfig::SetHDREnabled(bool)
+t CDummyHardwareConfig::SetCSMAccurateBlending(bool)
 t CDummyHardwareConfig::OverrideStreamOffsetSupport(bool, bool)
 t CDummyMaterialSystem::ReEnableRenderTargetAllocation_IRealizeIfICallThisAllTexturesWillBeUnloadedAndLoadTimeWillSufferHorribly()
 t CDummyMaterialSystem::BeginBatch(IMesh*)
@@ -3844,6 +3915,9 @@ t CDummyMaterialSystem::FogMaxDensity(float)
 t CDummyMaterialSystem::GetNumSortIDs()
 t CDummyMaterialSystem::GetThreadMode()
 t CDummyMaterialSystem::SelectionMode(bool)
+t CDummyMaterialSystem::SetGodRayBlur(ITexture*)
+t CDummyMaterialSystem::SetGodRayMask(ITexture*)
+t CDummyMaterialSystem::SetGpuCsmData(GBGpuCsmData_t*)
 t CDummyMaterialSystem::SetInStubMode(bool)
 t CDummyMaterialSystem::SetThreadMode(MaterialThreadMode_t, int)
 t CDummyMaterialSystem::AddReleaseFunc(void (*)())
@@ -3863,6 +3937,8 @@ t CDummyMaterialSystem::QueryInterface(char const*)
 t CDummyMaterialSystem::ReloadTextures()
 t CDummyMaterialSystem::SetCSMDeferred(bool)
 t CDummyMaterialSystem::SetFlexWeights(int, int, MorphWeight_t const*)
+t CDummyMaterialSystem::SetGBufferMode(GBUffer_Modes_Type_t)
+t CDummyMaterialSystem::SetGodRayState(GodRayState_t const&)
 t CDummyMaterialSystem::SetHeightClipZ(float)
 t CDummyMaterialSystem::SetScissorRect(int, int, int, int, bool)
 t CDummyMaterialSystem::SupportsFetch4()
@@ -3880,6 +3956,9 @@ t CDummyMaterialSystem::PushDeformation(DeformationBase_t const*)
 t CDummyMaterialSystem::ReloadMaterials(char const*)
 t CDummyMaterialSystem::SelectionBuffer(unsigned int*, int)
 t CDummyMaterialSystem::SetAmbientLight(float, float, float)
+t CDummyMaterialSystem::SetCSM_AtlasMap(ITexture*)
+t CDummyMaterialSystem::SetGBufferNoise(ITexture*)
+t CDummyMaterialSystem::SetGBufferState(GBufferState_t const&)
 t CDummyMaterialSystem::SetLookupWeight(unsigned int, float)
 t CDummyMaterialSystem::SetRenderTarget(ITexture*)
 t CDummyMaterialSystem::SupportsHDRMode(HDRType_t)
@@ -3896,6 +3975,8 @@ t CDummyMaterialSystem::HandleDeviceLost()
 t CDummyMaterialSystem::IsMaterialLoaded(char const*)
 t CDummyMaterialSystem::PopSelectionName()
 t CDummyMaterialSystem::ReleaseResources()
+t CDummyMaterialSystem::SetCSM_StaticMap(ITexture*)
+t CDummyMaterialSystem::SetGBufferTexCSM(ITexture*)
 t CDummyMaterialSystem::SetRenderContext(IMatRenderContext*)
 t CDummyMaterialSystem::SetStencilEnable(bool)
 t CDummyMaterialSystem::SupportsCSAAMode(int, int)
@@ -3913,8 +3994,10 @@ t CDummyMaterialSystem::ReloadFilesInList(IFileList*)
 t CDummyMaterialSystem::RemoveReleaseFunc(void (*)())
 t CDummyMaterialSystem::RemoveRestoreFunc(void (*)(int))
 t CDummyMaterialSystem::ResetTempHWMemory(bool)
+t CDummyMaterialSystem::SetCSM_AtlasMapRT(ITexture*)
 t CDummyMaterialSystem::SetCSMQualityMode(CSMQualityMode_t)
 t CDummyMaterialSystem::SetFlashlightMode(bool)
+t CDummyMaterialSystem::SetGBufferTexData(ITexture*)
 t CDummyMaterialSystem::SetHeightClipMode(MaterialHeightClipMode_t)
 t CDummyMaterialSystem::SetLightingOrigin(Vector)
 t CDummyMaterialSystem::SetNumBoneWeights(int)
@@ -3933,18 +4016,24 @@ t CDummyMaterialSystem::PopCustomClipPlane()
 t CDummyMaterialSystem::ReacquireResources()
 t CDummyMaterialSystem::RemoveTextureAlias(char const*)
 t CDummyMaterialSystem::ResetLookupWeights()
+t CDummyMaterialSystem::SetCSM_StaticMapRT(ITexture*)
 t CDummyMaterialSystem::SetFlashlightState(FlashlightState_t const&, VMatrix const&)
+t CDummyMaterialSystem::SetGBufferTexDepth(ITexture*)
 t CDummyMaterialSystem::SetStencilTestMask(unsigned int)
 t CDummyMaterialSystem::BindLightmapTexture(ITexture*)
 t CDummyMaterialSystem::ClearSelectionNames()
 t CDummyMaterialSystem::CreateRenderContext(MaterialContextType_t)
 t CDummyMaterialSystem::DestroyVertexBuffer(IVertexBuffer*)
 t CDummyMaterialSystem::DrawScreenSpaceQuad(IMaterial*)
+t CDummyMaterialSystem::GetGbuffer_Warp_RGB()
 t CDummyMaterialSystem::OverrideDepthEnable(bool, bool)
 t CDummyMaterialSystem::PushCustomClipPlane(float const*)
 t CDummyMaterialSystem::PushHeightClipPlane()
 t CDummyMaterialSystem::SetAmbientLightCube(Vector4D*)
 t CDummyMaterialSystem::SetExcludedTextures(char const*)
+t CDummyMaterialSystem::SetGBufferShadowMap(ITexture*)
+t CDummyMaterialSystem::SetGBufferTexNormal(ITexture*)
+t CDummyMaterialSystem::SetGodRayBackBuffer(ITexture*)
 t CDummyMaterialSystem::SetStencilWriteMask(unsigned int)
 t CDummyMaterialSystem::SupportsBorderColor()
 t CDummyMaterialSystem::ToggleDebugMaterial(char const*)
@@ -3952,6 +4041,10 @@ t CDummyMaterialSystem::UncacheAllMaterials()
 t CDummyMaterialSystem::AppUsesRenderTargets()
 t CDummyMaterialSystem::BeginUpdateLightmaps()
 t CDummyMaterialSystem::EndMorphAccumulation()
+t CDummyMaterialSystem::GetGbuffer_Diff_RGB8()
+t CDummyMaterialSystem::GetGbuffer_Normal_32()
+t CDummyMaterialSystem::GetGbuffer_Normal_64()
+t CDummyMaterialSystem::GetGbuffer_Warp_ARGB()
 t CDummyMaterialSystem::GetNullTextureFormat()
 t CDummyMaterialSystem::NewTextureCompositor(int, int, char const*, int, unsigned long long, KeyValues*, unsigned int)
 t CDummyMaterialSystem::ReadPixelsAndStretch(Rect_t*, Rect_t*, unsigned char*, ImageFormat, int)
@@ -3967,9 +4060,15 @@ t CDummyMaterialSystem::EndLightmapAllocation()
 t CDummyMaterialSystem::EvictManagedResources()
 t CDummyMaterialSystem::GetDynamicIndexBuffer(MaterialIndexFormat_t, bool)
 t CDummyMaterialSystem::GetDynamicIndexBuffer(bool)
+t CDummyMaterialSystem::GetGbuffer_DepthRT_16()
+t CDummyMaterialSystem::GetGbuffer_DepthRT_32()
+t CDummyMaterialSystem::GetGbuffer_Diff_RGB10()
+t CDummyMaterialSystem::GetGbuffer_Diff_RGB16()
 t CDummyMaterialSystem::GetMaxIndicesToRender()
 t CDummyMaterialSystem::PerspectiveOffCenterX(double, double, double, double, double, double, double, double)
 t CDummyMaterialSystem::ResetToneMappingScale(float)
+t CDummyMaterialSystem::SetGBufferEnableNoise(int)
+t CDummyMaterialSystem::SetGBufferTexLightRim(ITexture*)
 t CDummyMaterialSystem::SetMorphTargetFactors(int, float*, int)
 t CDummyMaterialSystem::SetRealMaterialSystem(IMaterialSystem*)
 t CDummyMaterialSystem::BeginMorphAccumulation()
@@ -3978,6 +4077,10 @@ t CDummyMaterialSystem::FindProceduralMaterial(char const*, char const*, KeyValu
 t CDummyMaterialSystem::GetDynamicVertexBuffer(bool)
 t CDummyMaterialSystem::GetDynamicVertexBuffer(int, unsigned long long, bool)
 t CDummyMaterialSystem::GetMaxVerticesToRender(IMaterial*)
+t CDummyMaterialSystem::ResumeTextureStreaming()
+t CDummyMaterialSystem::SetGBufferQualityLevel(int)
+t CDummyMaterialSystem::SetGBufferTexLightDiff(ITexture*)
+t CDummyMaterialSystem::SetGBufferTexLightSpec(ITexture*)
 t CDummyMaterialSystem::ToggleSuppressMaterial(char const*)
 t CDummyMaterialSystem::UncacheUnusedMaterials(bool)
 t CDummyMaterialSystem::UpdateExcludedTextures()
@@ -3988,10 +4091,13 @@ t CDummyMaterialSystem::CreateProceduralTexture(char const*, char const*, int, i
 t CDummyMaterialSystem::CreateStaticIndexBuffer(MaterialIndexFormat_t, int, char const*)
 t CDummyMaterialSystem::DebugPrintUsedMaterials(char const*, bool)
 t CDummyMaterialSystem::GetMaterialProxyFactory()
+t CDummyMaterialSystem::SetGBNormalCompressMode(int)
+t CDummyMaterialSystem::SetGBufferViewModelMode(int)
 t CDummyMaterialSystem::SetGoalToneMappingScale(float)
 t CDummyMaterialSystem::SetMaterialProxyFactory(IMaterialProxyFactory*)
 t CDummyMaterialSystem::SetStencilFailOperation(StencilOperation_t)
 t CDummyMaterialSystem::SetStencilPassOperation(StencilOperation_t)
+t CDummyMaterialSystem::SuspendTextureStreaming()
 t CDummyMaterialSystem::CreateStaticVertexBuffer(unsigned long long, int, char const*)
 t CDummyMaterialSystem::DrawScreenSpaceRectangle(IMaterial*, int, int, int, int, float, float, float, float, int, int, void*, int, int)
 t CDummyMaterialSystem::EnableNonInteractiveMode(MaterialNonInteractiveMode_t)
@@ -4014,6 +4120,8 @@ t CDummyMaterialSystem::GetFrameBufferCopyTexture(int)
 t CDummyMaterialSystem::GetToneMappingScaleLinear()
 t CDummyMaterialSystem::ResetOcclusionQueryObject(OcclusionQueryObjectHandle_t__*)
 t CDummyMaterialSystem::SetFrameBufferCopyTexture(ITexture*, int)
+t CDummyMaterialSystem::SetGBufferShadowMapStatic(ITexture*)
+t CDummyMaterialSystem::SetGBufferTexLightDiffNeg(ITexture*)
 t CDummyMaterialSystem::SetShadowDepthBiasFactors(float, float)
 t CDummyMaterialSystem::SetStencilCompareFunction(StencilComparisonFunction_t)
 t CDummyMaterialSystem::SetToneMappingScaleLinear(Vector const&)
@@ -4040,6 +4148,9 @@ t CDummyMaterialSystem::AddTextureCompositorTemplate(char const*, KeyValues*, in
 t CDummyMaterialSystem::ComputePixelDiameterOfSphere(Vector const&, float)
 t CDummyMaterialSystem::CreateNamedTextureFromBitsEx(char const*, char const*, int, int, int, ImageFormat, int, unsigned char*, int)
 t CDummyMaterialSystem::FinishRenderTargetAllocation()
+t CDummyMaterialSystem::GetCSMDepthTextureFormat_Low()
+t CDummyMaterialSystem::SetGBLightBufferQualityLevel(int)
+t CDummyMaterialSystem::GetCSMDepthTextureFormat_High()
 t CDummyMaterialSystem::ResetMaterialLightmapPageInfo()
 t CDummyMaterialSystem::SetCascadedShadowMappingState(CascadedShadowMappingState_t const&, ITexture*)
 t CDummyMaterialSystem::CreateNamedRenderTargetTexture(char const*, int, int, RenderTargetSizeMode_t, ImageFormat, MaterialRenderTargetDepth_t, bool, bool)
@@ -4052,7 +4163,9 @@ t CDummyMaterialSystem::VerifyTextureCompositorTemplates()
 t CDummyMaterialSystem::CreateNamedRenderTargetTextureEx2(char const*, int, int, RenderTargetSizeMode_t, ImageFormat, MaterialRenderTargetDepth_t, unsigned int, unsigned int)
 t CDummyMaterialSystem::PerformFullScreenStencilOperation()
 t CDummyMaterialSystem::AsyncCreateTextureFromRenderTarget(ITexture*, char const*, ImageFormat, bool, int, IAsyncTextureOperationReceiver*, void*)
+t CDummyMaterialSystem::GetDefShadow_DepthTextureFormat_Low()
 t CDummyMaterialSystem::OcclusionQuery_GetNumPixelsRendered(OcclusionQueryObjectHandle_t__*)
+t CDummyMaterialSystem::GetDefShadow_DepthTextureFormat_High()
 t CDummyMaterialSystem::GetRenderTargetFrameBufferDimensions(int&, int&)
 t CDummyMaterialSystem::SetFullScreenDepthTextureValidityFlag(bool)
 t CDummyMaterialSystem::SetNonInteractiveTempFullscreenBuffer(ITexture*, MaterialNonInteractiveMode_t)
@@ -4172,6 +4285,9 @@ t CMatNullRenderContext::ClearColor4ub(unsigned char, unsigned char, unsigned ch
 t CMatNullRenderContext::FogMaxDensity(float)
 t CMatNullRenderContext::OnSetFlexMesh(IMesh*, IMesh*, int)
 t CMatNullRenderContext::SelectionMode(bool)
+t CMatNullRenderContext::SetGodRayBlur(ITexture*)
+t CMatNullRenderContext::SetGodRayMask(ITexture*)
+t CMatNullRenderContext::SetGpuCsmData(GBGpuCsmData_t*)
 t CMatNullRenderContext::GetDynamicMesh(bool, IMesh*, IMesh*, IMaterial*)
 t CMatNullRenderContext::GetMaxToRender(IMesh*, bool, int*, int*)
 t CMatNullRenderContext::InitializeFrom(CMatRenderContextBase*)
@@ -4180,6 +4296,8 @@ t CMatNullRenderContext::OnSetColorMesh(IMesh*, IMesh*, int)
 t CMatNullRenderContext::PopDeformation()
 t CMatNullRenderContext::SetCSMDeferred(bool)
 t CMatNullRenderContext::SetFlexWeights(int, int, MorphWeight_t const*)
+t CMatNullRenderContext::SetGBufferMode(GBUffer_Modes_Type_t)
+t CMatNullRenderContext::SetGodRayState(GodRayState_t const&)
 t CMatNullRenderContext::SetScissorRect(int, int, int, int, bool)
 t CMatNullRenderContext::AccumulateMorph(IMorph*, int, MorphWeight_t const*)
 t CMatNullRenderContext::BindIndexBuffer(IIndexBuffer*, int)
@@ -4188,18 +4306,25 @@ t CMatNullRenderContext::GetLocalCubemap()
 t CMatNullRenderContext::PushDeformation(DeformationBase_t const*)
 t CMatNullRenderContext::SelectionBuffer(unsigned int*, int)
 t CMatNullRenderContext::SetAmbientLight(float, float, float)
+t CMatNullRenderContext::SetCSM_AtlasMap(ITexture*)
+t CMatNullRenderContext::SetGBufferNoise(ITexture*)
+t CMatNullRenderContext::SetGBufferState(GBufferState_t const&)
 t CMatNullRenderContext::SetLookupWeight(unsigned int, float)
 t CMatNullRenderContext::BindVertexBuffer(int, IVertexBuffer*, int, int, int, unsigned long long, int)
 t CMatNullRenderContext::CreateStaticMesh(unsigned long long, char const*, IMaterial*)
 t CMatNullRenderContext::GetDynamicMeshEx(unsigned long long, bool, IMesh*, IMesh*, IMaterial*)
 t CMatNullRenderContext::PopSelectionName()
+t CMatNullRenderContext::SetCSM_StaticMap(ITexture*)
+t CMatNullRenderContext::SetGBufferTexCSM(ITexture*)
 t CMatNullRenderContext::SetStencilEnable(bool)
 t CMatNullRenderContext::DestroyStaticMesh(IMesh*)
 t CMatNullRenderContext::ForceHardwareSync()
 t CMatNullRenderContext::LoadSelectionName(int)
 t CMatNullRenderContext::PushSelectionName(int)
+t CMatNullRenderContext::SetCSM_AtlasMapRT(ITexture*)
 t CMatNullRenderContext::SetCSMQualityMode(CSMQualityMode_t)
 t CMatNullRenderContext::SetFlashlightMode(bool)
+t CMatNullRenderContext::SetGBufferTexData(ITexture*)
 t CMatNullRenderContext::SetLightingOrigin(Vector)
 t CMatNullRenderContext::SetNumBoneWeights(int)
 t CMatNullRenderContext::UserClipTransform(VMatrix const&)
@@ -4207,7 +4332,9 @@ t CMatNullRenderContext::DestroyIndexBuffer(IIndexBuffer*)
 t CMatNullRenderContext::OnSetPrimitiveType(IMesh*, MaterialPrimitiveType_t)
 t CMatNullRenderContext::PopCustomClipPlane()
 t CMatNullRenderContext::ResetLookupWeights()
+t CMatNullRenderContext::SetCSM_StaticMapRT(ITexture*)
 t CMatNullRenderContext::SetFlashlightState(FlashlightState_t const&, VMatrix const&)
+t CMatNullRenderContext::SetGBufferTexDepth(ITexture*)
 t CMatNullRenderContext::SetStencilTestMask(unsigned int)
 t CMatNullRenderContext::BindLightmapTexture(ITexture*)
 t CMatNullRenderContext::BindStandardTexture(Sampler_t, StandardTextureId_t)
@@ -4219,6 +4346,9 @@ t CMatNullRenderContext::GetBoundMorphFormat()
 t CMatNullRenderContext::OverrideDepthEnable(bool, bool)
 t CMatNullRenderContext::PushCustomClipPlane(float const*)
 t CMatNullRenderContext::SetAmbientLightCube(Vector4D*)
+t CMatNullRenderContext::SetGBufferShadowMap(ITexture*)
+t CMatNullRenderContext::SetGBufferTexNormal(ITexture*)
+t CMatNullRenderContext::SetGodRayBackBuffer(ITexture*)
 t CMatNullRenderContext::SetStencilWriteMask(unsigned int)
 t CMatNullRenderContext::EndMorphAccumulation()
 t CMatNullRenderContext::ForceDepthFuncEquals(bool)
@@ -4231,11 +4361,18 @@ t CMatNullRenderContext::EnableColorCorrection(bool)
 t CMatNullRenderContext::GetDynamicIndexBuffer(MaterialIndexFormat_t, bool)
 t CMatNullRenderContext::GetLightmapDimensions(int*, int*)
 t CMatNullRenderContext::GetMaxIndicesToRender()
+t CMatNullRenderContext::SetGBufferEnableNoise(int)
+t CMatNullRenderContext::SetGBufferTexLightRim(ITexture*)
 t CMatNullRenderContext::BeginMorphAccumulation()
 t CMatNullRenderContext::GetDynamicVertexBuffer(int, unsigned long long, bool)
 t CMatNullRenderContext::GetMaxVerticesToRender(IMaterial*)
+t CMatNullRenderContext::SetGBufferQualityLevel(int)
+t CMatNullRenderContext::SetGBufferTexLightDiff(ITexture*)
+t CMatNullRenderContext::SetGBufferTexLightSpec(ITexture*)
 t CMatNullRenderContext::ClearBuffersObeyStencil(bool, bool)
 t CMatNullRenderContext::CreateStaticIndexBuffer(MaterialIndexFormat_t, int, char const*)
+t CMatNullRenderContext::SetGBNormalCompressMode(int)
+t CMatNullRenderContext::SetGBufferViewModelMode(int)
 t CMatNullRenderContext::SetStencilFailOperation(StencilOperation_t)
 t CMatNullRenderContext::SetStencilPassOperation(StencilOperation_t)
 t CMatNullRenderContext::CreateStaticVertexBuffer(unsigned long long, int, char const*)
@@ -4255,6 +4392,8 @@ t CMatNullRenderContext::GetFrameBufferCopyTexture(int)
 t CMatNullRenderContext::OnFlushBufferedPrimitives()
 t CMatNullRenderContext::ResetOcclusionQueryObject(OcclusionQueryObjectHandle_t__*)
 t CMatNullRenderContext::SetFrameBufferCopyTexture(ITexture*, int)
+t CMatNullRenderContext::SetGBufferShadowMapStatic(ITexture*)
+t CMatNullRenderContext::SetGBufferTexLightDiffNeg(ITexture*)
 t CMatNullRenderContext::SetShadowDepthBiasFactors(float, float)
 t CMatNullRenderContext::SetStencilCompareFunction(StencilComparisonFunction_t)
 t CMatNullRenderContext::SetToneMappingScaleLinear(Vector const&)
@@ -4267,6 +4406,7 @@ t CMatNullRenderContext::CopyTextureToRenderTargetEx(int, ITexture*, Rect_t*, Re
 t CMatNullRenderContext::DestroyOcclusionQueryObject(OcclusionQueryObjectHandle_t__*)
 t CMatNullRenderContext::GetMorphAccumulatorTexCoord(Vector2D*, IMorph*, int)
 t CMatNullRenderContext::SetVectorRenderingParameter(int, Vector const&)
+t CMatNullRenderContext::SetGBLightBufferQualityLevel(int)
 t CMatNullRenderContext::SetCascadedShadowMappingState(CascadedShadowMappingState_t const&, ITexture*)
 t CMatNullRenderContext::EnableUserClipTransformOverride(bool)
 t CMatNullRenderContext::RefreshFrontBufferNonInteractive()
@@ -4329,7 +4469,7 @@ b CMatRenderContextBase::sm_nRenderStack
 t CMatRenderContextBase::AddRefRenderData()
 t CMatRenderContextBase::BindLightmapPage(int)
 t CMatRenderContextBase::BindLocalCubemap(ITexture*)
-t CMatRenderContextBase::BindLocalCubemap(ITexture*) [clone .part.41]
+t CMatRenderContextBase::BindLocalCubemap(ITexture*) [clone .part.38]
 t CMatRenderContextBase::UnlockRenderData(void*)
 t CMatRenderContextBase::GetHeightClipMode()
 t CMatRenderContextBase::GetRenderTargetEx(int)
@@ -4339,7 +4479,7 @@ t CMatRenderContextBase::SetRenderTargetEx(int, ITexture*)
 t CMatRenderContextBase::TurnOnToneMapping()
 t CMatRenderContextBase::GetCurrentMaterial()
 t CMatRenderContextBase::RecomputeViewState()
-t CMatRenderContextBase::RecomputeViewState() [clone .part.42]
+t CMatRenderContextBase::RecomputeViewState() [clone .part.39]
 b CMatRenderContextBase::sm_nInitializeCount
 b CMatRenderContextBase::sm_nRenderLockCount
 t CMatRenderContextBase::CurrentMatrixChanged()
@@ -4560,6 +4700,9 @@ t CMatQueuedRenderContext::CompactMemory()
 t CMatQueuedRenderContext::FogMaxDensity(float)
 t CMatQueuedRenderContext::OnSetFlexMesh(IMesh*, IMesh*, int)
 t CMatQueuedRenderContext::SelectionMode(bool)
+t CMatQueuedRenderContext::SetGodRayBlur(ITexture*)
+t CMatQueuedRenderContext::SetGodRayMask(ITexture*)
+t CMatQueuedRenderContext::SetGpuCsmData(GBGpuCsmData_t*)
 t CMatQueuedRenderContext::EnableClipping(bool)
 t CMatQueuedRenderContext::GetDynamicMesh(bool, IMesh*, IMesh*, IMaterial*)
 t CMatQueuedRenderContext::GetMaxToRender(IMesh*, bool, int*, int*)
@@ -4569,6 +4712,8 @@ t CMatQueuedRenderContext::PopDeformation()
 t CMatQueuedRenderContext::ReallocIndices(unsigned short*, int, int)
 t CMatQueuedRenderContext::SetCSMDeferred(bool)
 t CMatQueuedRenderContext::SetFlexWeights(int, int, MorphWeight_t const*)
+t CMatQueuedRenderContext::SetGBufferMode(GBUffer_Modes_Type_t)
+t CMatQueuedRenderContext::SetGodRayState(GodRayState_t const&)
 t CMatQueuedRenderContext::SetHeightClipZ(float)
 t CMatQueuedRenderContext::SetScissorRect(int, int, int, int, bool)
 t CMatQueuedRenderContext::AccumulateMorph(IMorph*, int, MorphWeight_t const*)
@@ -4583,7 +4728,10 @@ t CMatQueuedRenderContext::QueueMatrixSync()
 t CMatQueuedRenderContext::ReallocVertices(unsigned char*, int, int, int)
 t CMatQueuedRenderContext::SelectionBuffer(unsigned int*, int)
 t CMatQueuedRenderContext::SetAmbientLight(float, float, float)
+t CMatQueuedRenderContext::SetCSM_AtlasMap(ITexture*)
 t CMatQueuedRenderContext::SetCurrentProxy(void*)
+t CMatQueuedRenderContext::SetGBufferNoise(ITexture*)
+t CMatQueuedRenderContext::SetGBufferState(GBufferState_t const&)
 t CMatQueuedRenderContext::SetLookupWeight(unsigned int, float)
 t CMatQueuedRenderContext::BindLightmapPage(int)
 t CMatQueuedRenderContext::BindLocalCubemap(ITexture*)
@@ -4591,13 +4739,17 @@ t CMatQueuedRenderContext::BindVertexBuffer(int, IVertexBuffer*, int, int, int, 
 t CMatQueuedRenderContext::CreateStaticMesh(unsigned long long, char const*, IMaterial*)
 t CMatQueuedRenderContext::GetDynamicMeshEx(unsigned long long, bool, IMesh*, IMesh*, IMaterial*)
 t CMatQueuedRenderContext::PopSelectionName()
+t CMatQueuedRenderContext::SetCSM_StaticMap(ITexture*)
+t CMatQueuedRenderContext::SetGBufferTexCSM(ITexture*)
 t CMatQueuedRenderContext::SetStencilEnable(bool)
 t CMatQueuedRenderContext::DestroyStaticMesh(IMesh*)
 t CMatQueuedRenderContext::ForceHardwareSync()
 t CMatQueuedRenderContext::LoadSelectionName(int)
 t CMatQueuedRenderContext::PushSelectionName(int)
+t CMatQueuedRenderContext::SetCSM_AtlasMapRT(ITexture*)
 t CMatQueuedRenderContext::SetCSMQualityMode(CSMQualityMode_t)
 t CMatQueuedRenderContext::SetFlashlightMode(bool)
+t CMatQueuedRenderContext::SetGBufferTexData(ITexture*)
 t CMatQueuedRenderContext::SetHeightClipMode(MaterialHeightClipMode_t)
 t CMatQueuedRenderContext::SetLightingOrigin(Vector)
 t CMatQueuedRenderContext::SetNumBoneWeights(int)
@@ -4609,7 +4761,9 @@ t CMatQueuedRenderContext::DestroyIndexBuffer(IIndexBuffer*)
 t CMatQueuedRenderContext::OnSetPrimitiveType(IMesh*, MaterialPrimitiveType_t)
 t CMatQueuedRenderContext::PopCustomClipPlane()
 t CMatQueuedRenderContext::ResetLookupWeights()
+t CMatQueuedRenderContext::SetCSM_StaticMapRT(ITexture*)
 t CMatQueuedRenderContext::SetFlashlightState(FlashlightState_t const&, VMatrix const&)
+t CMatQueuedRenderContext::SetGBufferTexDepth(ITexture*)
 t CMatQueuedRenderContext::SetStencilTestMask(unsigned int)
 t CMatQueuedRenderContext::BindLightmapTexture(ITexture*)
 t CMatQueuedRenderContext::BindStandardTexture(Sampler_t, StandardTextureId_t)
@@ -4622,6 +4776,9 @@ t CMatQueuedRenderContext::GetBoundMorphFormat()
 t CMatQueuedRenderContext::OverrideDepthEnable(bool, bool)
 t CMatQueuedRenderContext::PushCustomClipPlane(float const*)
 t CMatQueuedRenderContext::SetAmbientLightCube(Vector4D*)
+t CMatQueuedRenderContext::SetGBufferShadowMap(ITexture*)
+t CMatQueuedRenderContext::SetGBufferTexNormal(ITexture*)
+t CMatQueuedRenderContext::SetGodRayBackBuffer(ITexture*)
 t CMatQueuedRenderContext::SetStencilWriteMask(unsigned int)
 t CMatQueuedRenderContext::DeferredDrawPrimList(IMesh*, CPrimList*, int)
 t CMatQueuedRenderContext::EndMorphAccumulation()
@@ -4637,11 +4794,18 @@ t CMatQueuedRenderContext::GetDynamicIndexBuffer(MaterialIndexFormat_t, bool)
 t CMatQueuedRenderContext::GetLightmapDimensions(int*, int*)
 t CMatQueuedRenderContext::GetMaxIndicesToRender()
 t CMatQueuedRenderContext::PerspectiveOffCenterX(double, double, double, double, double, double, double, double)
+t CMatQueuedRenderContext::SetGBufferEnableNoise(int)
+t CMatQueuedRenderContext::SetGBufferTexLightRim(ITexture*)
 t CMatQueuedRenderContext::BeginMorphAccumulation()
 t CMatQueuedRenderContext::GetDynamicVertexBuffer(int, unsigned long long, bool)
 t CMatQueuedRenderContext::GetMaxVerticesToRender(IMaterial*)
+t CMatQueuedRenderContext::SetGBufferQualityLevel(int)
+t CMatQueuedRenderContext::SetGBufferTexLightDiff(ITexture*)
+t CMatQueuedRenderContext::SetGBufferTexLightSpec(ITexture*)
 t CMatQueuedRenderContext::ClearBuffersObeyStencil(bool, bool)
 t CMatQueuedRenderContext::CreateStaticIndexBuffer(MaterialIndexFormat_t, int, char const*)
+t CMatQueuedRenderContext::SetGBNormalCompressMode(int)
+t CMatQueuedRenderContext::SetGBufferViewModelMode(int)
 t CMatQueuedRenderContext::SetStencilFailOperation(StencilOperation_t)
 t CMatQueuedRenderContext::SetStencilPassOperation(StencilOperation_t)
 t CMatQueuedRenderContext::CreateStaticVertexBuffer(unsigned long long, int, char const*)
@@ -4660,6 +4824,8 @@ t CMatQueuedRenderContext::DoStartupShaderPreloading()
 t CMatQueuedRenderContext::OnFlushBufferedPrimitives()
 t CMatQueuedRenderContext::ResetOcclusionQueryObject(OcclusionQueryObjectHandle_t__*)
 t CMatQueuedRenderContext::SetFrameBufferCopyTexture(ITexture*, int)
+t CMatQueuedRenderContext::SetGBufferShadowMapStatic(ITexture*)
+t CMatQueuedRenderContext::SetGBufferTexLightDiffNeg(ITexture*)
 t CMatQueuedRenderContext::SetShadowDepthBiasFactors(float, float)
 t CMatQueuedRenderContext::SetStencilCompareFunction(StencilComparisonFunction_t)
 t CMatQueuedRenderContext::SetToneMappingScaleLinear(Vector const&)
@@ -4678,6 +4844,7 @@ t CMatQueuedRenderContext::PushRenderTargetAndViewport(ITexture*, int, int, int,
 t CMatQueuedRenderContext::PushRenderTargetAndViewport(ITexture*, ITexture*, int, int, int, int)
 t CMatQueuedRenderContext::PushRenderTargetAndViewport()
 t CMatQueuedRenderContext::SetVectorRenderingParameter(int, Vector const&)
+t CMatQueuedRenderContext::SetGBLightBufferQualityLevel(int)
 t CMatQueuedRenderContext::SetCascadedShadowMappingState(CascadedShadowMappingState_t const&, ITexture*)
 t CMatQueuedRenderContext::EnableUserClipTransformOverride(bool)
 t CMatQueuedRenderContext::RefreshFrontBufferNonInteractive()
@@ -4767,6 +4934,7 @@ t CReferenceToHandleTexture::BindVertexTexture(VertexTextureSampler_t, int)
 t CReferenceToHandleTexture::GetReferenceCount()
 t CReferenceToHandleTexture::ReloadFilesInList(IFileList*)
 t CReferenceToHandleTexture::GetEmbeddedTexture(int)
+t CReferenceToHandleTexture::GetShareableHandle()
 t CReferenceToHandleTexture::CopyFrameBufferToMe(int, Rect_t*, Rect_t*)
 t CReferenceToHandleTexture::CopyMeToFrameBuffer(int, Rect_t*, Rect_t*)
 t CReferenceToHandleTexture::UpdateExcludedState()
@@ -4858,11 +5026,14 @@ t CMorph::~CMorph()
 t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
-t ConVar::ChangeStringValue(char const*, float)
+t ConVar::ChangeStringValue(char const*, ConVar::CVValue_t const&)
 t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
-t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::RemoveChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float), bool)
 t ConVar::InternalSetFloatValue(float, bool)
+t ConVar::InternalSetVectorValue(Vector const&)
+t ConVar::InternalSetVectorFromString(char const*)
 t ConVar::Init()
 t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
@@ -4870,6 +5041,7 @@ t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
 t ConVar::SetValue(int)
 t ConVar::SetValue(char const*)
+t ConVar::SetValue(Vector const&)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
@@ -4950,9 +5122,10 @@ t CTexture::GetReferenceCount()
 t CTexture::LoadLowResTexture(IVTFTexture*)
 t CTexture::MakeFullyResident()
 t CTexture::ReloadFilesInList(IFileList*)
-t CTexture::ReloadFilesInList(IFileList*) [clone .part.27]
+t CTexture::ReloadFilesInList(IFileList*) [clone .part.25]
 t CTexture::CancelStreamingJob(bool)
 t CTexture::GetEmbeddedTexture(int)
+t CTexture::GetShareableHandle()
 t CTexture::NotifyUnloadedFile()
 t CTexture::ReconstructTexture(bool)
 t CTexture::ComputeActualFormat(ImageFormat)
@@ -5007,23 +5180,15 @@ t CTexture::CTexture()
 t CTexture::~CTexture()
 t CTexture::~CTexture()
 t CTexture::~CTexture()
-t CTSQueue<IVTFTexture*, false>::Pop()
-t CTSQueue<IVTFTexture*, false>::PushItem(IVTFTexture* const&)
 t CTSQueue<IVTFTexture*, false>::~CTSQueue()
 t CTSQueue<IVTFTexture*, false>::~CTSQueue()
-t CTSQueue<AsyncLoadJob_t*, false>::Pop()
-t CTSQueue<AsyncLoadJob_t*, false>::PushItem(AsyncLoadJob_t* const&)
 t CTSQueue<AsyncLoadJob_t*, false>::~CTSQueue()
 t CTSQueue<AsyncLoadJob_t*, false>::~CTSQueue()
-t CTSQueue<AsyncReadJob_t*, false>::Pop()
-t CTSQueue<AsyncReadJob_t*, false>::PushItem(AsyncReadJob_t* const&)
 t CTSQueue<AsyncReadJob_t*, false>::~CTSQueue()
 t CTSQueue<AsyncReadJob_t*, false>::~CTSQueue()
-t CTSQueue<ITextureInternal*, false>::Pop()
 t CTSQueue<ITextureInternal*, false>::~CTSQueue()
 t CTSQueue<ITextureInternal*, false>::~CTSQueue()
-t CUtlDict<CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::RemoveAt(int)
-t CUtlDict<CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::RemoveAll()
+t CUtlDict<CCopyableUtlVector<AsyncLoadJob_t>, int>::RemoveAll()
 t CUtlDict<int, int>::Insert(char const*, int const&)
 t CUtlDict<int, int>::RemoveAll()
 t CUtlDict<int, unsigned short>::RemoveAll()
@@ -5086,14 +5251,14 @@ t CMaterial::SetShaderAndParams(KeyValues*)
 t CMaterial::CleanUpShaderParams()
 t CMaterial::GetPreviewImageName()
 t CMaterial::CleanUpMaterialProxy()
-t CMaterial::CleanUpMaterialProxy() [clone .part.42]
+t CMaterial::CleanUpMaterialProxy() [clone .part.41]
 t CMaterial::CreateRenderPassList()
 t CMaterial::DeleteIfUnreferenced()
 t CMaterial::SetMaxLightmapPageID(int)
 t CMaterial::SetMinLightmapPageID(int)
 t CMaterial::CheckProxyReplacement(void*)
 t CMaterial::CleanUpStateSnapshots()
-t CMaterial::CleanUpStateSnapshots() [clone .part.22]
+t CMaterial::CleanUpStateSnapshots() [clone .part.21]
 t CMaterial::DestroyRenderPassList(RenderPassList_t*)
 t CMaterial::GetNumAnimationFrames()
 t CMaterial::GetTextureMemoryBytes()
@@ -5117,7 +5282,7 @@ t CMaterial::NeedsFullFrameBufferTexture(bool)
 t CMaterial::ReloadFromWhitelistIfMarked()
 t CMaterial::RefreshPreservingMaterialVars()
 t CMaterial::DecideShouldReloadFromWhitelist(IFileList*)
-t CMaterial::DecideShouldReloadFromWhitelist(IFileList*) [clone .part.45]
+t CMaterial::DecideShouldReloadFromWhitelist(IFileList*) [clone .part.44]
 t CMaterial::SetUseFixedFunctionBakedLighting(bool)
 t CMaterial::NeedsPowerOfTwoFrameBufferTexture(bool)
 t CMaterial::FindVar(char const*, bool*, bool)
@@ -5164,7 +5329,6 @@ t ConVarRef::ConVarRef(char const*, bool)
 t ConVarRef::ConVarRef(IConVar*)
 t ConVarRef::ConVarRef(char const*)
 t ConVarRef::ConVarRef(char const*, bool)
-t CUtlQueue<AsyncReadJob_t*, CUtlMemory<AsyncReadJob_t*, int> >::RemoveAtHead(AsyncReadJob_t*&)
 t CUtlQueue<AsyncReadJob_t*, CUtlMemory<AsyncReadJob_t*, int> >::Insert(AsyncReadJob_t* const&)
 t CUtlQueue<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int> >::Insert(KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct const&)
 t CUtlStack<CMatRenderContextBase::MatrixStackItem_t, CUtlMemory<CMatRenderContextBase::MatrixStackItem_t, int> >::CopyFrom(CUtlStack<CMatRenderContextBase::MatrixStackItem_t, CUtlMemory<CMatRenderContextBase::MatrixStackItem_t, int> > const&)
@@ -5318,36 +5482,22 @@ t ConCommand::IsCommand() const
 t CShaderDLL::ShaderCount() const
 t CShaderDLL::ShaderComboSemanticsCount() const
 t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
-t CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::FirstInorder() const
-t CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t const&) const
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::NextInorder(int) const
-t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::Links(int) const
+t CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t>, int>::Node_t, int>, int> >::NextInorder(int) const
 t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::NextInorder(int) const
-t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::FirstInorder() const
-t CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Links(int) const
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
-t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<char const*, int, unsigned short>::Node_t const&) const
-t CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
-t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t const&) const
-t CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
 t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t const&) const
-t CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
-t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<char const*, IShader*, unsigned short>::Node_t const&) const
 t CUtlRBTree<CUtlMap<char const*, KeyValues*, int>::Node_t, int, CUtlMap<char const*, KeyValues*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, KeyValues*, int>::Node_t, int>, int> >::NextInorder(int) const
-t CUtlRBTree<CUtlMap<char const*, KeyValues*, int>::Node_t, int, CUtlMap<char const*, KeyValues*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, KeyValues*, int>::Node_t, int>, int> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<char const*, char const*, int>::Node_t, int, CUtlMap<char const*, char const*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, int>::Node_t, int>, int> >::NextInorder(int) const
 t CUtlRBTree<CUtlMap<char const*, char const*, int>::Node_t, int, CUtlMap<char const*, char const*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, int>::Node_t, int>, int> >::Find(CUtlMap<char const*, char const*, int>::Node_t const&) const
 t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::NextInorder(unsigned short) const
-t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::FirstInorder() const
 t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Find(CUtlMap<char const*, char const*, unsigned short>::Node_t const&) const
-t CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const
 t CUtlString::GetExtension() const
 t CUtlString::StripFilename() const
 t CUtlString::MatchesPattern(CUtlString const&, int) const
@@ -5663,16 +5813,25 @@ t CDummyHardwareConfig::GetHardwareHDRType() const
 t CDummyHardwareConfig::GetShadowDepthBias() const
 t CDummyHardwareConfig::HasDestAlphaBuffer() const
 t CDummyHardwareConfig::SupportsOverbright() const
+t CDummyHardwareConfig::GetGbuffer_Warp_RGB() const
 t CDummyHardwareConfig::GetShadowFilterMode(bool, bool) const
 t CDummyHardwareConfig::GetShadowFilterMode() const
 t CDummyHardwareConfig::HasProjectedBumpEnv() const
 t CDummyHardwareConfig::SupportsBorderColor() const
 t CDummyHardwareConfig::CanDoSRGBReadFromRTs() const
+t CDummyHardwareConfig::GetGbuffer_Diff_RGB8() const
+t CDummyHardwareConfig::GetGbuffer_Normal_32() const
+t CDummyHardwareConfig::GetGbuffer_Normal_64() const
+t CDummyHardwareConfig::GetGbuffer_Warp_ARGB() const
 t CDummyHardwareConfig::GetMaxDXSupportLevel() const
 t CDummyHardwareConfig::GetNullTextureFormat() const
 t CDummyHardwareConfig::MaxHWMorphBatchCount() const
 t CDummyHardwareConfig::NeedsATICentroidHack() const
 t CDummyHardwareConfig::SupportsStreamOffset() const
+t CDummyHardwareConfig::GetGbuffer_DepthRT_16() const
+t CDummyHardwareConfig::GetGbuffer_DepthRT_32() const
+t CDummyHardwareConfig::GetGbuffer_Diff_RGB10() const
+t CDummyHardwareConfig::GetGbuffer_Diff_RGB16() const
 t CDummyHardwareConfig::GetVertexTextureCount() const
 t CDummyHardwareConfig::HasFastVertexTextures() const
 t CDummyHardwareConfig::HasSetDeviceGammaRamp() const
@@ -5681,6 +5840,8 @@ t CDummyHardwareConfig::MaxTextureAspectRatio() const
 t CDummyHardwareConfig::PreferDynamicTextures() const
 t CDummyHardwareConfig::PreferReducedFillrate() const
 t CDummyHardwareConfig::SupportsSpheremapping() const
+t CDummyHardwareConfig::GetCSMAccurateBlending() const
+t CDummyHardwareConfig::GetLightMapScaleFactor() const
 t CDummyHardwareConfig::MaximumAnisotropicLevel() const
 t CDummyHardwareConfig::NumPixelShaderConstants() const
 t CDummyHardwareConfig::SupportsNonPow2Textures() const
@@ -5705,9 +5866,11 @@ t CDummyHardwareConfig::GetShadowDepthTextureFormat() const
 t CDummyHardwareConfig::SupportsBilinearPCFSampling() const
 t CDummyHardwareConfig::SupportsColorOnSecondStream() const
 t CDummyHardwareConfig::SupportsShadowDepthTextures() const
+t CDummyHardwareConfig::GetCSMDepthTextureFormat_Low() const
 t CDummyHardwareConfig::GetMaxVertexTextureDimension() const
 t CDummyHardwareConfig::GetShadowSlopeScaleDepthBias() const
 t CDummyHardwareConfig::MaxVertexShaderBlendMatrices() const
+t CDummyHardwareConfig::GetCSMDepthTextureFormat_High() const
 t CDummyHardwareConfig::SupportsCascadedShadowMapping() const
 t CDummyHardwareConfig::SupportsVertexAndPixelShaders() const
 t CDummyHardwareConfig::SpecifiesFogColorInLinearSpace() const
@@ -5715,6 +5878,9 @@ t CDummyHardwareConfig::NumBooleanVertexShaderConstants() const
 t CDummyHardwareConfig::NumIntegerVertexShaderConstants() const
 t CDummyHardwareConfig::ActuallySupportsPixelShaders_2_b() const
 t CDummyHardwareConfig::SupportsStaticPlusDynamicLighting() const
+t CDummyHardwareConfig::GetDefShadow_DepthTextureFormat_Low() const
+t CDummyHardwareConfig::PlatformRequiresNonNullPixelShaders() const
+t CDummyHardwareConfig::GetDefShadow_DepthTextureFormat_High() const
 t CDummyHardwareConfig::GetHighPrecisionShadowDepthTextureFormat() const
 t CDummyMaterialSystem::GetShaders(int, int, IShader**) const
 t CDummyMaterialSystem::GetMaterial(unsigned short) const
@@ -5862,9 +6028,12 @@ t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
+t ConVar::GetInt() const
 t ConVar::GetMax(float&) const
 t ConVar::GetMin(float&) const
 t ConVar::GetName() const
+t ConVar::GetFloat() const
+t ConVar::GetVector() const
 t ConVar::IsCommand() const
 t ConVar::IsFlagSet(int) const
 t VMatrix::Transpose3x3() const
@@ -5969,6 +6138,7 @@ t non-virtual thunk to CEmptyConVar::SetValue(char const*)
 t non-virtual thunk to ConVar::SetValue(float)
 t non-virtual thunk to ConVar::SetValue(int)
 t non-virtual thunk to ConVar::SetValue(char const*)
+t non-virtual thunk to ConVar::SetValue(Vector const&)
 t non-virtual thunk to CEmptyConVar::GetName() const
 t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
 t non-virtual thunk to ConVar::GetName() const
@@ -6086,6 +6256,9 @@ t non-virtual thunk to CDummyMaterialSystem::ClearColor3ub(unsigned char, unsign
 t non-virtual thunk to CDummyMaterialSystem::ClearColor4ub(unsigned char, unsigned char, unsigned char, unsigned char)
 t non-virtual thunk to CDummyMaterialSystem::FogMaxDensity(float)
 t non-virtual thunk to CDummyMaterialSystem::SelectionMode(bool)
+t non-virtual thunk to CDummyMaterialSystem::SetGodRayBlur(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGodRayMask(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGpuCsmData(GBGpuCsmData_t*)
 t non-virtual thunk to CDummyMaterialSystem::EnableClipping(bool)
 t non-virtual thunk to CDummyMaterialSystem::GetDynamicMesh(bool, IMesh*, IMesh*, IMaterial*)
 t non-virtual thunk to CDummyMaterialSystem::GetMaxToRender(IMesh*, bool, int*, int*)
@@ -6094,6 +6267,8 @@ t non-virtual thunk to CDummyMaterialSystem::LockRenderData(int)
 t non-virtual thunk to CDummyMaterialSystem::PopDeformation()
 t non-virtual thunk to CDummyMaterialSystem::SetCSMDeferred(bool)
 t non-virtual thunk to CDummyMaterialSystem::SetFlexWeights(int, int, MorphWeight_t const*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferMode(GBUffer_Modes_Type_t)
+t non-virtual thunk to CDummyMaterialSystem::SetGodRayState(GodRayState_t const&)
 t non-virtual thunk to CDummyMaterialSystem::SetHeightClipZ(float)
 t non-virtual thunk to CDummyMaterialSystem::SetScissorRect(int, int, int, int, bool)
 t non-virtual thunk to CDummyMaterialSystem::AccumulateMorph(IMorph*, int, MorphWeight_t const*)
@@ -6107,6 +6282,9 @@ t non-virtual thunk to CDummyMaterialSystem::MultMatrixLocal(VMatrix const&)
 t non-virtual thunk to CDummyMaterialSystem::PushDeformation(DeformationBase_t const*)
 t non-virtual thunk to CDummyMaterialSystem::SelectionBuffer(unsigned int*, int)
 t non-virtual thunk to CDummyMaterialSystem::SetAmbientLight(float, float, float)
+t non-virtual thunk to CDummyMaterialSystem::SetCSM_AtlasMap(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferNoise(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferState(GBufferState_t const&)
 t non-virtual thunk to CDummyMaterialSystem::SetLookupWeight(unsigned int, float)
 t non-virtual thunk to CDummyMaterialSystem::SetRenderTarget(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::AddRefRenderData()
@@ -6116,6 +6294,8 @@ t non-virtual thunk to CDummyMaterialSystem::BindVertexBuffer(int, IVertexBuffer
 t non-virtual thunk to CDummyMaterialSystem::CreateStaticMesh(unsigned long long, char const*, IMaterial*)
 t non-virtual thunk to CDummyMaterialSystem::GetDynamicMeshEx(unsigned long long, bool, IMesh*, IMesh*, IMaterial*)
 t non-virtual thunk to CDummyMaterialSystem::PopSelectionName()
+t non-virtual thunk to CDummyMaterialSystem::SetCSM_StaticMap(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexCSM(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::SetStencilEnable(bool)
 t non-virtual thunk to CDummyMaterialSystem::UnlockRenderData(void*)
 t non-virtual thunk to CDummyMaterialSystem::DestroyStaticMesh(IMesh*)
@@ -6123,8 +6303,10 @@ t non-virtual thunk to CDummyMaterialSystem::GetHeightClipMode()
 t non-virtual thunk to CDummyMaterialSystem::LoadSelectionName(int)
 t non-virtual thunk to CDummyMaterialSystem::PushSelectionName(int)
 t non-virtual thunk to CDummyMaterialSystem::ReleaseRenderData()
+t non-virtual thunk to CDummyMaterialSystem::SetCSM_AtlasMapRT(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::SetCSMQualityMode(CSMQualityMode_t)
 t non-virtual thunk to CDummyMaterialSystem::SetFlashlightMode(bool)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexData(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::SetHeightClipMode(MaterialHeightClipMode_t)
 t non-virtual thunk to CDummyMaterialSystem::SetLightingOrigin(Vector)
 t non-virtual thunk to CDummyMaterialSystem::SetNumBoneWeights(int)
@@ -6135,7 +6317,9 @@ t non-virtual thunk to CDummyMaterialSystem::DestroyIndexBuffer(IIndexBuffer*)
 t non-virtual thunk to CDummyMaterialSystem::GetCurrentMaterial()
 t non-virtual thunk to CDummyMaterialSystem::PopCustomClipPlane()
 t non-virtual thunk to CDummyMaterialSystem::ResetLookupWeights()
+t non-virtual thunk to CDummyMaterialSystem::SetCSM_StaticMapRT(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::SetFlashlightState(FlashlightState_t const&, VMatrix const&)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexDepth(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::SetStencilTestMask(unsigned int)
 t non-virtual thunk to CDummyMaterialSystem::BindLightmapTexture(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::ClearSelectionNames()
@@ -6144,6 +6328,9 @@ t non-virtual thunk to CDummyMaterialSystem::DrawScreenSpaceQuad(IMaterial*)
 t non-virtual thunk to CDummyMaterialSystem::OverrideDepthEnable(bool, bool)
 t non-virtual thunk to CDummyMaterialSystem::PushCustomClipPlane(float const*)
 t non-virtual thunk to CDummyMaterialSystem::SetAmbientLightCube(Vector4D*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferShadowMap(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexNormal(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGodRayBackBuffer(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::SetStencilWriteMask(unsigned int)
 t non-virtual thunk to CDummyMaterialSystem::EndMorphAccumulation()
 t non-virtual thunk to CDummyMaterialSystem::ReadPixelsAndStretch(Rect_t*, Rect_t*, unsigned char*, ImageFormat, int)
@@ -6155,11 +6342,18 @@ t non-virtual thunk to CDummyMaterialSystem::GetDynamicIndexBuffer(MaterialIndex
 t non-virtual thunk to CDummyMaterialSystem::GetMaxIndicesToRender()
 t non-virtual thunk to CDummyMaterialSystem::PerspectiveOffCenterX(double, double, double, double, double, double, double, double)
 t non-virtual thunk to CDummyMaterialSystem::ResetToneMappingScale(float)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferEnableNoise(int)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexLightRim(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::BeginMorphAccumulation()
 t non-virtual thunk to CDummyMaterialSystem::GetDynamicVertexBuffer(int, unsigned long long, bool)
 t non-virtual thunk to CDummyMaterialSystem::GetMaxVerticesToRender(IMaterial*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferQualityLevel(int)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexLightDiff(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexLightSpec(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::ClearBuffersObeyStencil(bool, bool)
 t non-virtual thunk to CDummyMaterialSystem::CreateStaticIndexBuffer(MaterialIndexFormat_t, int, char const*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBNormalCompressMode(int)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferViewModelMode(int)
 t non-virtual thunk to CDummyMaterialSystem::SetGoalToneMappingScale(float)
 t non-virtual thunk to CDummyMaterialSystem::SetStencilFailOperation(StencilOperation_t)
 t non-virtual thunk to CDummyMaterialSystem::SetStencilPassOperation(StencilOperation_t)
@@ -6180,6 +6374,8 @@ t non-virtual thunk to CDummyMaterialSystem::GetFrameBufferCopyTexture(int)
 t non-virtual thunk to CDummyMaterialSystem::GetToneMappingScaleLinear()
 t non-virtual thunk to CDummyMaterialSystem::ResetOcclusionQueryObject(OcclusionQueryObjectHandle_t__*)
 t non-virtual thunk to CDummyMaterialSystem::SetFrameBufferCopyTexture(ITexture*, int)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferShadowMapStatic(ITexture*)
+t non-virtual thunk to CDummyMaterialSystem::SetGBufferTexLightDiffNeg(ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::SetShadowDepthBiasFactors(float, float)
 t non-virtual thunk to CDummyMaterialSystem::SetStencilCompareFunction(StencilComparisonFunction_t)
 t non-virtual thunk to CDummyMaterialSystem::SetToneMappingScaleLinear(Vector const&)
@@ -6200,6 +6396,7 @@ t non-virtual thunk to CDummyMaterialSystem::PushRenderTargetAndViewport(ITextur
 t non-virtual thunk to CDummyMaterialSystem::PushRenderTargetAndViewport()
 t non-virtual thunk to CDummyMaterialSystem::SetVectorRenderingParameter(int, Vector const&)
 t non-virtual thunk to CDummyMaterialSystem::ComputePixelDiameterOfSphere(Vector const&, float)
+t non-virtual thunk to CDummyMaterialSystem::SetGBLightBufferQualityLevel(int)
 t non-virtual thunk to CDummyMaterialSystem::SetCascadedShadowMappingState(CascadedShadowMappingState_t const&, ITexture*)
 t non-virtual thunk to CDummyMaterialSystem::EnableUserClipTransformOverride(bool)
 t non-virtual thunk to CDummyMaterialSystem::RefreshFrontBufferNonInteractive()
@@ -6333,6 +6530,8 @@ t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderC
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialCullMode_t), MaterialCullMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialHeightClipMode_t), MaterialHeightClipMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
@@ -6351,6 +6550,8 @@ t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderC
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(int), int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMesh*), IMesh*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
@@ -6367,6 +6568,10 @@ t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderC
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(char const*), CUtlEnvelope<char const*>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
+t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
 t non-virtual thunk to CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(VMatrix const&), VMatrix, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>::~CMemberFunctor1()
@@ -6509,6 +6714,7 @@ r typeinfo for CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >
 r typeinfo for CTCCopyStage
 r typeinfo for IIndexBuffer
 r typeinfo for IMaterialVar
+r typeinfo for base_vector_t
 r typeinfo for CDummyTexture
 r typeinfo for CShaderSystem
 r typeinfo for CSolidTexture
@@ -6552,6 +6758,7 @@ r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialFogMode_t), MaterialFogMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialCullMode_t), MaterialCullMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialHeightClipMode_t), MaterialHeightClipMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilComparisonFunction_t), StencilComparisonFunction_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -6561,6 +6768,7 @@ r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float), float, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(int), int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMesh*), IMesh*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMorph*), IMorph*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -6569,6 +6777,8 @@ r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMaterial*), IMaterial*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(char const*), CUtlEnvelope<char const*>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(VMatrix const&), VMatrix, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContextInternal::*)(float), float, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -6646,9 +6856,9 @@ r typeinfo for CMatRenderContext
 r typeinfo for CReplacementProxy
 r typeinfo for IMaterialInternal
 r typeinfo for IMatRenderContext
-r typeinfo for CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >
-r typeinfo for CCopyableUtlVector<Sticker_t, CUtlMemory<Sticker_t, int> >
-r typeinfo for CCopyableUtlVector<int, CUtlMemory<int, int> >
+r typeinfo for CCopyableUtlVector<AsyncLoadJob_t>
+r typeinfo for CCopyableUtlVector<Sticker_t>
+r typeinfo for CCopyableUtlVector<int>
 r typeinfo for CTextureCompositor
 r typeinfo for CUtlCharConversion
 r typeinfo for IShaderDLLInternal
@@ -6731,6 +6941,7 @@ r typeinfo name for CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >
 r typeinfo name for CTCCopyStage
 r typeinfo name for IIndexBuffer
 r typeinfo name for IMaterialVar
+r typeinfo name for base_vector_t
 r typeinfo name for CDummyTexture
 r typeinfo name for CShaderSystem
 r typeinfo name for CSolidTexture
@@ -6774,6 +6985,7 @@ r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderCont
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialFogMode_t), MaterialFogMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialCullMode_t), MaterialCullMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialHeightClipMode_t), MaterialHeightClipMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilComparisonFunction_t), StencilComparisonFunction_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -6783,6 +6995,7 @@ r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderCont
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float), float, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(int), int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMesh*), IMesh*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMorph*), IMorph*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -6791,6 +7004,8 @@ r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderCont
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMaterial*), IMaterial*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(char const*), CUtlEnvelope<char const*>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(VMatrix const&), VMatrix, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r typeinfo name for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContextInternal::*)(float), float, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -6868,9 +7083,9 @@ r typeinfo name for CMatRenderContext
 r typeinfo name for CReplacementProxy
 r typeinfo name for IMaterialInternal
 r typeinfo name for IMatRenderContext
-r typeinfo name for CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >
-r typeinfo name for CCopyableUtlVector<Sticker_t, CUtlMemory<Sticker_t, int> >
-r typeinfo name for CCopyableUtlVector<int, CUtlMemory<int, int> >
+r typeinfo name for CCopyableUtlVector<AsyncLoadJob_t>
+r typeinfo name for CCopyableUtlVector<Sticker_t>
+r typeinfo name for CCopyableUtlVector<int>
 r typeinfo name for CTextureCompositor
 r typeinfo name for CUtlCharConversion
 r typeinfo name for IShaderDLLInternal
@@ -6991,6 +7206,7 @@ r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialFogMode_t), MaterialFogMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialCullMode_t), MaterialCullMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilOperation_t), StencilOperation_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBUffer_Modes_Type_t), GBUffer_Modes_Type_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialMatrixMode_t), MaterialMatrixMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(MaterialHeightClipMode_t), MaterialHeightClipMode_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(StencilComparisonFunction_t), StencilComparisonFunction_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -7000,6 +7216,7 @@ r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float), float, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(int), int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(unsigned int), unsigned int, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBGpuCsmData_t*), GBGpuCsmData_t*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(OcclusionQueryObjectHandle_t__*), OcclusionQueryObjectHandle_t__*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMesh*), IMesh*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMorph*), IMorph*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -7008,6 +7225,8 @@ r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(IMaterial*), IMaterial*, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(char const*), CUtlEnvelope<char const*>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(float const*), CUtlEnvelope<float>, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GodRayState_t const&), GodRayState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
+r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(GBufferState_t const&), GBufferState_t, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(Vector const&), Vector, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContext::*)(VMatrix const&), VMatrix, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
 r vtable for CMemberFunctor1<CMatRenderContextBase*, void (IMatRenderContextInternal::*)(float), float, CRefCounted1<CFunctor, CRefCountServiceDestruct<CRefST> >, CFuncMemPolicyNone>
@@ -7085,9 +7304,9 @@ r vtable for CMatRenderContext
 r vtable for CReplacementProxy
 r vtable for IMaterialInternal
 r vtable for IMatRenderContext
-r vtable for CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >
-r vtable for CCopyableUtlVector<Sticker_t, CUtlMemory<Sticker_t, int> >
-r vtable for CCopyableUtlVector<int, CUtlMemory<int, int> >
+r vtable for CCopyableUtlVector<AsyncLoadJob_t>
+r vtable for CCopyableUtlVector<Sticker_t>
+r vtable for CCopyableUtlVector<int>
 r vtable for CTextureCompositor
 r vtable for CUtlCharConversion
 r vtable for IShaderDLLInternal
@@ -7157,6 +7376,7 @@ b V_pretifymem(float, int, bool)::current
 b V_pretifynum(long long)::output
 b V_pretifynum(long long)::current
 b IsEmulatingGL()::bIsEmulatingGL
+r V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)::HEX
 b COM_GetModDirectory()::modDir
 d stb_compress_dxt_block(unsigned char*, unsigned char const*, int, int)::init
 b Bias(float, float)::lastExponent
@@ -7268,21 +7488,6 @@ b CMorphMgr::DrawMorphTempTexture(IMatRenderContext*, IMaterial*, ITexture*)::s_
 b CMorphMgr::EndMorphAccumulation(IMorphMgrRenderContext*)::_counter
 d ConVarRef::Init(char const*, bool)::bFirst
 b KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)::buf
-d CUtlRBTree<CMaterialDict::MaterialLookup_t, unsigned short, bool (*)(CMaterialDict::MaterialLookup_t const&, CMaterialDict::MaterialLookup_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MaterialLookup_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CMaterialDict::MissingMaterial_t, int, bool (*)(CMaterialDict::MissingMaterial_t const&, CMaterialDict::MissingMaterial_t const&), CUtlMemory<UtlRBTreeNode_t<CMaterialDict::MissingMaterial_t, int>, int> >::Links(int) const::s_Sentinel
-d CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short, CUtlMap<ITextureInternal*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITextureInternal*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short, CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<CTextureCompositorTemplate*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short, CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<ITexture*, CInterlockedIntT<int>, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int, CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CCopyableUtlVector<AsyncLoadJob_t, CUtlMemory<AsyncLoadJob_t, int> >, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, int, int>::Node_t, int, CUtlMap<char const*, int, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, int, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, int, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, ITextureInternal*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, ITextureInternal*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, CTextureCompositorTemplate*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, IShader*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, IShader*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, KeyValues*, int>::Node_t, int, CUtlMap<char const*, KeyValues*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, KeyValues*, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, char const*, int>::Node_t, int, CUtlMap<char const*, char const*, int>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, int>::Node_t, int>, int> >::Links(int) const::s_Sentinel
-d CUtlRBTree<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short, CUtlMap<char const*, char const*, unsigned short>::CKeyLess, CUtlMemory<UtlRBTreeNode_t<CUtlMap<char const*, char const*, unsigned short>::Node_t, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b CMaterialSystem::GetVideoCardIdentifier() const::foo
 d CDummyMaterialVar::GetVecValueInternal() const::val
 b CDummyMaterialSystem::GetVideoCardIdentifier() const::dummy

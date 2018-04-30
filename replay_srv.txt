@@ -14,6 +14,7 @@ t alarmfunc
 U alarm@@GLIBC_2.0
 t alloc_addbyter
 t AllowServerConnect
+U __asinf_finite@@GLIBC_2.15
 U __asin_finite@@GLIBC_2.15
 U __atan2f_finite@@GLIBC_2.15
 U __atan2_finite@@GLIBC_2.15
@@ -83,8 +84,8 @@ t create_hostcache_id
 T CreateInterface
 U CreateThreadPool
 r CSWTCH.100
-r CSWTCH.181
 r CSWTCH.2
+r CSWTCH.239
 r CSWTCH.29
 r CSWTCH.3
 r CSWTCH.30
@@ -1179,6 +1180,7 @@ U __strtok_r@@GLIBC_2.0
 U strtol@@GLIBC_2.0
 U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
 b studiorender
 t suboption.isra.5
 b subs.8777
@@ -1330,8 +1332,9 @@ t V_strnistr(char const*, char const*, int)
 t _V_strrchr(char const*, int, char const*, char)
 t V_StrRight(char const*, int, char*, int)
 t V_StrSlice(char const*, int, int, char*, int)
-t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
+t V_StrSlice(char const*, int, int, char*, int) [clone .part.7]
 t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
+t V_strtoi64(char const*, char**, int)
 t V_strtowcs(char const*, int, wchar_t*, int)
 t V_wcstostr(wchar_t const*, int, char*, int)
 t AllocString(char const*, int)
@@ -1349,6 +1352,7 @@ t Q_URLEncode(char*, int, char const*, int)
 t SmoothCurve(float)
 t _SSE_SinCos(float, float*, float*)
 t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
+t V_strtoui64(char const*, char**, int)
 t V_vsnprintf(char*, int, char const*, char*)
 t _V_wcslower(char const*, int, wchar_t*)
 t AngleIMatrix(RadianEuler const&, matrix3x4_t&)
@@ -1436,6 +1440,9 @@ t SV_PublishFile(PublishFileParams_t const&)
 t Sys_GetFactory(CSysModule*)
 t Sys_GetFactory(char const*)
 t Sys_LoadModule(char const*, Sys_Flags)
+t V_BBCodeToHTML(char*, int, char const*, int)
+t V_IsMeanSpaceW(wchar_t)
+t V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)
 t V_SetExtension(char*, char const*, int)
 t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
 t int V_sprintf_safe<260u>(char (&) [260u], char const*, ...)
@@ -1478,6 +1485,7 @@ t TextureToLinear(int)
 t VectorTransform(float const*, matrix3x4_t const&, float*)
 t VectorYawRotate(Vector const&, float, Vector&)
 t V_FixupPathName(char*, unsigned int, char const*)
+t V_IsDeprecatedW(wchar_t)
 t V_StripFilename(char*)
 t AddPointToBounds(Vector const&, Vector&, Vector&)
 t ConcatTransforms(matrix3x4_t const&, matrix3x4_t const&, matrix3x4_t&)
@@ -1586,13 +1594,15 @@ t QuaternionConjugate(Quaternion const&, Quaternion&)
 t QuaternionNormalize(Quaternion&)
 t Q_UChar32ToUTF16Len(wchar_t)
 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
-t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
+t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.10]
 t Q_URLEncodeInternal(char*, int, char const*, int, bool)
-t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
+t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.9]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t SetupMatrixIdentity()
 t SrgbGammaTo360Gamma(float)
+t V_IsMeanUnderscoreW(wchar_t)
+t V_URLContainsDomain(char const*, char const*)
 t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
 t DisconnectInterfaces()
@@ -1630,6 +1640,7 @@ t SV_RunJobToCompletion(CJob*)
 t Sys_IsDebuggerPresent()
 t VectorToColorRGBExp32(Vector const&, ColorRGBExp32&)
 t V_GetCurrentDirectory(char*, int)
+t V_IsValidURLCharacter(char const*, int*)
 t V_SetCurrentDirectory(char const*)
 t V_UnqualifiedFileName(char const*)
 t AngleNormalizePositive(float)
@@ -1652,8 +1663,10 @@ t SetupMatrixTranslation(Vector const&)
 t SV_CreateDeleteFileJob()
 t SV_DoFileserverCleanup(bool, ISpewer*)
 t SV_IsOffloadingEnabled()
+t V_ExtractDomainFromURL(char const*, char*, int)
 t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
+t V_StripAndPreserveHTML(CUtlBuffer*, char const*, char const**, unsigned int, unsigned int)
 t CalcClosestPointToLineT(Vector const&, Vector const&, Vector const&, Vector&)
 t CalcDistanceSqrToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ClipPolyToPlane_Precise(double*, int, double*, double const*, double, double)
@@ -1667,6 +1680,7 @@ t wchar_t const* GetTypedKeyValuesString<wchar_t>(KeyValues*, char const*)
 t Kochanek_Bartels_Spline(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t MatrixBuildPerspectiveX(VMatrix&, double, double, double, double)
 t QuaternionIdentityBlend(Quaternion const&, float, Quaternion&)
+t V_BasicHtmlEntityEncode(char*, int, char const*, int, bool)
 t BZ2_hbCreateDecodeTables(int*, int*, int*, unsigned char*, int, int, int)
 t CalcClosestPointOnLine2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&, float*)
 t CalcTriangleTangentSpace(Vector const&, Vector const&, Vector const&, Vector2D const&, Vector2D const&, Vector2D const&, Vector&, Vector&)
@@ -1681,18 +1695,23 @@ t SetupMatrixAxisToAxisRot(Vector const&, Vector const&)
 t _SSE_VectorNormalizeFast(Vector&)
 t SV_CreateLocalPublishJob(char const*)
 t Vector4DMultiplyPosition(VMatrix const&, Vector const&, Vector4D&)
+t V_HtmlEntityDecodeToUTF8(char*, int, char const*, int)
+t V_StripLeadingWhitespace(char*)
+t V_StripSurroundingQuotes(char*)
 t CalcClosestPointToLineT2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&)
 t CalcDistanceToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Q_RemoveAllEvilCharacters(char*)
 t Replay_GetDownloadURLPath()
 t Vector3DMultiplyTranspose(VMatrix const&, Vector const&, Vector&)
 t Vector4DMultiplyTranspose(VMatrix const&, Vector4D const&, Vector4D&)
+t V_StripTrailingWhitespace(char*)
 t Catmull_Rom_Spline_Tangent(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t GeneratePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, float, Frustum_t&)
 t GeneratePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, Frustum_t&)
 t InternalBitBufErrorHandler(BitBufErrorType, char const*)
 t SV_CreateFtpFileDeleterJob(char const*)
 t Vector3DMultiplyProjective(VMatrix const&, Vector const&, Vector&)
+t V_StripAndPreserveHTMLCore(CUtlBuffer*, char const*, char const**, unsigned int, char const**, unsigned int, unsigned int)
 t CalcDistanceToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, Vector&)
@@ -1710,6 +1729,7 @@ t MatrixBuildPerspectiveZRange(VMatrix&, double, double)
 t MatrixBuildRotationAboutAxis(VMatrix&, Vector const&, float)
 t MatrixBuildRotationAboutAxis(Vector const&, float, matrix3x4_t&)
 t SV_CreateLocalFileDeleterJob()
+t V_IsValidDomainNameCharacter(char const*, int*)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t CalcClosestPointOnLineSegment(Vector const&, Vector const&, Vector const&, Vector&, float*)
 t Catmull_Rom_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -1756,6 +1776,7 @@ t Hash16(void const*)
 t Q_log2(int)
 t SinCos(float, float*, float*)
 t _sqrtf(float)
+t V_atod(char const*)
 t V_atof(char const*)
 t V_atoi(char const*)
 t BSpline(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -1774,6 +1795,7 @@ t V_strupr(char*)
 t AngleDiff(float, float)
 t FloorPow2(int)
 t HashBlock(void const*, unsigned int)
+t nexttoken(char*, char const*, char)
 t pathmatch(char const*, char**, bool, char*, unsigned int)
 t R_CullBox(Vector const&, Vector const&, Frustum_t const&)
 t Replay_va(char const*, ...)
@@ -1796,6 +1818,7 @@ t V_strncmp(char const*, char const*, int)
 t V_strncpy(char*, char const*, int)
 t V_strnlwr(char*, unsigned int)
 t _V_strstr(char const*, int, char const*, char const*)
+t V_StrTrim(char*)
 t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
 t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
@@ -1978,9 +2001,11 @@ r _ps_inv_sign_mask
 t replay_stoprecord(CCommand const&)
 d s_DefaultAccessor
 b s_nConnectionCount
+r g_BasicHTMLEntities
 b g_BitWriteMasksInit
 r g_pInterfaceGlobals
 b g_BitBufErrorHandler
+r g_WhitespaceEntities
 r _ps_minus_cephes_DP1
 r _ps_minus_cephes_DP2
 r _ps_minus_cephes_DP3
@@ -1988,16 +2013,18 @@ t replay_dopublishtest(CCommand const&)
 b s_nRegistrationCount
 b replay_record_command
 d s_LastFileLoadingFrom
-t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.29]
 b s_bPrecachesRegistered
 b g_Mathlib_GammaToLinear
 b g_Mathlib_LinearToGamma
 t replay_printsessioninfo(CCommand const&)
+r g_Tier1_FullHTMLEntities
 b replay_docleanup_command
 b replay_stoprecord_command
 t SetupMatrixAnglesInternal(float (*) [4], QAngle const&)
 b s_pConnectionRegistration
 b replay_dopublishtest_command
+r g_pszSimpleBBCodeReplacements
 b f3
 b replay_printsessioninfo_command
 d s_pConversionArrays_NoEscConversion
@@ -2121,6 +2148,10 @@ t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
 t CUtlMemory<char*, int>::Grow(int)
 t CUtlMemory<char*, int>::Purge()
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Purge()
+t CUtlMemory<char const*, int>::Grow(int)
+t CUtlMemory<char const*, int>::Purge()
 t CUtlMemory<unsigned long long, int>::Grow(int)
 t CUtlMemory<unsigned long long, int>::Purge()
 t CUtlMemory<KeyValues::CopyKeyValuesFromRecursive(KeyValues const&)::CopyStruct, int>::Purge()
@@ -2172,6 +2203,10 @@ t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, 
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::InsertBefore(int, void (* const&)(IConVar*, char const*, float))
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<char const*, CUtlMemory<char const*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
@@ -2325,7 +2360,7 @@ t SVC_SetPause::~SVC_SetPause()
 t CFtpUploadJob::FTP_SetError(int, char const*)
 t CFtpUploadJob::FTP_OnPreExecuteCurlOperations()
 t CFtpUploadJob::FTP_OnPostExecuteCurlOperations()
-t CFtpUploadJob::FTP_OnPostExecuteCurlOperations() [clone .part.6]
+t CFtpUploadJob::FTP_OnPostExecuteCurlOperations() [clone .part.5]
 t CFtpUploadJob::FTP_SetupAdditionalCurlOperations(void*)
 t CFtpUploadJob::DoCleanup()
 t CFtpUploadJob::DoExecute()
@@ -2926,6 +2961,7 @@ t CBaseReplaySerializeable::~CBaseReplaySerializeable()
 t IRecordingSessionManager::~IRecordingSessionManager()
 t IRecordingSessionManager::~IRecordingSessionManager()
 t IRecordingSessionManager::~IRecordingSessionManager()
+t CGenericPersistentManager<CBaseRecordingSession>::FlushThink()
 t CGenericPersistentManager<CBaseRecordingSession>::OnObjLoaded(CBaseRecordingSession*)
 t CGenericPersistentManager<CBaseRecordingSession>::UnloadThink()
 t CGenericPersistentManager<CBaseRecordingSession>::FlagForFlush(CBaseRecordingSession*, bool)
@@ -2933,8 +2969,9 @@ t CGenericPersistentManager<CBaseRecordingSession>::FlagForUnload(CBaseRecording
 t CGenericPersistentManager<CBaseRecordingSession>::WriteObjToFile(CBaseRecordingSession*, char const*)
 t CGenericPersistentManager<CBaseRecordingSession>::ReadObjFromFile(char const*, CBaseRecordingSession*&, bool)
 t CGenericPersistentManager<CBaseRecordingSession>::RemoveFromIndex(int)
-t CGenericPersistentManager<CBaseRecordingSession>::FlagIndexForFlush() [clone .part.13]
+t CGenericPersistentManager<CBaseRecordingSession>::FlagIndexForFlush()
 t CGenericPersistentManager<CBaseRecordingSession>::ReadObjFromKeyValues(KeyValues*, bool)
+t CGenericPersistentManager<CBaseRecordingSession>::Add(CBaseRecordingSession*)
 t CGenericPersistentManager<CBaseRecordingSession>::Find(unsigned int)
 t CGenericPersistentManager<CBaseRecordingSession>::Init(bool)
 t CGenericPersistentManager<CBaseRecordingSession>::Load()
@@ -2946,6 +2983,7 @@ t CGenericPersistentManager<CBaseRecordingSession>::Shutdown()
 t CGenericPersistentManager<CBaseRecordingSession>::~CGenericPersistentManager()
 t CGenericPersistentManager<CBaseRecordingSession>::~CGenericPersistentManager()
 t CGenericPersistentManager<CBaseRecordingSession>::~CGenericPersistentManager()
+t CGenericPersistentManager<CBaseRecordingSessionBlock>::FlushThink()
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::OnObjLoaded(CBaseRecordingSessionBlock*)
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::UnloadThink()
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::FlagForFlush(CBaseRecordingSessionBlock*, bool)
@@ -2953,8 +2991,9 @@ t CGenericPersistentManager<CBaseRecordingSessionBlock>::FlagForUnload(CBaseReco
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::WriteObjToFile(CBaseRecordingSessionBlock*, char const*)
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::ReadObjFromFile(char const*, CBaseRecordingSessionBlock*&, bool)
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::RemoveFromIndex(int)
-t CGenericPersistentManager<CBaseRecordingSessionBlock>::FlagIndexForFlush() [clone .part.18]
+t CGenericPersistentManager<CBaseRecordingSessionBlock>::FlagIndexForFlush()
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::ReadObjFromKeyValues(KeyValues*, bool)
+t CGenericPersistentManager<CBaseRecordingSessionBlock>::Add(CBaseRecordingSessionBlock*)
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::Init(bool)
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::Load()
 t CGenericPersistentManager<CBaseRecordingSessionBlock>::Save()
@@ -3064,11 +3103,14 @@ t CJob::~CJob()
 t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
-t ConVar::ChangeStringValue(char const*, float)
+t ConVar::ChangeStringValue(char const*, ConVar::CVValue_t const&)
 t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
-t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::RemoveChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float), bool)
 t ConVar::InternalSetFloatValue(float, bool)
+t ConVar::InternalSetVectorValue(Vector const&)
+t ConVar::InternalSetVectorFromString(char const*)
 t ConVar::Init()
 t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
@@ -3076,6 +3118,7 @@ t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
 t ConVar::SetValue(int)
 t ConVar::SetValue(char const*)
+t ConVar::SetValue(Vector const&)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
@@ -3686,9 +3729,12 @@ t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
+t ConVar::GetInt() const
 t ConVar::GetMax(float&) const
 t ConVar::GetMin(float&) const
 t ConVar::GetName() const
+t ConVar::GetFloat() const
+t ConVar::GetVector() const
 t ConVar::IsCommand() const
 t ConVar::IsFlagSet(int) const
 t VMatrix::Transpose3x3() const
@@ -3777,6 +3823,7 @@ t non-virtual thunk to CEmptyConVar::SetValue(char const*)
 t non-virtual thunk to ConVar::SetValue(float)
 t non-virtual thunk to ConVar::SetValue(int)
 t non-virtual thunk to ConVar::SetValue(char const*)
+t non-virtual thunk to ConVar::SetValue(Vector const&)
 t non-virtual thunk to CEmptyConVar::GetName() const
 t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
 t non-virtual thunk to ConVar::GetName() const
@@ -4239,6 +4286,7 @@ b V_pretifymem(float, int, bool)::output
 b V_pretifymem(float, int, bool)::current
 b V_pretifynum(long long)::output
 b V_pretifynum(long long)::current
+r V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)::HEX
 d GetBitForBitnum(int)::bitsForBitnum
 b Replay_GetDownloadURL()::s_szFileURL
 b Replay_GetDownloadURLPath()::s_szDownloadURLPath

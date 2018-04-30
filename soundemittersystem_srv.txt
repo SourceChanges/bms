@@ -1,6 +1,7 @@
 U abort@@GLIBC_2.0
 t add_fdes
 d adds.8776
+U __asinf_finite@@GLIBC_2.15
 t base_from_cb_data.isra.4
 t base_from_object.isra.3
 A __bss_start
@@ -282,6 +283,7 @@ t register_tm_clones
 t search_object
 b seen_objects
 t set_fast_math
+U sinf@@GLIBC_2.0
 t size_of_encoded_value
 b s_NoEscConversion
 U sscanf@@GLIBC_2.0
@@ -300,7 +302,9 @@ U strstr@@GLIBC_2.0
 U strtod@@GLIBC_2.0
 U strtok@@GLIBC_2.0
 U strtol@@GLIBC_2.0
+U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
 b studiorender
 b subs.8777
 U __swprintf_chk@@GLIBC_2.4
@@ -367,8 +371,9 @@ t V_strnistr(char const*, char const*, int)
 t _V_strrchr(char const*, int, char const*, char)
 t V_StrRight(char const*, int, char*, int)
 t V_StrSlice(char const*, int, int, char*, int)
-t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
+t V_StrSlice(char const*, int, int, char*, int) [clone .part.7]
 t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
+t V_strtoi64(char const*, char**, int)
 t V_strtowcs(char const*, int, wchar_t*, int)
 t V_wcstostr(wchar_t const*, int, char*, int)
 t AllocString(char const*, int)
@@ -378,6 +383,7 @@ t MurmurHash2(void const*, int, unsigned int)
 t Q_URLDecode(char*, int, char const*, int)
 t Q_URLEncode(char*, int, char const*, int)
 t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
+t V_strtoui64(char const*, char**, int)
 t V_vsnprintf(char*, int, char const*, char*)
 t _V_wcslower(char const*, int, wchar_t*)
 t MurmurHash64(void const*, int, unsigned int)
@@ -412,6 +418,9 @@ t RandomInterval(interval_t const&)
 t Sys_GetFactory(CSysModule*)
 t Sys_GetFactory(char const*)
 t Sys_LoadModule(char const*, Sys_Flags)
+t V_BBCodeToHTML(char*, int, char const*, int)
+t V_IsMeanSpaceW(wchar_t)
+t V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)
 t VolumeToString(float)
 t V_SetExtension(char*, char const*, int)
 t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
@@ -430,6 +439,7 @@ t Q_UnicodeRepair(wchar_t*, EStringConvertErrorPolicy)
 t Q_UTF8ToUChar32(char const*, wchar_t&, bool&)
 t Sys_LoadLibrary(char const*, Sys_Flags)
 t V_FixupPathName(char*, unsigned int, char const*)
+t V_IsDeprecatedW(wchar_t)
 t V_StripFilename(char*)
 t Q_IsValidUChar32(wchar_t)
 t Q_UChar32ToUTF16(wchar_t, unsigned short*)
@@ -480,31 +490,43 @@ t CRC32_ProcessBuffer(unsigned int*, void const*, int)
 t EvaluateConditional(char const*)
 t Q_UChar32ToUTF16Len(wchar_t)
 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
-t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
+t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.10]
 t Q_URLEncodeInternal(char*, int, char const*, int, bool)
-t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
+t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.9]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t V_IsMeanUnderscoreW(wchar_t)
+t V_URLContainsDomain(char const*, char const*)
 t DisconnectInterfaces()
 t MurmurHash2LowerCase(char const*, unsigned int)
 t V_StripTrailingSlash(char*)
 t DefaultCompletionFunc(char const*, char (*) [64])
 t Sys_IsDebuggerPresent()
 t V_GetCurrentDirectory(char*, int)
+t V_IsValidURLCharacter(char const*, int*)
 t V_SetCurrentDirectory(char const*)
 t V_UnqualifiedFileName(char const*)
 t BGetLocalFormattedDate(long, char*, int)
 t BGetLocalFormattedTime(long, char*, int)
 t GetNoEscCharConversion()
+t V_ExtractDomainFromURL(char const*, char*, int)
 t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
+t V_StripAndPreserveHTML(CUtlBuffer*, char const*, char const**, unsigned int, unsigned int)
 t ConVar_PrintDescription(ConCommandBase const*)
 t CreateInterfaceInternal(char const*, int*)
+t V_BasicHtmlEntityEncode(char*, int, char const*, int, bool)
 t GetCStringCharConversion()
+t V_HtmlEntityDecodeToUTF8(char*, int, char const*, int)
+t V_StripLeadingWhitespace(char*)
+t V_StripSurroundingQuotes(char*)
 t Q_RemoveAllEvilCharacters(char*)
+t V_StripTrailingWhitespace(char*)
+t V_StripAndPreserveHTMLCore(CUtlBuffer*, char const*, char const**, unsigned int, char const**, unsigned int, unsigned int)
 t DefaultConditionalErrorProc(char const*)
 t Sys_RunningWithDebugModules()
 t DefaultConditionalSymbolProc(char const*)
+t V_IsValidDomainNameCharacter(char const*, int*)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t HashStringCaselessConventional(char const*)
 t StringAfterPrefixCaseSensitive(char const*, char const*)
@@ -519,6 +541,7 @@ U ConMsg(char const*, ...)
 U DevMsg(char const*, ...)
 t Hash12(void const*)
 t Hash16(void const*)
+t V_atod(char const*)
 t V_atof(char const*)
 t V_atoi(char const*)
 t HashInt(int)
@@ -526,6 +549,7 @@ t V_atoi64(char const*)
 t V_nibble(char)
 t V_strupr(char*)
 t HashBlock(void const*, unsigned int)
+t nexttoken(char*, char const*, char)
 t V_atoui64(char const*)
 t _V_memcmp(char const*, int, void const*, void const*, int)
 t _V_memcpy(char const*, int, void*, void const*, int)
@@ -544,6 +568,7 @@ t V_strncmp(char const*, char const*, int)
 t V_strncpy(char*, char const*, int)
 t V_strnlwr(char*, unsigned int)
 t _V_strstr(char const*, int, char const*, char const*)
+t V_StrTrim(char*)
 t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
 t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
@@ -557,7 +582,6 @@ b guard variable for CUtlString::GetEmptyString()::s_emptyString
 b guard variable for CSoundEmitterSystemBase::GetParametersForSound(char const*, CSoundParameters&, gender_t, bool)::soundWarnings
 b guard variable for CSoundEmitterSystemBase::GetParametersForSoundEx(char const*, short&, CSoundParameters&, gender_t, bool)::soundWarnings
 b guard variable for CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
-b guard variable for CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b filesystem
 b s_BreakSet
 t FastToLower(char)
@@ -597,12 +621,16 @@ b s_bBuiltBreakSet
 d s_nDLLIdentifier
 d s_DefaultAccessor
 b s_nConnectionCount
+r g_BasicHTMLEntities
 r g_pInterfaceGlobals
 b g_CleanupSymbolTable
+r g_WhitespaceEntities
 b s_nRegistrationCount
 d s_LastFileLoadingFrom
-t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.29]
+r g_Tier1_FullHTMLEntities
 b s_pConnectionRegistration
+r g_pszSimpleBBCodeReplacements
 d s_pConversionArrays_NoEscConversion
 d s_pConversionArrays_StringCharConversion
 t AccumulateFileNameAndTimestampIntoChecksum(unsigned int*, char const*)
@@ -703,6 +731,8 @@ t CUtlMemory<CSoundEntry*, int>::Purge()
 t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
 t CUtlMemory<char*, int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Purge()
 t CUtlMemory<char const*, int>::Grow(int)
 t CUtlMemory<char const*, int>::Purge()
 t CUtlMemory<CUtlSymbolTable::StringPool_t*, int>::Grow(int)
@@ -714,6 +744,7 @@ t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable:
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RotateRight(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::InsertRebalance(unsigned short)
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Insert(CUtlSymbolTable::CStringPoolIndex const&)
+t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::NewNode()
 t CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::RemoveAll()
 t CUtlString::FixSlashes(char)
 t CUtlString::AllocMemory(unsigned int)
@@ -767,6 +798,10 @@ t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, 
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::InsertBefore(int, void (* const&)(IConVar*, char const*, float))
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<char const*, CUtlMemory<char const*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
@@ -965,11 +1000,14 @@ t CSoundEmitterUniformRandomStream::RandomInt(int, int)
 t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
-t ConVar::ChangeStringValue(char const*, float)
+t ConVar::ChangeStringValue(char const*, ConVar::CVValue_t const&)
 t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
-t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::RemoveChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float), bool)
 t ConVar::InternalSetFloatValue(float, bool)
+t ConVar::InternalSetVectorValue(Vector const&)
+t ConVar::InternalSetVectorFromString(char const*)
 t ConVar::Init()
 t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
@@ -977,6 +1015,7 @@ t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
 t ConVar::SetValue(int)
 t ConVar::SetValue(char const*)
+t ConVar::SetValue(Vector const&)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
@@ -1168,9 +1207,12 @@ t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
+t ConVar::GetInt() const
 t ConVar::GetMax(float&) const
 t ConVar::GetMin(float&) const
 t ConVar::GetName() const
+t ConVar::GetFloat() const
+t ConVar::GetVector() const
 t ConVar::IsCommand() const
 t ConVar::IsFlagSet(int) const
 t CCommand::FindArgInt(char const*, int) const
@@ -1190,6 +1232,7 @@ t non-virtual thunk to CEmptyConVar::SetValue(char const*)
 t non-virtual thunk to ConVar::SetValue(float)
 t non-virtual thunk to ConVar::SetValue(int)
 t non-virtual thunk to ConVar::SetValue(char const*)
+t non-virtual thunk to ConVar::SetValue(Vector const&)
 t non-virtual thunk to CEmptyConVar::GetName() const
 t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
 t non-virtual thunk to ConVar::GetName() const
@@ -1264,6 +1307,7 @@ b V_pretifymem(float, int, bool)::current
 b V_pretifynum(long long)::output
 b V_pretifynum(long long)::current
 b PitchToString(float)::sz
+r V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)::HEX
 b VolumeToString(float)::sz
 b ChannelToString(int)::sz
 b SoundLevelToString(soundlevel_t)::sz
@@ -1281,7 +1325,6 @@ b CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer
 b CFmtStrN<256, false>::CFmtStrN(char const*, ...)::scAsserted
 d ConVarRef::Init(char const*, bool)::bFirst
 b KeyValues::SaveKeyToFile(KeyValues*, IBaseFileSystem*, void*, CUtlBuffer*, int, bool, bool)::buf
-d CUtlRBTree<CUtlSymbolTable::CStringPoolIndex, unsigned short, CUtlSymbolTable::CLess, CUtlMemory<UtlRBTreeNode_t<CUtlSymbolTable::CStringPoolIndex, unsigned short>, unsigned short> >::Links(unsigned short) const::s_Sentinel
 b CSoundEmitterSystemBase::GetSoundScriptName(int) const::fn
 b CSoundEmitterSystemBase::GetSourceFileForSound(int) const::fn
 b CSoundParametersInternal::PitchToString() const::sz

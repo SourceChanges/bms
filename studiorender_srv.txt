@@ -3,6 +3,7 @@ U __acosf_finite@@GLIBC_2.15
 U __acos_finite@@GLIBC_2.15
 t add_fdes
 d adds.8776
+U __asinf_finite@@GLIBC_2.15
 U __asin_finite@@GLIBC_2.15
 U __atan2f_finite@@GLIBC_2.15
 U __atan2_finite@@GLIBC_2.15
@@ -369,7 +370,9 @@ U strncpy@@GLIBC_2.0
 U strstr@@GLIBC_2.0
 U strtod@@GLIBC_2.0
 U strtol@@GLIBC_2.0
+U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
 b studiorender
 b subs.8777
 U __swprintf_chk@@GLIBC_2.4
@@ -444,8 +447,9 @@ t V_strnistr(char const*, char const*, int)
 t _V_strrchr(char const*, int, char const*, char)
 t V_StrRight(char const*, int, char*, int)
 t V_StrSlice(char const*, int, int, char*, int)
-t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
+t V_StrSlice(char const*, int, int, char*, int) [clone .part.7]
 t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
+t V_strtoi64(char const*, char**, int)
 t V_strtowcs(char const*, int, wchar_t*, int)
 t V_wcstostr(wchar_t const*, int, char*, int)
 t AllocString(char const*, int)
@@ -463,6 +467,7 @@ t Q_URLEncode(char*, int, char const*, int)
 t SmoothCurve(float)
 t _SSE_SinCos(float, float*, float*)
 t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
+t V_strtoui64(char const*, char**, int)
 t V_vsnprintf(char*, int, char const*, char*)
 t _V_wcslower(char const*, int, wchar_t*)
 t AngleIMatrix(RadianEuler const&, matrix3x4_t&)
@@ -543,6 +548,9 @@ t _SSE_RSqrtFast(float)
 t Sys_GetFactory(CSysModule*)
 t Sys_GetFactory(char const*)
 t Sys_LoadModule(char const*, Sys_Flags)
+t V_BBCodeToHTML(char*, int, char const*, int)
+t V_IsMeanSpaceW(wchar_t)
+t V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)
 t V_SetExtension(char*, char const*, int)
 t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
 t V_StripLastDir(char*, int)
@@ -582,6 +590,7 @@ t TextureToLinear(int)
 t VectorTransform(float const*, matrix3x4_t const&, float*)
 t VectorYawRotate(Vector const&, float, Vector&)
 t V_FixupPathName(char*, unsigned int, char const*)
+t V_IsDeprecatedW(wchar_t)
 t V_StripFilename(char*)
 t AddPointToBounds(Vector const&, Vector&, Vector&)
 t ConcatTransforms(matrix3x4_t const&, matrix3x4_t const&, matrix3x4_t&)
@@ -685,13 +694,15 @@ t QuaternionConjugate(Quaternion const&, Quaternion&)
 t QuaternionNormalize(Quaternion&)
 t Q_UChar32ToUTF16Len(wchar_t)
 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
-t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
+t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.10]
 t Q_URLEncodeInternal(char*, int, char const*, int, bool)
-t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
+t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.9]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
 t SetupMatrixIdentity()
 t SrgbGammaTo360Gamma(float)
+t V_IsMeanUnderscoreW(wchar_t)
+t V_URLContainsDomain(char const*, char const*)
 t CalcDistanceToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ComputeTrianglePlane(Vector const&, Vector const&, Vector const&, Vector&, float&)
 t DisconnectInterfaces()
@@ -723,6 +734,7 @@ t SolveInverseQuadratic(float, float, float, float, float, float, float&, float&
 t Sys_IsDebuggerPresent()
 t VectorToColorRGBExp32(Vector const&, ColorRGBExp32&)
 t V_GetCurrentDirectory(char*, int)
+t V_IsValidURLCharacter(char const*, int*)
 t V_SetCurrentDirectory(char const*)
 t V_UnqualifiedFileName(char const*)
 t AngleNormalizePositive(float)
@@ -743,8 +755,10 @@ t QuaternionBlendNoAlign(Quaternion const&, Quaternion const&, float, Quaternion
 t QuaternionSlerpNoAlign(Quaternion const&, Quaternion const&, float, Quaternion&)
 t RotationDeltaAxisAngle(QAngle const&, QAngle const&, Vector&, float&)
 t SetupMatrixTranslation(Vector const&)
+t V_ExtractDomainFromURL(char const*, char*, int)
 t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
+t V_StripAndPreserveHTML(CUtlBuffer*, char const*, char const**, unsigned int, unsigned int)
 t CalcClosestPointToLineT(Vector const&, Vector const&, Vector const&, Vector&)
 t CalcDistanceSqrToLine2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t ClipPolyToPlane_Precise(double*, int, double*, double const*, double, double)
@@ -757,6 +771,7 @@ t GenerateQuadIndexBuffer(unsigned short*, int, int)
 t Kochanek_Bartels_Spline(float, float, float, Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t MatrixBuildPerspectiveX(VMatrix&, double, double, double, double)
 t QuaternionIdentityBlend(Quaternion const&, float, Quaternion&)
+t V_BasicHtmlEntityEncode(char*, int, char const*, int, bool)
 t CalcClosestPointOnLine2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&, float*)
 t CalcTriangleTangentSpace(Vector const&, Vector const&, Vector const&, Vector2D const&, Vector2D const&, Vector2D const&, Vector&, Vector&)
 t ConcatTransforms_Aligned(matrix3x4_t const&, matrix3x4_t const&, matrix3x4_t&)
@@ -769,16 +784,21 @@ t RandomVectorInUnitSphere(Vector*)
 t SetupMatrixAxisToAxisRot(Vector const&, Vector const&)
 t _SSE_VectorNormalizeFast(Vector&)
 t Vector4DMultiplyPosition(VMatrix const&, Vector const&, Vector4D&)
+t V_HtmlEntityDecodeToUTF8(char*, int, char const*, int)
+t V_StripLeadingWhitespace(char*)
+t V_StripSurroundingQuotes(char*)
 t CalcClosestPointToLineT2D(Vector2D const&, Vector2D const&, Vector2D const&, Vector2D&)
 t CalcDistanceToLineSegment(Vector const&, Vector const&, Vector const&, float*)
 t Q_RemoveAllEvilCharacters(char*)
 t Vector3DMultiplyTranspose(VMatrix const&, Vector const&, Vector&)
 t Vector4DMultiplyTranspose(VMatrix const&, Vector4D const&, Vector4D&)
+t V_StripTrailingWhitespace(char*)
 t Catmull_Rom_Spline_Tangent(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t GeneratePerspectiveFrustum(Vector const&, QAngle const&, float, float, float, float, Frustum_t&)
 t GeneratePerspectiveFrustum(Vector const&, Vector const&, Vector const&, Vector const&, float, float, float, float, Frustum_t&)
 t GeneratePolygonIndexBuffer(unsigned short*, int, int)
 t Vector3DMultiplyProjective(VMatrix const&, Vector const&, Vector&)
+t V_StripAndPreserveHTMLCore(CUtlBuffer*, char const*, char const**, unsigned int, char const**, unsigned int, unsigned int)
 t CalcDistanceToLineSegment2D(Vector2D const&, Vector2D const&, Vector2D const&, float*)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
 t Catmull_Rom_Spline_Integral(Vector const&, Vector const&, Vector const&, Vector const&, Vector&)
@@ -797,6 +817,7 @@ t GenerateLineStripIndexBuffer(unsigned short*, int, int)
 t MatrixBuildPerspectiveZRange(VMatrix&, double, double)
 t MatrixBuildRotationAboutAxis(VMatrix&, Vector const&, float)
 t MatrixBuildRotationAboutAxis(Vector const&, float, matrix3x4_t&)
+t V_IsValidDomainNameCharacter(char const*, int*)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t CalcClosestPointOnLineSegment(Vector const&, Vector const&, Vector const&, Vector&, float*)
 t Catmull_Rom_Spline_NormalizeX(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -836,6 +857,7 @@ t Hash16(void const*)
 t Q_log2(int)
 t SinCos(float, float*, float*)
 t _sqrtf(float)
+t V_atod(char const*)
 t V_atof(char const*)
 t V_atoi(char const*)
 t BSpline(Vector const&, Vector const&, Vector const&, Vector const&, float, Vector&)
@@ -854,6 +876,7 @@ t V_strupr(char*)
 t AngleDiff(float, float)
 t FloorPow2(int)
 t HashBlock(void const*, unsigned int)
+t nexttoken(char*, char const*, char)
 t R_CullBox(Vector const&, Vector const&, Frustum_t const&)
 t _SSE_Sqrt(float)
 t V_atoui64(char const*)
@@ -874,6 +897,7 @@ t V_strncmp(char const*, char const*, int)
 t V_strncpy(char*, char const*, int)
 t V_strnlwr(char*, unsigned int)
 t _V_strstr(char const*, int, char const*, char const*)
+t V_StrTrim(char*)
 t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
 t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
@@ -1013,27 +1037,31 @@ b r_glint_procedural
 b s_nConnectionCount
 d s_pAmbientLightDir
 b s_pZeroFlexWeights
+r g_BasicHTMLEntities
 r g_pInterfaceGlobals
 b r_flashlightscissor
 b s_GlintTextureRegen
+r g_WhitespaceEntities
 r _ps_minus_cephes_DP1
 r _ps_minus_cephes_DP2
 r _ps_minus_cephes_DP3
 b s_nRegistrationCount
 d s_LastFileLoadingFrom
 b s_StudioRenderContext
-t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.29]
 b s_bPrecachesRegistered
 b s_nSolidModelHullCache
 b g_Mathlib_GammaToLinear
 b g_Mathlib_LinearToGamma
 t ClipTriangleAgainstPlane(DecalClipState_t&, int, int, float)
+r g_Tier1_FullHTMLEntities
 r g_SoftwareProcessMeshFunc
 t SetupMatrixAnglesInternal(float (*) [4], QAngle const&)
 b s_pConnectionRegistration
 t ReleaseMaterialSystemObjects()
 t RestoreMaterialSystemObjects(int)
 b s_nTranslucentModelHullCache
+r g_pszSimpleBBCodeReplacements
 b f3
 d s_pConversionArrays_NoEscConversion
 b f05
@@ -1158,6 +1186,10 @@ t CUtlMemory<CCachedRenderData::CacheDict_t, int>::Purge()
 t CUtlMemory<KeyValues*, int>::Grow(int)
 t CUtlMemory<KeyValues*, int>::Purge()
 t CUtlMemory<char*, int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Purge()
+t CUtlMemory<char const*, int>::Grow(int)
+t CUtlMemory<char const*, int>::Purge()
 t CUtlMemory<short, int>::Grow(int)
 t CUtlMemory<short, int>::Purge()
 t CUtlMemory<unsigned short, int>::Grow(int)
@@ -1197,26 +1229,23 @@ t CUtlString::operator+=(char const*)
 t CUtlString::operator+=(CUtlString const&)
 t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
 t CUtlVector<GetTriangles_MaterialBatch_t, CUtlMemory<GetTriangles_MaterialBatch_t, int> >::InsertBefore(int)
-t CUtlVector<bool, CUtlMemory<bool, int> >::EnsureCount(int)
 t CUtlVector<char, CUtlMemory<char, int> >::GrowVector(int)
 t CUtlVector<char, CUtlMemory<char, int> >::ShiftElementsRight(int, int)
 t CUtlVector<int, CUtlMemory<int, int> >::GrowVector(int)
 t CUtlVector<int, CUtlMemory<int, int> >::InsertBefore(int, int const&)
 t CUtlVector<int, CUtlMemory<int, int> >::ShiftElementsRight(int, int)
-t CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >::GrowVector(int)
-t CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >::ShiftElementsRight(int, int)
-t CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >::operator=(CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> > const&)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::GrowVector(int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::ShiftElementsRight(int, int)
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<KeyValues*, CUtlMemory<KeyValues*, int> >::~CUtlVector()
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::InsertBefore(int, void (* const&)(IConVar*, char const*, float))
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<char const*, CUtlMemory<char const*, int> >::ShiftElementsLeft(int, int)
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::RemoveAll()
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
 t CUtlVector<CUtlVector<int, CUtlMemory<int, int> >, CUtlMemory<CUtlVector<int, CUtlMemory<int, int> >, int> >::~CUtlVector()
-t CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >::GrowVector(int)
-t CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >::ShiftElementsRight(int, int)
-t CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >::operator=(CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> > const&)
 t CUtlVector<CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >, CUtlMemory<CUtlVector<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, CUtlMemory<CUtlVector<CCachedRenderData::CacheDict_t, CUtlMemory<CCachedRenderData::CacheDict_t, int> >, int> >, int> >::RemoveAll()
 t CUtlVector<unsigned short, CUtlMemory<unsigned short, int> >::InsertBefore(int, unsigned short const&)
 U CVProfNode::EnterScope()
@@ -1303,6 +1332,7 @@ t CStudioRender::ProjectDecalOntoMesh(CStudioRender::DecalBuildInfo_t&, CStudioR
 t CStudioRender::R_LightGlintPosition(int, Vector const&, Vector&, Vector&)
 t CStudioRender::R_StudioEyeballGlint(eyeballstate_t const*, IMaterialVar*, Vector const&, Vector const&, Vector const&)
 t CStudioRender::DrawStaticPropShadows(DrawModelInfo_t const&, StudioRenderContext_t const&, matrix3x4_t const&, int)
+t CStudioRender::GetDepthWriteMaterial(IMaterial**, bool*, bool*, IMaterial*, bool, int)
 t CStudioRender::R_StudioFlexMeshGroup(studiomeshgroup_t*)
 t CStudioRender::AddDecalToMaterialList(CStudioRender::DecalMaterial_t*)
 t CStudioRender::ComputeEyelidStateFACS(mstudiomodel_t*)
@@ -1316,6 +1346,7 @@ t CStudioRender::R_StudioDrawDynamicMesh(IMatRenderContext*, mstudiomesh_t*, stu
 t CStudioRender::R_StudioDrawGroupHWSkin(IMatRenderContext*, studiomeshgroup_t*, IMesh*, ColorMeshInfo_t*)
 t CStudioRender::R_StudioDrawGroupSWSkin(studiomeshgroup_t*, IMesh*)
 t CStudioRender::R_StudioEyeballPosition(mstudioeyeball_t const*, eyeballstate_t*)
+t CStudioRender::SetupTreeSwayDepthWrite(IMaterial*, IMaterial*)
 t CStudioRender::GenerateMorphAccumulator(mstudiomodel_t*)
 t CStudioRender::MaterialPlanerProjection(matrix3x4_t const&, int, Vector const*, Vector2D*)
 t CStudioRender::R_InitLightEffectsWorld3()
@@ -1324,6 +1355,7 @@ t CStudioRender::AddClippedDecalToTriangle(CStudioRender::DecalBuildInfo_t&, Dec
 t CStudioRender::DrawMultiBoneFlexedDecals(IMatRenderContext*, CMeshBuilder&, CStudioRender::DecalMaterial_t&, studiohdr_t*, studioloddata_t*)
 t CStudioRender::R_StudioProcessFlexedMesh(mstudiomesh_t*, CMeshBuilder&, int, unsigned short*)
 t CStudioRender::DrawSingleBoneFlexedDecals(IMatRenderContext*, CMeshBuilder&, CStudioRender::DecalMaterial_t&)
+t CStudioRender::SetupAlphaTestedDepthWrite(IMaterial*, IMaterial*)
 t CStudioRender::R_StudioSoftwareProcessMesh(mstudiomesh_t*, CMeshBuilder&, int, unsigned short*, StudioModelLighting_t, bool, float, bool, bool, IMaterial*)
 t CStudioRender::R_MouthComputeLightingValues(float&, Vector&)
 t CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)
@@ -1615,7 +1647,7 @@ t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharC
 t CBaseResourcePrecacher::RegisterAll()
 b CBaseResourcePrecacher::sm_pFirst
 t CGlintTextureRegenerator::RegenerateTextureBits(ITexture*, IVTFTexture*, Rect_t*)
-t CGlintTextureRegenerator::RegenerateTextureBits(ITexture*, IVTFTexture*, Rect_t*) [clone .part.22]
+t CGlintTextureRegenerator::RegenerateTextureBits(ITexture*, IVTFTexture*, Rect_t*) [clone .part.21]
 t CGlintTextureRegenerator::Release()
 t IKeyValuesDumpContextAsText::KvBeginKey(KeyValues*, int)
 t IKeyValuesDumpContextAsText::KvWriteValue(KeyValues*, int)
@@ -2159,11 +2191,14 @@ t __MetaLooper_R_LightEffectsWorldFunctionTableConstDirectional<246>::__MetaLoop
 t ConVar::ClampValue(float&)
 t ConVar::SetDefault(char const*)
 t ConVar::InternalSetValue(char const*)
-t ConVar::ChangeStringValue(char const*, float)
+t ConVar::ChangeStringValue(char const*, ConVar::CVValue_t const&)
 t ConVar::SetCompetitiveMode(bool)
 t ConVar::InternalSetIntValue(int)
-t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::RemoveChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float), bool)
 t ConVar::InternalSetFloatValue(float, bool)
+t ConVar::InternalSetVectorValue(Vector const&)
+t ConVar::InternalSetVectorFromString(char const*)
 t ConVar::Init()
 t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
 t ConVar::Revert()
@@ -2171,6 +2206,7 @@ t ConVar::AddFlags(int)
 t ConVar::SetValue(float)
 t ConVar::SetValue(int)
 t ConVar::SetValue(char const*)
+t ConVar::SetValue(Vector const&)
 t ConVar::ConVar(char const*, char const*, int)
 t ConVar::ConVar(char const*, char const*, int, char const*)
 t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
@@ -2372,9 +2408,12 @@ t ConVar::GetCompMin(float&) const
 t ConVar::GetDefault() const
 t ConVar::GetHelpText() const
 t ConVar::IsRegistered() const
+t ConVar::GetInt() const
 t ConVar::GetMax(float&) const
 t ConVar::GetMin(float&) const
 t ConVar::GetName() const
+t ConVar::GetFloat() const
+t ConVar::GetVector() const
 t ConVar::IsCommand() const
 t ConVar::IsFlagSet(int) const
 t VMatrix::Transpose3x3() const
@@ -2406,6 +2445,7 @@ t non-virtual thunk to CEmptyConVar::SetValue(char const*)
 t non-virtual thunk to ConVar::SetValue(float)
 t non-virtual thunk to ConVar::SetValue(int)
 t non-virtual thunk to ConVar::SetValue(char const*)
+t non-virtual thunk to ConVar::SetValue(Vector const&)
 t non-virtual thunk to CEmptyConVar::GetName() const
 t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
 t non-virtual thunk to ConVar::GetName() const
@@ -2540,6 +2580,7 @@ b V_pretifymem(float, int, bool)::output
 b V_pretifymem(float, int, bool)::current
 b V_pretifynum(long long)::output
 b V_pretifynum(long long)::current
+r V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)::HEX
 b GetFatVertexData(mstudiomesh_t*, studiohdr_t*)::warnCount
 b Bias(float, float)::lastExponent
 b UsesMouthShader(IMaterial*)::clientShaderCache
@@ -2547,14 +2588,21 @@ b CUtlString::GetEmptyString()::s_emptyString
 b CPixelWriter::SetPixelMemory(ImageFormat, void*, int)::format_error_printed
 b CStudioRender::R_StudioFlexVerts(mstudiomesh_t*, int)::flexConversionTimesWarned
 b CStudioRender::R_StudioFlexVerts(mstudiomesh_t*, int)::warnCount
-b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::alphaRefCache
-b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::textureVarCache
+b CStudioRender::GetDepthWriteMaterial(IMaterial**, bool*, bool*, IMaterial*, bool, int)::originalTextureVarCache
+b CStudioRender::GetDepthWriteMaterial(IMaterial**, bool*, bool*, IMaterial*, bool, int)::nOriginalTreeSwayVarCache
+r CStudioRender::SetupTreeSwayDepthWrite(IMaterial*, IMaterial*)::paramNames
+b CStudioRender::SetupTreeSwayDepthWrite(IMaterial*, IMaterial*)::originalVarCache
+b CStudioRender::SetupTreeSwayDepthWrite(IMaterial*, IMaterial*)::varCache
+b CStudioRender::SetupAlphaTestedDepthWrite(IMaterial*, IMaterial*)::alphaRefCache
+b CStudioRender::SetupAlphaTestedDepthWrite(IMaterial*, IMaterial*)::textureVarCache
+b CStudioRender::SetupAlphaTestedDepthWrite(IMaterial*, IMaterial*)::textureFrameVarCache
+b CStudioRender::SetupAlphaTestedDepthWrite(IMaterial*, IMaterial*)::originalAlphaRefCache
+b CStudioRender::SetupAlphaTestedDepthWrite(IMaterial*, IMaterial*)::originalTextureVarCache
+b CStudioRender::SetupAlphaTestedDepthWrite(IMaterial*, IMaterial*)::originalTextureFrameVarCache
 b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::lightmapVarCache
 b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::translucentCache
-b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::textureFrameVarCache
-b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::originalAlphaRefCache
-b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::originalTextureVarCache
-b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::originalTextureFrameVarCache
+b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::normalMapTextureVarCache
+b CStudioRender::R_StudioSetupSkinAndLighting(IMatRenderContext*, int, IMaterial**, int, void*, ColorMeshInfo_t*, StudioModelLighting_t&)::originalNormalMapTextureVarCache
 b CStudioRenderContext::ComputeMaterialFlags(studiohdr_t*, studioloddata_t&, IMaterial*)::bumpvarCache
 b CStudioRenderContext::ComputeMaterialFlags(studiohdr_t*, studioloddata_t&, IMaterial*)::phongVarCache
 b CKeyValuesDumpContextAsDevMsg::KvBeginKey(KeyValues*, int)::r_developer

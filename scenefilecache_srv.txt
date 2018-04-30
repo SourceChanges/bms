@@ -1,6 +1,7 @@
 U abort@@GLIBC_2.0
 t add_fdes
 d adds.8776
+U __asinf_finite@@GLIBC_2.15
 t base_from_cb_data.isra.4
 t base_from_object.isra.3
 A __bss_start
@@ -18,6 +19,9 @@ b cvar
 U __cxa_atexit@@GLIBC_2.1.3
 U __cxa_call_unexpected@@CXXABI_1.3
 w __cxa_finalize@@GLIBC_2.1.3
+U __cxa_guard_acquire@@CXXABI_1.3
+U __cxa_guard_release@@CXXABI_1.3
+U __cxa_pure_virtual@@CXXABI_1.3
 t __deregister_frame
 t __deregister_frame_info
 t __deregister_frame_info_bases
@@ -32,6 +36,7 @@ t __do_global_dtors_aux_fini_array_entry
 d __dso_handle
 b dwarf_reg_size_table
 a _DYNAMIC
+U __dynamic_cast@@CXXABI_1.3
 A _edata
 A _end
 U Error
@@ -57,8 +62,11 @@ t get_cie_encoding
 U getcwd@@GLIBC_2.0
 a _GLOBAL_OFFSET_TABLE_
 t _GLOBAL__sub_I_filesystem
+t _GLOBAL__sub_I_lzma_persistent_buffer
 t _GLOBAL__sub_I_s_StringCharConversion
 t _GLOBAL__sub_I__Z9_V_memsetPKciPvii
+t _GLOBAL__sub_I__ZN10CUtlString11AllocMemoryEj
+t _GLOBAL__sub_I__ZN14ConCommandBase18s_pConCommandBasesE
 w __gmon_start__
 b g_pCVar
 b g_pDataCache
@@ -223,6 +231,7 @@ t LzmaDec_Free
 t LzmaDec_FreeProbs
 t LzmaDec_Init
 t LzmaDecode
+b lzma_persistent_buffer
 t LzmaProps_Decode
 t LzmaProps_Decode.part.2
 t _malloc_dbg
@@ -265,8 +274,10 @@ t register_tm_clones
 t search_object
 b seen_objects
 t set_fast_math
+U sinf@@GLIBC_2.0
 t size_of_encoded_value
 b s_NoEscConversion
+U sscanf@@GLIBC_2.0
 b s_StringCharConversion
 U __stack_chk_fail@@GLIBC_2.4
 U strcasecmp@@GLIBC_2.0
@@ -281,10 +292,13 @@ U strncpy@@GLIBC_2.0
 U strstr@@GLIBC_2.0
 U strtod@@GLIBC_2.0
 U strtol@@GLIBC_2.0
+U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
 b studiorender
 b subs.8777
 b terminator.8620
+U ThreadInMainThread
 U time@@GLIBC_2.0
 d __TMC_END__
 U tolower@@GLIBC_2.0
@@ -338,15 +352,18 @@ t V_strnistr(char const*, char const*, int)
 t _V_strrchr(char const*, int, char const*, char)
 t V_StrRight(char const*, int, char*, int)
 t V_StrSlice(char const*, int, int, char*, int)
-t V_StrSlice(char const*, int, int, char*, int) [clone .part.4]
+t V_StrSlice(char const*, int, int, char*, int) [clone .part.7]
 t V_StrSubst(char const*, char const*, char const*, char*, int, bool)
+t V_strtoi64(char const*, char**, int)
 t V_strtowcs(char const*, int, wchar_t*, int)
 t V_wcstostr(wchar_t const*, int, char*, int)
 t AllocString(char const*, int)
+U ConColorMsg(Color const&, char const*, ...)
 t CRC32_Final(unsigned int*)
 t Q_URLDecode(char*, int, char const*, int)
 t Q_URLEncode(char*, int, char const*, int)
 t V_snwprintf(wchar_t*, int, wchar_t const*, ...)
+t V_strtoui64(char const*, char**, int)
 t V_vsnprintf(char*, int, char const*, char*)
 t _V_wcslower(char const*, int, wchar_t*)
 t V_FixSlashes(char*, char)
@@ -376,10 +393,14 @@ t Q_UTF32ToUTF32(wchar_t const*, wchar_t*, int, EStringConvertErrorPolicy)
 t Sys_GetFactory(CSysModule*)
 t Sys_GetFactory(char const*)
 t Sys_LoadModule(char const*, Sys_Flags)
+t V_BBCodeToHTML(char*, int, char const*, int)
+t V_IsMeanSpaceW(wchar_t)
+t V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)
 t V_SetExtension(char*, char const*, int)
 t V_SplitString2(char const*, char const**, int, CUtlVector<char*, CUtlMemory<char*, int> >&)
 t V_StripLastDir(char*, int)
 t V_vsnprintfRet(char*, int, char const*, char*, bool*)
+t ConVar_Register(int, IConCommandBaseAccessor*)
 t GetModuleHandle(char const*)
 t Q_UChar32ToUTF8(wchar_t, char*)
 t Q_UnicodeLength(char const*)
@@ -391,6 +412,7 @@ t Q_UnicodeRepair(wchar_t*, EStringConvertErrorPolicy)
 t Q_UTF8ToUChar32(char const*, wchar_t&, bool&)
 t Sys_LoadLibrary(char const*, Sys_Flags)
 t V_FixupPathName(char*, unsigned int, char const*)
+t V_IsDeprecatedW(wchar_t)
 t V_StripFilename(char*)
 t Q_IsValidUChar32(wchar_t)
 t Q_UChar32ToUTF16(wchar_t, unsigned short*)
@@ -404,7 +426,10 @@ t V_IsAbsolutePath(char const*)
 t V_StripExtension(char const*, char*, int)
 t _V_UCS2ToUnicode(unsigned short const*, wchar_t*, int)
 t _V_UnicodeToUCS2(wchar_t const*, int, char*, int)
+t CharacterSetBuild(characterset_t*, char const*)
 t ConnectInterfaces(void* (**)(char const*, int*), int)
+t ConVar_PrintFlags(ConCommandBase const*)
+t ConVar_Unregister()
 t IsBufferBinaryVCD(char*, int)
 t Q_UnicodeValidate(char const*)
 t Q_UnicodeValidate(unsigned short const*)
@@ -435,27 +460,41 @@ t CRC32_GetTableEntry(unsigned int)
 t CRC32_ProcessBuffer(unsigned int*, void const*, int)
 t Q_UChar32ToUTF16Len(wchar_t)
 t Q_URLDecodeInternal(char*, int, char const*, int, bool)
-t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.7]
+t Q_URLDecodeInternal(char*, int, char const*, int, bool) [clone .part.10]
 t Q_URLEncodeInternal(char*, int, char const*, int, bool)
-t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.6]
+t Q_URLEncodeInternal(char*, int, char const*, int, bool) [clone .part.9]
 t Q_UTF16CharsToUTF32(unsigned short const*, int, wchar_t*, int, EStringConvertErrorPolicy)
 t Q_UTF32CharsToUTF16(wchar_t const*, int, unsigned short*, int, EStringConvertErrorPolicy)
+t V_IsMeanUnderscoreW(wchar_t)
+t V_URLContainsDomain(char const*, char const*)
 t DisconnectInterfaces()
 t V_StripTrailingSlash(char*)
+t DefaultCompletionFunc(char const*, char (*) [64])
 t Sys_IsDebuggerPresent()
 t V_GetCurrentDirectory(char*, int)
+t V_IsValidURLCharacter(char const*, int*)
 t V_SetCurrentDirectory(char const*)
 t V_UnqualifiedFileName(char const*)
 t BGetLocalFormattedDate(long, char*, int)
 t BGetLocalFormattedTime(long, char*, int)
 t GetNoEscCharConversion()
+t V_ExtractDomainFromURL(char const*, char*, int)
 t V_ExtractFileExtension(char const*, char*, int)
 t V_normalizeFloatString(char*)
+t V_StripAndPreserveHTML(CUtlBuffer*, char const*, char const**, unsigned int, unsigned int)
+t ConVar_PrintDescription(ConCommandBase const*)
 t CreateInterfaceInternal(char const*, int*)
 t LzmaDec_InitDicAndState(CLzmaDec*, int, int)
+t V_BasicHtmlEntityEncode(char*, int, char const*, int, bool)
 t GetCStringCharConversion()
+t V_HtmlEntityDecodeToUTF8(char*, int, char const*, int)
+t V_StripLeadingWhitespace(char*)
+t V_StripSurroundingQuotes(char*)
 t Q_RemoveAllEvilCharacters(char*)
+t V_StripTrailingWhitespace(char*)
+t V_StripAndPreserveHTMLCore(CUtlBuffer*, char const*, char const**, unsigned int, char const**, unsigned int, unsigned int)
 t Sys_RunningWithDebugModules()
+t V_IsValidDomainNameCharacter(char const*, int*)
 t BGetLocalFormattedDateAndTime(long, char*, int, char*, int)
 t StringAfterPrefixCaseSensitive(char const*, char const*)
 t V_AddBackSlashesToSpecialChars(char const*)
@@ -463,11 +502,14 @@ t Q_StripPrecedingAndTrailingWhitespace(char*)
 t Q_StripPrecedingAndTrailingWhitespaceW(wchar_t*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespace(char*)
 t Q_AggressiveStripPrecedingAndTrailingWhitespaceW(wchar_t*)
+U ConMsg(char const*, ...)
+t V_atod(char const*)
 t V_atof(char const*)
 t V_atoi(char const*)
 t V_atoi64(char const*)
 t V_nibble(char)
 t V_strupr(char*)
+t nexttoken(char*, char const*, char)
 t V_atoui64(char const*)
 t _V_memcmp(char const*, int, void const*, void const*, int)
 t _V_memcpy(char const*, int, void*, void const*, int)
@@ -486,6 +528,7 @@ t V_strncmp(char const*, char const*, int)
 t V_strncpy(char*, char const*, int)
 t V_strnlwr(char*, unsigned int)
 t _V_strstr(char const*, int, char const*, char const*)
+t V_StrTrim(char*)
 t _V_wcscmp(char const*, int, wchar_t const*, wchar_t const*)
 t _V_wcslen(char const*, int, wchar_t const*)
 t V_wcsncat(wchar_t*, wchar_t const*, unsigned int, int)
@@ -494,26 +537,47 @@ t _V_wcsupr(char const*, int, wchar_t*)
 t operator delete[](void*)
 t operator delete(void*)
 t operator delete(void*, unsigned int)
+b guard variable for CUtlString::GetEmptyString()::s_emptyString
+b s_BreakSet
 t FastToLower(char)
 r pulCRCTable
+b s_nCVarFlag
+b vec2_origin
+b vec2_origin
+b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_origin
 b vec2_invalid
 b vec2_invalid
 b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b vec2_invalid
+b s_bRegistered
+b s_EmptyConVar
 t CopyToMaxChars(char*, int, char const*, int) [clone .part.0]
 d s_BackSlashMap
+b g_pStaticLZMABuf
 b g_SceneFileCache
 t LzmaDec_TryDummy(CLzmaDec const*, unsigned char const*, unsigned int)
 t LzmaDec_WriteRem(CLzmaDec*, unsigned int)
+b s_bBuiltBreakSet
+d s_nDLLIdentifier
+d s_DefaultAccessor
 b s_nConnectionCount
+r g_BasicHTMLEntities
 r g_pInterfaceGlobals
 t LzmaDec_DecodeReal2(CLzmaDec*, unsigned int, unsigned char const*)
+b g_unStaticLZMABufRef
+r g_WhitespaceEntities
 b s_nRegistrationCount
-t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.14]
+b g_unStaticLZMABufSize
+t StripWhitespaceWorker(int, wchar_t*, bool*, bool) [clone .constprop.29]
 t LzmaDec_AllocateProbs2(CLzmaDec*, _CLzmaProps const*, ISzAlloc*) [clone .isra.1]
+r g_Tier1_FullHTMLEntities
 b s_pConnectionRegistration
+r g_pszSimpleBBCodeReplacements
 d s_pConversionArrays_NoEscConversion
 d s_pConversionArrays_StringCharConversion
 b __g_CreateCSceneFileCacheISceneFileCache_reg
@@ -521,6 +585,18 @@ t __CreateCSceneFileCacheISceneFileCache_interface()
 t SzFree(void*, void*)
 d g_Alloc
 t SzAlloc(void*, unsigned int)
+t ConCommand::CanAutoComplete()
+t ConCommand::AutoCompleteSuggest(char const*, CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >&)
+t ConCommand::Dispatch(CCommand const&)
+t ConCommand::ConCommand(char const*, ICommandCallback*, char const*, int, ICommandCompletionCallback*)
+t ConCommand::ConCommand(char const*, void (*)(CCommand const&), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::ConCommand(char const*, void (*)(), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::ConCommand(char const*, ICommandCallback*, char const*, int, ICommandCompletionCallback*)
+t ConCommand::ConCommand(char const*, void (*)(CCommand const&), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::ConCommand(char const*, void (*)(), char const*, int, int (*)(char const*, char (*) [64]))
+t ConCommand::~ConCommand()
+t ConCommand::~ConCommand()
+t ConCommand::~ConCommand()
 t CUtlBuffer::ParseToken(characterset_t*, char*, int, bool)
 t CUtlBuffer::ParseToken(char const*, char const*, char*, int)
 t CUtlBuffer::ConvertCRLF(CUtlBuffer&)
@@ -577,11 +653,53 @@ t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
 t CUtlBuffer::CUtlBuffer(int, int, int)
 t CUtlBuffer::CUtlBuffer(void const*, int, int)
+t CUtlMemory<CUtlString, int>::Grow(int)
 t CUtlMemory<unsigned char, int>::ConvertToGrowableMemory(int) [clone .part.25] [clone .constprop.32]
 t CUtlMemory<unsigned char, int>::Grow(int)
 t CUtlMemory<unsigned char, int>::Purge()
 t CUtlMemory<char*, int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Grow(int)
+t CUtlMemory<void (*)(IConVar*, char const*, float), int>::Purge()
+t CUtlMemory<char const*, int>::Grow(int)
+t CUtlMemory<char const*, int>::Purge()
+t CUtlString::FixSlashes(char)
+t CUtlString::AllocMemory(unsigned int)
+t CUtlString::GetForModify()
+t CUtlString::GetEmptyString()
+t CUtlString::StripTrailingSlash()
+t CUtlString::Set(char const*)
+t CUtlString::Trim(char)
+t CUtlString::Trim(char const*)
+t CUtlString::Clear()
+t CUtlString::Purge()
+t CUtlString::Append(char const*)
+t CUtlString::Append(char const*, int)
+t CUtlString::Format(char const*, ...)
+t CUtlString::FormatV(char const*, char*)
+t CUtlString::ToLower()
+t CUtlString::ToUpper()
+t CUtlString::PathJoin(char const*, char const*)
+t CUtlString::TrimLeft(char)
+t CUtlString::TrimLeft(char const*)
+t CUtlString::SetDirect(char const*, int)
+t CUtlString::SetLength(int)
+t CUtlString::TrimRight(char)
+t CUtlString::TrimRight(char const*)
+t CUtlString::operator=(char const*)
+t CUtlString::operator=(CUtlString const&)
+t CUtlString::~CUtlString()
+t CUtlString::~CUtlString()
+t CUtlString::operator+=(char)
+t CUtlString::operator+=(double)
+t CUtlString::operator+=(int)
+t CUtlString::operator+=(char const*)
+t CUtlString::operator+=(CUtlString const&)
+t CUtlVector<CUtlString, CUtlMemory<CUtlString, int> >::InsertBefore(int, CUtlString const&)
 t CUtlVector<char*, CUtlMemory<char*, int> >::InsertBefore(int, char* const&)
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::InsertBefore(int, void (* const&)(IConVar*, char const*, float))
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<void (*)(IConVar*, char const*, float), CUtlMemory<void (*)(IConVar*, char const*, float), int> >::~CUtlVector()
+t CUtlVector<char const*, CUtlMemory<char const*, int> >::ShiftElementsLeft(int, int)
 t CLZMAStream::InitZIPHeader(unsigned int, unsigned int)
 t CLZMAStream::TryParseHeader(unsigned char*, unsigned int, unsigned int&)
 t CLZMAStream::FreeDecoderState()
@@ -592,6 +710,12 @@ t CLZMAStream::CLZMAStream()
 t CLZMAStream::CLZMAStream()
 t CLZMAStream::~CLZMAStream()
 t CLZMAStream::~CLZMAStream()
+t CEmptyConVar::SetValue(float)
+t CEmptyConVar::SetValue(int)
+t CEmptyConVar::SetValue(char const*)
+t CEmptyConVar::~CEmptyConVar()
+t CEmptyConVar::~CEmptyConVar()
+t CEmptyConVar::~CEmptyConVar()
 t (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&) [clone .constprop.15]
 t int (anonymous namespace)::Q_UnicodeConvertT<wchar_t, wchar_t, true, (anonymous namespace)::Q_UTF32ToUChar32(wchar_t const*, wchar_t&, bool&), (anonymous namespace)::Q_UChar32ToUTF32Len(wchar_t), (anonymous namespace)::Q_UChar32ToUTF32(wchar_t, wchar_t*)>(wchar_t const*, int, wchar_t*, int, EStringConvertErrorPolicy) [clone .isra.1]
 b InterfaceReg::s_pInterfaceRegs
@@ -605,6 +729,21 @@ t CBaseAppSystem<ISceneFileCache>::Connect(void* (*)(char const*, int*))
 t CBaseAppSystem<ISceneFileCache>::GetTier()
 t CBaseAppSystem<ISceneFileCache>::Shutdown()
 t CBaseAppSystem<ISceneFileCache>::Reconnect(void* (*)(char const*, int*), char const*)
+t ConCommandBase::CopyString(char const*)
+t ConCommandBase::CreateBase(char const*, char const*, int)
+b ConCommandBase::s_pAccessor
+b ConCommandBase::s_pConCommandBases
+t ConCommandBase::Init()
+t ConCommandBase::GetNext()
+t ConCommandBase::AddFlags(int)
+t ConCommandBase::Shutdown()
+t ConCommandBase::ConCommandBase(char const*, char const*, int)
+t ConCommandBase::ConCommandBase()
+t ConCommandBase::ConCommandBase(char const*, char const*, int)
+t ConCommandBase::ConCommandBase()
+t ConCommandBase::~ConCommandBase()
+t ConCommandBase::~ConCommandBase()
+t ConCommandBase::~ConCommandBase()
 t CSceneFileCache::Disconnect()
 t CSceneFileCache::GetSceneData(char const*, unsigned char*, unsigned int)
 t CSceneFileCache::GetSceneString(short)
@@ -619,6 +758,7 @@ t CSceneFileCache::Connect(void* (*)(char const*, int*))
 t CSceneFileCache::Shutdown()
 t CSceneFileCache::~CSceneFileCache()
 t CSceneFileCache::~CSceneFileCache()
+t CDefaultAccessor::RegisterConCommandBase(ConCommandBase*)
 t CDllDemandLoader::GetFactory()
 t CDllDemandLoader::Unload()
 t CDllDemandLoader::CDllDemandLoader(char const*)
@@ -640,40 +780,179 @@ t CUtlCStringConversion::CUtlCStringConversion(char, char const*, int, CUtlCharC
 t CLZMA::Uncompress(unsigned char*, unsigned char*)
 t CLZMA::IsCompressed(unsigned char*)
 t CLZMA::GetActualSize(unsigned char*)
+t ConVar::ClampValue(float&)
+t ConVar::SetDefault(char const*)
+t ConVar::InternalSetValue(char const*)
+t ConVar::ChangeStringValue(char const*, ConVar::CVValue_t const&)
+t ConVar::SetCompetitiveMode(bool)
+t ConVar::InternalSetIntValue(int)
+t ConVar::RemoveChangeCallback(void (*)(IConVar*, char const*, float))
+t ConVar::InstallChangeCallback(void (*)(IConVar*, char const*, float), bool)
+t ConVar::InternalSetFloatValue(float, bool)
+t ConVar::InternalSetVectorValue(Vector const&)
+t ConVar::InternalSetVectorFromString(char const*)
+t ConVar::Init()
+t ConVar::Create(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::Revert()
+t ConVar::AddFlags(int)
+t ConVar::SetValue(float)
+t ConVar::SetValue(int)
+t ConVar::SetValue(char const*)
+t ConVar::SetValue(Vector const&)
+t ConVar::ConVar(char const*, char const*, int)
+t ConVar::ConVar(char const*, char const*, int, char const*)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int)
+t ConVar::ConVar(char const*, char const*, int, char const*)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float)
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int, char const*, bool, float, bool, float, void (*)(IConVar*, char const*, float))
+t ConVar::ConVar(char const*, char const*, int, char const*, void (*)(IConVar*, char const*, float))
+t ConVar::~ConVar()
+t ConVar::~ConVar()
+t ConVar::~ConVar()
+t CCommand::DefaultBreakSet()
+t CCommand::Reset()
+t CCommand::Tokenize(char const*, characterset_t*)
+t CCommand::CCommand(int, char const**)
+t CCommand::CCommand()
+t CCommand::CCommand(int, char const**)
+t CCommand::CCommand()
+t CFmtStrN<256, false>::InitQuietTruncation()
+t CFmtStrN<256, false>::CFmtStrN(char const*, ...)
+t CFmtStrN<256, false>::CFmtStrN(char const*, ...)
+t ConVarRef::Init(char const*, bool)
+t ConVarRef::ConVarRef(IConVar*)
+t ConVarRef::ConVarRef(char const*)
+t ConVarRef::ConVarRef(char const*, bool)
+t ConVarRef::ConVarRef(IConVar*)
+t ConVarRef::ConVarRef(char const*)
+t ConVarRef::ConVarRef(char const*, bool)
 t operator new[](unsigned int)
 t operator new[](unsigned int, int, char const*, int)
+t ConCommand::IsCommand() const
+t CUtlString::GetExtension() const
+t CUtlString::StripFilename() const
+t CUtlString::MatchesPattern(CUtlString const&, int) const
+t CUtlString::StripExtension() const
+t CUtlString::GetBaseFilename() const
+t CUtlString::UnqualifiedFilename() const
+t CUtlString::IsEqual_CaseSensitive(char const*) const
+t CUtlString::IsEqual_CaseInsensitive(char const*) const
+t CUtlString::Get() const
+t CUtlString::Left(int) const
+t CUtlString::Right(int) const
+t CUtlString::Slice(int, int) const
+t CUtlString::AbsPath(char const*) const
+t CUtlString::DirName() const
+t CUtlString::Replace(char, char) const
+t CUtlString::Replace(char const*, char const*) const
+t CUtlString::operator==(CUtlString const&) const
+t CUtlString::operator[](int) const
+t CUtlString::operator+(int) const
+t CUtlString::operator+(char const*) const
+t CUtlString::operator+(CUtlString const&) const
+t CEmptyConVar::GetName() const
+t CEmptyConVar::IsFlagSet(int) const
+t ConCommandBase::GetHelpText() const
+t ConCommandBase::IsRegistered() const
+t ConCommandBase::GetDLLIdentifier() const
+t ConCommandBase::GetName() const
+t ConCommandBase::GetNext() const
+t ConCommandBase::IsCommand() const
+t ConCommandBase::IsFlagSet(int) const
 t CUtlCharConversion::GetDelimiter() const
 t CUtlCharConversion::GetEscapeChar() const
 t CUtlCharConversion::GetDelimiterLength() const
 t CUtlCharConversion::GetConversionLength(char) const
 t CUtlCharConversion::GetConversionString(char) const
 t CUtlCharConversion::MaxConversionLength() const
+t ConVar::GetCompMax(float&) const
+t ConVar::GetCompMin(float&) const
+t ConVar::GetDefault() const
+t ConVar::GetHelpText() const
+t ConVar::IsRegistered() const
+t ConVar::GetInt() const
+t ConVar::GetMax(float&) const
+t ConVar::GetMin(float&) const
+t ConVar::GetName() const
+t ConVar::GetFloat() const
+t ConVar::GetVector() const
+t ConVar::IsCommand() const
+t ConVar::IsFlagSet(int) const
+t CCommand::FindArgInt(char const*, int) const
+t CCommand::FindArg(char const*) const
+t ConVarRef::IsValid() const
 t operator new(unsigned int)
 t operator new(unsigned int, int, char const*, int)
+t non-virtual thunk to CEmptyConVar::SetValue(float)
+t non-virtual thunk to CEmptyConVar::SetValue(int)
+t non-virtual thunk to CEmptyConVar::SetValue(char const*)
+t non-virtual thunk to ConVar::SetValue(float)
+t non-virtual thunk to ConVar::SetValue(int)
+t non-virtual thunk to ConVar::SetValue(char const*)
+t non-virtual thunk to ConVar::SetValue(Vector const&)
+t non-virtual thunk to CEmptyConVar::GetName() const
+t non-virtual thunk to CEmptyConVar::IsFlagSet(int) const
+t non-virtual thunk to ConVar::GetName() const
+t non-virtual thunk to ConVar::IsFlagSet(int) const
+r typeinfo for ConCommand
 r typeinfo for IAppSystem
+r typeinfo for CEmptyConVar
 r typeinfo for CBaseAppSystem<ISceneFileCache>
+r typeinfo for ConCommandBase
 r typeinfo for CSceneFileCache
 r typeinfo for ISceneFileCache
+r typeinfo for CDefaultAccessor
 r typeinfo for CDllDemandLoader
 r typeinfo for CUtlCharConversion
 r typeinfo for CUtlNoEscConversion
+r typeinfo for ConVar_ServerBounded
 r typeinfo for CUtlCStringConversion
+r typeinfo for IConCommandBaseAccessor
+r typeinfo for ConVar
+r typeinfo for IConVar
+r typeinfo for CFmtStrN<256, false>
+r typeinfo name for ConCommand
 r typeinfo name for IAppSystem
+r typeinfo name for CEmptyConVar
 r typeinfo name for CBaseAppSystem<ISceneFileCache>
+r typeinfo name for ConCommandBase
 r typeinfo name for CSceneFileCache
 r typeinfo name for ISceneFileCache
+r typeinfo name for CDefaultAccessor
 r typeinfo name for CDllDemandLoader
 r typeinfo name for CUtlCharConversion
 r typeinfo name for CUtlNoEscConversion
+r typeinfo name for ConVar_ServerBounded
 r typeinfo name for CUtlCStringConversion
+r typeinfo name for IConCommandBaseAccessor
+r typeinfo name for ConVar
+r typeinfo name for IConVar
+r typeinfo name for CFmtStrN<256, false>
+r vtable for ConCommand
+r vtable for CEmptyConVar
+r vtable for ConCommandBase
 r vtable for CSceneFileCache
+r vtable for CDefaultAccessor
 r vtable for CDllDemandLoader
 r vtable for CUtlCharConversion
 r vtable for CUtlNoEscConversion
 r vtable for CUtlCStringConversion
+r vtable for ConVar
+r vtable for IConVar
+r vtable for CFmtStrN<256, false>
 U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
 U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
+U vtable for __cxxabiv1::__vmi_class_type_info@@CXXABI_1.3
 b V_pretifymem(float, int, bool)::output
 b V_pretifymem(float, int, bool)::current
 b V_pretifynum(long long)::output
 b V_pretifynum(long long)::current
+r V_LogMultiline(bool, char const*, char const*, unsigned int, CUtlString&)::HEX
+b CUtlString::GetEmptyString()::s_emptyString
+b CFmtStrN<256, false>::CFmtStrN(char const*, ...)::scAsserted
+d ConVarRef::Init(char const*, bool)::bFirst

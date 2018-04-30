@@ -1,5 +1,6 @@
 U abort@@GLIBC_2.0
 U access@@GLIBC_2.0
+U __asinf_finite@@GLIBC_2.15
 A __bss_start
 U chdir@@GLIBC_2.0
 U chmod@@GLIBC_2.0
@@ -131,6 +132,7 @@ U RunTSListTests
 U RunTSQueueTests
 U scandir@@GLIBC_2.0
 U _setjmp@@GLIBC_2.0
+U sinf@@GLIBC_2.0
 U snprintf@@GLIBC_2.0
 U sscanf@@GLIBC_2.0
 U __stack_chk_fail@@GLIBC_2.4
@@ -150,7 +152,9 @@ U strpbrk@@GLIBC_2.0
 U strstr@@GLIBC_2.0
 U strtod@@GLIBC_2.0
 U strtol@@GLIBC_2.0
+U strtoll@@GLIBC_2.0
 U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
 U __swprintf_chk@@GLIBC_2.4
 U symlink@@GLIBC_2.0
 U ThreadGetCurrentId
