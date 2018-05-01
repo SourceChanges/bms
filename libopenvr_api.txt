@@ -1,0 +1,316 @@
+U abort@@GLIBC_2.0
+U alphasort@@GLIBC_2.0
+A __bss_start
+U chdir@@GLIBC_2.0
+U chmod@@GLIBC_2.0
+U closedir@@GLIBC_2.0
+U __cxa_allocate_exception@@CXXABI_1.3
+U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_begin_catch@@CXXABI_1.3
+U __cxa_end_catch@@CXXABI_1.3
+w __cxa_finalize@@GLIBC_2.1.3
+U __cxa_free_exception@@CXXABI_1.3
+U __cxa_guard_acquire@@CXXABI_1.3
+U __cxa_guard_release@@CXXABI_1.3
+U __cxa_pure_virtual@@CXXABI_1.3
+U __cxa_rethrow@@CXXABI_1.3
+U __cxa_throw@@CXXABI_1.3
+U dladdr@@GLIBC_2.0
+U dlclose@@GLIBC_2.0
+U dl_iterate_phdr@@GLIBC_2.2.4
+U dlopen@@GLIBC_2.1
+U dlsym@@GLIBC_2.0
+A _edata
+A _end
+U __errno_location@@GLIBC_2.0
+U _exit@@GLIBC_2.0
+U fclose@@GLIBC_2.1
+U fflush@@GLIBC_2.0
+U fgets@@GLIBC_2.0
+T _fini
+U fopen@@GLIBC_2.1
+U fork@@GLIBC_2.0
+U fprintf@@GLIBC_2.0
+U fputs@@GLIBC_2.0
+U fread@@GLIBC_2.0
+U free@@GLIBC_2.0
+U fseek@@GLIBC_2.0
+U ftell@@GLIBC_2.0
+U getcwd@@GLIBC_2.0
+U getenv@@GLIBC_2.0
+U getpid@@GLIBC_2.0
+U gettimeofday@@GLIBC_2.0
+w __gmon_start__
+U gmtime_r@@GLIBC_2.0
+U __gxx_personality_v0@@CXXABI_1.3
+T _init
+U isalpha@@GLIBC_2.0
+w _Jv_RegisterClasses
+U kill@@GLIBC_2.0
+U malloc@@GLIBC_2.0
+U memcpy@@GLIBC_2.0
+U memmove@@GLIBC_2.0
+U mkdir@@GLIBC_2.0
+U opendir@@GLIBC_2.0
+U pthread_attr_init@@GLIBC_2.1
+U pthread_attr_setstacksize@@GLIBC_2.1
+U pthread_cancel@@GLIBC_2.0
+U pthread_cond_destroy@@GLIBC_2.3.2
+U pthread_cond_init@@GLIBC_2.3.2
+U pthread_cond_signal@@GLIBC_2.3.2
+U pthread_cond_timedwait@@GLIBC_2.3.2
+U pthread_create@@GLIBC_2.1
+U pthread_getschedparam@@GLIBC_2.0
+U pthread_getspecific@@GLIBC_2.0
+U pthread_join@@GLIBC_2.0
+U pthread_key_create@@GLIBC_2.0
+U pthread_key_delete@@GLIBC_2.0
+U pthread_kill@@GLIBC_2.0
+U pthread_mutexattr_destroy@@GLIBC_2.0
+U pthread_mutexattr_init@@GLIBC_2.0
+U pthread_mutexattr_settype@@GLIBC_2.1
+U pthread_mutex_destroy@@GLIBC_2.0
+U pthread_mutex_init@@GLIBC_2.0
+U pthread_mutex_lock@@GLIBC_2.0
+U pthread_mutex_unlock@@GLIBC_2.0
+w pthread_once@@GLIBC_2.0
+U pthread_self@@GLIBC_2.0
+U pthread_setname_np@@GLIBC_2.12
+U pthread_setschedparam@@GLIBC_2.0
+U pthread_setspecific@@GLIBC_2.0
+U readdir@@GLIBC_2.0
+U readlink@@GLIBC_2.0
+U rename@@GLIBC_2.0
+U rewind@@GLIBC_2.0
+U scandir@@GLIBC_2.0
+U sched_yield@@GLIBC_2.0
+U semctl@@GLIBC_2.2
+U semget@@GLIBC_2.0
+U semop@@GLIBC_2.0
+U setenv@@GLIBC_2.0
+U sigaction@@GLIBC_2.0
+U sigemptyset@@GLIBC_2.0
+U snprintf@@GLIBC_2.0
+U sprintf@@GLIBC_2.0
+U sscanf@@GLIBC_2.0
+U strcasecmp@@GLIBC_2.0
+U strchr@@GLIBC_2.0
+U strcmp@@GLIBC_2.0
+U strcpy@@GLIBC_2.0
+U strerror@@GLIBC_2.0
+U strftime@@GLIBC_2.0
+U strlen@@GLIBC_2.0
+U strncasecmp@@GLIBC_2.0
+U strncpy@@GLIBC_2.0
+U strpbrk@@GLIBC_2.0
+U strrchr@@GLIBC_2.0
+U strtol@@GLIBC_2.0
+U syscall@@GLIBC_2.0
+U system@@GLIBC_2.0
+U time@@GLIBC_2.0
+U toupper@@GLIBC_2.0
+U unlink@@GLIBC_2.0
+U unsetenv@@GLIBC_2.0
+U usleep@@GLIBC_2.0
+U vfprintf@@GLIBC_2.0
+T VR_GetGenericInterface
+T VR_GetStringForHmdError
+T VR_Init
+T VR_IsHmdPresent
+T VR_IVRCameraAccess_EnableCamera
+T VR_IVRCameraAccess_GetCameraCount
+T VR_IVRCameraAccess_GetCameraId
+T VR_IVRCameraAccess_GetCameraImage
+T VR_IVRCameraAccess_GetCameraInfo
+T VR_IVRChaperone_GetCalibrationState
+T VR_IVRChaperone_GetHardBoundsInfo
+T VR_IVRChaperone_GetSeatedBoundsInfo
+T VR_IVRChaperone_GetSoftBoundsInfo
+T VR_IVRChaperoneSetup_CommitWorkingCopy
+T VR_IVRChaperoneSetup_GetWorkingHardBoundsInfo
+T VR_IVRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose
+T VR_IVRChaperoneSetup_GetWorkingSoftBoundsInfo
+T VR_IVRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose
+T VR_IVRChaperoneSetup_GetWorkingTagPoseByName
+T VR_IVRChaperoneSetup_GetWorkingTagPoseNameByIndex
+T VR_IVRChaperoneSetup_GetWorkingTagPoses
+T VR_IVRChaperoneSetup_GetWorkingTagPoseScales
+T VR_IVRChaperoneSetup_ReloadFromDisk
+T VR_IVRChaperoneSetup_RemoveAllWorkingTagPoses
+T VR_IVRChaperoneSetup_RemoveWorkingTagPoseByName
+T VR_IVRChaperoneSetup_RevertWorkingCopy
+T VR_IVRChaperoneSetup_SetWorkingHardBoundsInfo
+T VR_IVRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose
+T VR_IVRChaperoneSetup_SetWorkingSoftBoundsInfo
+T VR_IVRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose
+T VR_IVRChaperoneSetup_SetWorkingTagPoseByName
+T VR_IVRCompositor_CanRenderScene
+T VR_IVRCompositor_ClearLastSubmittedFrame
+T VR_IVRCompositor_CompositorBringToFront
+T VR_IVRCompositor_CompositorGoToBack
+T VR_IVRCompositor_CompositorQuit
+T VR_IVRCompositor_FadeGrid
+T VR_IVRCompositor_FadeToColor
+T VR_IVRCompositor_GetCurrentSceneFocusProcess
+T VR_IVRCompositor_GetFrameTiming
+T VR_IVRCompositor_GetGamma
+T VR_IVRCompositor_GetLastError
+T VR_IVRCompositor_GetTrackingSpace
+T VR_IVRCompositor_GetVSync
+T VR_IVRCompositor_IsFullscreen
+T VR_IVRCompositor_SetGamma
+T VR_IVRCompositor_SetGraphicsDevice
+T VR_IVRCompositor_SetTrackingSpace
+T VR_IVRCompositor_SetVSync
+T VR_IVRCompositor_Submit
+T VR_IVRCompositor_WaitGetPoses
+T VR_IVRNotifications_DismissNotification
+T VR_IVRNotifications_GetLastError
+T VR_IVRNotifications_GetPointerLocation
+T VR_IVRNotifications_NotificationStart
+T VR_IVRNotifications_UpdateBitmap
+T VR_IVRNotifications_UpdateTexture
+T VR_IVROverlay_ComputeOverlayIntersection
+T VR_IVROverlay_CreateOverlay
+T VR_IVROverlay_DestroyOverlay
+T VR_IVROverlay_FindOverlay
+T VR_IVROverlay_GetHighQualityOverlay
+T VR_IVROverlay_GetOverlayAlpha
+T VR_IVROverlay_GetOverlayErrorNameFromEnum
+T VR_IVROverlay_GetOverlayFlag
+T VR_IVROverlay_GetOverlayGamma
+T VR_IVROverlay_GetOverlayInputMethod
+T VR_IVROverlay_GetOverlayMouseScale
+T VR_IVROverlay_GetOverlayTextureBounds
+T VR_IVROverlay_GetOverlayTransformAbsolute
+T VR_IVROverlay_GetOverlayTransformTrackedDeviceRelative
+T VR_IVROverlay_GetOverlayTransformType
+T VR_IVROverlay_GetOverlayVisibility
+T VR_IVROverlay_GetOverlayWidthInMeters
+T VR_IVROverlay_GetSystemOverlaySceneProcess
+T VR_IVROverlay_HandleControllerOverlayInteractionAsMouse
+T VR_IVROverlay_HideOverlay
+T VR_IVROverlay_IsActiveSystemOverlay
+T VR_IVROverlay_IsOverlayVisible
+T VR_IVROverlay_IsSystemOverlayVisible
+T VR_IVROverlay_PollNextOverlayEvent
+T VR_IVROverlay_SetHighQualityOverlay
+T VR_IVROverlay_SetOverlayAlpha
+T VR_IVROverlay_SetOverlayFlag
+T VR_IVROverlay_SetOverlayFromFile
+T VR_IVROverlay_SetOverlayGamma
+T VR_IVROverlay_SetOverlayInputMethod
+T VR_IVROverlay_SetOverlayMouseScale
+T VR_IVROverlay_SetOverlayRaw
+T VR_IVROverlay_SetOverlayTexture
+T VR_IVROverlay_SetOverlayTextureBounds
+T VR_IVROverlay_SetOverlayTransformAbsolute
+T VR_IVROverlay_SetOverlayTransformTrackedDeviceRelative
+T VR_IVROverlay_SetOverlayVisibility
+T VR_IVROverlay_SetOverlayWidthInMeters
+T VR_IVROverlay_SetSystemOverlaySceneProcess
+T VR_IVROverlay_ShowOverlay
+T VR_IVRRenderModels_FreeRenderModel
+T VR_IVRRenderModels_GetRenderModelCount
+T VR_IVRRenderModels_GetRenderModelName
+T VR_IVRRenderModels_LoadRenderModel
+T VR_IVRSystem_AttachToWindow
+T VR_IVRSystem_CaptureInputFocus
+T VR_IVRSystem_ComputeDistortion
+T VR_IVRSystem_DriverDebugRequest
+T VR_IVRSystem_GetBoolTrackedDeviceProperty
+T VR_IVRSystem_GetButtonIdNameFromEnum
+T VR_IVRSystem_GetControllerAxisTypeNameFromEnum
+T VR_IVRSystem_GetControllerState
+T VR_IVRSystem_GetControllerStateWithPose
+T VR_IVRSystem_GetD3D9AdapterIndex
+T VR_IVRSystem_GetDeviceToAbsoluteTrackingPose
+T VR_IVRSystem_GetDXGIOutputInfo
+T VR_IVRSystem_GetEventTypeNameFromEnum
+T VR_IVRSystem_GetEyeOutputViewport
+T VR_IVRSystem_GetEyeToHeadTransform
+T VR_IVRSystem_GetFloatTrackedDeviceProperty
+T VR_IVRSystem_GetHiddenAreaMesh
+T VR_IVRSystem_GetInt32TrackedDeviceProperty
+T VR_IVRSystem_GetMatrix34TrackedDeviceProperty
+T VR_IVRSystem_GetProjectionMatrix
+T VR_IVRSystem_GetProjectionRaw
+T VR_IVRSystem_GetPropErrorNameFromEnum
+T VR_IVRSystem_GetRecommendedRenderTargetSize
+T VR_IVRSystem_GetSeatedZeroPoseToStandingAbsoluteTrackingPose
+T VR_IVRSystem_GetStringTrackedDeviceProperty
+T VR_IVRSystem_GetTimeSinceLastVsync
+T VR_IVRSystem_GetTrackedDeviceClass
+T VR_IVRSystem_GetUint64TrackedDeviceProperty
+T VR_IVRSystem_GetWindowBounds
+T VR_IVRSystem_IsInputFocusCapturedByAnotherProcess
+T VR_IVRSystem_IsTrackedDeviceConnected
+T VR_IVRSystem_PollNextEvent
+T VR_IVRSystem_PollNextEventWithPose
+T VR_IVRSystem_ReleaseInputFocus
+T VR_IVRSystem_ResetSeatedZeroPose
+T VR_IVRSystem_TriggerHapticPulse
+T VR_Shutdown
+U waitpid@@GLIBC_2.0
+U __xstat64@@GLIBC_2.2
+U __xstat@@GLIBC_2.0
+U operator delete[](void*)@@GLIBCXX_3.4
+U operator delete(void*)@@GLIBCXX_3.4
+U operator new[](unsigned int)@@GLIBCXX_3.4
+U std::string::find(char, unsigned int) const@@GLIBCXX_3.4
+U std::string::rfind(char, unsigned int) const@@GLIBCXX_3.4
+U std::string::compare(char const*) const@@GLIBCXX_3.4
+U std::ctype<char>::_M_widen_init() const@@GLIBCXX_3.4.11
+U std::ostream::operator<<(int)@@GLIBCXX_3.4
+U std::string::_M_leak_hard()@@GLIBCXX_3.4
+U std::string::_Rep::_M_destroy(std::allocator<char> const&)@@GLIBCXX_3.4
+U std::string::_Rep::_S_empty_rep_storage@@GLIBCXX_3.4
+U std::string::_Rep::_S_create(unsigned int, unsigned int, std::allocator<char> const&)@@GLIBCXX_3.4
+U std::string::swap(std::string&)@@GLIBCXX_3.4
+U std::string::erase(__gnu_cxx::__normal_iterator<char*, std::string>, __gnu_cxx::__normal_iterator<char*, std::string>)@@GLIBCXX_3.4
+U std::string::append(char const*, unsigned int)@@GLIBCXX_3.4
+U std::string::append(std::string const&)@@GLIBCXX_3.4
+U std::string::assign(char const*, unsigned int)@@GLIBCXX_3.4
+U std::string::assign(std::string const&)@@GLIBCXX_3.4
+U std::string::insert(unsigned int, char const*, unsigned int)@@GLIBCXX_3.4
+U std::string::resize(unsigned int, char)@@GLIBCXX_3.4
+U std::string::replace(unsigned int, unsigned int, char const*, unsigned int)@@GLIBCXX_3.4
+U std::string::reserve(unsigned int)@@GLIBCXX_3.4
+U std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(unsigned int, char, std::allocator<char> const&)@@GLIBCXX_3.4
+U std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@@GLIBCXX_3.4
+U std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::string const&)@@GLIBCXX_3.4
+U std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::string const&, unsigned int, unsigned int)@@GLIBCXX_3.4
+U std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@@GLIBCXX_3.4
+U std::runtime_error::runtime_error(std::string const&)@@GLIBCXX_3.4
+U std::runtime_error::~runtime_error()@@GLIBCXX_3.4
+U std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >::~basic_ostringstream()@@GLIBCXX_3.4
+U std::locale::locale()@@GLIBCXX_3.4
+U std::locale::~locale()@@GLIBCXX_3.4
+U std::ios_base::Init::Init()@@GLIBCXX_3.4
+U std::ios_base::Init::~Init()@@GLIBCXX_3.4
+U std::ios_base::ios_base()@@GLIBCXX_3.4
+U std::ios_base::~ios_base()@@GLIBCXX_3.4
+U std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)@@GLIBCXX_3.4
+U std::basic_ios<char, std::char_traits<char> >::~basic_ios()@@GLIBCXX_3.4
+U operator new(unsigned int)@@GLIBCXX_3.4
+U std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, int)@@GLIBCXX_3.4.9
+U std::__throw_bad_cast()@@GLIBCXX_3.4
+U std::__throw_bad_alloc()@@GLIBCXX_3.4
+U std::_Rb_tree_decrement(std::_Rb_tree_node_base const*)@@GLIBCXX_3.4
+U std::_Rb_tree_decrement(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+U std::_Rb_tree_increment(std::_Rb_tree_node_base const*)@@GLIBCXX_3.4
+U std::_Rb_tree_increment(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+U std::__throw_logic_error(char const*)@@GLIBCXX_3.4
+U std::__throw_length_error(char const*)@@GLIBCXX_3.4
+U std::_Rb_tree_rebalance_for_erase(std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+U std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+U std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)@@GLIBCXX_3.4
+U typeinfo for int@@CXXABI_1.3
+U typeinfo for std::runtime_error@@GLIBCXX_3.4
+U VTT for std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >@@GLIBCXX_3.4
+U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
+U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
+U vtable for std::basic_streambuf<char, std::char_traits<char> >@@GLIBCXX_3.4
+U vtable for std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >@@GLIBCXX_3.4
+U vtable for std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >@@GLIBCXX_3.4
+U vtable for std::basic_ios<char, std::char_traits<char> >@@GLIBCXX_3.4

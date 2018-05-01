@@ -20955,6 +20955,7 @@ t CCascadeLight::Spawn()
 t CCascadeLight::Release()
 t CCascadeLight::KeyValue(char const*, char const*)
 d CCascadeLight::m_DataMap
+t CCascadeLight::OnRestore()
 t CCascadeLight::CCascadeLight()
 t CCascadeLight::CCascadeLight()
 t CCascadeLight::~CCascadeLight()

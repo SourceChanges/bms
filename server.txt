@@ -1,0 +1,231 @@
+U abort@@GLIBC_2.0
+U __acosf_finite@@GLIBC_2.15
+U __acos_finite@@GLIBC_2.15
+U asctime@@GLIBC_2.0
+U __asinf_finite@@GLIBC_2.15
+U __asin_finite@@GLIBC_2.15
+U __atan2f_finite@@GLIBC_2.15
+U __atan2_finite@@GLIBC_2.15
+U atanf@@GLIBC_2.0
+U atan@@GLIBC_2.0
+A __bss_start
+U CallAssertFailedNotifyFunc
+U cbrtf@@GLIBC_2.0
+U chdir@@GLIBC_2.0
+U CommandLine_Tier0
+U COM_TimestampedLog
+U cosf@@GLIBC_2.0
+U cos@@GLIBC_2.0
+T CreateInterface
+U __ctype_b_loc@@GLIBC_2.3
+U __ctype_tolower_loc@@GLIBC_2.3
+U __ctype_toupper_loc@@GLIBC_2.3
+U __cxa_atexit@@GLIBC_2.1.3
+U __cxa_begin_catch@@CXXABI_1.3
+U __cxa_call_unexpected@@CXXABI_1.3
+U __cxa_end_catch@@CXXABI_1.3
+w __cxa_finalize@@GLIBC_2.1.3
+U __cxa_guard_abort@@CXXABI_1.3
+U __cxa_guard_acquire@@CXXABI_1.3
+U __cxa_guard_release@@CXXABI_1.3
+U __cxa_pure_virtual@@CXXABI_1.3
+U __cxa_rethrow@@CXXABI_1.3
+U DevMsg
+U DevWarning
+U dlclose@@GLIBC_2.0
+U dlerror@@GLIBC_2.0
+U dl_iterate_phdr@@GLIBC_2.2.4
+U dlopen@@GLIBC_2.1
+U dlsym@@GLIBC_2.0
+U DoNewAssertDialog
+U __dynamic_cast@@CXXABI_1.3
+A _edata
+A _end
+U __errno_location@@GLIBC_2.0
+U Error
+U _ExitOnFatalAssert
+U __expf_finite@@GLIBC_2.15
+T _fini
+U free@@GLIBC_2.0
+U g_ClockSpeedMillisecondsMultiplier
+U g_ClockSpeedSecondsMultiplier
+U GetCPUInformation
+U getcwd@@GLIBC_2.0
+w __gmon_start__
+U g_pMemAlloc
+U g_pSteamClientGameServer
+U g_pThreadPool
+U g_pVCR
+U g_VProfCurrentProfile
+U __gxx_personality_v0@@CXXABI_1.3
+U HushAsserts
+U iconv_close@@GLIBC_2.1
+U iconv@@GLIBC_2.1
+U iconv_open@@GLIBC_2.1
+T _init
+U isalnum@@GLIBC_2.0
+U isspace@@GLIBC_2.0
+U iswspace@@GLIBC_2.0
+w _ITM_deregisterTMCloneTable
+w _ITM_registerTMCloneTable
+w _Jv_RegisterClasses
+U KeyValuesSystem
+U localtime@@GLIBC_2.0
+U Log
+U __log10_finite@@GLIBC_2.15
+U __log_finite@@GLIBC_2.15
+U malloc@@GLIBC_2.0
+U malloc_usable_size@@GLIBC_2.0
+U mbstowcs@@GLIBC_2.0
+U memcmp@@GLIBC_2.0
+U __memcpy_chk@@GLIBC_2.3.4
+U memcpy@@GLIBC_2.0
+U memmove@@GLIBC_2.0
+U __memset_chk@@GLIBC_2.3.4
+U memset@@GLIBC_2.0
+U Msg
+U Plat_FloatTime
+U Plat_IsInBenchmarkMode
+U Plat_IsInDebugSession
+U Plat_localtime
+U Plat_MSTime
+U Plat_SetBenchmarkMode
+U __powf_finite@@GLIBC_2.15
+U __pow_finite@@GLIBC_2.15
+U __printf_chk@@GLIBC_2.3.4
+w __pthread_key_create@@GLIBC_2.0
+U pthread_mutexattr_init@@GLIBC_2.0
+U pthread_mutexattr_settype@@GLIBC_2.1
+U pthread_mutex_destroy@@GLIBC_2.0
+U pthread_mutex_init@@GLIBC_2.0
+U pthread_mutex_lock@@GLIBC_2.0
+U pthread_mutex_unlock@@GLIBC_2.0
+w pthread_once@@GLIBC_2.0
+U qsort@@GLIBC_2.0
+U raise@@GLIBC_2.0
+U RandomFloat
+U RandomInt
+U RandomSeed
+U realloc@@GLIBC_2.0
+U ShouldUseNewAssertDialog
+U sincosf@@GLIBC_2.1
+U sincos@@GLIBC_2.1
+U sinf@@GLIBC_2.0
+U sin@@GLIBC_2.0
+U __snprintf_chk@@GLIBC_2.3.4
+U _SpewInfo
+U _SpewMessage
+U sscanf@@GLIBC_2.0
+U __stack_chk_fail@@GLIBC_2.4
+U SteamAPI_GetHSteamPipe
+U SteamAPI_GetHSteamUser
+U SteamAPI_InitSafe
+U SteamAPI_RegisterCallback
+U SteamAPI_UnregisterCallback
+U SteamClient
+U SteamGameServer_GetHSteamPipe
+U SteamGameServer_GetHSteamUser
+U stpcpy@@GLIBC_2.0
+U strcasecmp@@GLIBC_2.0
+U strchr@@GLIBC_2.0
+U strcmp@@GLIBC_2.0
+U __strcpy_chk@@GLIBC_2.3.4
+U strcpy@@GLIBC_2.0
+U strftime@@GLIBC_2.0
+U strlen@@GLIBC_2.0
+U strncasecmp@@GLIBC_2.0
+U strncat@@GLIBC_2.0
+U strncmp@@GLIBC_2.0
+U strncpy@@GLIBC_2.0
+U strrchr@@GLIBC_2.0
+U strstr@@GLIBC_2.0
+U strtod@@GLIBC_2.0
+U strtok@@GLIBC_2.0
+U strtol@@GLIBC_2.0
+U strtoll@@GLIBC_2.0
+U strtoul@@GLIBC_2.0
+U strtoull@@GLIBC_2.0
+U __swprintf_chk@@GLIBC_2.4
+U tanf@@GLIBC_2.0
+U tan@@GLIBC_2.0
+U ThreadGetCurrentId
+U ThreadInterlockedAssignIf
+U ThreadInterlockedAssignIf64
+U ThreadInterlockedCompareExchangePointer
+U ThreadInterlockedDecrement
+U ThreadInterlockedExchange
+U ThreadInterlockedExchangeAdd
+U ThreadInterlockedExchangePointer
+U ThreadInterlockedIncrement
+U ThreadSleep
+U time@@GLIBC_2.0
+U tolower@@GLIBC_2.0
+U toupper@@GLIBC_2.0
+U towlower@@GLIBC_2.0
+U towupper@@GLIBC_2.0
+U __vsnprintf_chk@@GLIBC_2.3.4
+U __vswprintf_chk@@GLIBC_2.4
+U vtune
+U Warning
+U wcslen@@GLIBC_2.0
+U wcsncat@@GLIBC_2.0
+U wcsncpy@@GLIBC_2.0
+U wcstol@@GLIBC_2.0
+U wcstoll@@GLIBC_2.1
+U wcstombs@@GLIBC_2.0
+U DevWarning(char const*, ...)
+U ConColorMsg(Color const&, char const*, ...)
+U ConMsg(char const*, ...)
+U DevLog(char const*, ...)
+U DevMsg(char const*, ...)
+U CVProfNode::EnterScope()
+U CVProfNode::GetSubNode(char const*, int, char const*, int)
+U CVProfNode::Pause()
+U CVProfNode::Reset()
+U CVProfNode::Resume()
+U CVProfNode::ExitScope()
+U CVProfNode::MarkFrame()
+U CThreadEvent::Set()
+U CThreadEvent::CThreadEvent(bool)
+U CThreadRWLock::UnlockWrite()
+U CThreadRWLock::WaitForRead()
+U CThreadRWLock::LockForWrite()
+U CWorkerThread::CallWorker(unsigned int, unsigned int, bool, CFunctor*)
+U CWorkerThread::WaitForCall(unsigned int*)
+U CWorkerThread::Reply(unsigned int)
+U CWorkerThread::CWorkerThread()
+U CThreadLocalBase::Set(void*)
+U CThreadLocalBase::CThreadLocalBase()
+U CThreadLocalBase::~CThreadLocalBase()
+U CThreadSpinRWLock::UnlockRead()
+U CThreadSpinRWLock::LockForRead()
+U CThreadSpinRWLock::UnlockWrite()
+U CThreadSpinRWLock::SpinLockForWrite(unsigned int)
+U CThreadSyncObject::~CThreadSyncObject()
+U CUniformRandomStream::RandomFloat(float, float)
+U CUniformRandomStream::SetSeed(int)
+U CUniformRandomStream::RandomInt(int, int)
+U CUniformRandomStream::CUniformRandomStream()
+U CThread::GetThreadProc()
+U CThread::IsThreadRunning()
+U CThread::Init()
+U CThread::Start(unsigned int)
+U CThread::OnExit()
+U CThread::IsAlive()
+U CThread::SetName(char const*)
+U CThread::~CThread()
+U CVProfile::OutputReport(int, char const*, int)
+U CVProfile::FindOrCreateCounter(char const*, CounterGroup_t)
+U CVProfile::BudgetGroupNameToBudgetGroupID(char const*)
+U CThreadLocalBase::Get() const
+U std::string::_Rep::_M_destroy(std::allocator<char> const&)@@GLIBCXX_3.4
+U std::string::_Rep::_M_dispose(std::allocator<char> const&)@@GLIBCXX_3.4
+U std::string::_Rep::_S_empty_rep_storage@@GLIBCXX_3.4
+U std::string::assign(char const*, unsigned int)@@GLIBCXX_3.4
+U std::string::_M_mutate(unsigned int, unsigned int, unsigned int)@@GLIBCXX_3.4
+U CThreadFastMutex::Lock(unsigned int, unsigned int) volatile
+U std::__throw_bad_function_call()@@GLIBCXX_3.4.14
+U typeinfo for CThread
+U vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
+U vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
+U vtable for __cxxabiv1::__vmi_class_type_info@@CXXABI_1.3
